@@ -13,5 +13,10 @@ class User < ActiveRecord::Base
 	def encrypt_password(password, salt)
 		Digest::SHA2.hexdigest(password + "wibble" + salt)
 	end
+	
+	def generate_salt
+	self.salt = self.object_id.to_s + rand.to_s
+	end
+
 
 end
