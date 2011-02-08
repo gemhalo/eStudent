@@ -80,4 +80,8 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  #Task 
+  def forced_password_chage 
+    
+  end
 end
