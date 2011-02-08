@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
 	attr_accessor :password_confirmation
 	attr_reader :password
 	validate :password_must_be_present
+	validates :email,
+            :presence => true,
+            :uniqueness => true,
+            :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
+
 	class << self
 		def authenticate(name, password)
 			if user = find_by_name(name)
