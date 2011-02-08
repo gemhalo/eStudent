@@ -68,7 +68,7 @@ end
 group :development, :test do
 
   # PostgreSQL
-    gem 'pg', :require => 'pg'
+    #gem 'pg', :require => 'pg'
     #MySQL
     gem 'mysql2', :require => 'mysql2'
     #SQLite
