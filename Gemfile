@@ -16,7 +16,8 @@ gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
 gem 'netzke_widget_generators'
 gem 'netzke-persistence'
 gem 'netzke_config'
-gem 'extjs-theme'
+#Creates dependencies for RMagick we'll get this later
+#gem 'extjs-theme'
 
 #Hashie
 gem 'hashie'
