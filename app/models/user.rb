@@ -44,4 +44,3 @@ class User < ActiveRecord::Base
 		self.salt = self.object_id.to_s + rand.to_s
 	end	
 end
-
