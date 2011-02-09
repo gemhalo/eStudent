@@ -3,6 +3,11 @@
 %>
 <%= netzke :users,
   :class_name => "Basepack::GridPanel",
-  :model => 'User' 
+  :model => 'User',
+  :columns => [
+    :username,
+    :password,
+    :last_login
+  ] 
 %>
   
