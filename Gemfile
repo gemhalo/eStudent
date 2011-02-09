@@ -10,11 +10,18 @@ gem  'will_paginate', '~>3.0.pre2'
 gem  'railroad'
 
 # User experience using ExtJS javascript framework and netzke rails-ExtJS bridge
-gem 'netzke-core',  :git => "http://github.com/skozlov/netzke-core.git"
-gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
+# Get it from git repo and install it
+#gem 'netzke-core',  :git  => "http://github.com/skozlov/netzke-core.git"
+#gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
+#gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.git"
+
+#Or clone each package in vendor/gems/netzke then use it from there
+gem 'netzke-core',          :path => File.expand_path('../vendor/gems/netzke/netzke-core', __FILE__)
+gem 'netzke-basepack',      :path => File.expand_path('../vendor/gems/netzke/netzke-basepack', __FILE__)
+gem 'netzke-persistence',   :path => File.expand_path('../vendor/gems/netzke/netzke-persistence', __FILE__)               
 
 gem 'netzke_widget_generators'
-gem 'netzke-persistence'
+#gem 'netzke-persistence'
 gem 'netzke_config'
 #Creates dependencies for RMagick we'll get this later
 #gem 'extjs-theme'
@@ -24,7 +31,7 @@ gem 'hashie'
 #Rails 3 generators
 gem 'rails3-generators'
 
-#Haml
+#Haml is a templating engine
 gem 'haml'
 #Sass
 gem 'sass'
@@ -117,4 +124,8 @@ group :test, :production do
   #SQLite
   #gem 'sqlite3-ruby', :require => 'sqlite3'
 
+end
+
+group :profiling do
+  gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end

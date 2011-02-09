@@ -1,6 +1,5 @@
-GIT
-  remote: http://github.com/skozlov/netzke-basepack.git
-  revision: 33d628d2cdb56db581897ca29b3c5e3d5e4ec3b3
+PATH
+  remote: vendor/gems/netzke/netzke-basepack
   specs:
     netzke-basepack (0.6.4)
       acts_as_list
@@ -8,12 +7,16 @@ GIT
       netzke-core (~> 0.6.4)
       will_paginate (~> 3.0.pre2)
 
-GIT
-  remote: http://github.com/skozlov/netzke-core.git
-  revision: 7ae84c79760839c50890c118f179bf144779529b
+PATH
+  remote: vendor/gems/netzke/netzke-core
   specs:
     netzke-core (0.6.6)
       activesupport (>= 3.0.1)
+
+PATH
+  remote: vendor/gems/netzke/netzke-persistence
+  specs:
+    netzke-persistence (0.1.1)
 
 GEM
   remote: http://rubygems.org/
@@ -73,14 +76,19 @@ GEM
     mime-types (1.16)
     minitest (2.0.2)
     mysql2 (0.2.6)
-    netzke-persistence (0.1.0)
     netzke_config (0.3.0)
       thor (>= 0.13.6)
     netzke_widget_generators (0.1.0)
+    open4 (1.0.1)
+    perftools.rb (0.5.6)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
+    rack-perftools_profiler (0.4.0)
+      open4 (~> 1.0)
+      perftools.rb (~> 0.5)
+      rack (~> 1.0)
     rack-test (0.5.7)
       rack (>= 1.0)
     railroad (0.5.0)
@@ -137,9 +145,10 @@ DEPENDENCIES
   mysql2
   netzke-basepack!
   netzke-core!
-  netzke-persistence
+  netzke-persistence!
   netzke_config
   netzke_widget_generators
+  rack-perftools_profiler (>= 0.1)
   railroad
   rails (= 3.0.3)
   rails3-generators
