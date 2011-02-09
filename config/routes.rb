@@ -1,4 +1,5 @@
 EStudent::Application.routes.draw do
+  netzke
   get "sessions/create"
 
   get "sessions/destroy"

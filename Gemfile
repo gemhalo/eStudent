@@ -56,7 +56,7 @@ end
 group :production do
 
   # PostgreSQL
-  #gem 'pg', :require => 'pg'
+  gem 'pg', :require => 'pg'
   #MySQL
   #gem 'mysql2', :require => 'mysql2'
   #SQLite
@@ -68,30 +68,30 @@ end
 group :development, :test do
 
   # PostgreSQL
-    #gem 'pg', :require => 'pg'
-    #MySQL
-    gem 'mysql2', :require => 'mysql2'
-    #SQLite
-    gem 'sqlite3-ruby', :require => 'sqlite3'  
+  #gem 'pg', :require => 'pg'
+  #MySQL
+  gem 'mysql2', :require => 'mysql2'
+  #SQLite
+  gem 'sqlite3-ruby', :require => 'sqlite3'
     
-    #Faker 
-    gem 'faker'
-    gem 'dummy'
-    gem 'dummy_data'
-    #gem 'ffaker'
-    #gem 'fake_arel'
- #   gem 'fakehttp'
-    gem 'fakeldap'
+  #Faker
+  gem 'faker'
+  gem 'dummy'
+  gem 'dummy_data'
+  #gem 'ffaker'
+  #gem 'fake_arel'
+  #   gem 'fakehttp'
+  gem 'fakeldap'
     
-    #RSpec
-    gem 'rspec-rails','>=2.5.0'
-    gem 'minitest'
+  #RSpec
+  gem 'rspec-rails','>=2.5.0'
+  gem 'minitest'
     
-    #Factory Girl
-    #gem 'factory_girl'
-    #gem 'factory_girl_rails'
-    #gem 'factory_data_preloader'
-    #gem 'fixture_builder'
+  #Factory Girl
+  #gem 'factory_girl'
+  #gem 'factory_girl_rails'
+  #gem 'factory_data_preloader'
+  #gem 'fixture_builder'
     
 end
 
