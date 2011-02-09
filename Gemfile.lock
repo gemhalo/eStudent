@@ -77,7 +77,6 @@ GEM
     netzke_config (0.3.0)
       thor (>= 0.13.6)
     netzke_widget_generators (0.1.0)
-    pg (0.10.1)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -141,7 +140,6 @@ DEPENDENCIES
   netzke-persistence
   netzke_config
   netzke_widget_generators
-  pg
   railroad
   rails (= 3.0.3)
   rails3-generators
