@@ -94,7 +94,7 @@ group :development, :test do
   #RSpec
   gem 'rspec-rails','>=2.5.0'
   gem 'minitest'
-  gem 'remarkable_rails'
+  #gem 'remarkable_rails'
     
   #Factory Girl
   #gem 'factory_girl'
