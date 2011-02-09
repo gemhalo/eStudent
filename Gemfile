@@ -24,7 +24,7 @@ gem 'hashie'
 #Rails 3 generators
 gem 'rails3-generators'
 
-#Haml
+#Haml is a templating engine
 gem 'haml'
 #Sass
 gem 'sass'
