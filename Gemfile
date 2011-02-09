@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 #Gems required for all environments
 
 gem 'rails', '3.0.3'
+gem 'authlogic'
 #We will enable this when we want to work with  Bundle edge Rails instead: 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -21,8 +22,8 @@ gem 'netzke-basepack',      :path => File.expand_path('../vendor/gems/netzke/net
 gem 'netzke-persistence',   :path => File.expand_path('../vendor/gems/netzke/netzke-persistence', __FILE__)               
 
 gem 'netzke_widget_generators'
-#gem 'netzke-persistence'
 gem 'netzke_config'
+
 #Creates dependencies for RMagick we'll get this later
 #gem 'extjs-theme'
 
@@ -93,6 +94,7 @@ group :development, :test do
   #RSpec
   gem 'rspec-rails','>=2.5.0'
   gem 'minitest'
+  gem 'remarkable_rails'
     
   #Factory Girl
   #gem 'factory_girl'
