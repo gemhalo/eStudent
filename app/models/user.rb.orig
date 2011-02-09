@@ -11,7 +11,10 @@ class User < ActiveRecord::Base
             :uniqueness => true,
             :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> c27a6032ecfd98c950534468e79f243ce4c088d9
 	class << self
 		def authenticate(name, password)
 			if user = find_by_name(name)
