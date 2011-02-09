@@ -1,15 +1,15 @@
 require 'digest/sha2'
 
 class User < ActiveRecord::Base
-	#validates :user_name, :presence => true, :uniqueness => true
-	#validates :password, :confirmation => true
+	validates :user_name, :presence => true, :uniqueness => true
+	validates :password, :confirmation => true
 	attr_accessor :password_confirmation
 	attr_reader :password
-	#validate :password_must_be_present
-	#validates :email,
-         #   :presence => true,
-         #   :uniqueness => true,
-         #   :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
+	validate :password_must_be_present
+	validates :email,
+           :presence => true,
+           :uniqueness => true,
+           :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
 	
 	class << self

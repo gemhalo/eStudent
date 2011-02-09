@@ -5,9 +5,9 @@
   :class_name => "Basepack::GridPanel",
   :model => 'User',
   :columns => [
-    :username,
-    :password,
-    :email,
+    {:name => :user_name, :header => "User name", :read_only => true } ,
+    :hashed_password,
+    {:name => :email, :width => 200 },
     :last_login
  ]   
 %>
