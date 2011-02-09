@@ -1,6 +1,10 @@
 EStudent::Application.routes.draw do
-  resources :users
+  get "sessions/create"
 
+  get "sessions/destroy"
+
+  resources :users
+  resources :sessions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
