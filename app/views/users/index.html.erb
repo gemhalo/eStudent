@@ -3,12 +3,12 @@
 %>
 <%= netzke :users,
   :class_name => "Basepack::GridPanel",
+  :mode => :lockable,  
   :model => 'User',
   :columns => [
     {:name => :user_name, :header => "User name", :read_only => true } ,
-    :hashed_password,
-    {:name => :email, :width => 200 },
-    :last_login
- ]   
+    :password,
+    {:name => :email, :width => 200 }
+  ]   
 %>
   

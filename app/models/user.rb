@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
            :uniqueness => true,
            :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
-	
 	class << self
 		def authenticate(name, password)
 			if user = find_by_name(name)
@@ -43,5 +42,6 @@ class User < ActiveRecord::Base
 	
 	def generate_salt
 		self.salt = self.object_id.to_s + rand.to_s
-	end	
+	end
+	
 end

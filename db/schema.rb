@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110208093334) do
+ActiveRecord::Schema.define(:version => 20110209194615) do
 
   create_table "users", :force => true do |t|
     t.string   "user_name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110208093334) do
     t.date     "last_login"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "force_change",    :default => false
   end
 
 end
