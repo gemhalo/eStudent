@@ -12,14 +12,15 @@ gem  'railroad'
 
 # User experience using ExtJS javascript framework and netzke rails-ExtJS bridge
 # Get it from git repo and install it
-#gem 'netzke-core',  :git  => "http://github.com/skozlov/netzke-core.git"
-#gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
-#gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.git"
+gem 'netzke-core',  :git  => "http://github.com/skozlov/netzke-core.git"
+gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
+gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.git"
 
 #Or clone each package in vendor/gems/netzke then use it from there
-gem 'netzke-core',          :path => File.expand_path('../vendor/gems/netzke/netzke-core', __FILE__)
-gem 'netzke-basepack',      :path => File.expand_path('../vendor/gems/netzke/netzke-basepack', __FILE__)
-gem 'netzke-persistence',   :path => File.expand_path('../vendor/gems/netzke/netzke-persistence', __FILE__)               
+
+#gem 'netzke-core',          :path => File.expand_path('../vendor/gems/netzke/netzke-core', __FILE__)
+#gem 'netzke-basepack',      :path => File.expand_path('../vendor/gems/netzke/netzke-basepack', __FILE__)
+#gem 'netzke-persistence',   :path => File.expand_path('../vendor/gems/netzke/netzke-persistence', __FILE__)               
 
 gem 'netzke_widget_generators'
 gem 'netzke_config'
