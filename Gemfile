@@ -130,5 +130,5 @@ group :test, :production do
 end
 
 group :profiling do
-  gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
+  #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
