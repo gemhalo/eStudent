@@ -1,4 +1,14 @@
 EStudent::Application.routes.draw do
+  resources :colleges
+
+  resources :admission_types
+
+  resources :enrollement_types
+
+  resources :nationalities
+
+  resources :ethnicities
+
   resources :people
 
   netzke
