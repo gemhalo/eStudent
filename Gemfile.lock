@@ -1,10 +1,6 @@
 GIT
   remote: http://github.com/skozlov/netzke-basepack.git
-<<<<<<< Updated upstream
   revision: 18815175ae7aa32753af10806f071d7ae83c8bed
-=======
-  revision: 3fce4524eda2022e41dd7033f9c7e3b1c0a0a335
->>>>>>> Stashed changes
   specs:
     netzke-basepack (0.6.4)
       acts_as_list
@@ -14,11 +10,7 @@ GIT
 
 GIT
   remote: http://github.com/skozlov/netzke-core.git
-<<<<<<< Updated upstream
   revision: 5299a0c9c1008c9b070bd2ca8d1ca1df2cddb108
-=======
-  revision: 5f2d4de7a6f6866c0d4417cdab7b83be28dab189
->>>>>>> Stashed changes
   specs:
     netzke-core (0.6.6)
       activesupport (>= 3.0.1)
@@ -117,12 +109,7 @@ GEM
     netzke_config (0.3.0)
       thor (>= 0.13.6)
     netzke_widget_generators (0.1.0)
-<<<<<<< Updated upstream
-=======
     nokogiri (1.4.4)
-    open4 (1.0.1)
-    perftools.rb (0.5.6)
->>>>>>> Stashed changes
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
