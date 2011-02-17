@@ -1,0 +1,25 @@
+<h1>Listing colleges</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Campus</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @colleges.each do |college| %>
+  <tr>
+    <td><%= college.name %></td>
+    <td><%= college.campus_id %></td>
+    <td><%= link_to 'Show', college %></td>
+    <td><%= link_to 'Edit', edit_college_path(college) %></td>
+    <td><%= link_to 'Destroy', college, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New College', new_college_path %>

@@ -1,0 +1,43 @@
+<h1>Listing people</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Father name</th>
+    <th>Grand father name</th>
+    <th>Gender</th>
+    <th>Date of birth</th>
+    <th>Place of birth</th>
+    <th>Ethnicity</th>
+    <th>Nationality</th>
+    <th>Marital status</th>
+    <th>Mother full name</th>
+    <th>Photo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @people.each do |person| %>
+  <tr>
+    <td><%= person.name %></td>
+    <td><%= person.father_name %></td>
+    <td><%= person.grand_father_name %></td>
+    <td><%= person.gender %></td>
+    <td><%= person.date_of_birth %></td>
+    <td><%= person.place_of_birth %></td>
+    <td><%= person.ethnicity %></td>
+    <td><%= person.nationality %></td>
+    <td><%= person.marital_status %></td>
+    <td><%= person.mother_full_name %></td>
+    <td><%= person.photo %></td>
+    <td><%= link_to 'Show', person %></td>
+    <td><%= link_to 'Edit', edit_person_path(person) %></td>
+    <td><%= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Person', new_person_path %>
