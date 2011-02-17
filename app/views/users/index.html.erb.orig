@@ -1,0 +1,42 @@
+<<<<<<< HEAD
+<%
+# users comes from the UsersController index action
+%>
+<%= netzke :users,
+  :class_name => "Basepack::GridPanel",
+  :model => 'User',
+  :columns => [
+    :username,
+    :password,
+    :last_login
+  ] 
+%>
+  
+=======
+<h1>Listing users</h1>
+<p id="notice"><%= notice %></p>
+
+<table>
+  <tr>
+    <th>User name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.user_name %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?',
+    :method => :delete %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
+>>>>>>> ba5e07517a51e71aff167e47f6e27d2254486f90

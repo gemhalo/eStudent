@@ -1,0 +1,2 @@
+module CollegesHelper
+end

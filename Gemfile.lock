@@ -1,6 +1,6 @@
 GIT
   remote: http://github.com/skozlov/netzke-basepack.git
-  revision: 33d628d2cdb56db581897ca29b3c5e3d5e4ec3b3
+  revision: 18815175ae7aa32753af10806f071d7ae83c8bed
   specs:
     netzke-basepack (0.6.4)
       acts_as_list
@@ -10,10 +10,16 @@ GIT
 
 GIT
   remote: http://github.com/skozlov/netzke-core.git
-  revision: 7ae84c79760839c50890c118f179bf144779529b
+  revision: 5299a0c9c1008c9b070bd2ca8d1ca1df2cddb108
   specs:
     netzke-core (0.6.6)
       activesupport (>= 3.0.1)
+
+GIT
+  remote: http://github.com/skozlov/netzke-persistence.git
+  revision: 9ec27e397661989cff0d765b5849452c77ca0036
+  specs:
+    netzke-persistence (0.1.1)
 
 GEM
   remote: http://rubygems.org/
@@ -47,6 +53,8 @@ GEM
     activesupport (3.0.3)
     acts_as_list (0.1.2)
     arel (2.0.7)
+    authlogic (2.1.6)
+      activesupport
     builder (2.1.2)
     diff-lcs (1.1.2)
     dummy (0.9.1)
@@ -73,7 +81,6 @@ GEM
     mime-types (1.16)
     minitest (2.0.2)
     mysql2 (0.2.6)
-    netzke-persistence (0.1.0)
     netzke_config (0.3.0)
       thor (>= 0.13.6)
     netzke_widget_generators (0.1.0)
@@ -127,6 +134,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authlogic
   dummy
   dummy_data
   fakeldap
@@ -137,7 +145,7 @@ DEPENDENCIES
   mysql2
   netzke-basepack!
   netzke-core!
-  netzke-persistence
+  netzke-persistence!
   netzke_config
   netzke_widget_generators
   railroad
