@@ -1,4 +1,6 @@
 EStudent::Application.routes.draw do
+  resources :people
+
   netzke
   get "sessions/create"
 
