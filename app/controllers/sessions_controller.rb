@@ -4,18 +4,17 @@ class SessionsController < ApplicationController
 
       if user = User.authenticate(params[:user_name], params[:password])
          session[:user_id] = user.id
-          redirect_to url
-      else
+       else
         flash[:notice] = "Invalid User name or password "
         render 'new'
      end
+     
    else
 
      flash[:notice] = "Please Enter User name !User name can not be Blank "
      render 'new'
-end
-
   end
+end
 
   def destroy
     session[:user_id] = nil

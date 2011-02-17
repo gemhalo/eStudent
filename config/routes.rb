@@ -5,6 +5,10 @@ EStudent::Application.routes.draw do
 
   resources :users
   resources :sessions
+
+  get "admission_approval/list"
+  get "admission_approval/show_list"
+  get "admission_approval/details"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

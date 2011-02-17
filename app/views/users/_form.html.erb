@@ -11,26 +11,26 @@
     </div>
   <% end %>
 
-  <fieldset style="width:30%" "align:center">
+  <fieldset style="width:30%">
 	<legend>Enter User Details</legend>
 	<div>
-	User Name:<br/>
-	<%= f.text_field :user_name, :size => 20 %>
+	User Name:<br/>  
+		<%= f.text_field:user_name, :size => 20 %>
 	</div>
 	<div>
-	Password:<br/>
-	<%= f.password_field :password, :size => 20 %>
+	Password:<br/> 
+		<%= f.password_field :password, :size => 20 %>
 	</div>
 	<div>
 	Confirm Password:<br/>
-	<%= f.password_field :password_confirmation, :size => 20 %>
+		<%= f.password_field :password_confirmation, :size => 20 %>
 	</div>
 	<div>
-	Email:<br/>
-	<%= f.text_field :email, :size => 20 %>
+	Email:<br/> 
+		<%= f.text_field :email, :size => 20 %>
 	</div>
 	<div>
-	<%= f.submit('Submit') %>
+		<%= f.submit('Submit') %>
 	</div>
 </fieldset>
 

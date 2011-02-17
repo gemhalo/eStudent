@@ -2,6 +2,7 @@ require 'digest/sha2'
 
 class User < ActiveRecord::Base
 	validates :user_name, :presence => true, :uniqueness => true
+	validates_length_of :password, :minimum=>6
 	validates :password, :confirmation => true
 	attr_accessor :password_confirmation
 	attr_reader :password
@@ -14,7 +15,7 @@ class User < ActiveRecord::Base
 	
 	class << self
 		def authenticate(name, password)
-			if user = find_by_name(name)
+			if user = find_by_user_name(name)
 				if user.hashed_password == encrypt_password(password, user.salt)
 					user
 				end

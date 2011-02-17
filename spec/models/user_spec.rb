@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 	before do
 		@user=User.new
-		@u={:user_name=>"abebe",:password=>"123",
+		@u={:user_name=>"abebe",:password=>"123456",
 			:email=>"gyohannes1@gmail.com" }
 	end
 	
@@ -19,8 +19,14 @@ describe User do
   end
   it "password must not be blank" do
   	@user.password=''
+  	@user.should have(2).error_on(:password)
+  end
+  
+  it "password must not be less than 6 characters" do
+  	@user.password='12345'
   	@user.should have(1).error_on(:password)
   end
+
   
   it "email must not be blank" do
   	@user.email='gyohannes1@gmail.com'
@@ -29,6 +35,7 @@ describe User do
   
   it "email must have correct format" do
   	@user.email='gyohannes'
+    @user.should_not be_valid?
   	@user.should have(1).error_on(:email)
   end
 
