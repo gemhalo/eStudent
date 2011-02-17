@@ -1,4 +1,5 @@
 EStudent::Application.routes.draw do
+  netzke
   resources :colleges
 
   resources :admission_types
@@ -11,17 +12,26 @@ EStudent::Application.routes.draw do
 
   resources :people
 
-  netzke
 
+  get "sessions/create"
+  get "sessions/destroy"
   root :to => "users#index"
 
-  resources :users
+  resources :users do)
+    collection do
+      post 'forgot_password'
+      get 'forgot_password'
+
+    end
+  end
   resources :user_sessions
   get    'login(.:format)'  => 'user_sessions#new',     :as => :login
   post   'login(.:format)'  => 'user_sessions#create',  :as => :login
   #should be delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
   get 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
 
+
+  resources :sessions
 
 
   # The priority is based upon order of creation:
@@ -73,7 +83,7 @@ EStudent::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "users#index"
+  # root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
 
