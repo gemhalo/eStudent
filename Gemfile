@@ -1,4 +1,4 @@
-#source 'http://rubygems.org'
+source 'http://rubygems.org'
 #Gems required for all environments
 
 gem 'rails', '3.0.3'
