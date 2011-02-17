@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+#source 'http://rubygems.org'
 #Gems required for all environments
 
 gem 'rails', '3.0.3'
@@ -130,5 +130,5 @@ group :test, :production do
 end
 
 group :profiling do
-  gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
+  #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
