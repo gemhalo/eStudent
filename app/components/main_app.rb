@@ -1,4 +1,4 @@
-class MainApp < Netzke::Basepack::SimpleApp
+class MainApp < Netzke::Basepack::Simp``leApp
 
   # Initial layout of the app.
   # <tt>status_bar_config</tt>, <tt>menu_bar_config</tt>, and <tt>main_panel_config</tt> are defined in SimpleApp.
@@ -160,3 +160,4 @@ class MainApp < Netzke::Basepack::SimpleApp
   JS
 
 end
+

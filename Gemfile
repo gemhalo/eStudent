@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 #Gems required for all environments
 
-gem 'rails', '3.0.3'
+gem 'rails', '>=3.0.3'
 gem 'authlogic'
 #We will enable this when we want to work with  Bundle edge Rails instead: 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -94,7 +94,11 @@ group :development, :test do
     
   #RSpec
   gem 'rspec-rails','>=2.5.0'
+  gem 'webrat'
+  gem 'capybara'
+  gem 'cucumber'
   gem 'minitest'
+
   #gem 'remarkable_rails'
     
   #Factory Girl

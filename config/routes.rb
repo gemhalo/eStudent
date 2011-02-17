@@ -1,10 +1,17 @@
 EStudent::Application.routes.draw do
   netzke
-  get "sessions/create"
 
-  get "sessions/destroy"
+  root :to => "users#index"
+
   resources :users
-  resources :sessions
+  resources :user_sessions
+  get    'login(.:format)'  => 'user_sessions#new',     :as => :login
+  post   'login(.:format)'  => 'user_sessions#create',  :as => :login
+  #should be delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
+  get 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -62,3 +69,4 @@ EStudent::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
