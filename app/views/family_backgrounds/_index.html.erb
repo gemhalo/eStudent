@@ -1,0 +1,29 @@
+<h1>Listing family_backgrounds</h1>
+<% if @family_backgrounds != nil  %>
+<table>
+  <tr>
+    <th>Father edu level</th>
+    <th>Mother edu level</th>
+    <th>Father occupation</th>
+    <th>Mother occupation</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @family_backgrounds.each do |family_background| %>
+  <tr>
+    <td><%= family_background.father_edu_level %></td>
+    <td><%= family_background.mother_edu_level %></td>
+    <td><%= family_background.father_occupation %></td>
+    <td><%= family_background.mother_occupation %></td>
+    <td><%= link_to 'Show', family_background %></td>
+    <td><%= link_to 'Edit', edit_family_background_path(family_background) %></td>
+    <td><%= link_to 'Destroy', family_background, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<br />
+
+<%= link_to 'New Family background', new_family_background_path %>
