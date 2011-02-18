@@ -10,52 +10,36 @@
       </ul>
     </div>
   <% end %>
+<fieldset><legend>Personal Information</legend>
+  <table border ="0"><tr>
+  <td><%= f.label :name %></td><td><%= f.text_field :name %></td><td><%= f.label :date_of_birth %><br /></td><td> <%= f.date_select :date_of_birth %></td></tr>
+  <tr><td><%= f.label :father_name %></td><td><%= f.text_field :father_name %></td><td><%= f.label :gender %><br /></td><td><%= f.select :gender,["Male","Female"],:prompt=>"Select Gender" %></td></tr>
+  <tr><td><%= f.label :grand_father_name %></td><td> <%= f.text_field :grand_father_name %></td><td><%= f.label :ethnicity %></td><td><%= f.collection_select(:ethnicity,@ethnicity,:id,:name,:prompt=>"Select Ethnicity") %></td></tr>
+  <tr><td><%= f.label :mother_full_name %><br /></td><td><%= f.text_field :mother_full_name %></td><td><%= f.label :nationality %></td><td><%= f.collection_select(:nationality,@nationality,:id,:name,:prompt=>"Select Nationality") %></td></tr>
+  <tr><td><%= f.label :place_of_birth %><br /></td><td><%= f.text_field :place_of_birth %></td><td><%= f.label :marital_status %></td><td><%= f.select :marital_status,["Married","Single","Divorced","Widow"],:prompt=>"Select Marital Status" %></td></tr>
+  <tr><td><%= f.label :photo %></td><td><%= f.text_field :photo %></td></tr>
+  </table>
+</fieldset><br></br>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :father_name %><br />
-    <%= f.text_field :father_name %>
-  </div>
-  <div class="field">
-    <%= f.label :grand_father_name %><br />
-    <%= f.text_field :grand_father_name %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.datetime_select :date_of_birth %>
-  </div>
-  <div class="field">
-    <%= f.label :place_of_birth %><br />
-    <%= f.text_field :place_of_birth %>
-  </div>
-  <div class="field">
-    <%= f.label :ethnicity %><br />
-    <%= f.text_field :ethnicity %>
-  </div>
-  <div class="field">
-    <%= f.label :nationality %><br />
-    <%= f.text_field :nationality %>
-  </div>
-  <div class="field">
-    <%= f.label :marital_status %><br />
-    <%= f.text_field :marital_status %>
-  </div>
-  <div class="field">
-    <%= f.label :mother_full_name %><br />
-    <%= f.text_field :mother_full_name %>
-  </div>
-  <div class="field">
-    <%= f.label :photo %><br />
-    <%= f.text_field :photo %>
-  </div>
-  <div class="actions">
+
+<!-- Applicant info -->
+   <%= fields_for(@applicant) do |f| %>
+    <%= f.hidden_field :person_id, :value => @person.id %>
+    <%= f.hidden_field :admission_status_type_id, :value => 1 %>
+  <% end %>
+ <!-- end applicant info -->
+
+<fieldset><legend>Admission Information</legend>
+
+<%= fields_for(@admission) do |f| %>
+  <table border="0"><tr><td> <%= f.label :admission_type_id %></td><td><%= f.collection_select(:admission_type_id,@Admissiontype,:id,:name,:prompt=>"Select Admission Type") %></td><td><%= f.label :Acadamic_Calander %><br /></td><td></td></tr>
+    <tr><td><%= f.label :Enrollement_type %></td><td><%= f.collection_select(:enrollement_type_id,@Enrollementtype,:id,:name, :prompt=>"Select enrollment Type") %></td><td><%= f.label :major_feild_of_study %></td><td>  <%= f.text_field :major_feild_of_study %></td></tr>
+    <tr><td><%= f.label :entry_level %></td><td><%= f.select :entry_level,["Fresh man","Transfer","Advance Standing"],:prompt=>"Select Entry Level" %></td><td> <%= f.label :minor_field_of_study %></td><td><%= f.text_field :minor_feild_of_study %></td></tr>
+    <tr><td><%= f.label :college %></td><td><%= f.collection_select(:college,@College,:id,:name,:prompt=>"Select Collage") %></td></tr>
+  </table>
+  <%end%>
+</fieldset><br></br>
+<div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

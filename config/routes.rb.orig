@@ -1,5 +1,6 @@
 EStudent::Application.routes.draw do
   netzke
+<<<<<<< HEAD
   resources :family_backgrounds
 
   resources :colleges
@@ -15,6 +16,8 @@ EStudent::Application.routes.draw do
   resources :people
   resources :applicants 
   
+=======
+>>>>>>> ee4839a2411237d727b40d00e87d4e522e2d6d84
   get "sessions/create"
 
   get "sessions/destroy"
