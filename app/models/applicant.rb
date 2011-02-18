@@ -4,6 +4,7 @@ class Applicant < ActiveRecord::Base
   has_many :family_background
   after_initialize :init_person
   after_save :save_person
+ # accepts_nested_attributes_for :person
   
  
 
@@ -20,6 +21,7 @@ class Applicant < ActiveRecord::Base
     self.person.grand_father_name
   end
   def person_attributes=(person_attributes)
+    logger.info("----------sss-----#{person_attributes}----------")
     person_attributes.each do |attributes|
       person.build(attributes)
     end
@@ -33,7 +35,7 @@ class Applicant < ActiveRecord::Base
   end
 
   def save_person
-    self.person.save
+    self.person.save!
   end
 
   

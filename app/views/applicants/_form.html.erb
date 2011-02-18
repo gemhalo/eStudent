@@ -12,10 +12,10 @@
     <% end %>
     <fieldset><legend>Applicant Information</legend>
     <table border ="0"><tr>
-    <td><%= f.label :name %>
-    </td><td>
-    <%= fields_for(@applicant.person) do |p|%>    
-    <%= p.text_field :name %></td>
+         
+    <%= fields_for "@applicant[person_attributes]" do |p|%>
+      <td><%= p.label :name %> </td>
+      <td> <%= p.text_field :name %></td>
         <td><%= p.label :date_of_birth %><br /></td>
         <td> <%= p.date_select :date_of_birth %></td></tr>
         <tr><td><%= p.label :father_name %></td>
