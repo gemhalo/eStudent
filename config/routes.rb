@@ -19,8 +19,19 @@ EStudent::Application.routes.draw do
 
   get "sessions/destroy"
 
-  resources :users
+  resources :users do
+    collection do
+      post 'forgot_password'
+      get 'forgot_password'
+           
+    end
+  end
+
+ 
+
   resources :sessions
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

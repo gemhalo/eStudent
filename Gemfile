@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 #Gems required for all environments
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.4'
 gem 'authlogic'
 #We will enable this when we want to work with  Bundle edge Rails instead: 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
