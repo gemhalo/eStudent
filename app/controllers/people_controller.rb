@@ -52,7 +52,6 @@ class PeopleController < ApplicationController
   def create
     @person = Person.create(params[:person])
     @applicant = @person.applicants.create(params[:applicants])
-    
     @admission = @applicant.admission.create(params[:admission])
     @ethnicity = Ethnicity.all
     @nationality = Nationality.all
@@ -64,7 +63,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to(@person, :notice => 'Person was successfully created.') }
+        format.html { redirect_to :controller => 'family_backgrounds', :action => 'new', :applicantid => @applicant.id   }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
       else
         format.html { render :action => "new" }

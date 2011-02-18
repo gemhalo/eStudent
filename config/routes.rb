@@ -1,4 +1,7 @@
 EStudent::Application.routes.draw do
+  netzke
+  resources :family_backgrounds
+
   resources :colleges
 
   resources :admission_types
@@ -10,8 +13,8 @@ EStudent::Application.routes.draw do
   resources :ethnicities
 
   resources :people
-
-  netzke
+  resources :applicants 
+  
   get "sessions/create"
 
   get "sessions/destroy"
