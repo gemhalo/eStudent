@@ -1,6 +1,9 @@
 require 'digest/sha2'
 
 class User < ActiveRecord::Base
+
+  belongs_to :role
+  belongs_to :person
 	validates :user_name, :presence => true, :uniqueness => true
 	validates_length_of :password, :minimum=>6
 	validates :password, :confirmation => true
@@ -12,7 +15,9 @@ class User < ActiveRecord::Base
            :uniqueness => true,
            :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
-	
+	def full_name
+    self.person.full_name
+  end
 	class << self
 		def authenticate(name, password)
 			if user = find_by_user_name(name)

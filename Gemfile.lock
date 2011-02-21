@@ -56,6 +56,7 @@ GEM
     authlogic (2.1.6)
       activesupport
     builder (2.1.2)
+    cancan (1.5.1)
     diff-lcs (1.1.2)
     dummy (0.9.1)
     dummy_data (0.9.1)
@@ -135,6 +136,7 @@ PLATFORMS
 
 DEPENDENCIES
   authlogic
+  cancan
   dummy
   dummy_data
   fakeldap

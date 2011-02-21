@@ -8,8 +8,11 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
+  <%# if session[:user_id].nil? %>
+  <%= yield %>
+  <%# else %>
+<%#= yield :"#{session[:user_role]}" %>
+  <% #end %>
 
 </body>
 </html>

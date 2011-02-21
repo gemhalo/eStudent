@@ -1,4 +1,6 @@
 EStudent::Application.routes.draw do
+  resources :instructors
+
   resources :colleges
 
   resources :admission_types
@@ -19,9 +21,10 @@ EStudent::Application.routes.draw do
   resources :users
   resources :sessions
 
-  get "admission_approval/list"
-  get "admission_approval/show_list"
-  get "admission_approval/details"
+  get "department_head/index"
+  get "department_head/show_list"
+  get "department_head/details"
+  get "department_head/approve"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
