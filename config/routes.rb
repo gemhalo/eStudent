@@ -1,23 +1,20 @@
 EStudent::Application.routes.draw do
   netzke
-  resources :colleges
-
-  resources :admission_types
-
-  resources :enrollement_types
-
-  resources :nationalities
-
-  resources :ethnicities
-
-  resources :people
-
-
-  get "sessions/create"
-  get "sessions/destroy"
   root :to => "users#index"
+  resources :colleges
+  resources :admission_types
+  resources :enrollement_types
+  resources :nationalities
+  resources :ethnicities
+  resources :people
+  #get "sessions/create"
+  #get "sessions/destroy"
+  get   'login(.:format)' => 'sessions#create',  :as => :login
+  get   'logout(.:format)'  => 'sessions#destroy', :as => :logout
+  resources :sessions
 
-  resources :users do)
+
+  resources :users do
     collection do
       post 'forgot_password'
       get 'forgot_password'
@@ -25,14 +22,11 @@ EStudent::Application.routes.draw do
     end
   end
   resources :user_sessions
-  get    'login(.:format)'  => 'user_sessions#new',     :as => :login
-  post   'login(.:format)'  => 'user_sessions#create',  :as => :login
+
+  #get    'login(.:format)'  => 'user_sessions#new',     :as => :login
+  #post   'login(.:format)'  => 'user_sessions#create',  :as => :login
   #should be delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
-  get 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
-
-
-  resources :sessions
-
+  #get 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
