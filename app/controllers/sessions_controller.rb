@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
      
    else
 
-     flash[:notice] = "Please Enter User name !User name can not be Blank "
+     flash[:notice] = "Please Enter User name! User name can not be Blank "
      render 'new'
   end
 end

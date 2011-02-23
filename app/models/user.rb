@@ -1,6 +1,10 @@
 require 'digest/sha2'
 
+
 class User < ActiveRecord::Base
+
+  #acts_as_authentic
+
 
   belongs_to :role
   belongs_to :person

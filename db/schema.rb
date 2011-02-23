@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110218134948) do
+ActiveRecord::Schema.define(:version => 20110221140502) do
 
   create_table "admission_types", :force => true do |t|
     t.string   "name"
@@ -97,6 +97,11 @@ ActiveRecord::Schema.define(:version => 20110218134948) do
     t.datetime "updated_at"
   end
 
+  create_table "user_sessions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "user_name"
     t.string   "hashed_password"
@@ -105,7 +110,6 @@ ActiveRecord::Schema.define(:version => 20110218134948) do
     t.date     "last_login"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_type"
     t.integer  "person_id"
     t.integer  "role_id"
   end
