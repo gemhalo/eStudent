@@ -11,8 +11,18 @@ EStudent::Application.routes.draw do
   resources :nationalities
 
   resources :ethnicities
+  post 'student_service_staffs/index'
+  post 'student_service_staffs/selector'
+  post 'student_service_staffs/show'
+
+  resources :student_service_staffs 
+ 
+  
+  #resources :studentservicestaffs
+  
 
   resources :people
+
   resources :applicants 
   
   get "sessions/create"
@@ -26,9 +36,6 @@ EStudent::Application.routes.draw do
            
     end
   end
-
- 
-
   resources :sessions
 
   

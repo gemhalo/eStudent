@@ -1,0 +1,52 @@
+<h1> List of Applicants!!! </h1>
+<%=  netzke :applicants,
+               :class_name => "Basepack::GridPanel",
+               :model => 'Applicant',
+               :columns=> [
+                         :person__name,
+                         :person__father_name,
+                         :person__grand_father_name,
+                        #:person__gender,
+                        #:person__date_of_birth,
+                        #:person__place_of_name,
+                        #:person__ethnicity,
+                        #:person__nationality,
+                        #:person__martial_status,
+                        #:person__mother_full_name,
+                        #:person__photo,
+                       {       :name => :verified,
+                               :scope => {:person__father_name => 'vod'}
+                       }
+               ]
+      %>
+
+<form action="/student_service_staffs/selector" class="new_student_service_staff" id="new_student_service_staff"  method="post">
+<div style="margin:0;padding:0;display:inline">
+<input name="authenticity_token" type="hidden"
+value="Zn9QZi/vK/QeNUByBlwU6xiRwTAqzD5b4TJNXgWW+9s=" />
+</div>
+<div class='field'>
+<label for="first_name">First name</label>
+<input id="first_name" name="p[first_name]"
+size="30" type="text" />
+</div>
+<div class='field'>
+<label for="last_name">Last name</label>
+<input id="last_name" name="p[last_name]"
+size="30" type="text" />
+</div>
+<div class='buttons'>
+<input id="person_submit" name="commit" type="submit" value="Create"
+/>
+</div>
+</form>
+
+<%= form_tag student_service_staffs_selector_path do  %>
+<div class='field'>
+	<%= label_tag :gpa %>
+	<%= text_field_tag :gpa %>
+</div>
+<div class='actions'>
+	<%= submit_tag :commit %>
+</div>
+<% end %>

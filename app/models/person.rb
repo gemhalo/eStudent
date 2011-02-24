@@ -1,7 +1,10 @@
 class Person < ActiveRecord::Base
-  has_many :applicants
-  #validates :name , :presence => true
-  #validates :father_name,  :presence => true
+  has_one :applicant
+  has_one :student_service_staff
+  has_one :student  
+  validates :name , :presence => true
+  validates :father_name,  :presence => true
+
 
   def full_name
     def full_name

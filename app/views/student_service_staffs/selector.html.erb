@@ -1,0 +1,23 @@
+<h1> List of Applicants!!! </h1>
+<%=  netzke :applicants,
+               :class_name => "Basepack::GridPanel",
+               :model => 'Applicant',
+               :columns=> [ 
+	                 :person__name,
+                         :person__father_name,
+                         :person__grand_father_name,
+                        #:person__gender,
+                        #:person__date_of_birth,
+                        #:person__place_of_name,
+                        #:person__ethnicity,
+                        #:person__nationality,
+                        #:person__martial_status,
+                        #:person__mother_full_name,
+                        #:person__photo,
+                       {       :name => :verified,
+                               :scope => {:person__father_name => 'vod'}
+                       }
+               ]
+      %>
+
+
