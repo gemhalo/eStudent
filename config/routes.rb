@@ -1,4 +1,7 @@
 EStudent::Application.routes.draw do
+
+  
+
   resources :instructors
 
   resources :colleges
@@ -20,8 +23,6 @@ EStudent::Application.routes.draw do
 
   resources :users
   resources :sessions
-  resources :user_sessions
-
   get "department_head/index"
   get "department_head/show_list"
   get "department_head/details"
