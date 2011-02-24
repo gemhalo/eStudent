@@ -1,15 +1,14 @@
 EStudent::Application.routes.draw do
   netzke
+  root :to => "welcome#index"
   resources :family_backgrounds
-  root :to => "users#index"
   resources :colleges
   resources :admission_types
   resources :enrollement_types
   resources :nationalities
   resources :ethnicities
   resources :people
-  #get "sessions/create"
-  #get "sessions/destroy"
+
   get   'login(.:format)' => 'sessions#create',  :as => :login
   get   'logout(.:format)'  => 'sessions#destroy', :as => :logout
   resources :sessions
@@ -25,8 +24,8 @@ EStudent::Application.routes.draw do
   resources :ethnicities
 
   resources :people
-  resources :applicants 
-  
+  resources :applicants
+
   get "sessions/create"
 
   get "sessions/destroy"
@@ -35,7 +34,7 @@ EStudent::Application.routes.draw do
     collection do
       post 'forgot_password'
       get 'forgot_password'
-           
+
     end
   end
   resources :user_sessions
@@ -47,7 +46,7 @@ EStudent::Application.routes.draw do
 
   resources :sessions
 
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -105,3 +104,4 @@ EStudent::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
