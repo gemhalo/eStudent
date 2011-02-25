@@ -1,4 +1,4 @@
-<%# content_for :department_head do %>
+
 <div align="center">
   <p>HOD Index Page</p>
   <p>welcome <%= (session[:user_name]) %></p>
@@ -6,8 +6,8 @@
   <%= :hod_content %>
   <%= :insructor_content %>
   <%= link_to "Admissions", :action=>"show_list" %>(<%= @applicants.count  %>) <br/><br/>
-<%= link_to "logout", :controller=>'sessions', :action=>'destroy' %>
+  <%= link_to "logout", :controller=>'sessions', :action=>'destroy' %>
 </div>
 
-<% #end %>
+
 

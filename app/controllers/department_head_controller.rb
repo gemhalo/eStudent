@@ -6,7 +6,7 @@ class DepartmentHeadController < ApplicationController
           @current_user=session[:user_name]
         dept=User.find(session[:user_id]).person.instructor.department_id
         @applicants=Applicant.all(:include=>:admission, :conditions=>
-        ["admissions.major_feild_of_study =#{dept}"])
+        ["admissions.major_feild_of_study =#{dept} and admissions.admision_status != 1 "])
         end
         
      end
