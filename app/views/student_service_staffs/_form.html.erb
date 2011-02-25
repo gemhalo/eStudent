@@ -1,0 +1,6 @@
+<%= form_tag student_service_staffs_selector_path do  %>
+<%= label_tag :Select_Department %>
+<%= collection_select(:status,:admission_type_id,     @admission_types ,:id,:name,:prompt => false ) %>
+<%= label_tag :Verified %> <%= check_box_tag 'verify' %>
+<%= submit_tag :Filter_by_department %>
+<% end %>

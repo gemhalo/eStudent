@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110217195316) do
+ActiveRecord::Schema.define(:version => 20110224170038) do
 
   create_table "admission_types", :force => true do |t|
     t.string   "name"
@@ -35,9 +35,10 @@ ActiveRecord::Schema.define(:version => 20110217195316) do
 
   create_table "applicants", :force => true do |t|
     t.integer  "person_id"
-    t.integer  "admission_status_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "verified",          :default => false
+    t.integer  "admission_type_id"
   end
 
   create_table "colleges", :force => true do |t|

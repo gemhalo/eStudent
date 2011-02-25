@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
             :uniqueness => true,
             :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
-	
+
 	class << self
 		def authenticate(name, password)
 			if user = find_by_user_name(name)
@@ -21,12 +21,12 @@ class User < ActiveRecord::Base
 				end
 			end
 		end
-	
+
 		def encrypt_password(password, salt)
 			Digest::SHA2.hexdigest(password + "wibble" + salt)
 		end
 	end
-	
+
 	# 'password' is a virtual attribute
 	def password=(password)
 		@password = password
@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
     new_pass = User.random_string(10)
     self.password = self.password_confirmation = new_pass
     self.save
-    
+
     Notification.deliver_forgot_password(self.email,user_name,  new_pass)
   end
 
@@ -52,17 +52,14 @@ class User < ActiveRecord::Base
     return newpass
   end
 
-
-
-
-
 	private
-	
+
 	def password_must_be_present
 		errors.add(:password, "Missing") unless hashed_password.present?
 	end
-	
+
 	def generate_salt
 		self.salt = self.object_id.to_s + rand.to_s
-	end	
+	end
 end
+
