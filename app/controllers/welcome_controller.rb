@@ -5,5 +5,6 @@ class WelcomeController < ApplicationController
     "<%= netzke :main_app %>",
     :layout => true
   end
+
 end
 
