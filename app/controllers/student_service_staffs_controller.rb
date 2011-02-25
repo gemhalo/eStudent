@@ -2,20 +2,19 @@ class StudentServiceStaffsController < ApplicationController
   # GET /student_service_staffs
   # GET /student_service_staffs.xml
   # POST /student_service_staffs
-  respond_to :html
   def index
+    @admission_types = AdmissionType.all
+    @verifieds=params[:verify]
     if request[:method] =="GET" 
       @student_service_staffs = StudentServiceStaff.all
       # Apply filters to display students only that this user can approve
       @applicants = Applicant.all
-    respond_to do |format|
+      respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @student_service_staffs }
       end
     else 
       @applicants = Applicant.where("verified =#{params[:verified]}")
-      @gpa=params[:p]
-     respond_with(@gpa)
     end
   end
 
@@ -88,16 +87,11 @@ class StudentServiceStaffsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  def selector
+  #  @param_value = params[:ne]
+
+  end
+
 end
-
-#private
-
-def selector
-   expose(:p) do
-#	if person_id = (params[:person_id] || params[:id])
-	@gpa=Applicant.find(person_id)	
-	respond_with(@gpa)
-   end
-	#@applicants = Apllicant.where("id"=>params(:id))
-end
-

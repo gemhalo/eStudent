@@ -11,4 +11,5 @@ class Person < ActiveRecord::Base
         [name,father_name,grand_father_name].join(' ')
     end
   end
+
 end

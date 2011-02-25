@@ -1,34 +1,6 @@
-<%= form_for(@student_service_staff) do |f| %>
-  <% if @student_service_staff.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@student_service_staff.errors.count, "error") %> prohibited this student_service_staff from being saved:</h2>
-
-      <ul>
-      <% @student_service_staff.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :id_number %><br />
-    <%= f.text_field :id_number %>
-  </div>
-  <div class="field">
-    <%= f.label :rank %><br />
-    <%= f.text_field :rank %>
-  </div>
-  <div class="field">
-    <%= f.label :qualification_type_id %><br />
-    <%= f.text_field :qualification_type_id %>
-  </div>
-  <div class="field">
-    <%= f.label :role_type_id %><br />
-    <%= f.text_field :role_type_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
+<%= form_tag student_service_staffs_selector_path do  %>
+<%= label_tag :Select_Department %>
+<%= collection_select(:status,:admission_type_id,     @admission_types ,:id,:name,:prompt => false ) %>
+<%= label_tag :Verified %> <%= check_box_tag 'verify' %>
+<%= submit_tag :Filter_by_department %>
 <% end %>

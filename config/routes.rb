@@ -1,6 +1,18 @@
 EStudent::Application.routes.draw do
   netzke
   resources :family_backgrounds
+  root :to => "users#index"
+  resources :colleges
+  resources :admission_types
+  resources :enrollement_types
+  resources :nationalities
+  resources :ethnicities
+  resources :people
+  #get "sessions/create"
+  #get "sessions/destroy"
+  get   'login(.:format)' => 'sessions#create',  :as => :login
+  get   'logout(.:format)'  => 'sessions#destroy', :as => :logout
+  resources :sessions
 
   resources :colleges
 
@@ -11,12 +23,17 @@ EStudent::Application.routes.draw do
   resources :nationalities
 
   resources :ethnicities
-  post 'student_service_staffs/index'
+  #post 'student_service_staffs/index'
+  
+  
+  #post 'student_service_staffs/show'
+  #get  'student_service_staffs/sample'  
+  
+  get  'student_service_staffs/selector' 
   post 'student_service_staffs/selector'
-  post 'student_service_staffs/show'
-
-  resources :student_service_staffs 
- 
+  
+  resources :student_service_staffs
+  
   
   #resources :studentservicestaffs
   
@@ -36,6 +53,13 @@ EStudent::Application.routes.draw do
            
     end
   end
+  resources :user_sessions
+
+  #get    'login(.:format)'  => 'user_sessions#new',     :as => :login
+  #post   'login(.:format)'  => 'user_sessions#create',  :as => :login
+  #should be delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
+  #get 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
+
   resources :sessions
 
   
