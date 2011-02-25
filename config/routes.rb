@@ -22,6 +22,20 @@ EStudent::Application.routes.draw do
   resources :nationalities
 
   resources :ethnicities
+  #post 'student_service_staffs/index'
+  
+  
+  #post 'student_service_staffs/show'
+  #get  'student_service_staffs/sample'  
+  
+  get  'student_service_staffs/selector' 
+  post 'student_service_staffs/selector'
+  
+  resources :student_service_staffs
+  
+  
+  #resources :studentservicestaffs
+  
 
   resources :people
   resources :applicants
@@ -104,4 +118,3 @@ EStudent::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
-

@@ -45,5 +45,8 @@ class ApplicantsController < ApplicationController
   def destroy
     #TODO
   end
+  def screenApplicant
+	@screened_applicant=Apllicant.where("id"=>params(:id))
+  end
 end
 
