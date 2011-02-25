@@ -1,17 +1,6 @@
-<h1>Listing student_service_staffs</h1>
-<% @applicants.each do |applicant| %>
-<%= applicant.id %> &nbsp;
-<%= applicant.person_id %> <br>`
-<% end %>
-      
-
-<%= netzke :applicants,
-	        :class_name => "Basepack::GridPanel",
-	        :model => 'Applicant',
-	        :columns=> [
-		        :name,
-		        :father_name,
-		        :verified
-	        ]
-        %>
-
+<h1> Applicant Dashboard </h1>
+<%= link_to "Apply Online",
+:controller => "applicants",
+:action => "new",
+#:id => 1
+%>
