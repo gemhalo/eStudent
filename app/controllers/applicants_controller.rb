@@ -28,8 +28,9 @@ class ApplicantsController < ApplicationController
     @Enrollementtype  = EnrollementType.all
     @College    = College.all    
     @applicant = Applicant.create(params[:applicant])
+    #@person = Applicant.create(params[:person])
     @admission  = @applicant.admission.create(params[:admission])
-
+    logger.info("----------sss-----#{params[:applicant]}----------")
     respond_to do |format|
       if @applicant.save
         format.html { redirect_to(new_family_background_path,:applicant_id => @applicant.id, :notice => 'College was successfully created.') }

@@ -20,7 +20,7 @@ class Applicant < ActiveRecord::Base
   def grand_father_name
     self.person.grand_father_name
   end
-  def person_attributes=(person_attributes)
+  def self.person_attributes=(person_attributes)
     logger.info("----------sss-----#{person_attributes}----------")
     person_attributes.each do |attributes|
       person.build(attributes)
@@ -35,6 +35,7 @@ class Applicant < ActiveRecord::Base
   end
 
   def save_person
+   
     self.person.save!
   end
 
