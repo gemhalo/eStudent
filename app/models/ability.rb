@@ -7,6 +7,7 @@ class Ability
 	end
 	if user.role? :student
   		cannot :edit, College
+      cannot :assign_roles, User
 	end
  end
 

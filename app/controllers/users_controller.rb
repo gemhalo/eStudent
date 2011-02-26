@@ -10,6 +10,9 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @users }
     end
   end
+  def assign_roles
+    
+  end
 
   # GET /users/1
   # GET /users/1.xml
