@@ -1,6 +1,7 @@
 EStudent::Application.routes.draw do
   netzke
-  root :to => "welcome#index"
+  #root :to => "welcome#index"
+  root :to => "users#index"
   resources :family_backgrounds
   resources :colleges
   resources :admission_types
