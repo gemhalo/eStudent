@@ -3,10 +3,8 @@
   <p>HOD Index Page</p>
   <p>welcome <%= (session[:user_name]) %></p>
   <p><u>Pending approvals<u/></p>
-  <%= :hod_content %>
-  <%= :insructor_content %>
+  
   <%= link_to "Admissions", :action=>"show_list" %>(<%= @applicants.count  %>) <br/><br/>
-  <%= link_to "logout", :controller=>'sessions', :action=>'destroy' %>
 </div>
 
 

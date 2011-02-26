@@ -2,6 +2,11 @@ EStudent::Application.routes.draw do
 
   
 
+  resources :users, :user_sessions
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+
+
   resources :instructors
 
   resources :colleges
@@ -17,12 +22,7 @@ EStudent::Application.routes.draw do
   resources :people
 
   netzke
-  get "sessions/create"
-
-  get "sessions/destroy"
-
-  resources :users
-  resources :sessions
+  
   get "department_head/index"
   get "department_head/show_list"
   get "department_head/details"

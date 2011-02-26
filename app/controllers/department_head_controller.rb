@@ -1,18 +1,18 @@
 class DepartmentHeadController < ApplicationController
 
-  
+  authorize_resource
+
     def index
-        if session[:user_role]=="department_head"
-          @current_user=session[:user_name]
-        dept=User.find(session[:user_id]).person.instructor.department_id
+        
+        #@current_user=session[:user_name]
+        dept=current_user.person.instructor.department_id
         @applicants=Applicant.all(:include=>:admission, :conditions=>
-        ["admissions.major_feild_of_study =#{dept} and admissions.admision_status != 1 "])
-        end
+        ["admissions.major_feild_of_study =#{dept}"])
         
      end
 
   def show_list
-  	dept=User.find(session[:user_id]).person.instructor.department_id
+  	dept=current_user.person.instructor.department_id
     @applicants=Applicant.all(:include=>:admission, :conditions=>
     ["admissions.major_feild_of_study = #{dept}"])
   end
@@ -22,7 +22,7 @@ class DepartmentHeadController < ApplicationController
   end
 
   def approve
-    dept=User.find(session[:user_id]).person.instructor.department_id
+    dept=current_user.person.instructor.department_id
         @applicants=Applicant.all(:include=>:admission, :conditions=>
         ["admissions.major_feild_of_study =#{dept}"])
     a=Admission.find(params[:id])
