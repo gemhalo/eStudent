@@ -6,7 +6,7 @@ class Ability
   		can :manage, :all
 	end
 	if user.role? :student
-  		cannot :edit, College
+  		cannot :read, College
       cannot :assign_roles, User
 	end
  end

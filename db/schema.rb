@@ -10,7 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110225195030) do
+ActiveRecord::Schema.define(:version => 20110302084058) do
+
+  create_table "abilities", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "admission_types", :force => true do |t|
     t.string   "name"
@@ -39,9 +44,22 @@ ActiveRecord::Schema.define(:version => 20110225195030) do
     t.datetime "updated_at"
   end
 
+  create_table "buildings", :force => true do |t|
+    t.string   "building_name"
+    t.integer  "number_of_rooms"
+    t.integer  "number_of_beds_per_room"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "department_heads", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
