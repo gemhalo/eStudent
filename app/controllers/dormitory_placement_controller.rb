@@ -21,5 +21,4 @@ class DormitoryPlacementController < ApplicationController
     end
   end
 
-  
 end
