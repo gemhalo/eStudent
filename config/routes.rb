@@ -1,4 +1,12 @@
 EStudent::Application.routes.draw do
+  resources :course_types
+
+  resources :curriculums
+
+  resources :programs
+
+  resources :courses
+
   netzke
   resources :family_backgrounds
   root :to => "users#index"

@@ -1,0 +1,40 @@
+<%= form_for(@curriculum) do |f| %>
+  <% if @curriculum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@curriculum.errors.count, "error") %> prohibited this curriculum from being saved:</h2>
+
+      <ul>
+      <% @curriculum.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :course_id %><br />
+     <%= f.collection_select(:course_id,@courses, :id,:course_code,:prompt => "Select Course Code")%>
+    
+  </div>
+  <div class="field">
+    <%= f.label :program_id %><br />
+     <%= f.collection_select(:program_id,@programs, :id,:program_id,:prompt => "Select Program")%>
+    
+  </div>
+  <div class="field">
+    <%= f.label :course_type %><br />
+     <%= f.collection_select(:course_type,@course_types, :id,:name,:prompt => "Select Course Types")%>
+   
+  </div>
+  <div class="field">
+    <%= f.label :semester_id %><br />
+    <%= f.text_field :semester_id %>
+  </div>
+  <div class="field">
+    <%= f.label :class_year_id %><br />
+   <%= f.text_field :class_year_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

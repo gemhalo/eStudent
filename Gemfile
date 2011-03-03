@@ -95,7 +95,7 @@ group :development, :test do
   #RSpec
   gem 'rspec-rails','>=2.5.0'
   gem 'webrat'
-  gem 'capybara'
+  #gem 'capybara'
   gem 'cucumber'
   gem 'minitest'
 

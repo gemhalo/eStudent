@@ -1,0 +1,53 @@
+<%= form_for(@program) do |f| %>
+  <% if @program.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@program.errors.count, "error") %> prohibited this program from being saved:</h2>
+
+      <ul>
+      <% @program.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :program_id %><br />
+    <%= f.text_field :program_id %>
+  </div>
+  <div class="field">
+    <%= f.label :program_name %><br />
+    <%= f.text_field :program_name %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.text_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :enrollment_type %><br />
+    <%= f.collection_select(:enrollment_type,@enrollement_types, :id,:name,:prompt => "Select Enrollment type")%>
+  </div>
+  <div class="field">
+    <%= f.label :mode %><br />
+    <%= f.text_field :mode %>
+  </div>
+  <div class="field">
+    <%= f.label :award_type %><br />
+    <%= f.text_field :award_type %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br />
+    <%= f.text_field :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :total_credit_hour %><br />
+    <%= f.text_field :total_credit_hour %>
+  </div>
+  <div class="field">
+    <%= f.label :department_id %><br />
+    <%= f.text_field :department_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

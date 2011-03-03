@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110224170038) do
+ActiveRecord::Schema.define(:version => 20110303064807) do
 
   create_table "admission_types", :force => true do |t|
     t.string   "name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20110224170038) do
     t.integer  "enrollement_type_id"
     t.integer  "admission_type_id"
     t.string   "entry_level"
-    t.integer  "admision_status"
+    t.boolean  "admision_status"
     t.integer  "college"
     t.integer  "accadamic_calender_id"
     t.string   "major_feild_of_study"
@@ -37,13 +37,40 @@ ActiveRecord::Schema.define(:version => 20110224170038) do
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "verified",          :default => false
+    t.boolean  "verified",                 :default => false
+    t.integer  "student_service_staff_id"
     t.integer  "admission_type_id"
   end
 
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "course_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses", :force => true do |t|
+    t.string   "course_title"
+    t.string   "course_code"
+    t.integer  "credit_hour"
+    t.string   "description"
+    t.integer  "department_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "curriculums", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "program_id"
+    t.integer  "course_type"
+    t.integer  "semester_id"
+    t.integer  "class_year_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -93,12 +120,48 @@ ActiveRecord::Schema.define(:version => 20110224170038) do
     t.integer  "user_id"
   end
 
+  create_table "programs", :force => true do |t|
+    t.string   "program_id"
+    t.string   "program_name"
+    t.string   "level"
+    t.integer  "enrollment_type"
+    t.string   "mode"
+    t.string   "award_type"
+    t.string   "duration"
+    t.integer  "total_credit_hour"
+    t.integer  "department_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "student_service_staffs", :force => true do |t|
+    t.string   "id_number"
+    t.string   "rank"
+    t.integer  "qualification_type_id"
+    t.integer  "role_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "person_id"
+  end
+
+  create_table "user_sessions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "user_name"
-    t.string   "hashed_password"
-    t.string   "salt"
+    t.string   "username"
     t.string   "email"
-    t.date     "last_login"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.integer  "login_count",        :default => 0, :null => false
+    t.integer  "failed_login_count", :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

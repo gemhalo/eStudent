@@ -1,0 +1,1462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: LDAP::Server::Schema::AttributeType</title>
+<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (A)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../../LDAP.html" title="LDAP (module)">LDAP</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Server.html" title="LDAP::Server (class)">Server</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Schema.html" title="LDAP::Server::Schema (class)">Schema</a></span></span>
+     &raquo; 
+    <span class="title">AttributeType</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: LDAP::Server::Schema::AttributeType
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">LDAP::Server::Schema::AttributeType</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ldap/server/schema.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Class holding an instance of an AttributeTypeDescription (RFC2252 4.2)
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#collective-instance_method" title="#collective (instance method)">- (Object) <strong>collective</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute collective.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#desc-instance_method" title="#desc (instance method)">- (Object) <strong>desc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute desc.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#equality-instance_method" title="#equality (instance method)">- (Object) <strong>equality</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute equality.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#maxlen-instance_method" title="#maxlen (instance method)">- (Object) <strong>maxlen</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute maxlen.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#names-instance_method" title="#names (instance method)">- (Object) <strong>names</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute names.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#nousermod-instance_method" title="#nousermod (instance method)">- (Object) <strong>nousermod</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute nousermod.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#obsolete-instance_method" title="#obsolete (instance method)">- (Object) <strong>obsolete</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute obsolete.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#oid-instance_method" title="#oid (instance method)">- (Object) <strong>oid</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute oid.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ordering-instance_method" title="#ordering (instance method)">- (Object) <strong>ordering</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute ordering.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#singlevalue-instance_method" title="#singlevalue (instance method)">- (Object) <strong>singlevalue</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute singlevalue.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#substr-instance_method" title="#substr (instance method)">- (Object) <strong>substr</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute substr.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sup-instance_method" title="#sup (instance method)">- (Object) <strong>sup</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute sup.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#syntax-instance_method" title="#syntax (instance method)">- (Object) <strong>syntax</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute syntax.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#usage-instance_method" title="#usage (instance method)">- (Object) <strong>usage</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute usage.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#changed-instance_method" title="#changed (instance method)">- (Object) <strong>changed</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (AttributeType) <strong>initialize</strong>(str) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A new instance of AttributeType.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_def-instance_method" title="#to_def (instance method)">- (Object) <strong>to_def</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="LDAP::Server::Schema::AttributeType (class)">AttributeType</a></span></tt>) <strong>initialize</strong>(str) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of AttributeType
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../ResultError/InvalidAttributeSyntax.html" title="LDAP::ResultError::InvalidAttributeSyntax (class)">LDAP::ResultError::InvalidAttributeSyntax</a></span></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 455</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='id m'>m</span> <span class='op'>=</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Syntax</span><span class='op'>::</span><span class='const'>AttributeTypeDescription</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>InvalidAttributeSyntax</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bad AttributeTypeDescription </span><span class='embexpr_beg'>#{</span><span class='id str'>str</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id m'>m</span>
+  <span class='ivar'>@oid</span> <span class='op'>=</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='ivar'>@names</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='op'>||</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>'(.*?)'</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id flatten'>flatten</span>
+	<span class='ivar'>@desc</span> <span class='op'>=</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+	<span class='ivar'>@obsolete</span> <span class='op'>=</span> <span class='op'>!</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+	<span class='ivar'>@sup</span> <span class='op'>=</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>
+	<span class='ivar'>@equality</span> <span class='op'>=</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>
+	<span class='ivar'>@ordering</span> <span class='op'>=</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+	<span class='ivar'>@substr</span> <span class='op'>=</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span>
+	<span class='ivar'>@syntax</span> <span class='op'>=</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span>
+	<span class='ivar'>@maxlen</span> <span class='op'>=</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span>
+	<span class='ivar'>@singlevalue</span> <span class='op'>=</span> <span class='op'>!</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+	<span class='ivar'>@collective</span> <span class='op'>=</span> <span class='op'>!</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+	<span class='ivar'>@nousermod</span> <span class='op'>=</span> <span class='op'>!</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+	<span class='ivar'>@usage</span> <span class='op'>=</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id intern'>intern</span>
+  <span class='comment'># This is the cache of the stringified version. Rather than
+</span>  <span class='comment'># initialize to str, we set nil to force it to be rebuilt
+</span>  <span class='ivar'>@def</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="collective-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="collective-instance_method">
+  
+    - (<tt>Object</tt>) <strong>collective</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute collective
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+452
+453
+454</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 452</span>
+
+<span class='kw'>def</span> <span class='id collective'>collective</span>
+  <span class='ivar'>@collective</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="desc-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="desc-instance_method">
+  
+    - (<tt>Object</tt>) <strong>desc</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute desc
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+451
+452
+453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 451</span>
+
+<span class='kw'>def</span> <span class='id desc'>desc</span>
+  <span class='ivar'>@desc</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="equality-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="equality-instance_method">
+  
+    - (<tt>Object</tt>) <strong>equality</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute equality
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+451
+452
+453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 451</span>
+
+<span class='kw'>def</span> <span class='id equality'>equality</span>
+  <span class='ivar'>@equality</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="maxlen-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="maxlen-instance_method">
+  
+    - (<tt>Object</tt>) <strong>maxlen</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute maxlen
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+452
+453
+454</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 452</span>
+
+<span class='kw'>def</span> <span class='id maxlen'>maxlen</span>
+  <span class='ivar'>@maxlen</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="names-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="names-instance_method">
+  
+    - (<tt>Object</tt>) <strong>names</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute names
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+451
+452
+453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 451</span>
+
+<span class='kw'>def</span> <span class='id names'>names</span>
+  <span class='ivar'>@names</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="nousermod-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="nousermod-instance_method">
+  
+    - (<tt>Object</tt>) <strong>nousermod</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute nousermod
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+453
+454
+455</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 453</span>
+
+<span class='kw'>def</span> <span class='id nousermod'>nousermod</span>
+  <span class='ivar'>@nousermod</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="obsolete-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="obsolete-instance_method">
+  
+    - (<tt>Object</tt>) <strong>obsolete</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute obsolete
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+451
+452
+453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 451</span>
+
+<span class='kw'>def</span> <span class='id obsolete'>obsolete</span>
+  <span class='ivar'>@obsolete</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="oid-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="oid-instance_method">
+  
+    - (<tt>Object</tt>) <strong>oid</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute oid
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+451
+452
+453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 451</span>
+
+<span class='kw'>def</span> <span class='id oid'>oid</span>
+  <span class='ivar'>@oid</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="ordering-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="ordering-instance_method">
+  
+    - (<tt>Object</tt>) <strong>ordering</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute ordering
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+451
+452
+453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 451</span>
+
+<span class='kw'>def</span> <span class='id ordering'>ordering</span>
+  <span class='ivar'>@ordering</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="singlevalue-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="singlevalue-instance_method">
+  
+    - (<tt>Object</tt>) <strong>singlevalue</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute singlevalue
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+452
+453
+454</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 452</span>
+
+<span class='kw'>def</span> <span class='id singlevalue'>singlevalue</span>
+  <span class='ivar'>@singlevalue</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="substr-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="substr-instance_method">
+  
+    - (<tt>Object</tt>) <strong>substr</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute substr
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+452
+453
+454</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 452</span>
+
+<span class='kw'>def</span> <span class='id substr'>substr</span>
+  <span class='ivar'>@substr</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="sup-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="sup-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sup</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute sup
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+451
+452
+453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 451</span>
+
+<span class='kw'>def</span> <span class='id sup'>sup</span>
+  <span class='ivar'>@sup</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="syntax-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="syntax-instance_method">
+  
+    - (<tt>Object</tt>) <strong>syntax</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute syntax
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+452
+453
+454</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 452</span>
+
+<span class='kw'>def</span> <span class='id syntax'>syntax</span>
+  <span class='ivar'>@syntax</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="usage-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="usage-instance_method">
+  
+    - (<tt>Object</tt>) <strong>usage</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute usage
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+453
+454
+455</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 453</span>
+
+<span class='kw'>def</span> <span class='id usage'>usage</span>
+  <span class='ivar'>@usage</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="changed-instance_method">
+  
+    - (<tt>Object</tt>) <strong>changed</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+486
+487
+488</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 486</span>
+
+<span class='kw'>def</span> <span class='id changed'>changed</span>
+  <span class='ivar'>@def</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>name</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+478
+479
+480</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 478</span>
+
+<span class='kw'>def</span> <span class='id name'>name</span>
+  <span class='ivar'>@names</span><span class='period'>.</span><span class='id first'>first</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_def-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_def</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 490</span>
+
+<span class='kw'>def</span> <span class='id to_def'>to_def</span>
+  <span class='kw'>return</span> <span class='ivar'>@def</span> <span class='kw'>if</span> <span class='ivar'>@def</span>
+  <span class='id ans'>ans</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>( </span><span class='embexpr_beg'>#{</span><span class='ivar'>@oid</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>if</span> <span class='ivar'>@names</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='ivar'>@names</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='comment'># nothing
+</span>  <span class='kw'>elsif</span> <span class='ivar'>@names</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NAME '</span><span class='embexpr_beg'>#{</span><span class='ivar'>@names</span><span class='period'>.</span><span class='id first'>first</span><span class='rbrace'>}</span><span class='tstring_content'>' </span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NAME ( </span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@names</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>'</span><span class='embexpr_beg'>#{</span><span class='id n'>n</span><span class='rbrace'>}</span><span class='tstring_content'>' </span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+    <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>) </span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DESC '</span><span class='embexpr_beg'>#{</span><span class='ivar'>@desc</span><span class='rbrace'>}</span><span class='tstring_content'>' </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@desc</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>OBSOLETE </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@obsolete</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SUP </span><span class='embexpr_beg'>#{</span><span class='ivar'>@sup</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@sup</span>			<span class='comment'># oid
+</span>  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>EQUALITY </span><span class='embexpr_beg'>#{</span><span class='ivar'>@equality</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@equality</span>	<span class='comment'># oid
+</span>  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ORDERING </span><span class='embexpr_beg'>#{</span><span class='ivar'>@ordering</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@ordering</span>	<span class='comment'># oid
+</span>  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SUBSTR </span><span class='embexpr_beg'>#{</span><span class='ivar'>@substr</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@substr</span>		<span class='comment'># oid
+</span>  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SYNTAX </span><span class='embexpr_beg'>#{</span><span class='ivar'>@syntax</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='ivar'>@maxlen</span> <span class='op'>&amp;&amp;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{</span><span class='embexpr_beg'>#{</span><span class='ivar'>@maxlen</span><span class='rbrace'>}</span><span class='tstring_content'>}</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@syntax</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SINGLE-VALUE </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@singlevalue</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>COLLECTIVE </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@collective</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NO-USER-MODIFICATION </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@nousermod</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>USAGE </span><span class='embexpr_beg'>#{</span><span class='ivar'>@usage</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@usage</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@def</span> <span class='op'>=</span> <span class='id ans'>ans</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_s</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+482
+483
+484</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 482</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='lparen'>(</span><span class='ivar'>@names</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@names</span><span class='period'>.</span><span class='id first'>first</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='ivar'>@oid</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Sep 13 13:27:17 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.0 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

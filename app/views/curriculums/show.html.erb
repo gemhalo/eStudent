@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Course:</b>
+  <%= @curriculum.course_id %>
+</p>
+
+<p>
+  <b>Program:</b>
+  <%= @curriculum.program_id %>
+</p>
+
+<p>
+  <b>Course type:</b>
+  <%= @curriculum.course_type %>
+</p>
+
+<p>
+  <b>Semester:</b>
+  <%= @curriculum.semester_id %>
+</p>
+
+<p>
+  <b>Class year:</b>
+  <%= @curriculum.class_year_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_curriculum_path(@curriculum) %> |
+<%= link_to 'Back', curriculums_path %>
