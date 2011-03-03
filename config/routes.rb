@@ -1,7 +1,16 @@
 EStudent::Application.routes.draw do
+  netzke
+  #root :to => "welcome#index"
+  root :to => "users#index"
+  resources :family_backgrounds
+  resources :colleges
+  resources :admission_types
+  resources :enrollement_types
+  resources :nationalities
+  resources :ethnicities
+  resources :people
 
-  
-
+ 
   resources :buildings
   get "dormitory_placement/place_dorm"
 
@@ -21,8 +30,23 @@ EStudent::Application.routes.draw do
   resources :nationalities
 
   resources :ethnicities
+  #post 'student_service_staffs/index'
+  
+  
+  #post 'student_service_staffs/show'
+  #get  'student_service_staffs/sample'  
+  
+  get  'student_service_staffs/selector' 
+  post 'student_service_staffs/selector'
+  
+  resources :student_service_staffs
+  
+  
+  #resources :studentservicestaffs
+  
 
   resources :people
+  resources :applicants
 
   netzke
   

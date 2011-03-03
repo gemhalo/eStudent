@@ -28,28 +28,23 @@ ActiveRecord::Schema.define(:version => 20110302084058) do
     t.integer  "enrollement_type_id"
     t.integer  "admission_type_id"
     t.string   "entry_level"
-    t.integer  "admision_status"
+    t.boolean  "admision_status"
     t.integer  "college"
     t.integer  "accadamic_calender_id"
     t.string   "major_feild_of_study"
     t.string   "minor_feild_of_study"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "admission_date"
   end
 
   create_table "applicants", :force => true do |t|
     t.integer  "person_id"
-    t.integer  "admission_status_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "buildings", :force => true do |t|
-    t.string   "building_name"
-    t.integer  "number_of_rooms"
-    t.integer  "number_of_beds_per_room"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "verified",                 :default => false
+    t.integer  "student_service_staff_id"
+    t.integer  "admission_type_id"
   end
 
   create_table "colleges", :force => true do |t|
@@ -85,6 +80,14 @@ ActiveRecord::Schema.define(:version => 20110302084058) do
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  create_table "family_backgrounds", :force => true do |t|
+    t.string   "father_edu_level"
+    t.string   "mother_edu_level"
+    t.string   "father_occupation"
+    t.string   "mother_occupation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "applicant_id"
   end
 
   create_table "nationalities", :force => true do |t|
@@ -92,6 +95,19 @@ ActiveRecord::Schema.define(:version => 20110302084058) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "netzke_component_states", :force => true do |t|
+    t.string   "component"
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "netzke_component_states", ["component"], :name => "index_netzke_component_states_on_component"
+  add_index "netzke_component_states", ["role_id"], :name => "index_netzke_component_states_on_role_id"
+  add_index "netzke_component_states", ["user_id"], :name => "index_netzke_component_states_on_user_id"
 
   create_table "people", :force => true do |t|
     t.string   "name"
@@ -107,6 +123,22 @@ ActiveRecord::Schema.define(:version => 20110302084058) do
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "student_service_staffs", :force => true do |t|
+    t.string   "id_number"
+    t.string   "rank"
+    t.integer  "qualification_type_id"
+    t.integer  "role_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "person_id"
+  end
+
+  create_table "user_sessions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -115,6 +147,13 @@ ActiveRecord::Schema.define(:version => 20110302084058) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
+    t.integer  "login_count",        :default => 0, :null => false
+    t.integer  "failed_login_count", :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"

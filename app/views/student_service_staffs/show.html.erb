@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id number:</b>
+  <%= @student_service_staff.id_number %>
+</p>
+
+<p>
+  <b>Rank:</b>
+  <%= @student_service_staff.rank %>
+</p>
+
+<p>
+  <b>Qualification type:</b>
+  <%= @student_service_staff.qualification_type_id %>
+</p>
+
+<p>
+  <b>Role type:</b>
+  <%= @student_service_staff.role_type_id %>
+</p>
+
+<p>
+  <b>GPA:</b>
+  <%= @gpa %>
+</p>
+
+<h2>GPA: </h2>  <%= @gpa %>
+
+
+<%= link_to 'Edit', edit_student_service_staff_path(@student_service_staff) %> |
+<%= link_to 'Back', student_service_staffs_path %>

@@ -26,6 +26,7 @@ class UserSessionsController < ApplicationController
     end
   end
 
+
   # DELETE /user_sessions/1
   # DELETE /user_sessions/1.xml
   def destroy
@@ -38,3 +39,4 @@ class UserSessionsController < ApplicationController
     end
   end
 end
+

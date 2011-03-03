@@ -7,3 +7,4 @@ class User < ActiveRecord::Base
   		ROLES.index(base_role.to_s) <= ROLES.index(role)
 	end
 end
+

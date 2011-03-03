@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Father edu level:</b>
+  <%= @family_background.father_edu_level %>
+</p>
+
+<p>
+  <b>Mother edu level:</b>
+  <%= @family_background.mother_edu_level %>
+</p>
+
+<p>
+  <b>Father occupation:</b>
+  <%= @family_background.father_occupation %>
+</p>
+
+<p>
+  <b>Mother occupation:</b>
+  <%= @family_background.mother_occupation %>
+</p>
+
+
+<%= link_to 'Edit', edit_family_background_path(@family_background) %> |
+<%= link_to 'Back', family_backgrounds_path %>

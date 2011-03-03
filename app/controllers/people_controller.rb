@@ -25,8 +25,17 @@ class PeopleController < ApplicationController
   # GET /people/new
   # GET /people/new.xml
   def new
+    
     @person = Person.new
-
+    @applicant = @person.applicants.build
+    @admission = @applicant.admission.build
+    @ethnicity = Ethnicity.all
+    @nationality = Nationality.all
+    @Admissiontype = AdmissionType.all
+    @Enrollementtype = EnrollementType.all
+    @College = College.all
+    #@AcadamicCalander = AcadamicCalander.all
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @person }
@@ -36,16 +45,26 @@ class PeopleController < ApplicationController
   # GET /people/1/edit
   def edit
     @person = Person.find(params[:id])
+
   end
 
   # POST /people
   # POST /people.xml
   def create
-    @person = Person.new(params[:person])
+    @person = Person.create(params[:person])
+    @applicant = @person.applicants.create(params[:applicants])
+    @admission = @applicant.admission.create(params[:admission])
+    @ethnicity = Ethnicity.all
+    @nationality = Nationality.all
+    @Admissiontype = AdmissionType.all
+    @Enrollementtype = EnrollementType.all
+    @College = College.all
+    #@AcadamicCalander = AcadamicCalander.find.all
+    
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to(@person, :notice => 'Person was successfully created.') }
+        format.html { redirect_to :controller => 'family_backgrounds', :action => 'new', :applicantid => @applicant.id   }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
       else
         format.html { render :action => "new" }

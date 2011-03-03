@@ -16,6 +16,22 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.xml
+
+  def forgot_password
+    
+    if request.post?
+        u = User.find_by_email(params[:users][:email])
+        if u and u.send_new_password
+          
+         # redirect_to :contoller => "users",:action => "forgot_password"
+        else
+          
+        flash[:notice] = "user doesn't exist"
+        
+        end
+    end
+  end
+
   def show
     @user = User.find(params[:id])
 
@@ -85,3 +101,4 @@ class UsersController < ApplicationController
     end
   end
 end
+
