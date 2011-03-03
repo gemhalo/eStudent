@@ -25,7 +25,7 @@ class CollegesController < ApplicationController
   # GET /colleges/new.xml
   def new
     @college = College.new
-
+    @campus = Campus.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @college }
@@ -35,6 +35,7 @@ class CollegesController < ApplicationController
   # GET /colleges/1/edit
   def edit
     @college = College.find(params[:id])
+    @campus = Campus.all
   end
 
   # POST /colleges

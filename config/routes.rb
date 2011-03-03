@@ -1,4 +1,10 @@
 EStudent::Application.routes.draw do
+  resources :departments
+
+  resources :campus
+
+  resources :campuses
+
   netzke
   resources :family_backgrounds
 
