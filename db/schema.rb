@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(:version => 20110302084058) do
     t.integer  "admission_type_id"
   end
 
+  create_table "buildings", :force => true do |t|
+    t.string   "building_name"
+    t.integer  "number_of_rooms"
+    t.integer  "number_of_beds_per_room"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
@@ -71,6 +79,16 @@ ActiveRecord::Schema.define(:version => 20110302084058) do
     t.datetime "updated_at"
   end
 
+  create_table "family_backgrounds", :force => true do |t|
+    t.string   "father_edu_level"
+    t.string   "mother_edu_level"
+    t.string   "father_occupation"
+    t.string   "mother_occupation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "applicant_id"
+  end
+
   create_table "instructors", :force => true do |t|
     t.string   "id_number"
     t.string   "academic_rank"
@@ -80,14 +98,6 @@ ActiveRecord::Schema.define(:version => 20110302084058) do
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  create_table "family_backgrounds", :force => true do |t|
-    t.string   "father_edu_level"
-    t.string   "mother_edu_level"
-    t.string   "father_occupation"
-    t.string   "mother_occupation"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "applicant_id"
   end
 
   create_table "nationalities", :force => true do |t|
