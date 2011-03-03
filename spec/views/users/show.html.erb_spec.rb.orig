@@ -1,0 +1,38 @@
+require 'spec_helper'
+
+describe "users/show.html.erb" do
+  before(:each) do
+    @user = assign(:user, stub_model(User,
+      :username => "Username",
+      :email => "Email",
+<<<<<<< HEAD
+      :crypted_password => "Crypted Password",
+      :password_salt => "Password Salt",
+      :persistence_token => "Persistence Token"
+=======
+      :password => "Password"
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+    ))
+  end
+
+  it "renders attributes in <p>" do
+    render
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Username/)
+<<<<<<< HEAD
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Email/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Crypted Password/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Password Salt/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Persistence Token/)
+=======
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Email/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Password/)
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+  end
+end

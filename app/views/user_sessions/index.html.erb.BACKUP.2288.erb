@@ -1,0 +1,35 @@
+<h1>Listing user_sessions</h1>
+
+<table>
+  <tr>
+<<<<<<< HEAD
+    <th>Username</th>
+    <th>Password</th>
+=======
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_sessions.each do |user_session| %>
+  <tr>
+<<<<<<< HEAD
+    <td><%= user_session.username %></td>
+    <td><%= user_session.password %></td>
+=======
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+    <td><%= link_to 'Show', user_session %></td>
+    <td><%= link_to 'Edit', edit_user_session_path(user_session) %></td>
+    <td><%= link_to 'Destroy', user_session, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User session', new_user_session_path %>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d

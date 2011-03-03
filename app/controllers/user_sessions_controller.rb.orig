@@ -1,0 +1,74 @@
+class UserSessionsController < ApplicationController
+<<<<<<< HEAD
+  # GET /user_sessions
+  # GET /user_sessions.xml
+  def new
+    @user_session = UserSession.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml { render :xml => @user_session }
+=======
+  # GET /user_sessions/new
+  # GET /user_sessions/new.xml
+  def new
+    @user_session = UserSession.new
+    respond_to do |format|
+      format.html # new.html.erb
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+    end
+  end
+
+  # POST /user_sessions
+  # POST /user_sessions.xml
+  def create
+    @user_session = UserSession.new(params[:user_session])
+
+    respond_to do |format|
+      if @user_session.save
+<<<<<<< HEAD
+        format.html { redirect_to(:users, :notice => 'Login Successful') }
+        format.xml { render :xml => @user_session, :status => :created, :location => @user_session }
+      else
+        format.html { render :action => "new" }
+        format.xml { render :xml => @user_session.errors, :status => :unprocessable_entity }
+=======
+        format.html { redirect_to(root_url, :notice => 'Successfully logged in.') }
+        #format.xml  { render :xml => @user_session, :status => :created, :location => @user_session }
+      else
+        format.html { render :action => "new" }
+        #format.xml  { render :xml => @user_session.errors, :status => :unprocessable_entity }
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+      end
+    end
+  end
+
+<<<<<<< HEAD
+  # DELETE /user_sessions/1
+  # DELETE /user_sessions/1.xml
+  def destroy
+    @user_session = UserSession.find
+    @user_session.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(:users, :notice => 'Goodbye!') }
+      format.xml { head :ok }
+    end
+  end
+end
+=======
+
+  # DELETE /user_sessions/1
+  # DELETE /user_sessions/1.xml
+  def destroy
+    @user_session = current_user
+    @user_session.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(root_url, :notice => 'Successfully logged out.') }
+      format.xml  { head :ok }
+    end
+  end
+end
+
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
