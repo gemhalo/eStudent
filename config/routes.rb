@@ -1,4 +1,26 @@
 EStudent::Application.routes.draw do
+  resources :educational_backgrounds
+
+  resources :academic_and_professional_qualifications
+
+  resources :research_and_teaching_experiences
+
+  resources :relevant_publications
+
+  resources :references
+
+  resources :financial_supports
+
+  resources :course_exemptions
+
+  resources :employment_informations
+
+  resources :departments
+
+  resources :department_choices
+
+  resources :emergency_contacts
+
   netzke
   resources :family_backgrounds
 
@@ -13,8 +35,10 @@ EStudent::Application.routes.draw do
   resources :ethnicities
 
   resources :people
-  resources :applicants 
   
+  resources :applicants 
+  get "moes/import"
+  post "moes/import"
   get "sessions/create"
 
   get "sessions/destroy"

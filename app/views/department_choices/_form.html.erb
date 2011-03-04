@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<fieldset>
+<fieldset><legend>Department Choice</legend>
+<%= form_for(@department_choice) do |f| %>
+  <% if @department_choice.errors.any? %><%= link_to 'Next', :controller=> 'relevant_publications', :action => "new" , :applicant_id => @department_choice.applicant_id%>
+    <div id="error_explanation">
+      <h2><%= pluralize(@department_choice.errors.count, "error") %> prohibited this department_choice from being saved:</h2>
+
+      <ul>
+      <% @department_choice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.hidden_field :applicant_id, :value => @applicantid %>
+<table><tr><td><%= f.label :department_id %></td><td><%= f.collection_select(:department_id,@departments,:id,:name,:prompt=>"Select Department") %></td></tr>
+<tr><td><%= f.label :preference %></td> <td><%= f.text_field :preference %></td></tr>
+</table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</fieldset>
+  <fieldset><legend>Department Choice List</legend>
+<%= netzke :department_choices,
+  :model => 'DepartmentChoice',
+  :class_name => 'Basepack::GridPanel',
+  :scope => ["applicant_id = ? ", @applicantid]
+%>
+</fieldset>
+</fieldset>
+<br />
+<!--
+<%= link_to 'Next', :controller=> 'relevant_publications', :action => "new" , :applicant_id => @department_choice.applicant_id%>
+-->

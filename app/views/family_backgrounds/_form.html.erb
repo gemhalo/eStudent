@@ -1,3 +1,5 @@
+<fieldset>
+<fieldset><legend>Family Background</legend>
 <%= form_for(@family_background) do |f| %>
   <% if @family_background.errors.any? %>
     <div id="error_explanation">
@@ -11,50 +13,23 @@
     </div>
   <% end %>
   <%= f.hidden_field :applicant_id, :value => @applicantid %>
-  <div class="field">
-    <%= f.label :father_edu_level %><br />
-    <%= f.text_field :father_edu_level %>
-  </div>
-  <div class="field">
-    <%= f.label :mother_edu_level %><br />
-    <%= f.text_field :mother_edu_level %>
-  </div>
-  <div class="field">
-    <%= f.label :father_occupation %><br />
-    <%= f.text_field :father_occupation %>
-  </div>
-  <div class="field">
-    <%= f.label :mother_occupation %><br />
-    <%= f.text_field :mother_occupation %>
-  </div>
+<table>
+  <tr><td><%= f.label :father_edu_level %></td><td> <%= f.text_field :father_edu_level %></td><td><%= f.label :father_occupation %></td><td><%= f.text_field :father_occupation %></td></tr>
+  <tr><td><%= f.label :mother_edu_level %></td><td><%= f.text_field :mother_edu_level %></td><td><%= f.label :mother_occupation %></td><td><%= f.text_field :mother_occupation %></td></tr>
+</table>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-<% if @family_backgrounds != nil  %>
-<table>
-  <tr>
-    <th>Father edu level</th>
-    <th>Mother edu level</th>
-    <th>Father occupation</th>
-    <th>Mother occupation</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @family_backgrounds.each do |family_background| %>
-  <tr>
-    <td><%= family_background.father_edu_level %></td>
-    <td><%= family_background.mother_edu_level %></td>
-    <td><%= family_background.father_occupation %></td>
-    <td><%= family_background.mother_occupation %></td>
-    <td><%= link_to 'Edit', edit_family_background_path(family_background) %></td>
-    <td><%= link_to 'Destroy', family_background, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-<% end %>
+  </fieldset>
+<fieldset><legend>Family Background List</legend>
+ <%= netzke :family_backgrounds,
+  :model => 'FamilyBackground',
+  :class_name => 'Basepack::GridPanel',
+  :scope =>  ["applicant_id = ?", @applicantid]
+%>
+</fieldset>
+  </fieldset>
 <br />
 
-<%= link_to 'New Family background', new_family_background_path %>
+<%= link_to 'Next', :controller=> 'emergency_contacts', :action => 'new' , :applicant_id => @applicantid%>

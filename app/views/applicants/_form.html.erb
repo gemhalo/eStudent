@@ -35,7 +35,8 @@
         <td><%= p.label :marital_status %></td>
         <td><%= p.select :marital_status,["Married","Single","Divorced","Widow"],:prompt=>"Select Marital Status" %></td></tr>
         <tr><td><%= p.label :photo %></td>
-        <td><%= p.text_field :photo %></td></tr>
+        <td><%=  p.file_field :photo %></td>
+        </tr>
         </table>
      <% end %>   
     </fieldset><br></br>

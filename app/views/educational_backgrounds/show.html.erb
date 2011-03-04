@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Institution type:</b>
+  <%= @educational_background.institution_type %>
+</p>
+
+<p>
+  <b>Institution name:</b>
+  <%= @educational_background.institution_name %>
+</p>
+
+<p>
+  <b>Region:</b>
+  <%= @educational_background.region %>
+</p>
+
+<p>
+  <b>Zone:</b>
+  <%= @educational_background.zone %>
+</p>
+
+<p>
+  <b>Town:</b>
+  <%= @educational_background.town %>
+</p>
+
+<p>
+  <b>Result:</b>
+  <%= @educational_background.result %>
+</p>
+
+<p>
+  <b>Out of:</b>
+  <%= @educational_background.out_of %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%= @educational_background.department %>
+</p>
+
+<p>
+  <b>College leave reason:</b>
+  <%= @educational_background.college_leave_reason %>
+</p>
+
+<p>
+  <b>Applicant:</b>
+  <%= @educational_background.applicant_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_educational_background_path(@educational_background) %> |
+<%= link_to 'Back', educational_backgrounds_path %>

@@ -1,0 +1,38 @@
+<fieldset>
+<fieldset><legend>Course Exemption (if any)</legend>
+<%= form_for(@course_exemption) do |f| %>
+  <% if @course_exemption.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course_exemption.errors.count, "error") %> prohibited this course_exemption from being saved:</h2>
+
+      <ul>
+      <% @course_exemption.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.hidden_field :applicant_id, :value => @applicantid %>
+<table><tr><td><%= f.label :course_name %></td><td><%= f.text_field :course_name %></td></tr>
+  <tr><td><%= f.label :credit_hour %></td><td><%= f.text_field :credit_hour %></td></tr>
+</table>
+<%= f.submit  %>
+<% end %>
+</fieldset>
+  <fieldset><legend>Course Exemption List</legend>
+<%= netzke :course_exemptions,
+  :model => 'CourseExemption',
+  :class_name => 'Basepack::GridPanel',
+  :scope => ["applicant_id = ? ", @applicantid]
+%>
+  </fieldset>
+</fieldset>
+
+<br />
+<%  if @admission.admission_type_id == 1 %>
+
+<%= link_to 'Next', :controller=> 'department_choices', :action => "new" , :applicant_id => @applicantid%>
+
+<% elsif @admission.admission_type_id == 2 %>
+<%= link_to 'Next', :controller=> 'relevant_publications', :action => "new" , :applicant_id =>@applicantid%>
+<%end%>

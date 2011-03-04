@@ -32,12 +32,15 @@ class ApplicantsController < ApplicationController
 
     respond_to do |format|
       if @applicant.save
-        format.html { redirect_to(new_family_background_path,:applicant_id => @applicant.id, :notice => 'College was successfully created.') }
+       format.html { redirect_to :controller => 'family_backgrounds', :action => 'new', :applicant_id => @applicant.id }
         
       else
         format.html { render :action => "new",:notice => "There was an error" }
       end
     end
+  end
+  def edit
+    @applicant = Applicant.find(params[:applicant_id])
   end
   def update
     #TODO

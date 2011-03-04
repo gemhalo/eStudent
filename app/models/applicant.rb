@@ -2,6 +2,16 @@ class Applicant < ActiveRecord::Base
   belongs_to :person
   has_many :admission
   has_many :family_background
+  has_many :emergency_contact
+  has_many :department_choice
+  has_many :employment_information
+  has_many :course_exemption
+  has_many :financial_support
+  has_many :reference
+  has_many :relevant_publication
+  has_many :research_and_teaching_experience
+  has_many :academic_and_professional_qualification
+  has_many :educational_background
   after_initialize :init_person
   after_save :save_person
  # accepts_nested_attributes_for :person

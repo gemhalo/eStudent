@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @research_and_teaching_experience.description %>
+</p>
+
+<p>
+  <b>Applicant:</b>
+  <%= @research_and_teaching_experience.applicant_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_research_and_teaching_experience_path(@research_and_teaching_experience) %> |
+<%= link_to 'Back', research_and_teaching_experiences_path %>

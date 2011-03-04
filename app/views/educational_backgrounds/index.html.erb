@@ -1,0 +1,41 @@
+<h1>Listing educational_backgrounds</h1>
+
+<table>
+  <tr>
+    <th>Institution type</th>
+    <th>Institution name</th>
+    <th>Region</th>
+    <th>Zone</th>
+    <th>Town</th>
+    <th>Result</th>
+    <th>Out of</th>
+    <th>Department</th>
+    <th>College leave reason</th>
+    <th>Applicant</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @educational_backgrounds.each do |educational_background| %>
+  <tr>
+    <td><%= educational_background.institution_type %></td>
+    <td><%= educational_background.institution_name %></td>
+    <td><%= educational_background.region %></td>
+    <td><%= educational_background.zone %></td>
+    <td><%= educational_background.town %></td>
+    <td><%= educational_background.result %></td>
+    <td><%= educational_background.out_of %></td>
+    <td><%= educational_background.department %></td>
+    <td><%= educational_background.college_leave_reason %></td>
+    <td><%= educational_background.applicant_id %></td>
+    <td><%= link_to 'Show', educational_background %></td>
+    <td><%= link_to 'Edit', edit_educational_background_path(educational_background) %></td>
+    <td><%= link_to 'Destroy', educational_background, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Educational background', new_educational_background_path %>

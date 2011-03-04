@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Course name:</b>
+  <%= @course_exemption.course_name %>
+</p>
+
+<p>
+  <b>Credit hour:</b>
+  <%= @course_exemption.credit_hour %>
+</p>
+
+<p>
+  <b>Applicant:</b>
+  <%= @course_exemption.applicant_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_course_exemption_path(@course_exemption) %> |
+<%= link_to 'Back', course_exemptions_path %>

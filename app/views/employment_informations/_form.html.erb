@@ -1,0 +1,37 @@
+<fieldset>
+<fieldset><legend>Employment Information (if any)</legend>
+<%= form_for(@employment_information) do |f| %>
+  <% if @employment_information.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employment_information.errors.count, "error") %> prohibited this employment_information from being saved:</h2>
+
+      <ul>
+      <% @employment_information.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.hidden_field :applicant_id, :value => @applicantid %>
+<table>
+  <tr><td> <%= f.label :job_type %></td><td><%= f.text_field :job_type %></td><td><%= f.label :employer_telephone %></td><td><%= f.text_field :employer_telephone %></td></tr>
+  <tr><td><%= f.label :employer_name %></td><td><%= f.text_field :employer_name %></td><td><%= f.label :employer_pobox %></td><td><%= f.text_field :employer_pobox %></td></tr>
+  <tr><td><%= f.label :employer_email %></td><td><%= f.text_field :employer_email %></td></tr>
+
+</table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</fieldset>
+  <fieldset><legend>Employment Information</legend>
+<%= netzke :employment_informations,
+  :model => 'EmploymentInformation',
+  :class_name => 'Basepack::GridPanel',
+  :scope => ["applicant_id = ?", @applicantid]
+%>
+</fieldset>
+</fieldset>
+<br />
+
+<%= link_to 'Next', :controller=> 'course_exemptions', :action => 'new' , :applicant_id => @applicantid %>

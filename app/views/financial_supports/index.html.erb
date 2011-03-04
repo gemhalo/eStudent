@@ -1,0 +1,39 @@
+<h1>Listing financial_supports</h1>
+
+<table>
+  <tr>
+    <th>Supporter type</th>
+    <th>Supporter name</th>
+    <th>Supporter telephone</th>
+    <th>Supporter pobox</th>
+    <th>Email</th>
+    <th>Attachment file name</th>
+    <th>Attachment content type</th>
+    <th>Attachment file size</th>
+    <th>Applicant</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @financial_supports.each do |financial_support| %>
+  <tr>
+    <td><%= financial_support.supporter_type %></td>
+    <td><%= financial_support.supporter_name %></td>
+    <td><%= financial_support.supporter_telephone %></td>
+    <td><%= financial_support.supporter_pobox %></td>
+    <td><%= financial_support.email %></td>
+    <td><%= financial_support.attachment_file_name %></td>
+    <td><%= financial_support.attachment_content_type %></td>
+    <td><%= financial_support.attachment_file_size %></td>
+    <td><%= financial_support.applicant_id %></td>
+    <td><%= link_to 'Show', financial_support %></td>
+    <td><%= link_to 'Edit', edit_financial_support_path(financial_support) %></td>
+    <td><%= link_to 'Destroy', financial_support, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Financial support', new_financial_support_path %>
