@@ -5,5 +5,5 @@ class Campus < ActiveRecord::Base
   validates_format_of     :campus_email,
                           :with       => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
                           :message    => 'email must be valid'
-  validates_length_of :campus_telephone, :is => 10, :message => 'must be 10 digits, excluding special characters such as spaces and dashes. No extension or country code allowed.', :if => Proc.new{|o| !o.campus_telephone.blank?}
+  #validates_length_of :campus_telephone, :is => 5, :message => 'must be 5 digits, excluding special characters such as spaces and dashes. No extension or country code allowed.', :if => Proc.new{|o| !o.campus_telephone.blank?}
 end
