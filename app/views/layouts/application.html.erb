@@ -11,6 +11,7 @@
 <div style="padding:10px;">
 <div class="user_nav">
   <% if current_user %>
+  Welcome <%= current_user.person.name%><br/>
     <%= link_to 'Edit Profile', edit_user_path(current_user.id) %> |
     <%= link_to 'Logout', logout_path %>
   <% else %>
