@@ -1,20 +1,17 @@
 EStudent::Application.routes.draw do
   netzke
-<<<<<<< HEAD
-  root :to => "users#index"
+  root :to => "welcome#index"
+  resources :family_backgrounds
   resources :colleges
   resources :admission_types
   resources :enrollement_types
   resources :nationalities
   resources :ethnicities
   resources :people
-  #get "sessions/create"
-  #get "sessions/destroy"
+
   get   'login(.:format)' => 'sessions#create',  :as => :login
   get   'logout(.:format)'  => 'sessions#destroy', :as => :logout
   resources :sessions
-=======
-  resources :family_backgrounds
 
   resources :colleges
 
@@ -25,13 +22,33 @@ EStudent::Application.routes.draw do
   resources :nationalities
 
   resources :ethnicities
+  #post 'student_service_staffs/index'
+  
+  
+  #post 'student_service_staffs/show'
+  #get  'student_service_staffs/sample'  
+  
+  get  'student_service_staffs/selector' 
+  post 'student_service_staffs/selector'
+  
+  resources :student_service_staffs
+  
+  
+  #resources :studentservicestaffs
+  
 
   resources :people
+<<<<<<< HEAD
+  resources :applicants
+
+=======
+
   resources :applicants 
   
+>>>>>>> 89124b1e8d8b5b9c59f250a9662956ecf7332c21
   get "sessions/create"
->>>>>>> d0b57368f0d7ad0e6237dc37444d60be44cc3eb7
 
+  get "sessions/destroy"
 
   resources :users do
     collection do
@@ -46,6 +63,9 @@ EStudent::Application.routes.draw do
   #post   'login(.:format)'  => 'user_sessions#create',  :as => :login
   #should be delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
   #get 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
+
+  resources :sessions
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -104,4 +124,7 @@ EStudent::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+<<<<<<< HEAD
 
+=======
+>>>>>>> 89124b1e8d8b5b9c59f250a9662956ecf7332c21

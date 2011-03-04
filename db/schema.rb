@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110303064807) do
+ActiveRecord::Schema.define(:version => 20110224170038) do
 
   create_table "admission_types", :force => true do |t|
     t.string   "name"
@@ -103,6 +103,19 @@ ActiveRecord::Schema.define(:version => 20110303064807) do
     t.datetime "updated_at"
   end
 
+  create_table "netzke_component_states", :force => true do |t|
+    t.string   "component"
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "netzke_component_states", ["component"], :name => "index_netzke_component_states_on_component"
+  add_index "netzke_component_states", ["role_id"], :name => "index_netzke_component_states_on_role_id"
+  add_index "netzke_component_states", ["user_id"], :name => "index_netzke_component_states_on_user_id"
+
   create_table "people", :force => true do |t|
     t.string   "name"
     t.string   "father_name"
@@ -120,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20110303064807) do
     t.integer  "user_id"
   end
 
+<<<<<<< HEAD
   create_table "programs", :force => true do |t|
     t.string   "program_id"
     t.string   "program_name"
@@ -134,6 +148,8 @@ ActiveRecord::Schema.define(:version => 20110303064807) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> 91f44b2b15cf230314cec49aba587ee12605315e
   create_table "student_service_staffs", :force => true do |t|
     t.string   "id_number"
     t.string   "rank"

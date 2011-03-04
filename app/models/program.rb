@@ -1,3 +1,5 @@
 class Program < ActiveRecord::Base
-  belongs_to :department
+
+#has_many :curriculum
+#has_many :course, :through => :curriculum
 end
