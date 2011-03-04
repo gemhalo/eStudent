@@ -34,7 +34,7 @@ class UserSessionsController < ApplicationController
     @user_session.destroy
 
     respond_to do |format|
-      format.html { redirect_to(:users, :notice => 'Goodbye!') }
+      format.html { redirect_to(:action=>'new', :notice => 'Goodbye!') }
       format.xml { head :ok }
     end
   end

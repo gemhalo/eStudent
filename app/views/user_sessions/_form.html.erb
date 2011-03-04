@@ -10,7 +10,8 @@
       </ul>
     </div>
   <% end %>
-
+<fieldset>
+  <legend> Please Login</legend>
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username %>
@@ -20,6 +21,8 @@
     <%= f.password_field :password %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Login" %>
   </div>
+</fieldset>
+  
 <% end %>
