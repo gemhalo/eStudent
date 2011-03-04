@@ -42,7 +42,7 @@ class CollegesController < ApplicationController
   # POST /colleges.xml
   def create
     @college = College.new(params[:college])
-
+@campus = Campus.all
     respond_to do |format|
       if @college.save
         format.html { redirect_to(@college, :notice => 'College was successfully created.') }
