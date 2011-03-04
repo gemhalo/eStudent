@@ -146,11 +146,6 @@ ActiveRecord::Schema.define(:version => 20110302084058) do
     t.integer  "person_id"
   end
 
-  create_table "user_sessions", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "email"
