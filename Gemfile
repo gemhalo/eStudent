@@ -3,7 +3,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.4'
 gem 'authlogic'
-#We will enable this when we want to work with  Bundle edge Rails instead:
+gem 'cancan'
+#We will enable this when we want to work with  Bundle edge Rails instead: 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem  'will_paginate', '~>3.0.pre2'

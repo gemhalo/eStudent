@@ -1,8 +1,8 @@
 <%= form_for(@user_session) do |f| %>
   <% if @user_session.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user_session.errors.count, "error") %>
-      prohibited this user_session from being saved:</h2>
+      <h2><%= pluralize(@user_session.errors.count, "error") %> prohibited this user_session from being saved:</h2>
+
       <ul>
       <% @user_session.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -16,19 +16,10 @@
     <%= f.text_field :username %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
+  <div class="actions">
     <%= f.submit %>
   </div>
-
 <% end %>
-

@@ -5,7 +5,9 @@ describe "users/show.html.erb" do
     @user = assign(:user, stub_model(User,
       :username => "Username",
       :email => "Email",
-      :password => "Password"
+      :crypted_password => "Crypted Password",
+      :password_salt => "Password Salt",
+      :persistence_token => "Persistence Token"
     ))
   end
 
@@ -16,6 +18,10 @@ describe "users/show.html.erb" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Email/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Password/)
+    rendered.should match(/Crypted Password/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Password Salt/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Persistence Token/)
   end
 end

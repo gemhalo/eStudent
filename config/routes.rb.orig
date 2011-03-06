@@ -1,6 +1,21 @@
 EStudent::Application.routes.draw do
+<<<<<<< HEAD
+
+  
+
+  resources :buildings
+  get "dormitory_placement/place_dorm"
+
+  resources :users, :user_sessions
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+
+
+  resources :instructors
+=======
   netzke
-  root :to => "welcome#index"
+  #root :to => "welcome#index"
+  root :to => "users#index"
   resources :family_backgrounds
   resources :colleges
   resources :admission_types
@@ -12,6 +27,7 @@ EStudent::Application.routes.draw do
   get   'login(.:format)' => 'sessions#create',  :as => :login
   get   'logout(.:format)'  => 'sessions#destroy', :as => :logout
   resources :sessions
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
 
   resources :colleges
 
@@ -38,14 +54,16 @@ EStudent::Application.routes.draw do
   
 
   resources :people
-<<<<<<< HEAD
   resources :applicants
 
-=======
-
-  resources :applicants 
+<<<<<<< HEAD
+  netzke
   
->>>>>>> 89124b1e8d8b5b9c59f250a9662956ecf7332c21
+  get "department_head/index"
+  get "department_head/show_list"
+  get "department_head/details"
+  get "department_head/approve"
+=======
   get "sessions/create"
 
   get "sessions/destroy"
@@ -67,6 +85,7 @@ EStudent::Application.routes.draw do
   resources :sessions
 
 
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -124,7 +143,3 @@ EStudent::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
-<<<<<<< HEAD
-
-=======
->>>>>>> 89124b1e8d8b5b9c59f250a9662956ecf7332c21

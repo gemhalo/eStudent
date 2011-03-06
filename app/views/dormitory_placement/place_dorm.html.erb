@@ -1,0 +1,13 @@
+<pre>
+  <% form_for :Building do |f| %>
+  Building Name:  <%= f.collection_select :building_name, @buildings, :id, :building_name, :prompt=>"Select A Buiding" %>
+  
+  College:        <%= f.collection_select :College, @colleges, :id, :name, :prompt=>"Select a College" %>
+
+  Department:     <%= f.text_field :department, :size=>15  %>
+
+Sex               <%=f.select :sex, ["Male", "Female"], :prompt=>"Select Sex" %>
+
+            <%= f.submit "Place"  %>
+<% end %>
+</pre>

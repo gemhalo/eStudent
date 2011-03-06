@@ -1,15 +1,5 @@
 class User < ActiveRecord::Base
 <<<<<<< HEAD
-  validates :username,  :presence => true, :uniqueness => true
-  validates :email,     :presence => true, :uniqueness => true
-
-  #, :email_format => true
-
-  acts_as_authentic do |c|
-    c.login_field = :username          # username is the login field
-    c. validate_login_field = false # There is no login field, so don't validate it
-  end
-=======
 	validates :user_name, :presence => true, :uniqueness => true
 	validates :password, :confirmation => true
 	attr_accessor :password_confirmation
@@ -21,21 +11,21 @@ class User < ActiveRecord::Base
             :uniqueness => true,
             :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
-	
+
 	class << self
-		def authenticate(name, password)
+		def authenticate(user_name, password)
 			if user = find_by_user_name(name)
 				if user.hashed_password == encrypt_password(password, user.salt)
 					user
 				end
 			end
 		end
-	
+
 		def encrypt_password(password, salt)
 			Digest::SHA2.hexdigest(password + "wibble" + salt)
 		end
 	end
-	
+
 	# 'password' is a virtual attribute
 	def password=(password)
 		@password = password
@@ -49,7 +39,7 @@ class User < ActiveRecord::Base
     new_pass = User.random_string(10)
     self.password = self.password_confirmation = new_pass
     self.save
-    
+
     Notification.deliver_forgot_password(self.email,user_name,  new_pass)
   end
 
@@ -61,19 +51,19 @@ class User < ActiveRecord::Base
     return newpass
   end
 
-
-
-
-
 	private
-	
+
 	def password_must_be_present
 		errors.add(:password, "Missing") unless hashed_password.present?
 	end
-	
-	def generate_salt
-		self.salt = self.object_id.to_s + rand.to_s
-	end	
->>>>>>> ee4839a2411237d727b40d00e87d4e522e2d6d84
+=======
+  belongs_to :person
+  acts_as_authentic
+>>>>>>> 984cfd37ef455dff381ce8d0990ce38d14b45d96
+
+	ROLES = %w[admin student  guest]
+	def role?(base_role)
+  		ROLES.index(base_role.to_s) <= ROLES.index(role)
+	end
 end
 

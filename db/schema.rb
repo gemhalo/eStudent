@@ -10,7 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110224170038) do
+ActiveRecord::Schema.define(:version => 20110304075358) do
+
+  create_table "abilities", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "admission_types", :force => true do |t|
     t.string   "name"
@@ -40,6 +45,14 @@ ActiveRecord::Schema.define(:version => 20110224170038) do
     t.boolean  "verified",                 :default => false
     t.integer  "student_service_staff_id"
     t.integer  "admission_type_id"
+  end
+
+  create_table "buildings", :force => true do |t|
+    t.string   "building_name"
+    t.integer  "number_of_rooms"
+    t.integer  "number_of_beds_per_room"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "colleges", :force => true do |t|
@@ -75,6 +88,11 @@ ActiveRecord::Schema.define(:version => 20110224170038) do
     t.datetime "updated_at"
   end
 
+  create_table "department_heads", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "enrollement_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -95,6 +113,17 @@ ActiveRecord::Schema.define(:version => 20110224170038) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "applicant_id"
+  end
+
+  create_table "instructors", :force => true do |t|
+    t.string   "id_number"
+    t.string   "academic_rank"
+    t.string   "specialization"
+    t.integer  "role_id"
+    t.integer  "department_id"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "nationalities", :force => true do |t|
@@ -133,9 +162,8 @@ ActiveRecord::Schema.define(:version => 20110224170038) do
     t.integer  "user_id"
   end
 
-<<<<<<< HEAD
   create_table "programs", :force => true do |t|
-    t.string   "program_id"
+    t.string   "program_id_number"
     t.string   "program_name"
     t.string   "level"
     t.integer  "enrollment_type"
@@ -148,8 +176,6 @@ ActiveRecord::Schema.define(:version => 20110224170038) do
     t.datetime "updated_at"
   end
 
-=======
->>>>>>> 91f44b2b15cf230314cec49aba587ee12605315e
   create_table "student_service_staffs", :force => true do |t|
     t.string   "id_number"
     t.string   "rank"
@@ -180,6 +206,8 @@ ActiveRecord::Schema.define(:version => 20110224170038) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "person_id"
+    t.string   "role"
   end
 
 end

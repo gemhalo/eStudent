@@ -18,9 +18,16 @@ EStudent::Application.routes.draw do
   resources :ethnicities
   resources :people
 
-  get   'login(.:format)' => 'sessions#create',  :as => :login
-  get   'logout(.:format)'  => 'sessions#destroy', :as => :logout
-  resources :sessions
+ 
+  resources :buildings
+  get "dormitory_placement/place_dorm"
+
+  resources :users, :user_sessions
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+
+
+  resources :instructors
 
   resources :colleges
 
@@ -49,27 +56,12 @@ EStudent::Application.routes.draw do
   resources :people
   resources :applicants
 
-  get "sessions/create"
-
-  get "sessions/destroy"
-
-  resources :users do
-    collection do
-      post 'forgot_password'
-      get 'forgot_password'
-
-    end
-  end
-  resources :user_sessions
-
-  #get    'login(.:format)'  => 'user_sessions#new',     :as => :login
-  #post   'login(.:format)'  => 'user_sessions#create',  :as => :login
-  #should be delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
-  #get 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
-
-  resources :sessions
-
-
+  netzke
+  
+  get "department_head/index"
+  get "department_head/show_list"
+  get "department_head/details"
+  get "department_head/approve"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   # GET /users
   # GET /users.xml
   def index
@@ -8,6 +9,9 @@ class UsersController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @users }
     end
+  end
+  def assign_roles
+    
   end
 
   # GET /users/1
@@ -50,7 +54,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -60,11 +64,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(root_url, :notice => 'Registration successful.') }
-        #format.xml  { render :xml => @user, :status => :created, :location => @user }
+        format.html { redirect_to(@user, :notice => 'User was successfully created.') }
+        format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
-        #format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -72,7 +76,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
-    @user = current_user
+    @user = User.find(params[:id])
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

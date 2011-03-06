@@ -1,6 +1,39 @@
 
-<%= netzke :curriculums,
-  :class_name => "Basepack::FormPanel",
-  :model => 'Curriculum'
-%>
+<h1>Listing curriculums</h1>
 
+<table border="1">
+  <tr>
+    <th>Course</th>
+    <th>Program</th>
+    <th>Course type</th>
+    <th>Semester</th>
+    <th>Class year</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @curriculums.each do |curriculum| %>
+  <% course = Course.find(curriculum.course_id) %>
+  <% program = Program.find(curriculum.program_id) %>
+  <% course_type =CourseType.find(curriculum.course_type) %>
+  <%# semester = Course.find(curriculum.semester_id ) %>
+  <%# class_year = Class_year.find(curriculum.class_year_id) %>
+ 
+ <tr>
+
+    <td><%= course.course_code %></td>
+    <td><%= program.program_name %></td>
+    <td><%= course_type.name %></td>
+    <td><%= curriculum.semester_id %></td>
+    <td><%= curriculum.class_year_id %></td>
+    <td><%= link_to 'Show', curriculum %></td>
+    <td><%= link_to 'Edit', edit_curriculum_path(curriculum) %></td>
+    <td><%= link_to 'Destroy', curriculum, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Curriculum', new_curriculum_path %>
