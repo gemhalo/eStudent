@@ -10,8 +10,7 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @users }
     end
   end
-  def assign_roles
-    
+  def assign_roles  
   end
 
   # GET /users/1
@@ -64,7 +63,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(@user, :notice => 'User was successfully created.') }
+        format.html { redirect_to(@user, :notice => 'Registration successfull') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

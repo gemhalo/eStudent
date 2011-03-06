@@ -1,7 +1,0 @@
-class Admission < ActiveRecord::Base
-  belongs_to :applicant
-<<<<<<< HEAD
-=======
-  
->>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
-end
