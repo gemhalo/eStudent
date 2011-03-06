@@ -1,15 +1,26 @@
 EStudent::Application.routes.draw do
+  resources :educational_backgrounds
 
- 
-  resources :buildings
-  get "dormitory_placement/place_dorm"
+  resources :academic_and_professional_qualifications
 
-  resources :users, :user_sessions
-  match 'login' => 'user_sessions#new', :as => :login
-  match 'logout' => 'user_sessions#destroy', :as => :logout
+  resources :research_and_teaching_experiences
 
+  resources :relevant_publications
 
-  resources :instructors
+  resources :references
+
+  resources :financial_supports
+
+  resources :course_exemptions
+
+  resources :employment_informations
+
+  resources :departments
+
+  resources :department_choices
+
+  resources :emergency_contacts
+
   netzke
   #root :to => "welcome#index"
   root :to => "users#index"
@@ -21,9 +32,17 @@ EStudent::Application.routes.draw do
   resources :ethnicities
   resources :people
 
-  get   'login(.:format)' => 'sessions#create',  :as => :login
-  get   'logout(.:format)'  => 'sessions#destroy', :as => :logout
-  resources :sessions
+ 
+  resources :buildings
+  get "dormitory_placement/place_dorm"
+  get "dormitory_placement/show_placement"
+
+  resources :users, :user_sessions
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+
+
+  resources :instructors
 
   resources :colleges
 
@@ -34,6 +53,27 @@ EStudent::Application.routes.draw do
   resources :nationalities
 
   resources :ethnicities
+<<<<<<< HEAD
+
+  resources :people
+  
+  resources :applicants 
+  get "moes/import"
+  post "moes/import"
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  resources :users do
+    collection do
+      post 'forgot_password'
+      get 'forgot_password'
+           
+    end
+  end
+
+ 
+=======
   #post 'student_service_staffs/index'
   
   
@@ -48,6 +88,7 @@ EStudent::Application.routes.draw do
   
   #resources :studentservicestaffs
   
+>>>>>>> 8bb4661c19656dc740ea81d0f6012c0a56717b8b
 
   resources :people
   resources :applicants
@@ -58,28 +99,6 @@ EStudent::Application.routes.draw do
   get "department_head/show_list"
   get "department_head/details"
   get "department_head/approve"
-
-  get "sessions/create"
-
-  get "sessions/destroy"
-
-  resources :users do
-    collection do
-      post 'forgot_password'
-      get 'forgot_password'
-
-    end
-  end
-  resources :user_sessions
-
-  #get    'login(.:format)'  => 'user_sessions#new',     :as => :login
-  #post   'login(.:format)'  => 'user_sessions#create',  :as => :login
-  #should be delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
-  #get 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
-
-  resources :sessions
-
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
