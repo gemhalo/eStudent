@@ -1,0 +1,11 @@
+
+<div align="center">
+  <p>HOD Index Page</p>
+  <p>welcome <%= (session[:user_name]) %></p>
+  <p><u>Pending approvals<u/></p>
+  
+  <%= link_to "Admissions", :action=>"show_list" %>(<%= @applicants.count  %>) <br/><br/>
+</div>
+
+
+

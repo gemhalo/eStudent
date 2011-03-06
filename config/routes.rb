@@ -6,7 +6,27 @@ EStudent::Application.routes.draw do
   resources :campuses
 
   netzke
+  #root :to => "welcome#index"
+  root :to => "users#index"
   resources :family_backgrounds
+  resources :colleges
+  resources :admission_types
+  resources :enrollement_types
+  resources :nationalities
+  resources :ethnicities
+  resources :people
+
+ 
+  resources :buildings
+  get "dormitory_placement/place_dorm"
+  get "dormitory_placement/show_placement"
+
+  resources :users, :user_sessions
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+
+
+  resources :instructors
 
   resources :colleges
 
@@ -17,27 +37,30 @@ EStudent::Application.routes.draw do
   resources :nationalities
 
   resources :ethnicities
+  #post 'student_service_staffs/index'
+  
+  
+  #post 'student_service_staffs/show'
+  #get  'student_service_staffs/sample'  
+  
+  get  'student_service_staffs/selector' 
+  post 'student_service_staffs/selector'
+  
+  resources :student_service_staffs
+  
+  
+  #resources :studentservicestaffs
+  
 
   resources :people
-  resources :applicants 
+  resources :applicants
+
+  netzke
   
-  get "sessions/create"
-
-  get "sessions/destroy"
-
-  resources :users do
-    collection do
-      post 'forgot_password'
-      get 'forgot_password'
-           
-    end
-  end
-
- 
-
-  resources :sessions
-
-  
+  get "department_head/index"
+  get "department_head/show_list"
+  get "department_head/details"
+  get "department_head/approve"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

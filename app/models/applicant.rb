@@ -1,12 +1,12 @@
 class Applicant < ActiveRecord::Base
   belongs_to :person
-  has_many :admission
-  has_many :family_background
+  has_many   :admission
+  has_many   :family_background
   after_initialize :init_person
   after_save :save_person
  # accepts_nested_attributes_for :person
-  
- 
+
+
 
   def full_name
     self.person.full_name
@@ -20,8 +20,7 @@ class Applicant < ActiveRecord::Base
   def grand_father_name
     self.person.grand_father_name
   end
-  def self.person_attributes=(person_attributes)
-    logger.info("----------sss-----#{person_attributes}----------")
+  def person_attributes=(person_attributes)
     person_attributes.each do |attributes|
       person.build(attributes)
     end
@@ -35,9 +34,9 @@ class Applicant < ActiveRecord::Base
   end
 
   def save_person
-   
     self.person.save!
   end
 
-  
+
 end
+

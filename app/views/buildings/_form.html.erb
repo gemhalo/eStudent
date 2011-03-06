@@ -1,0 +1,29 @@
+<%= form_for(@building) do |f| %>
+  <% if @building.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@building.errors.count, "error") %> prohibited this building from being saved:</h2>
+
+      <ul>
+      <% @building.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :building_name %><br />
+    <%= f.text_field :building_name %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_rooms %><br />
+    <%= f.text_field :number_of_rooms %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_beds_per_room %><br />
+    <%= f.text_field :number_of_beds_per_room %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

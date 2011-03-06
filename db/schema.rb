@@ -10,7 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110303065427) do
+ActiveRecord::Schema.define(:version => 20110304120136) do
+
+  create_table "abilities", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "admission_types", :force => true do |t|
     t.string   "name"
@@ -35,7 +40,17 @@ ActiveRecord::Schema.define(:version => 20110303065427) do
 
   create_table "applicants", :force => true do |t|
     t.integer  "person_id"
-    t.integer  "admission_status_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "verified",                 :default => false
+    t.integer  "student_service_staff_id"
+    t.integer  "admission_type_id"
+  end
+
+  create_table "buildings", :force => true do |t|
+    t.string   "building_name"
+    t.integer  "number_of_rooms"
+    t.integer  "number_of_beds_per_room"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,6 +86,13 @@ ActiveRecord::Schema.define(:version => 20110303065427) do
     t.datetime "updated_at"
   end
 
+  create_table "dormitories", :force => true do |t|
+    t.integer  "student_id"
+    t.string   "dorm"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "enrollement_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -93,11 +115,35 @@ ActiveRecord::Schema.define(:version => 20110303065427) do
     t.integer  "applicant_id"
   end
 
+  create_table "instructors", :force => true do |t|
+    t.string   "id_number"
+    t.string   "academic_rank"
+    t.string   "specialization"
+    t.integer  "role_id"
+    t.integer  "department_id"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "nationalities", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "netzke_component_states", :force => true do |t|
+    t.string   "component"
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "netzke_component_states", ["component"], :name => "index_netzke_component_states_on_component"
+  add_index "netzke_component_states", ["role_id"], :name => "index_netzke_component_states_on_role_id"
+  add_index "netzke_component_states", ["user_id"], :name => "index_netzke_component_states_on_user_id"
 
   create_table "people", :force => true do |t|
     t.string   "name"
@@ -113,17 +159,46 @@ ActiveRecord::Schema.define(:version => 20110303065427) do
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+  end
+
+  create_table "student_service_staffs", :force => true do |t|
+    t.string   "id_number"
+    t.string   "rank"
+    t.integer  "qualification_type_id"
+    t.integer  "role_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "person_id"
+  end
+
+  create_table "students", :force => true do |t|
+    t.string   "id_number"
+    t.integer  "department_id"
+    t.integer  "enrollment_type_id"
+    t.integer  "admission_type_id"
+    t.integer  "program_id"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "user_name"
-    t.string   "hashed_password"
-    t.string   "salt"
+    t.string   "username"
     t.string   "email"
-    t.date     "last_login"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.integer  "login_count",        :default => 0, :null => false
+    t.integer  "failed_login_count", :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
+    t.integer  "person_id"
   end
 
 end

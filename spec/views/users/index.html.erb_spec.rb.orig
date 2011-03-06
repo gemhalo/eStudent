@@ -1,0 +1,51 @@
+require 'spec_helper'
+
+describe "users/index.html.erb" do
+  before(:each) do
+    assign(:users, [
+      stub_model(User,
+        :username => "Username",
+        :email => "Email",
+<<<<<<< HEAD
+        :crypted_password => "Crypted Password",
+        :password_salt => "Password Salt",
+        :persistence_token => "Persistence Token"
+=======
+        :password => "Password"
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+      ),
+      stub_model(User,
+        :username => "Username",
+        :email => "Email",
+<<<<<<< HEAD
+        :crypted_password => "Crypted Password",
+        :password_salt => "Password Salt",
+        :persistence_token => "Persistence Token"
+=======
+        :password => "Password"
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+      )
+    ])
+  end
+
+  it "renders a list of users" do
+    render
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Username".to_s, :count => 2
+<<<<<<< HEAD
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Email".to_s, :count => 2
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Crypted Password".to_s, :count => 2
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Password Salt".to_s, :count => 2
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Persistence Token".to_s, :count => 2
+=======
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Email".to_s, :count => 2
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Password".to_s, :count => 2
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+  end
+end
