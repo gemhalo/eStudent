@@ -2,7 +2,9 @@ class CreateDormitories < ActiveRecord::Migration
   def self.up
     create_table :dormitories do |t|
       t.integer :student_id
-      t.string :dorm
+      t.string :building
+      t.integer :room
+      t.integer :bedno
 
       t.timestamps
     end

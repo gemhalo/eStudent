@@ -1,13 +1,13 @@
 <pre>
-  <% form_for :Building do |f| %>
-  Building Name:  <%= f.collection_select :building_name, @buildings, :id, :building_name, :prompt=>"Select A Buiding" %>
+  <%= form_tag(:action=> "dorm_placing_process", :method=>"get") do %>
+  Building Name:  <%= select_tag "building", options_from_collection_for_select(@buildings, "id", "building_name") %>
   
-  College:        <%= f.collection_select :College, @colleges, :id, :name, :prompt=>"Select a College" %>
+  College:        <%= select_tag "college", options_from_collection_for_select(@colleges, "id", "name") %>
 
-  Department:     <%= f.text_field :department, :size=>15  %>
+  Department:     <%= text_field_tag 'department' %>
 
-  Sex               <%=f.select :sex, ["Male", "Female"], :prompt=>"Select Sex" %>
+  Sex               <%= select_tag "sex",options_for_select(['Male','Female']) %>
 
-            <%= f.submit "Place"  %>
+            <%= submit_tag "Place"  %>
   <% end %>
 </pre>
