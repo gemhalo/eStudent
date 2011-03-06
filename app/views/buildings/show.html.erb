@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Building name:</b>
+  <%= @building.building_name %>
+</p>
+
+<p>
+  <b>Number of rooms:</b>
+  <%= @building.number_of_rooms %>
+</p>
+
+<p>
+  <b>Number of beds per room:</b>
+  <%= @building.number_of_beds_per_room %>
+</p>
+
+
+<%= link_to 'Edit', edit_building_path(@building) %> |
+<%= link_to 'Back', buildings_path %>

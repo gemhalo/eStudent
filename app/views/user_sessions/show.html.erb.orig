@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<<<<<<< HEAD
+<p>
+  <b>Username:</b>
+  <%= @user_session.username %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @user_session.password %>
+</p>
+
+=======
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+
+<%= link_to 'Edit', edit_user_session_path(@user_session) %> |
+<%= link_to 'Back', user_sessions_path %>

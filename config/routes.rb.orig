@@ -1,7 +1,29 @@
 EStudent::Application.routes.draw do
+
+ 
+  resources :buildings
+  get "dormitory_placement/place_dorm"
+
+  resources :users, :user_sessions
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+
+
+  resources :instructors
   netzke
-<<<<<<< HEAD
+  #root :to => "welcome#index"
+  root :to => "users#index"
   resources :family_backgrounds
+  resources :colleges
+  resources :admission_types
+  resources :enrollement_types
+  resources :nationalities
+  resources :ethnicities
+  resources :people
+
+  get   'login(.:format)' => 'sessions#create',  :as => :login
+  get   'logout(.:format)'  => 'sessions#destroy', :as => :logout
+  resources :sessions
 
   resources :colleges
 
@@ -12,12 +34,31 @@ EStudent::Application.routes.draw do
   resources :nationalities
 
   resources :ethnicities
+  #post 'student_service_staffs/index'
+  
+  
+  #post 'student_service_staffs/show'
+  #get  'student_service_staffs/sample'  
+  
+  get  'student_service_staffs/selector' 
+  post 'student_service_staffs/selector'
+  
+  resources :student_service_staffs
+  
+  
+  #resources :studentservicestaffs
+  
 
   resources :people
-  resources :applicants 
+  resources :applicants
+
+  netzke
   
-=======
->>>>>>> ee4839a2411237d727b40d00e87d4e522e2d6d84
+  get "department_head/index"
+  get "department_head/show_list"
+  get "department_head/details"
+  get "department_head/approve"
+
   get "sessions/create"
 
   get "sessions/destroy"
@@ -26,15 +67,19 @@ EStudent::Application.routes.draw do
     collection do
       post 'forgot_password'
       get 'forgot_password'
-           
+
     end
   end
+  resources :user_sessions
 
- 
+  #get    'login(.:format)'  => 'user_sessions#new',     :as => :login
+  #post   'login(.:format)'  => 'user_sessions#create',  :as => :login
+  #should be delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
+  #get 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
 
   resources :sessions
 
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

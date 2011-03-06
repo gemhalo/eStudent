@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+<<<<<<< HEAD
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Crypted password:</b>
+  <%= @user.crypted_password %>
+=======
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+</p>
+
+<p>
+  <b>Password salt:</b>
+  <%= @user.password_salt %>
+</p>
+
+<p>
+<<<<<<< HEAD
+  <b>Persistence token:</b>
+  <%= @user.persistence_token %>
+=======
+  <b>Password:</b>
+  <%= @user.password %>
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

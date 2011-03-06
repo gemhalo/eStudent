@@ -1,34 +1,34 @@
 class ApplicantsController < ApplicationController
   def new
-    @applicant  = Applicant.new
-    @ethnicity   = Ethnicity.all
-    @nationality = Nationality.all
+    @applicant        = Applicant.new
+    @ethnicity        = Ethnicity.all
+    @nationality      = Nationality.all
     @Admissiontype    = AdmissionType.all
     @Enrollementtype  = EnrollementType.all
-    @College    = College.all    
-    @admission  = @applicant.admission.build
+    @College          = College.all
+    @admission        = @applicant.admission.build
   end
   def index
     @ethnicity   = Ethnicity.all
     @nationality = Nationality.all
     @Admissiontype    = AdmissionType.all
     @Enrollementtype  = EnrollementType.all
-    @College    = College.all    
+    @College    = College.all
     @applicants = Applicant.all
-    
+
   end
   def show
     @applicant= Applicant.find(params[:id])
   end
   def create
-    
-    @ethnicity   = Ethnicity.all
-    @nationality = Nationality.all
+
+    @ethnicity        = Ethnicity.all
+    @nationality      = Nationality.all
     @Admissiontype    = AdmissionType.all
     @Enrollementtype  = EnrollementType.all
-    @College    = College.all    
-    @applicant = Applicant.create(params[:applicant])
-    @admission  = @applicant.admission.create(params[:admission])
+    @College          = College.all
+    @applicant        = Applicant.create(params[:applicant])
+    @admission        = @applicant.admission.create(params[:admission])
 
     respond_to do |format|
       if @applicant.save

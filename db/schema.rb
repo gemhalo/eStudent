@@ -10,14 +10,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110303140359) do
+ActiveRecord::Schema.define(:version => 20110304120136) do
 
-  create_table "academic_and_professional_qualifications", :force => true do |t|
-    t.date     "date_issued"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.integer  "applicant_id"
+  create_table "abilities", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,7 +40,17 @@ ActiveRecord::Schema.define(:version => 20110303140359) do
 
   create_table "applicants", :force => true do |t|
     t.integer  "person_id"
-    t.integer  "admission_status_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "verified",                 :default => false
+    t.integer  "student_service_staff_id"
+    t.integer  "admission_type_id"
+  end
+
+  create_table "buildings", :force => true do |t|
+    t.string   "building_name"
+    t.integer  "number_of_rooms"
+    t.integer  "number_of_beds_per_room"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -169,6 +174,13 @@ ActiveRecord::Schema.define(:version => 20110303140359) do
     t.string   "placement"
     t.float    "result"
     t.integer  "result_out_of"
+  create_table "instructors", :force => true do |t|
+    t.string   "id_number"
+    t.string   "academic_rank"
+    t.string   "specialization"
+    t.integer  "role_id"
+    t.integer  "department_id"
+    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -203,6 +215,7 @@ ActiveRecord::Schema.define(:version => 20110303140359) do
     t.integer  "nationality"
     t.string   "marital_status"
     t.string   "mother_full_name"
+    t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -220,6 +233,7 @@ ActiveRecord::Schema.define(:version => 20110303140359) do
     t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "person_id"
   end
 
   create_table "relevant_publications", :force => true do |t|
@@ -242,13 +256,22 @@ ActiveRecord::Schema.define(:version => 20110303140359) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "user_name"
-    t.string   "hashed_password"
-    t.string   "salt"
+    t.string   "username"
     t.string   "email"
-    t.date     "last_login"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.integer  "login_count",        :default => 0, :null => false
+    t.integer  "failed_login_count", :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
+    t.integer  "person_id"
   end
 
 end

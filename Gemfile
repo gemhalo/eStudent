@@ -3,11 +3,12 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.4'
 gem 'authlogic'
+gem 'cancan'
 #We will enable this when we want to work with  Bundle edge Rails instead: 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem  'will_paginate', '~>3.0.pre2'
-#To generate model diagrams 
+#To generate model diagrams
 gem  'railroad'
 gem 'roo', '1.9.3'
 gem 'rubyzip','0.9.4'
@@ -25,7 +26,7 @@ gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.
 
 #gem 'netzke-core',          :path => File.expand_path('../vendor/gems/netzke/netzke-core', __FILE__)
 #gem 'netzke-basepack',      :path => File.expand_path('../vendor/gems/netzke/netzke-basepack', __FILE__)
-#gem 'netzke-persistence',   :path => File.expand_path('../vendor/gems/netzke/netzke-persistence', __FILE__)               
+#gem 'netzke-persistence',   :path => File.expand_path('../vendor/gems/netzke/netzke-persistence', __FILE__)
 
 gem 'netzke_widget_generators'
 gem 'netzke_config'
@@ -50,8 +51,8 @@ group :development do
   #MySQL
   #gem 'mysql2', :require => 'mysql2'
   #SQLite
-  #gem 'sqlite3-ruby', :require => 'sqlite3'  
-  
+  #gem 'sqlite3-ruby', :require => 'sqlite3'
+
 end
 
 #Gems required for test environment
@@ -62,7 +63,7 @@ group :test do
   #MySQL
   #gem 'mysql2', :require => 'mysql2'
   #SQLite
-  #gem 'sqlite3-ruby', :require => 'sqlite3'  
+  #gem 'sqlite3-ruby', :require => 'sqlite3'
 
 end
 
@@ -74,7 +75,7 @@ group :production do
   #MySQL
   #gem 'mysql2', :require => 'mysql2'
   #SQLite
-  #gem 'sqlite3-ruby', :require => 'sqlite3'  
+  #gem 'sqlite3-ruby', :require => 'sqlite3'
 
 end
 
@@ -87,7 +88,7 @@ group :development, :test do
   gem 'mysql2', :require => 'mysql2'
   #SQLite
   gem 'sqlite3-ruby', :require => 'sqlite3'
-    
+
   #Faker
   gem 'faker'
   gem 'dummy'
@@ -96,18 +97,22 @@ group :development, :test do
   #gem 'fake_arel'
   #   gem 'fakehttp'
   gem 'fakeldap'
-    
+
   #RSpec
   gem 'rspec-rails','>=2.5.0'
+  #gem 'webrat'
+  #gem 'capybara'
+  gem 'cucumber'
   gem 'minitest'
+
   #gem 'remarkable_rails'
-    
+
   #Factory Girl
   #gem 'factory_girl'
   #gem 'factory_girl_rails'
   #gem 'factory_data_preloader'
   #gem 'fixture_builder'
-    
+
 end
 
 #Gems required for development and production environments
@@ -118,12 +123,12 @@ group :development, :production do
   #MySQL
   #gem 'mysql2', :require => 'mysql2'
   #SQLite
-  #gem 'sqlite3-ruby', :require => 'sqlite3'  
+  #gem 'sqlite3-ruby', :require => 'sqlite3'
 
 end
 
-#Gems required for test and production environments 
-group :test, :production do 
+#Gems required for test and production environments
+group :test, :production do
 
   # PostgreSQL
   #gem 'pg', :require => 'pg'
@@ -137,3 +142,4 @@ end
 group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
+

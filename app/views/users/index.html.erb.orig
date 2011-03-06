@@ -1,24 +1,18 @@
 <<<<<<< HEAD
-<%
-# users comes from the UsersController index action
-%>
-<%= netzke :users,
-  :class_name => "Basepack::GridPanel",
-  :model => 'User',
-  :columns => [
-    :username,
-    :password,
-    :last_login
-  ] 
-%>
-  
+<%= notice %>
+
 =======
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
 <h1>Listing users</h1>
-<p id="notice"><%= notice %></p>
 
 <table>
   <tr>
-    <th>User name</th>
+    <th>Username</th>
+    <th>Email</th>
+<<<<<<< HEAD
+=======
+    <th>Password</th>
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
     <th></th>
     <th></th>
     <th></th>
@@ -26,12 +20,15 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.user_name %></td>
+    <td><%= user.username %></td>
+    <td><%= user.email %></td>
+<<<<<<< HEAD
+=======
+    <td><%= user.password %></td>
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?',
-    :method => :delete %></td>
-    
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -39,4 +36,13 @@
 <br />
 
 <%= link_to 'New User', new_user_path %>
->>>>>>> ba5e07517a51e71aff167e47f6e27d2254486f90
+<<<<<<< HEAD
+=======
+
+
+<%= netzke :users,
+  :class_name => "Basepack::GridPanel",
+  :model => 'User'
+%>
+
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d

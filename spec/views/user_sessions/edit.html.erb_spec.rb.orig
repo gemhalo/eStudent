@@ -1,0 +1,27 @@
+require 'spec_helper'
+
+describe "user_sessions/edit.html.erb" do
+  before(:each) do
+<<<<<<< HEAD
+    @user_session = assign(:user_session, stub_model(UserSession,
+      :username => "MyString",
+      :password => "MyString"
+    ))
+=======
+    @user_session = assign(:user_session, stub_model(UserSession))
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+  end
+
+  it "renders the edit user_session form" do
+    render
+
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "form", :action => user_sessions_path(@user_session), :method => "post" do
+<<<<<<< HEAD
+      assert_select "input#user_session_username", :name => "user_session[username]"
+      assert_select "input#user_session_password", :name => "user_session[password]"
+=======
+>>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
+    end
+  end
+end
