@@ -11,7 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
+<fieldset>
+  <legend>User Details</legend>
+   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username %>
   </div>
@@ -36,7 +38,9 @@
       <%= f.password_field :password_confirmation %>
     </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
+</fieldset>
+ 
 <% end %>
 

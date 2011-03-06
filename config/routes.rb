@@ -21,6 +21,7 @@ EStudent::Application.routes.draw do
  
   resources :buildings
   get "dormitory_placement/place_dorm"
+  get "dormitory_placement/show_placement"
 
   resources :users, :user_sessions
   match 'login' => 'user_sessions#new', :as => :login

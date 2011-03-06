@@ -1,8 +1,6 @@
 EStudent::Application.routes.draw do
-<<<<<<< HEAD
 
-  
-
+ 
   resources :buildings
   get "dormitory_placement/place_dorm"
 
@@ -12,7 +10,6 @@ EStudent::Application.routes.draw do
 
 
   resources :instructors
-=======
   netzke
   #root :to => "welcome#index"
   root :to => "users#index"
@@ -27,7 +24,6 @@ EStudent::Application.routes.draw do
   get   'login(.:format)' => 'sessions#create',  :as => :login
   get   'logout(.:format)'  => 'sessions#destroy', :as => :logout
   resources :sessions
->>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
 
   resources :colleges
 
@@ -56,14 +52,13 @@ EStudent::Application.routes.draw do
   resources :people
   resources :applicants
 
-<<<<<<< HEAD
   netzke
   
   get "department_head/index"
   get "department_head/show_list"
   get "department_head/details"
   get "department_head/approve"
-=======
+
   get "sessions/create"
 
   get "sessions/destroy"
@@ -85,7 +80,6 @@ EStudent::Application.routes.draw do
   resources :sessions
 
 
->>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

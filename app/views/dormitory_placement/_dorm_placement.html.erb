@@ -9,10 +9,11 @@
   </tr>
   <% for student in @students %>
   <tr>
-    <td><%=  student.full_name%></td>
-    <td><%=  student.sex%></td>
-    <td><%=  student.dorm%></td>
+    <td><%=  student.person.full_name%></td>
+    <td><%=  student.person.sex%></td>
+    <td><%=  student.dormitory.dorm %></td>
     <td><%= link_to "Edit", :action=>"" %></td>
     <td><%= link_to "Delete", :action=>"" %></td>
   </tr>
+  <% end %>
 </table>
