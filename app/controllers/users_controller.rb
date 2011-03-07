@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
+      #format.pdf { render :xml => @users }
     end
   end
   def assign_roles  
