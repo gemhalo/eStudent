@@ -1,9 +1,11 @@
 EStudent::Application.routes.draw do
-  resources :departments
+  resources :course_types
 
-  resources :campus
+  resources :curriculums
 
-  resources :campuses
+  resources :programs
+
+  resources :courses
 
   netzke
   #root :to => "welcome#index"
@@ -20,7 +22,6 @@ EStudent::Application.routes.draw do
   resources :buildings
   get "dormitory_placement/place_dorm"
   get "dormitory_placement/show_placement"
-  post "dormitory_placement/dorm_placing_process"
 
   resources :users, :user_sessions
   match 'login' => 'user_sessions#new', :as => :login
