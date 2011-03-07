@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe "colleges/show.html.erb" do
+describe "departments/show.html.erb" do
   before(:each) do
-    @college = assign(:college, stub_model(College,
+    @department = assign(:department, stub_model(Department,
       :name => "Name",
-      :campus_id => 1,
-      :college_telephone => 1,
-      :college_pobox => "College Pobox",
-      :college_email => "College Email",
+      :college_id => 1,
+      :telephone => 1,
+      :pobox => "Pobox",
+      :email => "Email",
       :instructor_id => 1
     ))
   end
@@ -21,9 +21,9 @@ describe "colleges/show.html.erb" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/1/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/College Pobox/)
+    rendered.should match(/Pobox/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/College Email/)
+    rendered.should match(/Email/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/1/)
   end

@@ -1,4 +1,10 @@
 EStudent::Application.routes.draw do
+  resources :departments
+
+  resources :campus
+
+  resources :campuses
+
   netzke
   #root :to => "welcome#index"
   root :to => "users#index"

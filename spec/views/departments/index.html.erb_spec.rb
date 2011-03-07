@@ -1,28 +1,28 @@
 require 'spec_helper'
 
-describe "colleges/index.html.erb" do
+describe "departments/index.html.erb" do
   before(:each) do
-    assign(:colleges, [
-      stub_model(College,
+    assign(:departments, [
+      stub_model(Department,
         :name => "Name",
-        :campus_id => 1,
-        :college_telephone => 1,
-        :college_pobox => "College Pobox",
-        :college_email => "College Email",
+        :college_id => 1,
+        :telephone => 1,
+        :pobox => "Pobox",
+        :email => "Email",
         :instructor_id => 1
       ),
-      stub_model(College,
+      stub_model(Department,
         :name => "Name",
-        :campus_id => 1,
-        :college_telephone => 1,
-        :college_pobox => "College Pobox",
-        :college_email => "College Email",
+        :college_id => 1,
+        :telephone => 1,
+        :pobox => "Pobox",
+        :email => "Email",
         :instructor_id => 1
       )
     ])
   end
 
-  it "renders a list of colleges" do
+  it "renders a list of departments" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Name".to_s, :count => 2
@@ -31,9 +31,9 @@ describe "colleges/index.html.erb" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "College Pobox".to_s, :count => 2
+    assert_select "tr>td", :text => "Pobox".to_s, :count => 2
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "College Email".to_s, :count => 2
+    assert_select "tr>td", :text => "Email".to_s, :count => 2
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2
   end
