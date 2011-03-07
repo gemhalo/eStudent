@@ -1,8 +1,4 @@
 class Applicant < ActiveRecord::Base
-<<<<<<< HEAD
-  has_one :admission
-  belongs_to :person
-=======
   belongs_to :person
   has_many   :admission
   has_many   :family_background
@@ -24,7 +20,12 @@ class Applicant < ActiveRecord::Base
   def grand_father_name
     self.person.grand_father_name
   end
+<<<<<<< HEAD
+  def self.person_attributes=(person_attributes)
+    logger.info("----------sss-----#{person_attributes}----------")
+=======
   def person_attributes=(person_attributes)
+>>>>>>> 8bb4661c19656dc740ea81d0f6012c0a56717b8b
     person_attributes.each do |attributes|
       person.build(attributes)
     end
@@ -38,10 +39,10 @@ class Applicant < ActiveRecord::Base
   end
 
   def save_person
+   
     self.person.save!
   end
 
 
->>>>>>> f1b8fe76ece73f5ad0438d7301f865499ee76d9d
 end
 

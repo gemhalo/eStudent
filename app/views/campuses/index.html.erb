@@ -1,0 +1,29 @@
+<h1>Listing campuses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Campus telephone</th>
+    <th>Campus pobox</th>
+    <th>Campus email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @campuses.each do |campuse| %>
+  <tr>
+    <td><%= campuse.name %></td>
+    <td><%= campuse.campus_telephone %></td>
+    <td><%= campuse.campus_pobox %></td>
+    <td><%= campuse.campus_email %></td>
+    <td><%= link_to 'Show', campuse %></td>
+    <td><%= link_to 'Edit', edit_campuse_path(campuse) %></td>
+    <td><%= link_to 'Destroy', campuse, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Campuse', new_campuse_path %>

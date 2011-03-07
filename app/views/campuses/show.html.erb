@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @campuse.name %>
+</p>
+
+<p>
+  <b>Campus telephone:</b>
+  <%= @campuse.campus_telephone %>
+</p>
+
+<p>
+  <b>Campus pobox:</b>
+  <%= @campuse.campus_pobox %>
+</p>
+
+<p>
+  <b>Campus email:</b>
+  <%= @campuse.campus_email %>
+</p>
+
+
+<%= link_to 'Edit', edit_campuse_path(@campuse) %> |
+<%= link_to 'Back', campuses_path %>

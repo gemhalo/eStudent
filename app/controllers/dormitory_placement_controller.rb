@@ -6,21 +6,34 @@ class DormitoryPlacementController < ApplicationController
   end
 
   def dorm_placing_process
-    @building=Building.find(params[:building_name])
-    @collegesCollege.find(params[:college])
+    @building=Building.find(params[:building])
+    building=@building.building_name
+    @colleges=College.find(params[:college])
     @students=Student.all
+    students=Student.all
     @rooms=@building.number_of_rooms
     @beds=@building.number_of_beds_per_room
     @totalbeds=@building.number_of_rooms * @building.number_of_beds_per_room
 
-    for s in @students
-      for r in 1..@rooms
-        for b in 1..@beds
-          s.dormitory.dorm="#{@building} " << "Room " << "#{r}" << "Bed No " << "#{b}"
+    b=1
+    studentcounter=0
+    for r in 1..@rooms 
+      for b in 1..@beds
+        student=students[studentcounter.to_i]
+        if student.nil?
+          break
+        else
+        student.build_dormitory
+        student.dormitory.building="#{building}"
+        student.dormitory.room="#{r}"
+        student.dormitory.bedno="#{b}"
+        student.dormitory.save!
+        studentcounter=studentcounter+1
         end
       end
     end
-    redirect_to :action=>'show_placement'
+      
+    render :action=>'show_placement'
   end
 
   def show_placement

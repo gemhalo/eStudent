@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110304120136) do
+ActiveRecord::Schema.define(:version => 20110306164938) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -55,16 +55,42 @@ ActiveRecord::Schema.define(:version => 20110304120136) do
     t.datetime "updated_at"
   end
 
+  create_table "campus", :force => true do |t|
+    t.string   "name"
+    t.integer  "campus_telephone"
+    t.string   "campus_pobox"
+    t.string   "campus_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
+    t.integer  "college_telephone"
+    t.string   "college_pobox"
+    t.string   "college_email"
+    t.integer  "instructor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.integer  "college_id"
+    t.integer  "telephone"
+    t.string   "pobox"
+    t.string   "email"
+    t.integer  "instructor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "dormitories", :force => true do |t|
     t.integer  "student_id"
-    t.string   "dorm"
+    t.string   "building"
+    t.integer  "room"
+    t.integer  "bedno"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -135,7 +161,6 @@ ActiveRecord::Schema.define(:version => 20110304120136) do
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "student_service_staffs", :force => true do |t|
