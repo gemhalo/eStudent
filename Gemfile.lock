@@ -89,7 +89,6 @@ GEM
       activesupport (~> 3.0.2)
       arel (~> 2.0.2)
     mime-types (1.16)
-    minitest (2.0.2)
     mysql2 (0.2.6)
     netzke_config (0.3.0)
       thor (>= 0.13.6)
@@ -154,7 +153,6 @@ DEPENDENCIES
   faker
   haml
   hashie
-  minitest
   mysql2
   netzke-basepack!
   netzke-core!

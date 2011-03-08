@@ -1,0 +1,1056 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: LDAP::Server</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (S)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../LDAP.html" title="LDAP (module)">LDAP</a></span></span>
+     &raquo; 
+    <span class="title">Server</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: LDAP::Server
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">LDAP::Server</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ldap/server/version.rb<span class="defines">,<br />
+  lib/ldap/server/util.rb,<br /> lib/ldap/server/match.rb,<br /> lib/ldap/server/syntax.rb,<br /> lib/ldap/server/filter.rb,<br /> lib/ldap/server/server.rb,<br /> lib/ldap/server/schema.rb,<br /> lib/ldap/server/tcpserver.rb,<br /> lib/ldap/server/operation.rb,<br /> lib/ldap/server/connection.rb,<br /> lib/ldap/server/preforkserver.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+:nodoc:
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Server/Connection.html" title="LDAP::Server::Connection (class)">Connection</a></span>, <span class='object_link'><a href="Server/Filter.html" title="LDAP::Server::Filter (class)">Filter</a></span>, <span class='object_link'><a href="Server/MatchingRule.html" title="LDAP::Server::MatchingRule (class)">MatchingRule</a></span>, <span class='object_link'><a href="Server/Operation.html" title="LDAP::Server::Operation (class)">Operation</a></span>, <span class='object_link'><a href="Server/Schema.html" title="LDAP::Server::Schema (class)">Schema</a></span>, <span class='object_link'><a href="Server/Syntax.html" title="LDAP::Server::Syntax (class)">Syntax</a></span>, <span class='object_link'><a href="Server/VERSION.html" title="LDAP::Server::VERSION (class)">VERSION</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="DEFAULT_OPT-constant" class="">DEFAULT_OPT =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+    <span class='symbol'>:port</span><span class='op'>=&gt;</span><span class='int'>389</span><span class='comma'>,</span>
+    <span class='symbol'>:nodelay</span><span class='op'>=&gt;</span><span class='kw'>true</span><span class='comma'>,</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="BaseObject-constant" class="">BaseObject =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+Scope
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>0</span></pre></dd>
+      
+        <dt id="SingleLevel-constant" class="">SingleLevel =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+        <dt id="WholeSubtree-constant" class="">WholeSubtree =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>2</span></pre></dd>
+      
+        <dt id="NeverDerefAliases-constant" class="">NeverDerefAliases =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+DerefAliases
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>0</span></pre></dd>
+      
+        <dt id="DerefInSearching-constant" class="">DerefInSearching =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+        <dt id="DerefFindingBaseObj-constant" class="">DerefFindingBaseObj =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>2</span></pre></dd>
+      
+        <dt id="DerefAlways-constant" class="">DerefAlways =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>3</span></pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#root_dse-instance_method" title="#root_dse (instance method)">- (Object) <strong>root_dse</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute root_dse.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#preforkserver-class_method" title="preforkserver (class method)">+ (Object) <strong>preforkserver</strong>(opt, &amp;blk) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Accept connections on a port, and for each one run the given block in one
+of N pre-forked children.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ssl_prepare-class_method" title="ssl_prepare (class method)">+ (Object) <strong>ssl_prepare</strong>(opt) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+create opt[:ssl_ctx] from the other ssl options.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tcpserver-class_method" title="tcpserver (class method)">+ (Object) <strong>tcpserver</strong>(opt, &amp;blk) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Accept connections on a port, and for each one start a new thread and run
+the given block.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Server) <strong>initialize</strong>(opt = DEFAULT_OPT) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Create a new server.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#join-instance_method" title="#join (instance method)">- (Object) <strong>join</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_prefork-instance_method" title="#run_prefork (instance method)">- (Object) <strong>run_prefork</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_tcpserver-instance_method" title="#run_tcpserver (instance method)">- (Object) <strong>run_tcpserver</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stop-instance_method" title="#stop (instance method)">- (Object) <strong>stop</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="LDAP::Server (class)">Server</a></span></tt>) <strong>initialize</strong>(opt = DEFAULT_OPT) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a new server. Options include all those to tcpserver/preforkserver
+plus:
+</p>
+<pre class="code">
+  :operation_class=&gt;Class			- set Operation handler class
+  :operation_args=&gt;[...]			- args to Operation.new
+  :ssl_key_file=&gt;pem, :ssl_cert_file=&gt;pem	- enable SSL
+  :ssl_ca_path=&gt;directory			- verify peer certificates
+  :schema=&gt;Schema				- Schema object
+  :namingContexts=&gt;[dn, ...]		- base DN(s) we answer</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/server.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id opt'>opt</span> <span class='op'>=</span> <span class='const'>DEFAULT_OPT</span><span class='rparen'>)</span>
+  <span class='ivar'>@opt</span> <span class='op'>=</span> <span class='id opt'>opt</span>
+  <span class='ivar'>@opt</span><span class='lbracket'>[</span><span class='symbol'>:server</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>self</span>
+  <span class='ivar'>@opt</span><span class='lbracket'>[</span><span class='symbol'>:operation_class</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Operation</span>
+  <span class='ivar'>@opt</span><span class='lbracket'>[</span><span class='symbol'>:operation_args</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='period'>.</span><span class='id ssl_prepare'>ssl_prepare</span><span class='lparen'>(</span><span class='ivar'>@opt</span><span class='rparen'>)</span>
+  <span class='ivar'>@schema</span> <span class='op'>=</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:schema</span><span class='rbracket'>]</span>	<span class='comment'># may be nil
+</span>  <span class='ivar'>@root_dse</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id h'>h</span><span class='comma'>,</span><span class='id k'>k</span><span class='op'>|</span> <span class='id h'>h</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
+	<span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>objectClass</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>top</span><span class='tstring_end'>'</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>openLDAProotDSE</span><span class='tstring_end'>'</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>extensibleObject</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+	<span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>supportedLDAPVersion</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>3</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+	<span class='comment'>#'altServer' =&gt;
+</span>	<span class='comment'>#'supportedExtension' =&gt;
+</span>	<span class='comment'>#'supportedControl' =&gt;
+</span>	<span class='comment'>#'supportedSASLMechanisms' =&gt;
+</span>  <span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@root_dse</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>subschemaSubentry</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='ivar'>@schema</span><span class='period'>.</span><span class='id subschema_dn'>subschema_dn</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@schema</span>
+  <span class='ivar'>@root_dse</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>namingContexts</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:namingContexts</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:namingContexts</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="root_dse=-instance_method"></span>
+      <span id="root_dse-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="root_dse-instance_method">
+  
+    - (<tt>Object</tt>) <strong>root_dse</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute root_dse
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/server.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id root_dse'>root_dse</span>
+  <span class='ivar'>@root_dse</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="preforkserver-class_method">
+  
+    + (<tt>Object</tt>) <strong>preforkserver</strong>(opt, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Accept connections on a port, and for each one run the given block in one
+of N pre-forked children. Returns a Thread object for the listener.
+</p>
+<p>
+Options:
+</p>
+<pre class="code">
+  :port=&gt;port number [required]
+  :bindaddr=&gt;&quot;IP address&quot;
+  :user=&gt;&quot;username&quot;				- drop privileges after bind
+  :group=&gt;&quot;groupname&quot;			- ditto
+  :logger=&gt;object				- implements &lt;&lt; method
+  :listen=&gt;number				- listen queue depth
+  :nodelay=&gt;true				- set TCP_NODELAY option
+  :min_servers=&gt;N				- prefork parameters
+  :max_servers=&gt;N
+  :max_requests_per_child=&gt;N
+  :max_idle=&gt;N				- seconds</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/preforkserver.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id preforkserver'>preforkserver</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id blk'>blk</span><span class='rparen'>)</span>
+  <span class='id logger'>logger</span> <span class='op'>=</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:logger</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='gvar'>$stderr</span>
+  <span class='id server'>server</span> <span class='op'>=</span> <span class='const'>PreFork</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:bindaddr</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.0.0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+  <span class='comment'># Drop privileges if requested
+</span>  <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:group</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>etc</span><span class='tstring_end'>'</span></span>
+    <span class='id gid'>gid</span> <span class='op'>=</span> <span class='const'>Etc</span><span class='period'>.</span><span class='id getgrnam'>getgrnam</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:group</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id gid'>gid</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:group</span><span class='rbracket'>]</span>
+    <span class='id uid'>uid</span> <span class='op'>=</span> <span class='const'>Etc</span><span class='period'>.</span><span class='id getpwnam'>getpwnam</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id uid'>uid</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id chown'>chown</span><span class='lparen'>(</span><span class='id uid'>uid</span><span class='comma'>,</span> <span class='id gid'>gid</span><span class='comma'>,</span> <span class='id server'>server</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span><span class='ivar'>@lockf</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+    <span class='const'>Process</span><span class='period'>.</span><span class='id gid'>gid</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id egid'>egid</span> <span class='op'>=</span> <span class='id gid'>gid</span> <span class='kw'>if</span> <span class='id gid'>gid</span>
+    <span class='const'>Process</span><span class='period'>.</span><span class='id uid'>uid</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id euid'>euid</span> <span class='op'>=</span> <span class='id uid'>uid</span> <span class='kw'>if</span> <span class='id uid'>uid</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Typically the O/S will buffer response data for 100ms before sending.
+</span>  <span class='comment'># If the response is sent as a single write() then there's no need for it.
+</span>  <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:nodelay</span><span class='rbracket'>]</span>
+    <span class='kw'>begin</span>
+      <span class='id server'>server</span><span class='period'>.</span><span class='id sock'>sock</span><span class='period'>.</span><span class='id setsockopt'>setsockopt</span><span class='lparen'>(</span><span class='const'>Socket</span><span class='op'>::</span><span class='const'>IPPROTO_TCP</span><span class='comma'>,</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>TCP_NODELAY</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='const'>Exception</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='comment'># set queue size for incoming connections (default is 5)
+</span>  <span class='id server'>server</span><span class='period'>.</span><span class='id sock'>sock</span><span class='period'>.</span><span class='id listen'>listen</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:listen</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:listen</span><span class='rbracket'>]</span>
+
+  <span class='comment'># Set prefork server parameters
+</span>  <span class='id server'>server</span><span class='period'>.</span><span class='id min_servers'>min_servers</span> <span class='op'>=</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:min_servers</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:min_servers</span><span class='rbracket'>]</span>
+  <span class='id server'>server</span><span class='period'>.</span><span class='id max_servers'>max_servers</span> <span class='op'>=</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:max_servers</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:max_servers</span><span class='rbracket'>]</span>
+  <span class='id server'>server</span><span class='period'>.</span><span class='id max_request_per_child'>max_request_per_child</span> <span class='op'>=</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:max_request_per_child</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:max_request_per_child</span><span class='rbracket'>]</span>
+  <span class='id server'>server</span><span class='period'>.</span><span class='id max_idle'>max_idle</span> <span class='op'>=</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:max_idle</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:max_idle</span><span class='rbracket'>]</span>
+
+  <span class='const'>Thread</span><span class='period'>.</span><span class='id new'>new</span> <span class='kw'>do</span>
+    <span class='id server'>server</span><span class='period'>.</span><span class='id start'>start</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+      <span class='kw'>begin</span>
+        <span class='id s'>s</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id blk'>blk</span><span class='rparen'>)</span>
+      <span class='kw'>rescue</span> <span class='const'>Interrupt</span>
+        <span class='comment'># This exception can be raised to shut the server down
+</span>        <span class='id server'>server</span><span class='period'>.</span><span class='id stop'>stop</span>
+      <span class='kw'>rescue</span> <span class='const'>Exception</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+        <span class='id logger'>logger</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='embexpr_beg'>#{</span><span class='id s'>s</span><span class='period'>.</span><span class='id peeraddr'>peeraddr</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>]: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id backtrace'>backtrace</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>ensure</span>
+        <span class='id s'>s</span><span class='period'>.</span><span class='id close'>close</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ssl_prepare-class_method">
+  
+    + (<tt>Object</tt>) <strong>ssl_prepare</strong>(opt) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+create opt[:ssl_ctx] from the other ssl options
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/server.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id ssl_prepare'>ssl_prepare</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='rparen'>)</span> <span class='comment'># :nodoc:
+</span>  <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:ssl_key_file</span><span class='rbracket'>]</span> <span class='kw'>and</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:ssl_cert_file</span><span class='rbracket'>]</span>
+    <span class='id ctx'>ctx</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>SSLContext</span><span class='period'>.</span><span class='id new'>new</span>
+    <span class='id ctx'>ctx</span><span class='period'>.</span><span class='id key'>key</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>PKey</span><span class='op'>::</span><span class='const'>RSA</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='id read'>read</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:ssl_key_file</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id ctx'>ctx</span><span class='period'>.</span><span class='id cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='id read'>read</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:ssl_cert_file</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:ssl_ca_path</span><span class='rbracket'>]</span>
+      <span class='id ctx'>ctx</span><span class='period'>.</span><span class='id ca_path'>ca_path</span> <span class='op'>=</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:ssl_ca_path</span><span class='rbracket'>]</span>
+      <span class='id ctx'>ctx</span><span class='period'>.</span><span class='id verify_mode'>verify_mode</span> <span class='op'>=</span> 
+        <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>VERIFY_PEER</span><span class='op'>|</span><span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>VERIFY_FAIL_IF_NO_PEER_CERT</span>
+    <span class='kw'>else</span>
+      <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: SSL peer certificate won't be verified</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:ssl_ctx</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id ctx'>ctx</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="tcpserver-class_method">
+  
+    + (<tt>Object</tt>) <strong>tcpserver</strong>(opt, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Accept connections on a port, and for each one start a new thread and run
+the given block. Returns the Thread object for the listener.
+</p>
+<p>
+FIXME:
+</p>
+<ul>
+<li><p>
+have a limit on total number of concurrent connects
+</p>
+</li>
+<li><p>
+have a limit on connections from a single IP, or from a /24 (to avoid the
+trivial DoS that the first limit creates)
+</p>
+</li>
+<li><p>
+ACL using source IP address (or perhaps that belongs in application)
+</p>
+</li>
+</ul>
+<p>
+Options:
+</p>
+<pre class="code">
+  :port=&gt;port number [required]
+  :bindaddr=&gt;&quot;IP address&quot;
+  :user=&gt;&quot;username&quot;				- drop privileges after bind
+  :group=&gt;&quot;groupname&quot;			- ditto
+  :logger=&gt;object				- implements &lt;&lt; method
+  :listen=&gt;number				- listen queue depth
+  :nodelay=&gt;true				- set TCP_NODELAY option</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/tcpserver.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id tcpserver'>tcpserver</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id blk'>blk</span><span class='rparen'>)</span>
+  <span class='id logger'>logger</span> <span class='op'>=</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:logger</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='gvar'>$stderr</span>
+  <span class='id server'>server</span> <span class='op'>=</span> <span class='const'>TCPServer</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:bindaddr</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.0.0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+  <span class='comment'># Drop privileges if requested
+</span>  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>etc</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:group</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span>
+  <span class='const'>Process</span><span class='period'>.</span><span class='id gid'>gid</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id egid'>egid</span> <span class='op'>=</span> <span class='const'>Etc</span><span class='period'>.</span><span class='id getgrnam'>getgrnam</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:group</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id gid'>gid</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:group</span><span class='rbracket'>]</span>
+  <span class='const'>Process</span><span class='period'>.</span><span class='id uid'>uid</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id euid'>euid</span> <span class='op'>=</span> <span class='const'>Etc</span><span class='period'>.</span><span class='id getpwnam'>getpwnam</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id uid'>uid</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span>
+ 
+  <span class='comment'># Typically the O/S will buffer response data for 100ms before sending.
+</span>  <span class='comment'># If the response is sent as a single write() then there's no need for it.
+</span>  <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:nodelay</span><span class='rbracket'>]</span>
+    <span class='kw'>begin</span>
+      <span class='id server'>server</span><span class='period'>.</span><span class='id setsockopt'>setsockopt</span><span class='lparen'>(</span><span class='const'>Socket</span><span class='op'>::</span><span class='const'>IPPROTO_TCP</span><span class='comma'>,</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>TCP_NODELAY</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='const'>Exception</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='comment'># set queue size for incoming connections (default is 5)
+</span>  <span class='id server'>server</span><span class='period'>.</span><span class='id listen'>listen</span><span class='lparen'>(</span><span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:listen</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id opt'>opt</span><span class='lbracket'>[</span><span class='symbol'>:listen</span><span class='rbracket'>]</span>
+
+  <span class='const'>Thread</span><span class='period'>.</span><span class='id new'>new</span> <span class='kw'>do</span>
+    <span class='kw'>while</span> <span class='kw'>true</span>
+      <span class='kw'>begin</span>
+        <span class='id session'>session</span> <span class='op'>=</span> <span class='id server'>server</span><span class='period'>.</span><span class='id accept'>accept</span>
+        <span class='comment'># subtlety: copy 'session' into a block-local variable because
+</span>        <span class='comment'># it will change when the next session is accepted
+</span>        <span class='const'>Thread</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id session'>session</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+          <span class='kw'>begin</span>
+            <span class='id s'>s</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id blk'>blk</span><span class='rparen'>)</span>
+          <span class='kw'>rescue</span> <span class='const'>Exception</span> <span class='op'>=&gt;</span> <span class='id e'>e</span>
+            <span class='id logger'>logger</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='embexpr_beg'>#{</span><span class='id s'>s</span><span class='period'>.</span><span class='id peeraddr'>peeraddr</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>]: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id e'>e</span><span class='period'>.</span><span class='id backtrace'>backtrace</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+            <span class='comment'>#logger &lt;&lt; &quot;[#{s.peeraddr[3]}]: #{e}: #{e.backtrace.join(&quot;\n\tfrom &quot;)}\n&quot;
+</span>          <span class='kw'>ensure</span>
+            <span class='id s'>s</span><span class='period'>.</span><span class='id close'>close</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+      <span class='kw'>rescue</span> <span class='const'>Interrupt</span>
+        <span class='comment'># This exception can be raised to shut the server down
+</span>        <span class='id server'>server</span><span class='period'>.</span><span class='id close'>close</span> <span class='kw'>if</span> <span class='id server'>server</span> <span class='kw'>and</span> <span class='kw'>not</span> <span class='id server'>server</span><span class='period'>.</span><span class='id closed?'>closed?</span>
+        <span class='kw'>break</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="join-instance_method">
+  
+    - (<tt>Object</tt>) <strong>join</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/server.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id join'>join</span>
+  <span class='ivar'>@thread</span><span class='period'>.</span><span class='id join'>join</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="run_prefork-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_prefork</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/server.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id run_prefork'>run_prefork</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ldap/server/preforkserver</span><span class='tstring_end'>'</span></span>
+
+  <span class='id opt'>opt</span> <span class='op'>=</span> <span class='ivar'>@opt</span>
+  <span class='ivar'>@thread</span> <span class='op'>=</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='period'>.</span><span class='id preforkserver'>preforkserver</span><span class='lparen'>(</span><span class='ivar'>@opt</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Connection</span><span class='op'>::</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span><span class='id opt'>opt</span><span class='rparen'>)</span><span class='period'>.</span><span class='id handle_requests'>handle_requests</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="run_tcpserver-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_tcpserver</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/server.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id run_tcpserver'>run_tcpserver</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ldap/server/tcpserver</span><span class='tstring_end'>'</span></span>
+
+  <span class='id opt'>opt</span> <span class='op'>=</span> <span class='ivar'>@opt</span>
+  <span class='ivar'>@thread</span> <span class='op'>=</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='period'>.</span><span class='id tcpserver'>tcpserver</span><span class='lparen'>(</span><span class='ivar'>@opt</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Connection</span><span class='op'>::</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span><span class='id opt'>opt</span><span class='rparen'>)</span><span class='period'>.</span><span class='id handle_requests'>handle_requests</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stop-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stop</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/server.rb', line 83</span>
+
+<span class='kw'>def</span> <span class='id stop'>stop</span>
+  <span class='ivar'>@thread</span><span class='period'>.</span><span class='id raise'>raise</span> <span class='const'>Interrupt</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='comment'># &lt;= temporary fix for 1.8.6
+</span>  <span class='ivar'>@thread</span><span class='period'>.</span><span class='id join'>join</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Sep 13 13:27:15 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.0 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

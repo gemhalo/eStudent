@@ -98,7 +98,7 @@ group :development, :test do
   #gem 'webrat'
   #gem 'capybara'
   gem 'cucumber'
-  gem 'minitest'
+  #gem 'minitest'
 
   #gem 'remarkable_rails'
 
