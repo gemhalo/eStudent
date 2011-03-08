@@ -135,7 +135,6 @@ ActiveRecord::Schema.define(:version => 20110304120136) do
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "student_service_staffs", :force => true do |t|
