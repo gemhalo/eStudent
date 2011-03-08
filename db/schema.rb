@@ -75,6 +75,32 @@ ActiveRecord::Schema.define(:version => 20110306164938) do
     t.datetime "updated_at"
   end
 
+  create_table "course_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses", :force => true do |t|
+    t.string   "course_title"
+    t.string   "course_code"
+    t.integer  "credit_hour"
+    t.string   "description"
+    t.integer  "department_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "curriculums", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "program_id"
+    t.integer  "course_type"
+    t.integer  "semester_id"
+    t.integer  "class_year_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "departments", :force => true do |t|
     t.string   "name"
     t.integer  "college_id"
@@ -159,6 +185,20 @@ ActiveRecord::Schema.define(:version => 20110306164938) do
     t.string   "marital_status"
     t.string   "mother_full_name"
     t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "programs", :force => true do |t|
+    t.string   "program_id_number"
+    t.string   "program_name"
+    t.string   "level"
+    t.integer  "enrollment_type"
+    t.string   "mode"
+    t.string   "award_type"
+    t.string   "duration"
+    t.integer  "total_credit_hour"
+    t.integer  "department_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
