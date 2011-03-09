@@ -130,12 +130,6 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.datetime "updated_at"
   end
 
-  create_table "enrollment_modes", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "ethnicities", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -215,20 +209,6 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.datetime "updated_at"
   end
 
-  create_table "programs", :force => true do |t|
-    t.string   "program_id_number"
-    t.string   "program_name"
-    t.string   "level"
-    t.integer  "enrollment_type"
-    t.string   "mode"
-    t.string   "award_type"
-    t.string   "duration"
-    t.integer  "total_credit_hour"
-    t.integer  "department_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "student_service_staffs", :force => true do |t|
     t.string   "id_number"
     t.string   "rank"
@@ -242,11 +222,14 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
   create_table "students", :force => true do |t|
     t.string   "id_number"
     t.integer  "department_id"
+    t.integer  "enrollment_type_id"
+    t.integer  "admission_type_id"
     t.integer  "program_id"
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "college_name"
+    t.integer  "enrollment_mode_id"
     t.integer  "admission_id"
   end
 
