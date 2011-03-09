@@ -73,6 +73,7 @@ GEM
     fakeldap (0.0.1)
     faker (0.9.5)
       i18n (~> 0.4)
+    fastercsv (1.5.4)
     gherkin (2.3.3)
       json (~> 1.4.6)
     haml (3.1.0.alpha.147)
@@ -151,6 +152,7 @@ DEPENDENCIES
   dummy_data
   fakeldap
   faker
+  fastercsv
   haml
   hashie
   mysql2

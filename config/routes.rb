@@ -1,4 +1,10 @@
 EStudent::Application.routes.draw do
+  resources :admissions
+
+  get "moe_data_import/import"
+
+  post "moe_data_import/upload"
+
   resources :course_types
 
   resources :curriculums
