@@ -1,0 +1,29 @@
+<%= form_for(@department_quota) do |f| %>
+  <% if @department_quota.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@department_quota.errors.count, "error") %> prohibited this department_quota from being saved:</h2>
+
+      <ul>
+      <% @department_quota.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :department%><br />
+    <%= f.collection_select :department_id, Department.all, :id, :name, :prompt=>"Select Department"%>
+  </div>
+  <div class="field">
+    <%= f.label :total_quota %><br />
+    <%= f.text_field :total_quota, :size=>10 %>
+  </div>
+  <div class="field">
+    <%= f.label :female_percentage %><br />
+    <%= f.text_field :female_percentage, :size=>5 %><b>%</b>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

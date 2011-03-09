@@ -1,6 +1,6 @@
 <pre>
   <%= form_tag(:action=> "dorm_placing_process", :method=>"get") do %>
-  Building Name:  <%= select_tag "building", options_from_collection_for_select(@buildings, "id", "building_name"), :prompt=>true %>
+  Building Name:  <%= select_tag "building", options_from_collection_for_select(@buildings, "id", "building_name", :prompt=true) %>
   
   College:        <%= select_tag "college", options_from_collection_for_select(@colleges, "id", "name") %>
 

@@ -1,0 +1,24 @@
+<br/>
+
+<table border="+1">
+    <tr>
+      <th>Name</th>
+      <th>Result</th>
+      <th>Department</th>
+
+    </tr>
+
+    <% if @students.blank? %>
+    		No students are placed
+    <% else %>
+    <%= flash[:notice]%><br/><br/>
+		<% for student in @students%>
+		   <tr>
+		  <td><%= student.person.full_name %></td>
+		  <td><%= student.educational_background.prep_result %></td>
+		  <td><%= student.department.name %></td>
+		  </tr>
+		<% end %>
+	<% end %>
+
+  </table><br/>

@@ -1,0 +1,20 @@
+<h1> Editing Dormitory for <%= @dormitory.student.person.full_name %></h1>
+
+<% form_for :dormitory, @dormitory, :url=>{:action=>"update", :id=>@dormitory.id} do |f| %>
+<div>
+ Building: <%= f.collection_select :building, Building.all, :building_name, :building_name %><br/>
+</div>
+
+<div>
+  Room No:  <%= f.text_field :room  %><br/>
+</div>
+
+<div>
+  Bed No:   <%= f.text_field :bedno  %><br/>
+</div>
+
+<div>
+  <%= f.submit "Update" %>
+</div>
+          
+  <% end %>

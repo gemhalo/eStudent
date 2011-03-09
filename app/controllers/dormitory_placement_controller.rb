@@ -15,7 +15,6 @@ class DormitoryPlacementController < ApplicationController
     @beds=@building.number_of_beds_per_room
     @totalbeds=@building.number_of_rooms * @building.number_of_beds_per_room
 
-    b=1
     studentcounter=0
     for r in 1..@rooms 
       for b in 1..@beds
@@ -38,5 +37,24 @@ class DormitoryPlacementController < ApplicationController
 
   def show_placement
     @students=Student.all
+  end
+
+  def edit
+    @dormitory=Dormitory.find(params[:id])
+  end
+
+  def update
+    
+    @dormitory=Dormitory.find(params[:id])
+    @dormitory.update_attributes(params[:dormitory])
+    @students=Student.all
+    render :action=> 'show_placement'
+  end
+
+    def destroy
+    @dormitory = Dormitory.find(params[:id])
+    @dormitory.destroy
+    flash[:notice]="deleted"
+    render :action=>''
   end
 end
