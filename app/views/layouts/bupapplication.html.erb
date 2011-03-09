@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EStudent</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= netzke_init %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div style="padding:10px;">
+<div class="user_nav">
+  <% if current_user %>
+  Welcome <%= current_user.person.name%><br/>
+    <%= link_to 'Edit Profile', edit_user_path(current_user.id) %> |
+    <%= link_to 'Logout', logout_path %>
+  <% else %>
+    <%= link_to 'Register', new_user_path %> |
+    <%= link_to 'Login', login_path %>
+  <% end %>
+</div>
+<div>	
+<%= yield %>
+<!--
+# breadcrumb_yield
+# Yield 1 => Left content
+# Yield 2 => Main content
+# Yield 3 => Right content
+-->
+</div>
+</body>
+</html>
+

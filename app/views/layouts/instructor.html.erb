@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mekelle Univeristy- Student Information System</title>
+  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "/extjs/resources/css/ext-all.css" %>
+  <%= stylesheet_link_tag "/extjs/resources/css/xtheme-gray.css" %>
+  <%= javascript_include_tag :defaults %>
+  <%= netzke_init %>
+  <%= javascript_include_tag "main_page" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+   <!-- Main Content -->
+   <div id='north'>
+        <div class='left'>
+            <img src='/images/mu_icon_64.png'/>
+
+        </div>
+       		 		Welcome to eStudent
+		
+    </div>
+    <!-- Basic setup menu-->
+    <div id="basic_setup">
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/application_side_list.png'/ width=20 height=20> <%= link_to "View Applicants", student_service_staffs_selector_path %> <br>
+
+<div class="res-block-inner">&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/award_star_silver_1.png'/ width=20 height=20>  <%= link_to "View Grade", student_service_staffs_path %><br> </div>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/calendar_view_day.png'/ width=20 height=20>  <%= link_to "Mastersheet", student_service_staffs_path %><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/book_previous.png'/ width=20 height=20>  <%= link_to "Add Instructor", new_instructor_path %><br>
+
+
+        <%#= yield :sss_menu %><br/>
+    </div>
+    <div id="west" class="x-hide-display">
+        <div>
+<div class="inheritance res-block link"><br>&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/application_side_list.png'/ width=20 height=20> <%= link_to "View Applicants", student_service_staffs_selector_path %> <br>
+
+<div class="res-block-inner">&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/award_star_silver_1.png'/ width=20 height=20>  <%= link_to "View Grade", student_service_staffs_path %><br> </div>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/calendar_view_day.png'/ width=20 height=20>  <%= link_to "Mastersheet", student_service_staffs_path %><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/book_previous.png'/ width=20 height=20>  <%= link_to "Graduation", student_service_staffs_path %><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/database_link.png'/ width=20 height=20> <%= link_to "Graduation", student_service_staffs_path %><br></div>
+
+
+            <%#= yield :sss_menu %><br/>
+        </div>    
+
+        <div id='student_menu'>
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/application_side_list.png'/ width=20 height=20> <%= link_to "View Applicants", student_service_staffs_selector_path %> <br>
+
+<div class="res-block-inner">&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/award_star_silver_1.png'/ width=20 height=20>  <%= link_to "View Grade", student_service_staffs_path %><br> </div>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/calendar_view_day.png'/ width=20 height=20>  <%= link_to "Mastersheet", student_service_staffs_path %><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/book_previous.png'/ width=20 height=20>  <%= link_to "Graduation", student_service_staffs_path %><br>
+
+            <%#= yield :sss_menu %><br/> 
+        </div>
+     </div>
+    <div id="center2" class="x-hide-display">
+        <%= yield %>
+    </div>
+    
+    <div id="notification_area">  
+     <h1> East is her</h1>
+    </div>
+ 
+   <div id="south" class="x-hide-display">
+        <center><small>Mekelle Univerisity Gemhalo! project</small></center>
+    </div>
+
+   <!-- End of Main Content -->
+</body>
+</html>
+

@@ -1,2 +1,23 @@
-<h1> List of Applicants!!! </h1>
 <%= render 'form' %>
+<%= content_for :sss_menu do %>
+<div class="inheritance res-block link"><br>&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/application_side_list.png'/ width=20 height=20> <%= link_to "View Applicants", student_service_staffs_selector_path %> <br>
+
+<div class="res-block-inner">&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/award_star_silver_1.png'/ width=20 height=20>  <%= link_to "View Grade", student_service_staffs_path %><br> </div>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/briefcase.png'/ width=20 height=20>  <%= link_to "Transcript", student_service_staffs_path %><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/calendar_view_day.png'/ width=20 height=20>  <%= link_to "Mastersheet", student_service_staffs_path %><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/book_previous.png'/ width=20 height=20>  <%= link_to "Graduation", student_service_staffs_path %><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/database_link.png'/ width=20 height=20> <%= link_to "Graduation", student_service_staffs_path %><br></div>
+
+<% end %>
+</div>
+
+
+<%= content_for :sss_notification do %>
+        <%= link_to "Pending Approvals (20)", student_service_staffs_selector_path %>
+        <%  link_to "List of Readmitteds(50)", student_service_staffs_path %>
+        <%= link_to "Transfer Requests(10)", student_service_staffs_path %>
+        <%= link_to "Mastersheet", student_service_staffs_path %>
+        <%= link_to "Graduation", student_service_staffs_path %>
+<% end %>
+
+

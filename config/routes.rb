@@ -17,10 +17,11 @@ EStudent::Application.routes.draw do
   resources :people
 
  
-  resources :buildings
+  #iresources :buildings
   get "dormitory_placement/place_dorm"
   get "dormitory_placement/show_placement"
-
+  post "dormitory_placement/place_dorm"
+  resources :buildings
   resources :users, :user_sessions
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout

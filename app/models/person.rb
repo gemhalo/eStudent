@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
   validates :name , :presence => true
   validates :father_name,  :presence => true
 
-
+  inheritable_attributes :father_name
   
     def full_name
         [name,father_name,grand_father_name].join(' ')
