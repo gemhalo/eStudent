@@ -10,9 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110304120136) do
+ActiveRecord::Schema.define(:version => 20110308081034) do
 
   create_table "abilities", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academic_and_professional_qualifications", :force => true do |t|
+    t.date     "date_issued"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -23,29 +33,15 @@ ActiveRecord::Schema.define(:version => 20110304120136) do
     t.datetime "updated_at"
   end
 
-  create_table "admissions", :force => true do |t|
+  
+  create_table "agreements", :force => true do |t|
+    t.boolean  "agreement"
     t.integer  "applicant_id"
-    t.integer  "enrollement_type_id"
-    t.integer  "admission_type_id"
-    t.string   "entry_level"
-    t.boolean  "admision_status"
-    t.integer  "college"
-    t.integer  "accadamic_calender_id"
-    t.string   "major_feild_of_study"
-    t.string   "minor_feild_of_study"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "admission_date"
   end
 
-  create_table "applicants", :force => true do |t|
-    t.integer  "person_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "verified",                 :default => false
-    t.integer  "student_service_staff_id"
-    t.integer  "admission_type_id"
-  end
+ 
 
   create_table "buildings", :force => true do |t|
     t.string   "building_name"
@@ -81,6 +77,13 @@ ActiveRecord::Schema.define(:version => 20110304120136) do
   create_table "departments", :force => true do |t|
     t.string   "name"
     t.integer  "college_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "dormitories", :force => true do |t|
+    t.integer  "student_id"
+    t.string   "dorm"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -158,6 +161,17 @@ ActiveRecord::Schema.define(:version => 20110304120136) do
     t.datetime "updated_at"
   end
 
+  create_table "instructors", :force => true do |t|
+    t.string   "id_number"
+    t.string   "academic_rank"
+    t.string   "specialization"
+    t.integer  "role_id"
+    t.integer  "department_id"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "moes", :force => true do |t|
     t.string   "registration_no"
     t.string   "first_name"
@@ -174,13 +188,6 @@ ActiveRecord::Schema.define(:version => 20110304120136) do
     t.string   "placement"
     t.float    "result"
     t.integer  "result_out_of"
-  create_table "instructors", :force => true do |t|
-    t.string   "id_number"
-    t.string   "academic_rank"
-    t.string   "specialization"
-    t.integer  "role_id"
-    t.integer  "department_id"
-    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -218,10 +225,6 @@ ActiveRecord::Schema.define(:version => 20110304120136) do
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
   end
 
   create_table "references", :force => true do |t|
@@ -233,7 +236,6 @@ ActiveRecord::Schema.define(:version => 20110304120136) do
     t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "person_id"
   end
 
   create_table "relevant_publications", :force => true do |t|
@@ -251,6 +253,27 @@ ActiveRecord::Schema.define(:version => 20110304120136) do
   create_table "research_and_teaching_experiences", :force => true do |t|
     t.string   "description"
     t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "student_service_staffs", :force => true do |t|
+    t.string   "id_number"
+    t.string   "rank"
+    t.integer  "qualification_type_id"
+    t.integer  "role_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "person_id"
+  end
+
+  create_table "students", :force => true do |t|
+    t.string   "id_number"
+    t.integer  "department_id"
+    t.integer  "enrollment_type_id"
+    t.integer  "admission_type_id"
+    t.integer  "program_id"
+    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

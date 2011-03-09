@@ -32,4 +32,6 @@
 %>
 </fieldset>
 </fieldset>
+<%= link_to 'Previous', :controller=> 'financial_supports', :action => "new" , :applicant_id => @applicantid %>
+<%= link_to 'Next', :controller=> 'agreements', :action => 'new' , :applicant_id => @applicantid%>
 <br />

@@ -41,6 +41,14 @@ class ApplicantsController < ApplicationController
   end
   def edit
     @applicant = Applicant.find(params[:applicant_id])
+     @ethnicity = Ethnicity.all
+    @nationality = Nationality.all
+    @Admissiontype = AdmissionType.all
+    @Enrollementtype = EnrollementType.all
+    @College = College.all
+    @admission = @applicant.admission.build
+    @person = Person.find(@applicant.person_id)
+
   end
   def update
     #TODO

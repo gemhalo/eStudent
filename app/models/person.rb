@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  has_many :applicants
+  has_many :applicant
   #validates :name , :presence => true
   #validates :father_name,  :presence => true
 

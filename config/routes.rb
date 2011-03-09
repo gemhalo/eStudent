@@ -1,4 +1,6 @@
 EStudent::Application.routes.draw do
+  resources :agreements
+
   resources :educational_backgrounds
 
   resources :academic_and_professional_qualifications
@@ -57,7 +59,8 @@ EStudent::Application.routes.draw do
   
   
   #post 'student_service_staffs/show'
-  #get  'student_service_staffs/sample'  
+  #get  'student_service_staffs/sample'
+  get  'applicants/edit'
   
   get  'student_service_staffs/selector' 
   post 'student_service_staffs/selector'

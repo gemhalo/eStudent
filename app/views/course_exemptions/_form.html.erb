@@ -29,7 +29,9 @@
 </fieldset>
 
 <br />
+<%= link_to 'Previous', :controller=> 'employment_informations', :action => 'new' , :applicant_id => @applicantid%>
 <%  if @admission.admission_type_id == 1 %>
+
 
 <%= link_to 'Next', :controller=> 'department_choices', :action => "new" , :applicant_id => @applicantid%>
 
