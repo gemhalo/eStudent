@@ -24,9 +24,9 @@ class DormitoryPlacementController < ApplicationController
           break
         else
         student.build_dormitory
-        student.dormitory.building="#{building}"
-        student.dormitory.room="#{r}"
-        student.dormitory.bedno="#{b}"
+        #student.dormitory.building="#{building}"
+        student.dormitory.room_id=room.id
+        student.dormitory.bed_number="#{bed}"
         student.dormitory.save!
         studentcounter=studentcounter+1
         end
