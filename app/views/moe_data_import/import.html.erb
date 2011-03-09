@@ -1,0 +1,9 @@
+<h1>MoeDataImport#import</h1>
+
+<% form_tag moe_data_import_upload_path, :html =>{:multipart =>true} do %>
+
+    	Select a CSV File :
+   	<%= file_field_tag :file %>
+   	<%= submit_tag 'Submit' -%>
+
+<% end %>
