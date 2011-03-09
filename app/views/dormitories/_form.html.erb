@@ -12,12 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :student_id %><br />
-    <%= f.text_field :student_id %>
+    Editing dorm for <%= @dormitory.student.person.full_name %>
   </div>
   <div class="field">
     <%= f.label :room_id %><br />
-    <%= f.text_field :room_id %>
+    <%= text_field_tag :room_id %>
   </div>
   <div class="field">
     <%= f.label :bed_number %><br />
