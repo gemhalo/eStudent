@@ -11,13 +11,14 @@ class DormitoryPlacementController < ApplicationController
     @colleges=College.find(params[:college])
     @students=Student.all
     students=Student.all
-    @rooms=@building.number_of_rooms
-    @beds=@building.number_of_beds_per_room
-    @totalbeds=@building.number_of_rooms * @building.number_of_beds_per_room
+    @rooms=@building.rooms
+    rooms=@rooms.count
+    #@beds=@building.number_of_beds_per_room
+    #@totalbeds=@building.number_of_rooms * @building.number_of_beds_per_room
 
     studentcounter=0
-    for r in 1..@rooms 
-      for b in 1..@beds
+    for room in @rooms
+      for bed in 1..room.holding_capacity
         student=students[studentcounter.to_i]
         if student.nil?
           break

@@ -2,8 +2,8 @@ class CreateBuildings < ActiveRecord::Migration
   def self.up
     create_table :buildings do |t|
       t.string :building_name
-      t.integer :number_of_rooms
-      t.integer :number_of_beds_per_room
+      t.integer :campus_id
+      t.integer :floors
 
       t.timestamps
     end

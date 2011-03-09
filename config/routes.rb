@@ -1,4 +1,10 @@
 EStudent::Application.routes.draw do
+  resources :dormitories
+
+  resources :rooms
+
+  resources :buildings
+
   resources :department_quotas
 
   resources :departments
@@ -18,9 +24,7 @@ EStudent::Application.routes.draw do
   resources :ethnicities
   resources :people
 
- 
-  resources :buildings
-  get "dormitory_placement/place_dorm"
+   get "dormitory_placement/place_dorm"
   get "dormitory_placement/show_placement"
   post "dormitory_placement/dorm_placing_process"
   get "dormitory_placement/edit"

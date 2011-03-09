@@ -1,0 +1,31 @@
+<h1>Listing rooms</h1>
+
+<table>
+  <tr>
+    <th>Room number</th>
+    <th>Building</th>
+    <th>Floor number</th>
+    <th>Holding capacity</th>
+    <th>Used for</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rooms.each do |room| %>
+  <tr>
+    <td><%= room.room_number %></td>
+    <td><%= room.building_id %></td>
+    <td><%= room.floor_number %></td>
+    <td><%= room.holding_capacity %></td>
+    <td><%= room.used_for %></td>
+    <td><%= link_to 'Show', room %></td>
+    <td><%= link_to 'Edit', edit_room_path(room) %></td>
+    <td><%= link_to 'Destroy', room, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Room', new_room_path %>

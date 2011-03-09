@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110309062413) do
+ActiveRecord::Schema.define(:version => 20110309123928) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20110309062413) do
 
   create_table "buildings", :force => true do |t|
     t.string   "building_name"
-    t.integer  "number_of_rooms"
-    t.integer  "number_of_beds_per_room"
+    t.integer  "campus_id"
+    t.integer  "floors"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -96,9 +96,9 @@ ActiveRecord::Schema.define(:version => 20110309062413) do
 
   create_table "dormitories", :force => true do |t|
     t.integer  "student_id"
-    t.string   "building"
-    t.integer  "room"
-    t.integer  "bedno"
+    t.integer  "room_id"
+    t.string   "bed_number"
+    t.date     "academic_year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -167,6 +167,16 @@ ActiveRecord::Schema.define(:version => 20110309062413) do
     t.string   "marital_status"
     t.string   "mother_full_name"
     t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rooms", :force => true do |t|
+    t.string   "room_number"
+    t.integer  "building_id"
+    t.integer  "floor_number"
+    t.integer  "holding_capacity"
+    t.string   "used_for"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
