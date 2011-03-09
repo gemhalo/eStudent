@@ -22,38 +22,19 @@
     </div>
     <!-- Basic setup menu-->
     <div id="basic_setup">
+        <%#= link_to('list of Applicants','/student_service_staffs/') %><br/>
+        <%#= link_to('Apply me online','/applicants/new') %><br/>
+        <%#= link_to('Colleges','/colleges/') %><br/>
+        <%= yield :sss_menu %><br/>
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/application_side_list.png'/ width=20 height=20> <%= link_to "View Applicants", student_service_staffs_selector_path %> <br>
-
-<div class="res-block-inner">&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/award_star_silver_1.png'/ width=20 height=20>  <%= link_to "View Grade", student_service_staffs_path %><br> </div>
-&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/calendar_view_day.png'/ width=20 height=20>  <%= link_to "Mastersheet", student_service_staffs_path %><br>
-&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/book_previous.png'/ width=20 height=20>  <%= link_to "Graduation", student_service_staffs_path %><br>
-
-
-        <%#= yield :sss_menu %><br/>
     </div>
     <div id="west" class="x-hide-display">
         <div>
-<div class="inheritance res-block link"><br>&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/application_side_list.png'/ width=20 height=20> <%= link_to "View Applicants", student_service_staffs_selector_path %> <br>
-
-<div class="res-block-inner">&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/award_star_silver_1.png'/ width=20 height=20>  <%= link_to "View Grade", student_service_staffs_path %><br> </div>
-&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/calendar_view_day.png'/ width=20 height=20>  <%= link_to "Mastersheet", student_service_staffs_path %><br>
-&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/book_previous.png'/ width=20 height=20>  <%= link_to "Graduation", student_service_staffs_path %><br>
-&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/database_link.png'/ width=20 height=20> <%= link_to "Graduation", student_service_staffs_path %><br></div>
-
-
-            <%#= yield :sss_menu %><br/>
+            <%= yield :sss_menu %><br/>
         </div>    
 
         <div id='student_menu'>
-
-<br>&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/application_side_list.png'/ width=20 height=20> <%= link_to "View Applicants", student_service_staffs_selector_path %> <br>
-
-<div class="res-block-inner">&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/award_star_silver_1.png'/ width=20 height=20>  <%= link_to "View Grade", student_service_staffs_path %><br> </div>
-&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/calendar_view_day.png'/ width=20 height=20>  <%= link_to "Mastersheet", student_service_staffs_path %><br>
-&nbsp;&nbsp;&nbsp;&nbsp; <img src='/icons/book_previous.png'/ width=20 height=20>  <%= link_to "Graduation", student_service_staffs_path %><br>
-
-            <%#= yield :sss_menu %><br/> 
+            <%= yield :sss_menu %><br/> 
         </div>
      </div>
     <div id="center2" class="x-hide-display">

@@ -12,7 +12,7 @@
             // create instance immediately
             new Ext.BoxComponent({
                 region: 'north',
-                height: 66, // give north and south regions a height
+                height: 70, // give north and south regions a height
                 autoEl: {
                     tag: 'div',
                     //html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
@@ -27,7 +27,7 @@
                 maxSize: 200,
                 collapsible: true,
                 //title: 'Footer',
-                margins: '0 0 0 0'
+                margins: '0 0 0 5'
             },{ 
                 region: 'east',
                 id: 'east-panel', // see Ext.getCmp() below
