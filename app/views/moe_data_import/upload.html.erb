@@ -1,0 +1,20 @@
+<%= flash[:notice] %><br>
+<%# i=0  %>
+<%#*<table border= "1">%>
+  <%#  @myfile.each do |f| %>
+  <%#*<tr><%  for i in [0,1,2,3,4,5,6,7,8,9,10,11] %>
+  <%#*<td><%= f[i]%>
+  <%# end %>
+  <%# end %>
+<%#*</table> %>
+<%= @user_name.inspect %>
+<center>
+<%= netzke :people,
+           :class_name => "Basepack::GridPanel",
+           :model => 'Person',
+           :columns => [
+           :regno, :college_name, :name, :father_name, :grand_father_name, :nationality__name, :result, :maxresult, :school ],
+           :scope=> {:id.gteq => @person.first.id},
+           :width => 880
+          %>
+</center>

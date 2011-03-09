@@ -1,12 +1,11 @@
 source 'http://rubygems.org'
 #Gems required for all environments
-
 gem 'rails', '3.0.4'
 gem 'authlogic'
 gem 'cancan'
 #We will enable this when we want to work with  Bundle edge Rails instead: 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'fastercsv'
 gem  'will_paginate', '~>3.0.pre2'
 #To generate model diagrams
 gem  'railroad'
@@ -98,7 +97,7 @@ group :development, :test do
   #gem 'webrat'
   #gem 'capybara'
   gem 'cucumber'
-  gem 'minitest'
+  #gem 'minitest'
 
   #gem 'remarkable_rails'
 

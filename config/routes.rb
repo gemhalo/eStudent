@@ -24,7 +24,7 @@ EStudent::Application.routes.draw do
   resources :ethnicities
   resources :people
 
-   get "dormitory_placement/place_dorm"
+  get "dormitory_placement/place_dorm"
   get "dormitory_placement/show_placement"
   post "dormitory_placement/dorm_placing_process"
   get "dormitory_placement/edit"
