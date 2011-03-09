@@ -215,6 +215,20 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.datetime "updated_at"
   end
 
+  create_table "programs", :force => true do |t|
+    t.string   "program_id_number"
+    t.string   "program_name"
+    t.string   "level"
+    t.integer  "enrollment_type"
+    t.string   "mode"
+    t.string   "award_type"
+    t.string   "duration"
+    t.integer  "total_credit_hour"
+    t.integer  "department_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "student_service_staffs", :force => true do |t|
     t.string   "id_number"
     t.string   "rank"
