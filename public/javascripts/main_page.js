@@ -12,7 +12,7 @@
             // create instance immediately
             new Ext.BoxComponent({
                 region: 'north',
-                height: 70, // give north and south regions a height
+                height: 90, // give north and south regions a height
                 autoEl: {
                     tag: 'div',
                     //html:'<p>north - generally for menus, toolbars and/or advertisements</p>'

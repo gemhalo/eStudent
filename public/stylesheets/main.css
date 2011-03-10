@@ -1,9 +1,10 @@
 .link{
 border:0px groove green;
-
+text-indent:30px;
 }
 
 
-.link a {color:green;
+.link a {color:olive;
 text-decoration:none;
+text-indent:30px;
 }

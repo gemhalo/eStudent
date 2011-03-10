@@ -1,94 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EStudent</title>
+  <title>Mekelle Univeristy- Student Information System</title>
   <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "/extjs/resources/css/ext-all.css" %>
+  <%= stylesheet_link_tag "/extjs/resources/css/xtheme-gray.css" %>
   <%= javascript_include_tag :defaults %>
+  <%= netzke_init %>
+  <%= javascript_include_tag "main_page" %>
   <%= csrf_meta_tag %>
-<style type="text/css" media="screen">
-.clear { float:none; clear:both; }
-.left { float:left;}
-.right { float: right;}
-#logo_container,#logo ,#h_menu,#centerPanel,#footer,
-#h_menu_and_breadcrumbs,
-#left_menu, #content, #notification_area
-{
-  border:1px solid;
-}
-#logo_container{
-    margin:4px;
-}
-#logo { margin-right:4px;height:64px;width:80px;}
-#logo_text { padding:10px;font-size:24px;}
-#h_menu { background: #fbefbe;margin:1px;}
-#breadcrumbs { position:relative;left:10%;}
-#centerPanel { min-height:400px;}
-#notification_area { width:15%; min-height:400px;}
-#left_menu { width:15%;min-height:400px;}
-#content { min-width:68%;min-height:400px;}
-#footer{ min-height:80px;}
-#user_info { display:none;}
-</style>
 </head>
-
 <body>
-<!--Main layout -->
-<div id="mainWrapper" class="clear">
-  <div id="northPanel" class="clear">
-    <div id="logo_container" class="clear">
-       <div id="logo" class="left">
-          LOGO
-       </div>
-       <div id="logo_text" class="left" >   Mekelle University    </div>
-       <div id="login_logout" class="right">
-      <% if current_user %>
-          Hello <%= current_user.username %> (<%= link_to 'Logout', logout_path, :method => :delete %>)
-      <% else %>
-        <%= link_to "Register", new_user_path, :method => :get %> |
-        <%= link_to "Login", login_url, :method => :get %>
-
-      <% end %>
-       </div>
-    </div><br/>
-    <div id="h_menu_and_breadcrumbs" class="clear" >
-        <div id="h_menu" class="clear" align="center">
-          [Home] [About] [Help]
-
-        </div>
-        <div id="breadcrumbs">
-            Home > Here
+   <!-- Main Content -->
+   <div id='north'>
+        <div class='left'>
+            <img src='/images/mu_icon_64.png'/>
+	    <h4>  Welcome to eStudent </h4>
         </div>
     </div>
-  </div>
-  <!-- Center panel begins here -->
-  <div id="centerPanel" class="clear" >
-     <!-- Left menu-->
-     <div id="left_menu" class="left">
-      <div id="user_info">
-        PHOTO
-        Username :ygetachew
-      </div>
-            Menu
+    <!-- Basic setup menu-->
+    <div id="basic_setup">
+            <%= render :partial =>'/shared/student/studentcoursemenu' %><br/>
+    </div>
+    <div id="west" class="x-hide-display">
+        <div>
+            <%= render :partial =>'/shared/student/studentacademicsmenu' %><br/>
+        </div>    
+
+        <div id='student_menu'>
+            <%= render :partial =>'/shared/student/studentservicesmenu' %><br/>
+        </div>
      </div>
-     <!-- Content-->
-     <div id="content" class="left">
-
-              <%= yield %>
-
-     </div>
-
-     <!-- notification area-->
-    <div id="notification_area" class="right">
-Notifications
+    <div id="center2" class="x-hide-display">
+        <%= yield %>
+    </div>
+    
+    <div id="notification_area">  
+     <h1> East is her</h1>
+    </div>
+ 
+   <div id="south" class="x-hide-display">
+        <center><small>Mekelle Univerisity Gemhalo! project</small></center>
     </div>
 
-  </div>
-
-  <!-- footer -->
-  <div id="footer" class="clear">
-
-  </div>
-</div>
+   <!-- End of Main Content -->
 </body>
 </html>
 

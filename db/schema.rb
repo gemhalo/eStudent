@@ -24,11 +24,18 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
   end
 
   create_table "admissions", :force => true do |t|
+    t.integer  "applicant_id"
+    t.integer  "enrollement_type_id"
     t.integer  "admission_type_id"
-    t.integer  "enrollment_type_id"
-    t.integer  "enrollment_mode_id"
+    t.string   "entry_level"
+    t.boolean  "admision_status"
+    t.integer  "college"
+    t.integer  "accadamic_calender_id"
+    t.string   "major_feild_of_study"
+    t.string   "minor_feild_of_study"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "admission_date"
   end
 
   create_table "applicants", :force => true do |t|
@@ -90,6 +97,11 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.integer  "course_type"
     t.integer  "semester_id"
     t.integer  "class_year_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "department_heads", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -190,6 +202,7 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
     t.boolean  "disability"
     t.string   "type_of_disability"
     t.integer  "region_code"
@@ -219,8 +232,6 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.integer  "person_id"
   end
 
-<<<<<<< HEAD
-=======
   create_table "students", :force => true do |t|
     t.string   "id_number"
     t.integer  "department_id"
@@ -235,7 +246,6 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.integer  "admission_id"
   end
 
->>>>>>> 8bb4661c19656dc740ea81d0f6012c0a56717b8b
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "email"
@@ -251,8 +261,8 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role"
     t.integer  "person_id"
+    t.string   "role"
   end
 
 end

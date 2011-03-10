@@ -15,26 +15,20 @@
    <div id='north'>
         <div class='left'>
             <img src='/images/mu_icon_64.png'/>
-
+	    <h4>  Welcome to eStudent </h4>
         </div>
-       		 		Welcome to eStudent
-		
     </div>
     <!-- Basic setup menu-->
     <div id="basic_setup">
-        <%#= link_to('list of Applicants','/student_service_staffs/') %><br/>
-        <%#= link_to('Apply me online','/applicants/new') %><br/>
-        <%#= link_to('Colleges','/colleges/') %><br/>
-        <%= yield :sss_menu %><br/>
-
+            <%= render :partial =>'/shared/student/studentcoursemenu' %><br/>
     </div>
     <div id="west" class="x-hide-display">
         <div>
-            <%= yield :sss_menu %><br/>
+            <%= render :partial =>'/shared/student/studentacademicsmenu' %><br/>
         </div>    
 
         <div id='student_menu'>
-            <%= yield :sss_menu %><br/> 
+            <%= render :partial =>'/shared/student/studentservicesmenu' %><br/>
         </div>
      </div>
     <div id="center2" class="x-hide-display">
