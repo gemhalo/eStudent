@@ -1,0 +1,66 @@
+<<<<<<< HEAD
+<h1>Listing programs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Admission</th>
+    <th>Duration</th>
+    <th>Total credit hour</th>
+    <th>Award type</th>
+=======
+
+<h1>Listing programs</h1>
+
+  <table border=1>
+  <tr>
+    <th>Program</th>
+    <th>Program name</th>
+    <th>Level</th>
+    <th>Enrollment type</th>
+    <th>Mode</th>
+    <th>Award type</th>
+    <th>Duration</th>
+    <th>Total credit hour</th>
+    <th>Department</th>
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @programs.each do |program| %>
+  <tr>
+<<<<<<< HEAD
+    <td><%= program.name %></td>
+    <td><%= program.department_id %></td>
+    <td><%= program.admission_id %></td>
+    <td><%= program.duration %></td>
+    <td><%= program.total_credit_hour %></td>
+    <td><%= program.award_type_id %></td>
+=======
+    <td><%= program.program_id_number %></td>
+    <td><%= program.program_name %></td>
+    <td><%= program.level %></td>
+    <td><%= program.enrollment_type %></td>
+    <td><%= program.mode %></td>
+    <td><%= program.award_type %></td>
+    <td><%= program.duration %></td>
+    <td><%= program.total_credit_hour %></td>
+    <td><%= program.department_id %></td>
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+    <td><%= link_to 'Show', program %></td>
+    <td><%= link_to 'Edit', edit_program_path(program) %></td>
+    <td><%= link_to 'Destroy', program, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Program', new_program_path %>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5

@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+<h1>Editing campus</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @campus %> |
+=======
+<h1>Editing campuse</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @campuse %> |
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+<%= link_to 'Back', campuses_path %>

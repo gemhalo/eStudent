@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+<<<<<<< HEAD
+  <%= @campus.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_campus_path(@campus) %> |
+=======
+  <%= @campuse.name %>
+</p>
+
+<p>
+  <b>Campus telephone:</b>
+  <%= @campuse.campus_telephone %>
+</p>
+
+<p>
+  <b>Campus pobox:</b>
+  <%= @campuse.campus_pobox %>
+</p>
+
+<p>
+  <b>Campus email:</b>
+  <%= @campuse.campus_email %>
+</p>
+
+
+<%= link_to 'Edit', edit_campuse_path(@campuse) %> |
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+<%= link_to 'Back', campuses_path %>
