@@ -17,7 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :campus_id %><br />
-    <%= f.text_field :campus_id %>
+    <%= f.collection_select( :campus_id, @campus,:id,:name) %>
+  </div>
+  <div class="field">
+    <%= f.label :dean %><br />
+    <%= f.text_field :dean %>
   </div>
   <div class="actions">
     <%= f.submit %>

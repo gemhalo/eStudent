@@ -4,7 +4,8 @@ describe "colleges/edit.html.erb" do
   before(:each) do
     @college = assign(:college, stub_model(College,
       :name => "MyString",
-      :campus_id => 1
+      :campus_id => 1,
+      :dean => "MyString"
     ))
   end
 
@@ -15,6 +16,7 @@ describe "colleges/edit.html.erb" do
     assert_select "form", :action => colleges_path(@college), :method => "post" do
       assert_select "input#college_name", :name => "college[name]"
       assert_select "input#college_campus_id", :name => "college[campus_id]"
+      assert_select "input#college_dean", :name => "college[dean]"
     end
   end
 end

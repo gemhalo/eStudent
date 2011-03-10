@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Campus</th>
+    <th>Dean</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= college.name %></td>
     <td><%= college.campus_id %></td>
+    <td><%= college.dean %></td>
     <td><%= link_to 'Show', college %></td>
     <td><%= link_to 'Edit', edit_college_path(college) %></td>
     <td><%= link_to 'Destroy', college, :confirm => 'Are you sure?', :method => :delete %></td>

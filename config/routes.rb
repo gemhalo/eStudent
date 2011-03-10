@@ -1,4 +1,14 @@
 EStudent::Application.routes.draw do
+  resources :admissions
+
+  resources :how_tos
+
+  resources :events
+
+  resources :departments
+
+  resources :campuses
+
   resources :academic_calanders
 
   netzke
@@ -11,6 +21,7 @@ EStudent::Application.routes.draw do
   resources :nationalities
   resources :ethnicities
   resources :people
+  resources :programs
 
  
   resources :buildings

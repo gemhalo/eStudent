@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110307083949) do
+ActiveRecord::Schema.define(:version => 20110310135025) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -31,18 +31,10 @@ ActiveRecord::Schema.define(:version => 20110307083949) do
   end
 
   create_table "admissions", :force => true do |t|
-    t.integer  "applicant_id"
-    t.integer  "enrollement_type_id"
     t.integer  "admission_type_id"
-    t.string   "entry_level"
-    t.boolean  "admision_status"
-    t.integer  "college"
-    t.integer  "accadamic_calender_id"
-    t.string   "major_feild_of_study"
-    t.string   "minor_feild_of_study"
+    t.integer  "enrollment_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "admission_date"
   end
 
   create_table "applicants", :force => true do |t|
@@ -62,9 +54,24 @@ ActiveRecord::Schema.define(:version => 20110307083949) do
     t.datetime "updated_at"
   end
 
+  create_table "campuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
+    t.string   "dean"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.integer  "college_id"
+    t.string   "dept_head"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,6 +95,16 @@ ActiveRecord::Schema.define(:version => 20110307083949) do
     t.datetime "updated_at"
   end
 
+  create_table "events", :force => true do |t|
+    t.integer  "academic_calander_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "title"
+    t.string   "detail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "family_backgrounds", :force => true do |t|
     t.string   "father_edu_level"
     t.string   "mother_edu_level"
@@ -96,6 +113,13 @@ ActiveRecord::Schema.define(:version => 20110307083949) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "applicant_id"
+  end
+
+  create_table "how_tos", :force => true do |t|
+    t.string   "title"
+    t.string   "detail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "instructors", :force => true do |t|
@@ -140,6 +164,17 @@ ActiveRecord::Schema.define(:version => 20110307083949) do
     t.string   "marital_status"
     t.string   "mother_full_name"
     t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "programs", :force => true do |t|
+    t.string   "name"
+    t.integer  "department_id"
+    t.integer  "admission_id"
+    t.date     "duration"
+    t.integer  "total_credit_hour"
+    t.integer  "award_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

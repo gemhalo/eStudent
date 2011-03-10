@@ -4,7 +4,8 @@ describe "colleges/show.html.erb" do
   before(:each) do
     @college = assign(:college, stub_model(College,
       :name => "Name",
-      :campus_id => 1
+      :campus_id => 1,
+      :dean => "Dean"
     ))
   end
 
@@ -14,5 +15,7 @@ describe "colleges/show.html.erb" do
     rendered.should match(/Name/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/1/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Dean/)
   end
 end
