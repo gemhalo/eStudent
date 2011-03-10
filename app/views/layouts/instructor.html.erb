@@ -11,32 +11,28 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-   <!-- Main Content -->
-   <div id='north'>
-        <div class='left'>
-            <img src='/images/mu_icon_64.png'/>
-	    <h4>  Welcome to eStudent </h4>
-        </div>
-    </div>
+   <!-- Header Content -->
+     <%= render :partial =>'/shared/header' %>
+
     <!-- Basic setup menu-->
     <div id="basic_setup">
-            <%= render :partial =>'/shared/instructor/instructorcoursemenu' %><br/>
+            <%= render :partial =>'/shared/instructor/instructorgrademenu' %><br/>
     </div>
     <div id="west" class="x-hide-display">
         <div>
-            <%= render :partial =>'/shared/instructor/studentacademicsmenu' %><br/>
+            <%= render :partial =>'/shared/instructor/instructorcommunicationsmenu' %><br/>
         </div>    
 
         <div id='student_menu'>
-            <%= render :partial =>'/shared/instructor/studentservicesmenu' %><br/>
+            <%= render :partial =>'/shared/instructor/instructorsettingsmenu' %><br/>
         </div>
      </div>
     <div id="center2" class="x-hide-display">
         <%= yield %>
     </div>
     
-    <div id="notification_area">  
-     <h1> East is her</h1>
+    <div id="notification_area"> 
+    	 <%= render :partial =>'/shared/notification' %>
     </div>
  
    <div id="south" class="x-hide-display">

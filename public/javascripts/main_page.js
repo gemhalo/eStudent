@@ -86,8 +86,8 @@
                     iconCls: 'nav' // see the HEAD section for style used
                 },
                 /*{
-                    contentEl: 'west_south',
-                    title: 'Navigation',
+                    contentEl: 'sss_west',
+                    title: 'Communications',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },*/

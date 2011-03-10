@@ -11,29 +11,29 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-   <!-- Main Content -->
-   <div id='north'>
-        <div class='left'>
-            <img src='/images/mu_icon_64.png'/>
-	    <h4>  Welcome to eStudent </h4>
-        </div>
-    </div>
-    <!-- Basic setup menu-->
+         <!-- Header Content -->
+            <%= render :partial =>'/shared/header' %><br/>
+	<!-- Basic setup menu-->
     <div id="basic_setup">
-            <%= render :partial =>'/shared/ssstaff/ssscoursemenu' %><br/>
+            <%= render :partial =>'/shared/ssstaff/sssacademicsmenu' %><br/>
     </div>
     <div id="west" class="x-hide-display">
         <div>
-            <%= render :partial =>'/shared/ssstaff/sssacademicsmenu' %><br/>
+            <%= render :partial =>'/shared/ssstaff/ssscoursemenu' %><br/>
         </div>    
 
         <div id='student_menu'>
-            <%= render :partial =>'/shared/ssstaff/sssservicesmenu' %><br/>
+            <%= render :partial =>'/shared/ssstaff/sssapproval_decisionsmenu' %><br/>
         </div>
 
-         <div id='student_menu'>
-            <%= render :partial =>'/shared/ssstaff/sssservicesmenu' %><br/>
+         <div id='sss_west'>
+            <%= render :partial =>'/shared/ssstaff/ssscommunications' %><br/>
         </div>
+
+	 <div id='services_menu'>
+            <%= render :partial =>'/shared/ssstaff/ssssettingsmenu' %><br/>
+        </div>
+
 
      </div>
     <div id="center2" class="x-hide-display">
@@ -41,7 +41,7 @@
     </div>
     
     <div id="notification_area">  
-     <h1> East is her</h1>
+    	            <%= render :partial =>'/shared/notification' %><br/>
     </div>
  
    <div id="south" class="x-hide-display">
