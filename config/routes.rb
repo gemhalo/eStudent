@@ -24,11 +24,11 @@ EStudent::Application.routes.draw do
   resources :ethnicities
   resources :people
 
-  get "addmission_approval/index"
-  get "addmission_approval/show_list"
-  get "addmission_approval/details"
-  get "addmission_approval/approve"
-  get "addmission_approval/decline"
+  get "admission_approval/index"
+  get "admission_approval/show_list"
+  get "admission_approval/details"
+  get "admission_approval/approve"
+  get "admission_approval/decline"
 
   get "dormitory_placement/place_dorm"
   get "dormitory_placement/show_placement"

@@ -1,5 +1,4 @@
-class AddmissionApprovalController < ApplicationController
-
+class AdmissionApprovalController < ApplicationController
   def index
 
         #@current_user=session[:user_name]
@@ -20,7 +19,7 @@ class AddmissionApprovalController < ApplicationController
     #dept=current_user.person.instructor.department_id
      #   @applicants=Applicant.all(:include=>:admission, :conditions=>
       #  ["admissions.major_feild_of_study =#{dept}"])
-    
+
     applicant=Applicant.find(params[:id])
     applicant.verified=true
     if applicant.save!
