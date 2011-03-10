@@ -25,7 +25,6 @@ class EthnicitiesController < ApplicationController
   # GET /ethnicities/new.xml
   def new
     @ethnicity = Ethnicity.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @ethnicity }

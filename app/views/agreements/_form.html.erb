@@ -1,0 +1,25 @@
+<fieldset><legend>Agreement</legend>
+<%= form_for(@agreement) do |f| %>
+  <% if @agreement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agreement.errors.count, "error") %> prohibited this agreement from being saved:</h2>
+
+      <ul>
+      <% @agreement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.hidden_field :applicant_id, :value => @applicantid %>
+<table>
+  <tr><td><%= f.label :agreement %></td>
+    <td><%= f.check_box :agreement %></td></tr>
+</table>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</fieldset>
+<%= link_to 'Previous', :controller=> 'department_choices', :action => "new" , :applicant_id => @applicantid %>
+<% end %>

@@ -1,0 +1,39 @@
+<fieldset>
+<fieldset><legend>Academic and Professional Qualification (if any)</legend>
+<%= form_for(@academic_and_professional_qualification) do |f| %>
+  <% if @academic_and_professional_qualification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@academic_and_professional_qualification.errors.count, "error") %> prohibited this academic_and_professional_qualification from being saved:</h2>
+
+      <ul>
+      <% @academic_and_professional_qualification.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.hidden_field :applicant_id, :value => @applicantid %>
+  <table border ="0"><tr>
+
+      <td><%= f.label :date_issued %></td>
+      <td><%= f.date_select :date_issued %></td></tr>
+    <tr>
+      <td> <%= f.label :attachment %></td>
+      <td> <%= f.file_field :fs, :index => nil %></td></tr>
+  </table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</fieldset>
+  <fieldset><legend>Academic and Professional Qualification List</legend>
+<%= netzke :academic_and_professional_qualifications,
+  :model => 'AcademicAndProfessionalQualification',
+  :class_name => 'Basepack::GridPanel',
+  :scope => ["applicant_id = ? ", @applicantid]
+%>
+ </fieldset>
+</fieldset>
+<%= link_to 'Previous', :controller=> 'research_and_teaching_experiences', :action => "new" , :applicant_id => @applicantid %>
+<%= link_to 'Next', :controller=> 'financial_supports', :action => 'new' , :applicant_id => @applicantid%>

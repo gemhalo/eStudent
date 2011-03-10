@@ -1,0 +1,25 @@
+<h1>Listing research_and_teaching_experiences</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Applicant</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @research_and_teaching_experiences.each do |research_and_teaching_experience| %>
+  <tr>
+    <td><%= research_and_teaching_experience.description %></td>
+    <td><%= research_and_teaching_experience.applicant_id %></td>
+    <td><%= link_to 'Show', research_and_teaching_experience %></td>
+    <td><%= link_to 'Edit', edit_research_and_teaching_experience_path(research_and_teaching_experience) %></td>
+    <td><%= link_to 'Destroy', research_and_teaching_experience, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Research and teaching experience', new_research_and_teaching_experience_path %>

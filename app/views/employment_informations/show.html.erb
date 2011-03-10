@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Job type:</b>
+  <%= @employment_information.job_type %>
+</p>
+
+<p>
+  <b>Employer name:</b>
+  <%= @employment_information.employer_name %>
+</p>
+
+<p>
+  <b>Employer telephone:</b>
+  <%= @employment_information.employer_telephone %>
+</p>
+
+<p>
+  <b>Employer pobox:</b>
+  <%= @employment_information.employer_pobox %>
+</p>
+
+<p>
+  <b>Employer email:</b>
+  <%= @employment_information.employer_email %>
+</p>
+
+<p>
+  <b>Applicant:</b>
+  <%= @employment_information.applicant_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_employment_information_path(@employment_information) %> |
+<%= link_to 'Back', employment_informations_path %>

@@ -1,0 +1,37 @@
+<fieldset>
+<fieldset><legend>Research and Teaching Experience (if any)</legend>
+<%= form_for(@research_and_teaching_experience) do |f| %>
+  <% if @research_and_teaching_experience.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@research_and_teaching_experience.errors.count, "error") %> prohibited this research_and_teaching_experience from being saved:</h2>
+
+      <ul>
+      <% @research_and_teaching_experience.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+   <% end %>
+<%= f.hidden_field :applicant_id, :value => @applicantid %>
+<div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+</fieldset>
+  <fieldset><legend>Research and Teaching Experience List</legend>
+  
+  <%= netzke :research_and_teaching_experiences,
+  :model => 'ResearchAndTeachingExperience',
+  :class_name => 'Basepack::GridPanel',
+  :scope => ["applicant_id = ? ", @applicantid]
+%>
+</fieldset>
+</fieldset>
+<br />
+<%= link_to 'Previous', :controller=> 'relevant_publications', :action => "new" , :applicant_id => @applicantid %>
+<%= link_to 'Next', :controller=> 'academic_and_professional_qualifications', :action => "new" , :applicant_id => @applicantid%>

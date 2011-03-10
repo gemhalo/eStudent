@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Full name:</b>
+  <%= @reference.full_name %>
+</p>
+
+<p>
+  <b>Office telephone:</b>
+  <%= @reference.office_telephone %>
+</p>
+
+<p>
+  <b>Mobile telephone:</b>
+  <%= @reference.mobile_telephone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @reference.email %>
+</p>
+
+<p>
+  <b>Profession:</b>
+  <%= @reference.profession %>
+</p>
+
+<p>
+  <b>Applicant:</b>
+  <%= @reference.applicant_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_reference_path(@reference) %> |
+<%= link_to 'Back', references_path %>
