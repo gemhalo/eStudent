@@ -1,5 +1,3 @@
-<fieldset>
-<fieldset><legend>Educational Background</legend>
 <%= form_for(@educational_background) do |f| %>
   <% if @educational_background.errors.any? %>
     <div id="error_explanation">
@@ -12,22 +10,25 @@
       </ul>
     </div>
   <% end %>
+
 <%= f.hidden_field :applicant_id, :value => @applicantid %>
 
 <table>
-  <tr><td><%= f.label :institution_type %></td><td><%= f.select :institution_type,["Secondary School","Preparatory","College"],:prompt=>"Select Institution" %></td><td> <%= f.label :region %></td><td> <%= f.text_field :region %></td></tr>
-  <tr><td><%= f.label :institution_name %></td><td><%= f.text_field :institution_name %></td><td><%= f.label :zone %></td><td><%= f.text_field :zone %></td></tr>
-  <tr><td> <%= f.label :result %></td><td><%= f.text_field :result %></td><td><%= f.label :town %></td><td><%= f.text_field :town %></td></tr>
-  <tr><td> <%= f.label :out_of %></td><td><%= f.text_field :out_of %></td><td></td><td></td></tr>
-  <tr><td><%= f.label :department %></td><td><%= f.text_field :department %></td><td></td><td></td></tr>
+  <tr><td><%= f.label :institution_type %></td><td><%= f.select :institution_type,["Secondary School","Preparatory","College"],:prompt=>"Select Institution" %></td></tr>
+  <tr><td><%= f.label :institution_name %></td><td><%= f.text_field :institution_name %></td><td><%= f.label :result_type %></td><td><%= f.text_field :result_type %></td></tr>
+  <tr><td> <%= f.label :institution_region %></td><td> <%= f.text_field :institution_region %></td><td><%= f.label :institution_zone %></td><td><%= f.text_field :institution_zone %></td></tr>
+  <tr><td><%= f.label :institution_town %></td><td><%= f.text_field :institution_town %></td><td> <%= f.label :eheece_code %></td><td><%= f.text_field :eheece_code %></td></tr>
+  <tr><td> <%= f.label :result %></td><td><%= f.text_field :result %></td><td><%= f.label :school_code %></td><td><%= f.text_field :school_code %></td></tr>
+  <tr><td> <%= f.label :out_of %></td><td><%= f.text_field :out_of %></td><td><%= f.label :department %></td><td><%= f.text_field :department %></td></tr>
   <tr><td><%= f.label :college_leave_reason %></td><td><%= f.text_field :college_leave_reason %></td></tr>
+  <tr><td><%= f.label :attachment %></td><td><%= f.file_field :fs, :index => nil %></td></tr>
 </table>
 
-  <div class="actions">
+ <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-</fieldset>
+
   <fieldset><legend>Educational Background List</legend>
 <%= netzke :educational_backgrounds,
   :model => 'EducationalBackground',
@@ -35,6 +36,5 @@
   :scope => ["applicant_id = ?", @applicantid]
 %>
   </fieldset>
-</fieldset>
 <%= link_to 'Previous', :controller=> 'emergency_contacts', :action => 'new' , :applicant_id => @applicantid%>
 <%= link_to 'Next', :controller=> 'employment_informations', :action => "new" , :applicant_id => @applicantid %>

@@ -1,0 +1,8 @@
+Description:
+    Creates a GridPanel Netzke widget
+
+Example:
+    rails g grid_panel_widget my_gridpanel
+
+    This will create:
+        lib/netzke/grid_panel/my_gridpanel.rb

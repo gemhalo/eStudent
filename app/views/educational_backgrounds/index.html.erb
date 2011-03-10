@@ -4,14 +4,20 @@
   <tr>
     <th>Institution type</th>
     <th>Institution name</th>
-    <th>Region</th>
-    <th>Zone</th>
-    <th>Town</th>
+    <th>Result type</th>
+    <th>Eheece code</th>
+    <th>School code</th>
+    <th>Institution region</th>
+    <th>Institution zone</th>
+    <th>Institution town</th>
     <th>Result</th>
     <th>Out of</th>
     <th>Department</th>
     <th>College leave reason</th>
     <th>Applicant</th>
+    <th>Attachment file name</th>
+    <th>Attachment content type</th>
+    <th>Attachment file size</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,14 +27,20 @@
   <tr>
     <td><%= educational_background.institution_type %></td>
     <td><%= educational_background.institution_name %></td>
-    <td><%= educational_background.region %></td>
-    <td><%= educational_background.zone %></td>
-    <td><%= educational_background.town %></td>
+    <td><%= educational_background.result_type %></td>
+    <td><%= educational_background.eheece_code %></td>
+    <td><%= educational_background.school_code %></td>
+    <td><%= educational_background.institution_region %></td>
+    <td><%= educational_background.institution_zone %></td>
+    <td><%= educational_background.institution_town %></td>
     <td><%= educational_background.result %></td>
     <td><%= educational_background.out_of %></td>
     <td><%= educational_background.department %></td>
     <td><%= educational_background.college_leave_reason %></td>
     <td><%= educational_background.applicant_id %></td>
+    <td><%= educational_background.attachment_file_name %></td>
+    <td><%= educational_background.attachment_content_type %></td>
+    <td><%= educational_background.attachment_file_size %></td>
     <td><%= link_to 'Show', educational_background %></td>
     <td><%= link_to 'Edit', edit_educational_background_path(educational_background) %></td>
     <td><%= link_to 'Destroy', educational_background, :confirm => 'Are you sure?', :method => :delete %></td>

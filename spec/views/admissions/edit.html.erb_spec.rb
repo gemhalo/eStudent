@@ -16,7 +16,7 @@ describe "admissions/edit.html.erb" do
     assert_select "form", :action => admissions_path(@admission), :method => "post" do
       assert_select "input#admission_admission_type_id", :name => "admission[admission_type_id]"
       assert_select "input#admission_enrollment_type_id", :name => "admission[enrollment_type_id]"
-      assert_select "input#admission_enrollment_mode_type_id", :name => "admission[enrollment_mode_type_id]"
+      assert_select "input#admission_enrollment_mode_id", :name => "admission[enrollment_mode_id]"
     end
   end
 end

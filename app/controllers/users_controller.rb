@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
+      #format.pdf { render :xml => @users }
     end
   end
   def assign_roles  
@@ -60,7 +61,7 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'Registration successfull') }

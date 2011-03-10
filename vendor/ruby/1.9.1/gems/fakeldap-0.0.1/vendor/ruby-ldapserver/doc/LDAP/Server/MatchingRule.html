@@ -1,0 +1,1132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: LDAP::Server::MatchingRule</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (M)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../LDAP.html" title="LDAP (module)">LDAP</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Server.html" title="LDAP::Server (class)">Server</a></span></span>
+     &raquo; 
+    <span class="title">MatchingRule</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: LDAP::Server::MatchingRule
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">LDAP::Server::MatchingRule</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ldap/server/match.rb<span class="defines">,<br />
+  lib/ldap/server/match.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+And now, here are some matching rules you can use (RFC2252 section 8)
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="MatchingRule/Equality.html" title="LDAP::Server::MatchingRule::Equality (module)">Equality</a></span>, <span class='object_link'><a href="MatchingRule/IA5Downcase.html" title="LDAP::Server::MatchingRule::IA5Downcase (module)">IA5Downcase</a></span>, <span class='object_link'><a href="MatchingRule/IA5Trim.html" title="LDAP::Server::MatchingRule::IA5Trim (module)">IA5Trim</a></span>, <span class='object_link'><a href="MatchingRule/Integer.html" title="LDAP::Server::MatchingRule::Integer (module)">Integer</a></span>, <span class='object_link'><a href="MatchingRule/Ordering.html" title="LDAP::Server::MatchingRule::Ordering (module)">Ordering</a></span>, <span class='object_link'><a href="MatchingRule/StringDowncase.html" title="LDAP::Server::MatchingRule::StringDowncase (module)">StringDowncase</a></span>, <span class='object_link'><a href="MatchingRule/StringTrim.html" title="LDAP::Server::MatchingRule::StringTrim (module)">StringTrim</a></span>, <span class='object_link'><a href="MatchingRule/Substrings.html" title="LDAP::Server::MatchingRule::Substrings (module)">Substrings</a></span>
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="MatchingRule/DefaultMatchingClass.html" title="LDAP::Server::MatchingRule::DefaultMatchingClass (class)">DefaultMatchingClass</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="DefaultMatch-constant" class="">DefaultMatch =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>DefaultMatchingClass</span><span class='period'>.</span><span class='id new'>new</span></pre></dd>
+      
+        <dt id="rules-classvariable" class="">@@rules =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+oid / name / alias => object
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#desc-instance_method" title="#desc (instance method)">- (Object) <strong>desc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute desc.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#names-instance_method" title="#names (instance method)">- (Object) <strong>names</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute names.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#obsolete-instance_method" title="#obsolete (instance method)">- (Object) <strong>obsolete</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute obsolete.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#oid-instance_method" title="#oid (instance method)">- (Object) <strong>oid</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute oid.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#syntax-instance_method" title="#syntax (instance method)">- (Object) <strong>syntax</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute syntax.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add-class_method" title="add (class method)">+ (Object) <strong>add</strong>(*args, &amp;blk) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Add a new matching rule.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_matching_rules-class_method" title="all_matching_rules (class method)">+ (Object) <strong>all_matching_rules</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Return all known matching rules.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#find-class_method" title="find (class method)">+ (Object) <strong>find</strong>(x) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Find a MatchingRule object given a name or oid, or return nil (? should we
+create one automatically, like Syntax).
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#from_def-class_method" title="from_def (class method)">+ (Object) <strong>from_def</strong>(str, &amp;blk) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Create a new MatchingRule object, given its description string.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (MatchingRule) <strong>initialize</strong>(oid, names, syntax, desc = nil, obsolete = false, &amp;blk) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Create a new MatchingRule object.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#normalize-instance_method" title="#normalize (instance method)">- (Object) <strong>normalize</strong>(x) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_def-instance_method" title="#to_def (instance method)">- (Object) <strong>to_def</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="LDAP::Server::MatchingRule (class)">MatchingRule</a></span></tt>) <strong>initialize</strong>(oid, names, syntax, desc = nil, obsolete = false, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a new MatchingRule object
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id oid'>oid</span><span class='comma'>,</span> <span class='id names'>names</span><span class='comma'>,</span> <span class='id syntax'>syntax</span><span class='comma'>,</span> <span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id obsolete'>obsolete</span><span class='op'>=</span><span class='kw'>false</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id blk'>blk</span><span class='rparen'>)</span>
+  <span class='ivar'>@oid</span> <span class='op'>=</span> <span class='id oid'>oid</span>
+  <span class='ivar'>@names</span> <span class='op'>=</span> <span class='id names'>names</span>
+  <span class='ivar'>@names</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='ivar'>@names</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='ivar'>@names</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span>
+  <span class='ivar'>@desc</span> <span class='op'>=</span> <span class='id desc'>desc</span>
+  <span class='ivar'>@obsolete</span> <span class='op'>=</span> <span class='id obsolete'>obsolete</span>
+  <span class='ivar'>@syntax</span> <span class='op'>=</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id syntax'>syntax</span><span class='rparen'>)</span>  <span class='comment'># creates new obj if reqd
+</span>  <span class='ivar'>@def</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='comment'># initialization hook
+</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id blk'>blk</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id blk'>blk</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="desc-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="desc-instance_method">
+  
+    - (<tt>Object</tt>) <strong>desc</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute desc
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id desc'>desc</span>
+  <span class='ivar'>@desc</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="names-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="names-instance_method">
+  
+    - (<tt>Object</tt>) <strong>names</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute names
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id names'>names</span>
+  <span class='ivar'>@names</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="obsolete-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="obsolete-instance_method">
+  
+    - (<tt>Object</tt>) <strong>obsolete</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute obsolete
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id obsolete'>obsolete</span>
+  <span class='ivar'>@obsolete</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="oid-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="oid-instance_method">
+  
+    - (<tt>Object</tt>) <strong>oid</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute oid
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id oid'>oid</span>
+  <span class='ivar'>@oid</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="syntax-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="syntax-instance_method">
+  
+    - (<tt>Object</tt>) <strong>syntax</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute syntax
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id syntax'>syntax</span>
+  <span class='ivar'>@syntax</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add-class_method">
+  
+    + (<tt>Object</tt>) <strong>add</strong>(*args, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Add a new matching rule
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74
+75
+76
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id add'>add</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id blk'>blk</span><span class='rparen'>)</span>
+  <span class='id s'>s</span> <span class='op'>=</span> <span class='id new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id blk'>blk</span><span class='rparen'>)</span>
+  <span class='cvar'>@@rules</span><span class='lbracket'>[</span><span class='id s'>s</span><span class='period'>.</span><span class='id oid'>oid</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id s'>s</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id s'>s</span><span class='period'>.</span><span class='id names'>names</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+  <span class='id s'>s</span><span class='period'>.</span><span class='id names'>names</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span>
+    <span class='cvar'>@@rules</span><span class='lbracket'>[</span><span class='id n'>n</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id s'>s</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="all_matching_rules-class_method">
+  
+    + (<tt>Object</tt>) <strong>all_matching_rules</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Return all known matching rules
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id all_matching_rules'>all_matching_rules</span>
+  <span class='cvar'>@@rules</span><span class='period'>.</span><span class='id values'>values</span><span class='period'>.</span><span class='id uniq'>uniq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="find-class_method">
+  
+    + (<tt>Object</tt>) <strong>find</strong>(x) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Find a MatchingRule object given a name or oid, or return nil (? should we
+create one automatically, like Syntax)
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id x'>x</span> <span class='kw'>if</span> <span class='id x'>x</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id x'>x</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>MatchingRule</span><span class='rparen'>)</span>
+  <span class='cvar'>@@rules</span><span class='lbracket'>[</span><span class='id x'>x</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="from_def-class_method">
+  
+    + (<tt>Object</tt>) <strong>from_def</strong>(str, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a new MatchingRule object, given its description string
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../ResultError/InvalidAttributeSyntax.html" title="LDAP::ResultError::InvalidAttributeSyntax (class)">LDAP::ResultError::InvalidAttributeSyntax</a></span></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id from_def'>from_def</span><span class='lparen'>(</span><span class='id str'>str</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id blk'>blk</span><span class='rparen'>)</span>
+  <span class='id m'>m</span> <span class='op'>=</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Syntax</span><span class='op'>::</span><span class='const'>MatchingRuleDescription</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>InvalidAttributeSyntax</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bad MatchingRuleDescription </span><span class='embexpr_beg'>#{</span><span class='id str'>str</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id m'>m</span>
+  <span class='id new'>new</span><span class='lparen'>(</span><span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>'(.*?)'</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id flatten'>flatten</span><span class='comma'>,</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id blk'>blk</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>name</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id name'>name</span>
+  <span class='lparen'>(</span><span class='ivar'>@names</span> <span class='op'>&amp;&amp;</span> <span class='id names'>names</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='ivar'>@oid</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="normalize-instance_method">
+  
+    - (<tt>Object</tt>) <strong>normalize</strong>(x) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id normalize'>normalize</span><span class='lparen'>(</span><span class='id x'>x</span><span class='rparen'>)</span>
+  <span class='id x'>x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_def-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_def</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id to_def'>to_def</span>
+  <span class='kw'>return</span> <span class='ivar'>@def</span> <span class='kw'>if</span> <span class='ivar'>@def</span>
+  <span class='id ans'>ans</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>( </span><span class='embexpr_beg'>#{</span><span class='ivar'>@oid</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>if</span> <span class='id names'>names</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='ivar'>@names</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='comment'># nothing
+</span>  <span class='kw'>elsif</span> <span class='ivar'>@names</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NAME '</span><span class='embexpr_beg'>#{</span><span class='ivar'>@names</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>' </span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NAME ( </span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@names</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span> <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>'</span><span class='embexpr_beg'>#{</span><span class='id n'>n</span><span class='rbrace'>}</span><span class='tstring_content'>' </span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+    <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>) </span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DESC '</span><span class='embvar'>#</span><span class='ivar'>@desc</span><span class='tstring_content'>' </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@desc</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>OBSOLETE </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@obsolete</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SYNTAX </span><span class='embvar'>#</span><span class='ivar'>@syntax</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@syntax</span>
+  <span class='id ans'>ans</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@def</span> <span class='op'>=</span> <span class='id ans'>ans</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_s</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/match.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='lparen'>(</span><span class='ivar'>@names</span> <span class='op'>&amp;&amp;</span> <span class='id names'>names</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='ivar'>@oid</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Sep 13 13:27:16 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.0 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

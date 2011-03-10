@@ -73,6 +73,7 @@ GEM
     fakeldap (0.0.1)
     faker (0.9.5)
       i18n (~> 0.4)
+    fastercsv (1.5.4)
     gherkin (2.3.3)
       json (~> 1.4.6)
     google-spreadsheet-ruby (0.1.2)
@@ -92,7 +93,6 @@ GEM
       activesupport (~> 3.0.2)
       arel (~> 2.0.2)
     mime-types (1.16)
-    minitest (2.0.2)
     mysql2 (0.2.6)
     netzke_config (0.3.0)
       thor (>= 0.13.6)
@@ -163,10 +163,10 @@ DEPENDENCIES
   dummy_data
   fakeldap
   faker
+  fastercsv
   google-spreadsheet-ruby
   haml
   hashie
-  minitest
   mysql2
   netzke-basepack!
   netzke-core!

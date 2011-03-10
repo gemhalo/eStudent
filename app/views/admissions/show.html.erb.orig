@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Admission type:</b>
+  <%= @admission.admission_type_id %>
+</p>
+
+<p>
+  <b>Enrollment type:</b>
+<<<<<<< HEAD
+  <%= @admission.enrollement_type_id %>
+</p>
+
+<p>
+  <b>Enrollment mode type:</b>
+  <%= @admission.enrollment_mode_type_id %>
+=======
+  <%= @admission.enrollment_type_id %>
+</p>
+
+<p>
+  <b>Enrollment mode:</b>
+  <%= @admission.enrollment_mode_id %>
+>>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
+</p>
+
+
+<%= link_to 'Edit', edit_admission_path(@admission) %> |
+<%= link_to 'Back', admissions_path %>

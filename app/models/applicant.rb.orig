@@ -35,7 +35,12 @@ class Applicant < ActiveRecord::Base
   def grand_father_name
     self.person.grand_father_name
   end
+<<<<<<< HEAD
+  def self.person_attributes=(person_attributes)
+    logger.info("----------sss-----#{person_attributes}----------")
+=======
   def person_attributes=(person_attributes)
+>>>>>>> 8bb4661c19656dc740ea81d0f6012c0a56717b8b
     person_attributes.each do |attributes|
       person.build(attributes)
     end

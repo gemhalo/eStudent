@@ -1,0 +1,634 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: LDAP::Server::Filter</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (F)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../LDAP.html" title="LDAP (module)">LDAP</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Server.html" title="LDAP::Server (class)">Server</a></span></span>
+     &raquo; 
+    <span class="title">Filter</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: LDAP::Server::Filter
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">LDAP::Server::Filter</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ldap/server/filter.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+LDAP filters are parsed into a LISP-like internal representation:
+</p>
+<pre class="code">
+  [:true]
+  [:false]
+  [:undef]
+  [:and, ..., ..., ...]
+  [:or, ..., ..., ...]
+  [:not, ...]
+  [:present, attr]
+  [:eq, attr, MO, val]
+  [:approx, attr, MO, val]
+  [:substrings, attr, MO, initial=nil, {any, any...}, final=nil]
+  [:ge, attr, MO, val]
+  [:le, attr, MO, val]
+</pre>
+<p>
+This is done rather than a more object-oriented approach, in the hope that
+it will make it easier to match certain filter structures when converting
+them into something else. e.g. certain LDAP filter constructs can be mapped
+to some fixed SQL queries.
+</p>
+<p>
+See RFC 2251 4.5.1 for the three-state(!) boolean logic from LDAP
+</p>
+<p>
+If no schema is provided: &#8216;attr&#8217; is the raw attribute name as
+provided by the client. If a schema is provided: attr is converted to its
+normalized name as listed in the schema, e.g. &#8216;commonname&#8217;
+becomes &#8216;cn&#8217;, &#8216;objectclass&#8217; becomes
+&#8216;objectClass&#8217; etc. If a schema is provided, MO is a matching
+object which can be used to perform the match. If no schema is provided,
+this is &#8216;nil&#8217;. In that case you could use
+LDAP::Server::MatchingRule::DefaultMatch.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse-class_method" title="parse (class method)">+ (Object) <strong>parse</strong>(asn1, schema = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Parse a filter in OpenSSL::ASN1 format into our own format.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run-class_method" title="run (class method)">+ (Object) <strong>run</strong>(filter, av) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Run a parsed filter against an attr=>[val] hash.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="parse-class_method">
+  
+    + (<tt>Object</tt>) <strong>parse</strong>(asn1, schema = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Parse a filter in OpenSSL::ASN1 format into our own format.
+</p>
+<p>
+There are some trivial optimisations we make: e.g.
+</p>
+<pre class="code">
+  (&amp;(objectClass=*)(cn=foo)) -&gt; (&amp;(cn=foo)) -&gt; (cn=foo)</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/filter.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id asn1'>asn1</span><span class='comma'>,</span> <span class='id schema'>schema</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id tag'>tag</span>
+  <span class='kw'>when</span> <span class='int'>0</span> <span class='comment'># and
+</span>    <span class='id conds'>conds</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id a'>a</span><span class='op'>|</span> <span class='id parse'>parse</span><span class='lparen'>(</span><span class='id a'>a</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='id conds'>conds</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:true</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:true</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id conds'>conds</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='kw'>return</span> <span class='id conds'>conds</span><span class='period'>.</span><span class='id first'>first</span> <span class='kw'>if</span> <span class='id conds'>conds</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:false</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id conds'>conds</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:false</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id conds'>conds</span><span class='period'>.</span><span class='id unshift'>unshift</span><span class='lparen'>(</span><span class='symbol'>:and</span><span class='rparen'>)</span>
+
+  <span class='kw'>when</span> <span class='int'>1</span> <span class='comment'># or
+</span>    <span class='id conds'>conds</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id a'>a</span><span class='op'>|</span> <span class='id parse'>parse</span><span class='lparen'>(</span><span class='id a'>a</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='id conds'>conds</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:false</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:false</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id conds'>conds</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='kw'>return</span> <span class='id conds'>conds</span><span class='period'>.</span><span class='id first'>first</span> <span class='kw'>if</span> <span class='id conds'>conds</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:true</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id conds'>conds</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:true</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id conds'>conds</span><span class='period'>.</span><span class='id unshift'>unshift</span><span class='lparen'>(</span><span class='symbol'>:or</span><span class='rparen'>)</span>
+
+  <span class='kw'>when</span> <span class='int'>2</span> <span class='comment'># not
+</span>    <span class='id cond'>cond</span> <span class='op'>=</span> <span class='id parse'>parse</span><span class='lparen'>(</span><span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>case</span> <span class='id cond'>cond</span>
+    <span class='kw'>when</span> <span class='lbracket'>[</span><span class='symbol'>:false</span><span class='rbracket'>]</span><span class='semicolon'>;</span>	<span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:true</span><span class='rbracket'>]</span>
+	<span class='kw'>when</span> <span class='lbracket'>[</span><span class='symbol'>:true</span><span class='rbracket'>]</span><span class='semicolon'>;</span>	<span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:false</span><span class='rbracket'>]</span>
+	<span class='kw'>when</span> <span class='lbracket'>[</span><span class='symbol'>:undef</span><span class='rbracket'>]</span><span class='semicolon'>;</span>	<span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:undef</span><span class='rbracket'>]</span>
+	<span class='kw'>end</span>
+	<span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:not</span><span class='comma'>,</span> <span class='id cond'>cond</span><span class='rbracket'>]</span>
+
+  <span class='kw'>when</span> <span class='int'>3</span> <span class='comment'># equalityMatch
+</span>    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='id val'>val</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:true</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id attr'>attr</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\AobjectClass\z</span><span class='regexp_end'>/i</span></span> <span class='kw'>and</span> <span class='id val'>val</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\Atop\z</span><span class='regexp_end'>/i</span></span>
+    <span class='kw'>if</span> <span class='id schema'>schema</span>
+      <span class='id a'>a</span> <span class='op'>=</span> <span class='id schema'>schema</span><span class='period'>.</span><span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id attr'>attr</span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:undef</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id a'>a</span><span class='period'>.</span><span class='id equality'>equality</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:eq</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id equality'>equality</span><span class='comma'>,</span> <span class='id val'>val</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:eq</span><span class='comma'>,</span> <span class='id attr'>attr</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id val'>val</span><span class='rbracket'>]</span>
+
+  <span class='kw'>when</span> <span class='int'>4</span> <span class='comment'># substrings
+</span>    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='kw'>if</span> <span class='id schema'>schema</span>
+      <span class='id a'>a</span> <span class='op'>=</span> <span class='id schema'>schema</span><span class='period'>.</span><span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id attr'>attr</span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:undef</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id a'>a</span><span class='period'>.</span><span class='id substr'>substr</span>
+      <span class='id res'>res</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:substrings</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id substr'>substr</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
+    <span class='kw'>else</span>
+      <span class='id res'>res</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:substrings</span><span class='comma'>,</span> <span class='id attr'>attr</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='id final_val'>final_val</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+    <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id ss'>ss</span><span class='op'>|</span>
+      <span class='kw'>case</span> <span class='id ss'>ss</span><span class='period'>.</span><span class='id tag'>tag</span>
+      <span class='kw'>when</span> <span class='int'>0</span>
+        <span class='id res'>res</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id ss'>ss</span><span class='period'>.</span><span class='id value'>value</span>
+      <span class='kw'>when</span> <span class='int'>1</span>
+        <span class='id res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id ss'>ss</span><span class='period'>.</span><span class='id value'>value</span>
+      <span class='kw'>when</span> <span class='int'>2</span>
+        <span class='id final_val'>final_val</span> <span class='op'>=</span> <span class='id ss'>ss</span><span class='period'>.</span><span class='id value'>value</span>
+      <span class='kw'>else</span>
+        <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>ProtocolError</span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unrecognised substring tag </span><span class='embexpr_beg'>#{</span><span class='id ss'>ss</span><span class='period'>.</span><span class='id tag'>tag</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='id res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id final_val'>final_val</span>
+    <span class='kw'>return</span> <span class='id res'>res</span>
+
+  <span class='kw'>when</span> <span class='int'>5</span> <span class='comment'># greaterOrEqual
+</span>    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='id val'>val</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='kw'>if</span> <span class='id schema'>schema</span>
+      <span class='id a'>a</span> <span class='op'>=</span> <span class='id schema'>schema</span><span class='period'>.</span><span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id attr'>attr</span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:undef</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id a'>a</span><span class='period'>.</span><span class='id ordering'>ordering</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:ge</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id ordering'>ordering</span><span class='comma'>,</span> <span class='id val'>val</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:ge</span><span class='comma'>,</span> <span class='id attr'>attr</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id val'>val</span><span class='rbracket'>]</span>
+
+  <span class='kw'>when</span> <span class='int'>6</span> <span class='comment'># lessOrEqual
+</span>    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='id val'>val</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='kw'>if</span> <span class='id schema'>schema</span>
+      <span class='id a'>a</span> <span class='op'>=</span> <span class='id schema'>schema</span><span class='period'>.</span><span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id attr'>attr</span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:undef</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id a'>a</span><span class='period'>.</span><span class='id ordering'>ordering</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:le</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id ordering'>ordering</span><span class='comma'>,</span> <span class='id val'>val</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:le</span><span class='comma'>,</span> <span class='id attr'>attr</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id val'>val</span><span class='rbracket'>]</span>
+
+  <span class='kw'>when</span> <span class='int'>7</span> <span class='comment'># present
+</span>    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:true</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id attr'>attr</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\AobjectClass\z</span><span class='regexp_end'>/i</span></span>
+    <span class='kw'>if</span> <span class='id schema'>schema</span>
+      <span class='kw'>begin</span>
+        <span class='id a'>a</span> <span class='op'>=</span> <span class='id schema'>schema</span><span class='period'>.</span><span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id attr'>attr</span><span class='rparen'>)</span>
+        <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:present</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbracket'>]</span>
+      <span class='kw'>rescue</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>UndefinedAttributeType</span>
+        <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:false</span><span class='rbracket'>]</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:present</span><span class='comma'>,</span> <span class='id attr'>attr</span><span class='rbracket'>]</span>
+
+  <span class='kw'>when</span> <span class='int'>8</span> <span class='comment'># approxMatch
+</span>    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='id val'>val</span> <span class='op'>=</span> <span class='id asn1'>asn1</span><span class='period'>.</span><span class='id value'>value</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id value'>value</span>
+    <span class='kw'>if</span> <span class='id schema'>schema</span>
+      <span class='id a'>a</span> <span class='op'>=</span> <span class='id schema'>schema</span><span class='period'>.</span><span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id attr'>attr</span><span class='rparen'>)</span>
+      <span class='comment'># I don't know how properly to deal with approxMatch. I'm assuming
+</span>      <span class='comment'># that the object will have an equality MatchingRule, and we
+</span>      <span class='comment'># can defer to that.
+</span>      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:undef</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id a'>a</span><span class='period'>.</span><span class='id equality'>equality</span>
+      <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:approx</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='comma'>,</span> <span class='id a'>a</span><span class='period'>.</span><span class='id equality'>equality</span><span class='comma'>,</span> <span class='id val'>val</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:approx</span><span class='comma'>,</span> <span class='id attr'>attr</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id val'>val</span><span class='rbracket'>]</span>
+
+  <span class='comment'>#when 9 # extensibleMatch
+</span>  <span class='comment'>#  FIXME
+</span>
+  <span class='kw'>else</span>
+    <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>ProtocolError</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unrecognised Filter tag </span><span class='embexpr_beg'>#{</span><span class='id asn1'>asn1</span><span class='period'>.</span><span class='id tag'>tag</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+<span class='comment'># Unknown attribute type
+</span><span class='kw'>rescue</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>UndefinedAttributeType</span>
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='symbol'>:undef</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="run-class_method">
+  
+    + (<tt>Object</tt>) <strong>run</strong>(filter, av) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Run a parsed filter against an attr=>[val] hash.
+</p>
+<p>
+Returns true, false or nil.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../ResultError/OperationsError.html" title="LDAP::ResultError::OperationsError (class)">LDAP::ResultError::OperationsError</a></span></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/filter.rb', line 172</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id run'>run</span><span class='lparen'>(</span><span class='id filter'>filter</span><span class='comma'>,</span> <span class='id av'>av</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id filter'>filter</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='symbol'>:and</span>
+    <span class='id res'>res</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='id filter'>filter</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id elem'>elem</span><span class='op'>|</span>
+      <span class='id r'>r</span> <span class='op'>=</span> <span class='id run'>run</span><span class='lparen'>(</span><span class='id elem'>elem</span><span class='comma'>,</span> <span class='id av'>av</span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id r'>r</span> <span class='op'>==</span> <span class='kw'>false</span>
+      <span class='id res'>res</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id r'>r</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id res'>res</span>
+
+  <span class='kw'>when</span> <span class='symbol'>:or</span>
+    <span class='id res'>res</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id filter'>filter</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id elem'>elem</span><span class='op'>|</span>
+      <span class='id r'>r</span> <span class='op'>=</span> <span class='id run'>run</span><span class='lparen'>(</span><span class='id elem'>elem</span><span class='comma'>,</span> <span class='id av'>av</span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id r'>r</span> <span class='op'>==</span> <span class='kw'>true</span>
+      <span class='id res'>res</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id r'>r</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id res'>res</span>
+
+  <span class='kw'>when</span> <span class='symbol'>:not</span>
+    <span class='kw'>case</span> <span class='id run'>run</span><span class='lparen'>(</span><span class='id filter'>filter</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id av'>av</span><span class='rparen'>)</span>
+    <span class='kw'>when</span> <span class='kw'>true</span><span class='semicolon'>;</span> 	<span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>when</span> <span class='kw'>false</span><span class='semicolon'>;</span>	<span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>else</span>		<span class='kw'>return</span> <span class='kw'>nil</span>
+    <span class='kw'>end</span>
+
+  <span class='kw'>when</span> <span class='symbol'>:present</span>
+    <span class='kw'>return</span> <span class='id av'>av</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='id filter'>filter</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+  <span class='kw'>when</span> <span class='symbol'>:eq</span><span class='comma'>,</span> <span class='symbol'>:approx</span><span class='comma'>,</span> <span class='symbol'>:le</span><span class='comma'>,</span> <span class='symbol'>:ge</span><span class='comma'>,</span> <span class='symbol'>:substrings</span>
+    <span class='comment'># the filter now includes a suitable matching object
+</span>    <span class='kw'>return</span> <span class='lparen'>(</span><span class='id filter'>filter</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>MatchingRule</span><span class='op'>::</span><span class='const'>DefaultMatch</span><span class='rparen'>)</span><span class='period'>.</span><span class='id send'>send</span><span class='lparen'>(</span>
+            <span class='id filter'>filter</span><span class='period'>.</span><span class='id first'>first</span><span class='comma'>,</span> <span class='id av'>av</span><span class='lbracket'>[</span><span class='id filter'>filter</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='op'>*</span><span class='id filter'>filter</span><span class='lbracket'>[</span><span class='int'>3</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+  <span class='kw'>when</span> <span class='symbol'>:true</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+
+  <span class='kw'>when</span> <span class='symbol'>:false</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+
+  <span class='kw'>when</span> <span class='symbol'>:undef</span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+
+  <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>OperationsError</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unimplemented filter </span><span class='embexpr_beg'>#{</span><span class='id filter'>filter</span><span class='period'>.</span><span class='id first'>first</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Sep 13 13:27:16 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.0 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

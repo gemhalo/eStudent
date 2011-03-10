@@ -25,7 +25,7 @@ class DepartmentsController < ApplicationController
   # GET /departments/new.xml
   def new
     @department = Department.new
-
+   @college = College.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @department }
@@ -35,13 +35,14 @@ class DepartmentsController < ApplicationController
   # GET /departments/1/edit
   def edit
     @department = Department.find(params[:id])
+    
   end
 
   # POST /departments
   # POST /departments.xml
   def create
     @department = Department.new(params[:department])
-
+@college = College.all    
     respond_to do |format|
       if @department.save
         format.html { redirect_to(@department, :notice => 'Department was successfully created.') }

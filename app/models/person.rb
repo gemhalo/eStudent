@@ -1,22 +1,40 @@
 class Person < ActiveRecord::Base
-  has_many :applicant
+  has_one :user
+  has_one :applicant
+  has_one :student_service_staff
+  has_one :student
+  has_one :instructor
+  belongs_to :nationality
+
   #validates :name , :presence => true
   #validates :father_name,  :presence => true
 
-    has_attached_file :photo,
-   :url => "/:class/:attachment/:id/:style_:basename.:extension",
-   :default_url => "/:class/:attachment/missing_/:style_default.jpg",
-    :styles => {:thumb=> "100x100#", :small => ["70x70>", :jpg] },
-    :default_style => :thumb,
-    :whiny_thumbnails => true,
-    :path => ":rails_root/public/:class/:attachment/:id/:style_:basename.:extension"
-
-# validates_attachment_presence :photo
- #validates_attachment_content_type :photo, :content_type => 'image/jpeg'
-
-  def full_name
+  
     def full_name
         [name,father_name,grand_father_name].join(' ')
     end
-  end
+
+    def college_name
+      self.student.college_name
+    end
+
+    def regno
+      self.student.educational_backgrounds.first.EHEECE_code
+    end
+    def result
+      self.student.educational_backgrounds.first.EHEECE_result
+    end
+    def maxresult
+      self.student.educational_backgrounds.first.EHEECE_maximum_result
+    end
+    def school
+      self.student.educational_backgrounds.first.school_code
+    end
+    def random_string(len)
+      chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
+      newpass=""
+      1.upto(len) {|i| newpass << chars[rand(chars.size-1)]}
+      return newpass
+    end
+
 end
