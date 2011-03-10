@@ -3,6 +3,8 @@ EStudent::Application.routes.draw do
 
   resources :enrollment_mode_types
 
+  resources :enrollment_types
+
   resources :admissions
 
   resources :agreements
@@ -73,6 +75,9 @@ EStudent::Application.routes.draw do
   get "dormitory_placement/edit"
   post "dormitory_placement/update"
   get "dormitory_placement/destroy"
+   resources :available_programs
+  get "available_programs/index"
+ get "available_programs/show"
 
   get "department_placement/department_placing_process"
   get "department_placement/show_placement"
