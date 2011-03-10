@@ -37,7 +37,7 @@
                 width: 200,
                 minSize: 175,
                 border: true,
-                maxSize: 400,
+                maxSize: 600,
                 collapsible: true,
                 activeItem:0,
                 margins: '0 0 0 5',
@@ -57,7 +57,7 @@
 	    }, {
                 region: 'west',
                 id: 'west-panel', // see Ext.getCmp() below
-                title: 'Menu Area',
+                title: 'Navigation',
                 split: true,
                 width: 200,
                 minSize: 175,

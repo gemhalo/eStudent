@@ -1,9 +1,6 @@
 class CollegesController < ApplicationController
-<<<<<<< HEAD
-#  authorize_resource
-=======
-  #authorize_resource
->>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+
+  #  authorize_resource
   # GET /colleges
   # GET /colleges.xml
   def index
@@ -47,6 +44,9 @@ class CollegesController < ApplicationController
   # POST /colleges.xml
   def create
     @college = College.new(params[:college])
+
+ @campus = Campus.all
+
 @campus = Campus.all
     respond_to do |format|
       if @college.save

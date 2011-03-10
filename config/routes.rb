@@ -1,4 +1,17 @@
 EStudent::Application.routes.draw do
+
+  resources :admissions
+
+  resources :how_tos
+
+  resources :events
+
+  resources :departments
+
+  resources :campuses
+
+  resources :academic_calanders
+
   resources :dormitories
 
   resources :rooms
@@ -9,9 +22,9 @@ EStudent::Application.routes.draw do
 
   resources :departments
 
-  resources :campus
-
   resources :campuses
+
+  resources :academic_calanders
 
   netzke
   #root :to => "welcome#index"
@@ -23,6 +36,7 @@ EStudent::Application.routes.draw do
   resources :nationalities
   resources :ethnicities
   resources :people
+  resources :programs
 
   get "admission_approval/index"
   get "admission_approval/show_list"

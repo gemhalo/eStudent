@@ -11,22 +11,9 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-   <!-- Main Content -->
-   <div id='north' style="float:none;clear:both;">
-        <div class='left'>        
-          <div id="logo">      <img src='/images/mu_icon_64.png'/ style='align:right'> </div>
-          <div id="logo_text">  <h1>  Welcome to eStudent </h1> </div>
-        </div>
-       <div class="login">
-        <% if current_user %>
-            Hello <%= current_user.username %> (<%= link_to 'Logout', logout_path, :method => :delete %>)
-        <% else %>
-          <%= link_to "Register", new_user_path, :method => :get %> |
-          <%= link_to "Login", login_url, :method => :get %>
-
-        <% end %>
-        </div>
-    </div>
+   <!-- Main Header Content -->
+    <%= render :partial =>'/shared/header' %>
+    
     <!-- Basic setup menu-->
     <div id="basic_setup">
             <%= render :partial =>'/shared/student/studentacademicsmenu' %><br/>
@@ -45,7 +32,7 @@
     </div>
     
     <div id="notification_area">  
-     <h1> Notification </h1>
+          <%= render :partial =>'/shared/notification' %><br/>
     </div>
  
    <div id="south" class="x-hide-display">

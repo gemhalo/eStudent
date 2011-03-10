@@ -3,17 +3,11 @@ require 'spec_helper'
 describe "campuses/index.html.erb" do
   before(:each) do
     assign(:campuses, [
-      stub_model(Campuse,
-        :name => "Name",
-        :campus_telephone => 1,
-        :campus_pobox => "Campus Pobox",
-        :campus_email => "Campus Email"
+      stub_model(Campus,
+        :name => "Name"
       ),
-      stub_model(Campuse,
-        :name => "Name",
-        :campus_telephone => 1,
-        :campus_pobox => "Campus Pobox",
-        :campus_email => "Campus Email"
+      stub_model(Campus,
+        :name => "Name"
       )
     ])
   end

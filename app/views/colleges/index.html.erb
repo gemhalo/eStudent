@@ -4,10 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Campus</th>
-    <th>College telephone</th>
-    <th>College pobox</th>
-    <th>College email</th>
-    <th>Instructor</th>
+    <th>Dean</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,10 +14,7 @@
   <tr>
     <td><%= college.name %></td>
     <td><%= college.campus_id %></td>
-    <td><%= college.college_telephone %></td>
-    <td><%= college.college_pobox %></td>
-    <td><%= college.college_email %></td>
-    <td><%= college.instructor_id %></td>
+    <td><%= college.dean %></td>
     <td><%= link_to 'Show', college %></td>
     <td><%= link_to 'Edit', edit_college_path(college) %></td>
     <td><%= link_to 'Destroy', college, :confirm => 'Are you sure?', :method => :delete %></td>

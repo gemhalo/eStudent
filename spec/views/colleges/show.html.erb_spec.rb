@@ -5,10 +5,7 @@ describe "colleges/show.html.erb" do
     @college = assign(:college, stub_model(College,
       :name => "Name",
       :campus_id => 1,
-      :college_telephone => 1,
-      :college_pobox => "College Pobox",
-      :college_email => "College Email",
-      :instructor_id => 1
+      :dean => "Dean"
     ))
   end
 
@@ -19,12 +16,6 @@ describe "colleges/show.html.erb" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/1/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/1/)
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/College Pobox/)
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/College Email/)
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/1/)
+    rendered.should match(/Dean/)
   end
 end

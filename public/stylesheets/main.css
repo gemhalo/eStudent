@@ -28,21 +28,49 @@ text-align: right;
 border:1px;
 
 }
+#ext-gen64{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen46{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen52{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen58{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen3{
+  background: #efefef;
+}
+
 #ext-gen27s {
   background: #efefef;
-  color: white;
+  color: maroon;
 }
 #ext-comp-1002 {
    z-index: -1;
 }
 #logo {
    float:left;
-   margin:10px;
+   margin:8px;
 }
 #logo_text {
    float:left;
    padding-top: 20px;
-   text-indent: 20px;
+   text-indent: 480px;
    font-size:30px;
 }
-
+#loginl{
+  color:maroon;
+  float:right;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+#howtol{
+  width:300;
+}

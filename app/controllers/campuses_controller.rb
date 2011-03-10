@@ -2,7 +2,7 @@ class CampusesController < ApplicationController
   # GET /campuses
   # GET /campuses.xml
   def index
-    @campuses = Campuse.all
+    @campuses = Campus.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,42 +13,42 @@ class CampusesController < ApplicationController
   # GET /campuses/1
   # GET /campuses/1.xml
   def show
-    @campuse = Campuse.find(params[:id])
+    @campus = Campus.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @campuse }
+      format.xml  { render :xml => @campus }
     end
   end
 
   # GET /campuses/new
   # GET /campuses/new.xml
   def new
-    @campuse = Campuse.new
+    @campus = Campus.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @campuse }
+      format.xml  { render :xml => @campus }
     end
   end
 
   # GET /campuses/1/edit
   def edit
-    @campuse = Campuse.find(params[:id])
+    @campus = Campus.find(params[:id])
   end
 
   # POST /campuses
   # POST /campuses.xml
   def create
-    @campuse = Campuse.new(params[:campuse])
+    @campus = Campus.new(params[:campus])
 
     respond_to do |format|
-      if @campuse.save
-        format.html { redirect_to(@campuse, :notice => 'Campuse was successfully created.') }
-        format.xml  { render :xml => @campuse, :status => :created, :location => @campuse }
+      if @campus.save
+        format.html { redirect_to(@campus, :notice => 'Campus was successfully created.') }
+        format.xml  { render :xml => @campus, :status => :created, :location => @campus }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @campuse.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @campus.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -56,15 +56,15 @@ class CampusesController < ApplicationController
   # PUT /campuses/1
   # PUT /campuses/1.xml
   def update
-    @campuse = Campuse.find(params[:id])
+    @campus = Campus.find(params[:id])
 
     respond_to do |format|
-      if @campuse.update_attributes(params[:campuse])
-        format.html { redirect_to(@campuse, :notice => 'Campuse was successfully updated.') }
+      if @campus.update_attributes(params[:campus])
+        format.html { redirect_to(@campus, :notice => 'Campus was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @campuse.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @campus.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -72,8 +72,8 @@ class CampusesController < ApplicationController
   # DELETE /campuses/1
   # DELETE /campuses/1.xml
   def destroy
-    @campuse = Campuse.find(params[:id])
-    @campuse.destroy
+    @campus = Campus.find(params[:id])
+    @campus.destroy
 
     respond_to do |format|
       format.html { redirect_to(campuses_url) }

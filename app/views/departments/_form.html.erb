@@ -17,23 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :college_id %><br />
-     <%= f.collection_select(:college_id, @college,:id,:name) %>
+     <%= f.collection_select(:college_id,@colleges,:id,:name) %>
   </div>
   <div class="field">
-    <%= f.label :telephone %><br />
-    <%= f.text_field :telephone %>
-  </div>
-  <div class="field">
-    <%= f.label :pobox %><br />
-    <%= f.text_field :pobox %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :instructor_id %><br />
-    <%= f.text_field :instructor_id %>
+    <%= f.label :dept_head %><br />
+    <%= f.text_field :dept_head %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -10,9 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110309123928) do
+ActiveRecord::Schema.define(:version => 20110310135025) do
 
   create_table "abilities", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academic_calanders", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,14 +31,10 @@ ActiveRecord::Schema.define(:version => 20110309123928) do
   end
 
   create_table "admissions", :force => true do |t|
-    t.integer  "applicant_id"
-    t.integer  "enrollement_type_id"
     t.integer  "admission_type_id"
     t.integer  "enrollment_type_id"
-    t.integer  "enrollment_mode_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "admission_date"
   end
 
   create_table "applicants", :force => true do |t|
@@ -56,6 +59,12 @@ ActiveRecord::Schema.define(:version => 20110309123928) do
     t.integer  "campus_telephone"
     t.string   "campus_pobox"
     t.string   "campus_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "campuses", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,10 +117,7 @@ ActiveRecord::Schema.define(:version => 20110309123928) do
   create_table "departments", :force => true do |t|
     t.string   "name"
     t.integer  "college_id"
-    t.integer  "telephone"
-    t.string   "pobox"
-    t.string   "email"
-    t.integer  "instructor_id"
+    t.string   "dept_head"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -147,6 +153,16 @@ ActiveRecord::Schema.define(:version => 20110309123928) do
     t.datetime "updated_at"
   end
 
+  create_table "events", :force => true do |t|
+    t.integer  "academic_calander_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "title"
+    t.string   "detail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "family_backgrounds", :force => true do |t|
     t.string   "father_edu_level"
     t.string   "mother_edu_level"
@@ -155,6 +171,13 @@ ActiveRecord::Schema.define(:version => 20110309123928) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "applicant_id"
+  end
+
+  create_table "how_tos", :force => true do |t|
+    t.string   "title"
+    t.string   "detail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "instructors", :force => true do |t|
@@ -201,7 +224,6 @@ ActiveRecord::Schema.define(:version => 20110309123928) do
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.boolean  "disability"
     t.string   "type_of_disability"
     t.integer  "region_code"
@@ -270,7 +292,6 @@ ActiveRecord::Schema.define(:version => 20110309123928) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "person_id"
     t.string   "role"
     t.integer  "person_id"
   end
