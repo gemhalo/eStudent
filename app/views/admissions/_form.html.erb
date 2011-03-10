@@ -1,0 +1,29 @@
+<%= form_for(@admission) do |f| %>
+  <% if @admission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admission.errors.count, "error") %> prohibited this admission from being saved:</h2>
+
+      <ul>
+      <% @admission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :admission_type_id %><br />
+    <%= f.collection_select(:admission_type_id ,@admission_types, :id,:name,:prompt=> "Select Admission Type") %>
+  </div>
+  <div class="field">
+    <%= f.label :enrollement_type_id %><br />
+    <%= f.collection_select(:enrollement_type_id ,@enrollement_types, :id,:name,:prompt=> "Select Enrollment Type") %>
+  </div>
+  <div class="field">
+    <%= f.label :enrollment_mode_type_id %><br />
+    <%= f.collection_select(:enrollment_mode_type_id ,@enrollment_mode_types, :id,:name,:prompt=> "Select Enrollment mode") %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

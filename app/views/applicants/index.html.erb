@@ -1,0 +1,37 @@
+<h1>Listing applicants</h1>
+
+<table>
+  <tr>
+    <th>Person</th>
+    <th>Admission</th>
+    <th>College</th>
+    <th>Entry level</th>
+    <th>Major field of study</th>
+    <th>Minor field of study</th>
+    <th>Academic year</th>
+    <th>Admission status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @applicants.each do |applicant| %>
+  <tr>
+    <td><%= applicant.person_id %></td>
+    <td><%= applicant.admission_id %></td>
+    <td><%= applicant.college_id %></td>
+    <td><%= applicant.entry_level %></td>
+    <td><%= applicant.major_field_of_study %></td>
+    <td><%= applicant.minor_field_of_study %></td>
+    <td><%= applicant.academic_year %></td>
+    <td><%= applicant.admission_status %></td>
+    <td><%= link_to 'Show', applicant %></td>
+    <td><%= link_to 'Edit', edit_applicant_path(applicant) %></td>
+    <td><%= link_to 'Destroy', applicant, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Applicant', new_applicant_path %>

@@ -1,0 +1,2 @@
+module AdmissionStatusTypesHelper
+end
