@@ -6,67 +6,67 @@ require 'spec_helper'
 
 describe CampusesController do
 
-  def mock_campus(stubs={})
-    @mock_campus ||= mock_model(Campus, stubs).as_null_object
+  def mock_campuse(stubs={})
+    @mock_campuse ||= mock_model(Campuse, stubs).as_null_object
   end
 
   describe "GET index" do
     it "assigns all campuses as @campuses" do
-      Campus.stub(:all) { [mock_campus] }
+      Campuse.stub(:all) { [mock_campuse] }
       get :index
-      assigns(:campuses).should eq([mock_campus])
+      assigns(:campuses).should eq([mock_campuse])
     end
   end
 
   describe "GET show" do
-    it "assigns the requested campus as @campus" do
-      Campus.stub(:find).with("37") { mock_campus }
+    it "assigns the requested campuse as @campuse" do
+      Campuse.stub(:find).with("37") { mock_campuse }
       get :show, :id => "37"
-      assigns(:campus).should be(mock_campus)
+      assigns(:campuse).should be(mock_campuse)
     end
   end
 
   describe "GET new" do
-    it "assigns a new campus as @campus" do
-      Campus.stub(:new) { mock_campus }
+    it "assigns a new campuse as @campuse" do
+      Campuse.stub(:new) { mock_campuse }
       get :new
-      assigns(:campus).should be(mock_campus)
+      assigns(:campuse).should be(mock_campuse)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested campus as @campus" do
-      Campus.stub(:find).with("37") { mock_campus }
+    it "assigns the requested campuse as @campuse" do
+      Campuse.stub(:find).with("37") { mock_campuse }
       get :edit, :id => "37"
-      assigns(:campus).should be(mock_campus)
+      assigns(:campuse).should be(mock_campuse)
     end
   end
 
   describe "POST create" do
     describe "with valid params" do
-      it "assigns a newly created campus as @campus" do
-        Campus.stub(:new).with({'these' => 'params'}) { mock_campus(:save => true) }
-        post :create, :campus => {'these' => 'params'}
-        assigns(:campus).should be(mock_campus)
+      it "assigns a newly created campuse as @campuse" do
+        Campuse.stub(:new).with({'these' => 'params'}) { mock_campuse(:save => true) }
+        post :create, :campuse => {'these' => 'params'}
+        assigns(:campuse).should be(mock_campuse)
       end
 
-      it "redirects to the created campus" do
-        Campus.stub(:new) { mock_campus(:save => true) }
-        post :create, :campus => {}
-        response.should redirect_to(campus_url(mock_campus))
+      it "redirects to the created campuse" do
+        Campuse.stub(:new) { mock_campuse(:save => true) }
+        post :create, :campuse => {}
+        response.should redirect_to(campuse_url(mock_campuse))
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved campus as @campus" do
-        Campus.stub(:new).with({'these' => 'params'}) { mock_campus(:save => false) }
-        post :create, :campus => {'these' => 'params'}
-        assigns(:campus).should be(mock_campus)
+      it "assigns a newly created but unsaved campuse as @campuse" do
+        Campuse.stub(:new).with({'these' => 'params'}) { mock_campuse(:save => false) }
+        post :create, :campuse => {'these' => 'params'}
+        assigns(:campuse).should be(mock_campuse)
       end
 
       it "re-renders the 'new' template" do
-        Campus.stub(:new) { mock_campus(:save => false) }
-        post :create, :campus => {}
+        Campuse.stub(:new) { mock_campuse(:save => false) }
+        post :create, :campuse => {}
         response.should render_template("new")
       end
     end
@@ -74,34 +74,34 @@ describe CampusesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested campus" do
-        Campus.stub(:find).with("37") { mock_campus }
-        mock_campus.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :campus => {'these' => 'params'}
+      it "updates the requested campuse" do
+        Campuse.stub(:find).with("37") { mock_campuse }
+        mock_campuse.should_receive(:update_attributes).with({'these' => 'params'})
+        put :update, :id => "37", :campuse => {'these' => 'params'}
       end
 
-      it "assigns the requested campus as @campus" do
-        Campus.stub(:find) { mock_campus(:update_attributes => true) }
+      it "assigns the requested campuse as @campuse" do
+        Campuse.stub(:find) { mock_campuse(:update_attributes => true) }
         put :update, :id => "1"
-        assigns(:campus).should be(mock_campus)
+        assigns(:campuse).should be(mock_campuse)
       end
 
-      it "redirects to the campus" do
-        Campus.stub(:find) { mock_campus(:update_attributes => true) }
+      it "redirects to the campuse" do
+        Campuse.stub(:find) { mock_campuse(:update_attributes => true) }
         put :update, :id => "1"
-        response.should redirect_to(campus_url(mock_campus))
+        response.should redirect_to(campuse_url(mock_campuse))
       end
     end
 
     describe "with invalid params" do
-      it "assigns the campus as @campus" do
-        Campus.stub(:find) { mock_campus(:update_attributes => false) }
+      it "assigns the campuse as @campuse" do
+        Campuse.stub(:find) { mock_campuse(:update_attributes => false) }
         put :update, :id => "1"
-        assigns(:campus).should be(mock_campus)
+        assigns(:campuse).should be(mock_campuse)
       end
 
       it "re-renders the 'edit' template" do
-        Campus.stub(:find) { mock_campus(:update_attributes => false) }
+        Campuse.stub(:find) { mock_campuse(:update_attributes => false) }
         put :update, :id => "1"
         response.should render_template("edit")
       end
@@ -109,14 +109,14 @@ describe CampusesController do
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested campus" do
-      Campus.stub(:find).with("37") { mock_campus }
-      mock_campus.should_receive(:destroy)
+    it "destroys the requested campuse" do
+      Campuse.stub(:find).with("37") { mock_campuse }
+      mock_campuse.should_receive(:destroy)
       delete :destroy, :id => "37"
     end
 
     it "redirects to the campuses list" do
-      Campus.stub(:find) { mock_campus }
+      Campuse.stub(:find) { mock_campuse }
       delete :destroy, :id => "1"
       response.should redirect_to(campuses_url)
     end

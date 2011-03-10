@@ -1,4 +1,5 @@
 class CollegesController < ApplicationController
+  #authorize_resource
   # GET /colleges
   # GET /colleges.xml
   def index

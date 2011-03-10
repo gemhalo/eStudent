@@ -16,12 +16,12 @@
     <%= f.text_field :building_name %>
   </div>
   <div class="field">
-    <%= f.label :number_of_rooms %><br />
-    <%= f.text_field :number_of_rooms %>
+    <%= f.label :campus_id %><br />
+    <%= f.collection_select :campus_id, Campus.all, :id, :name, :prompt=>"Select Campus" %>
   </div>
   <div class="field">
-    <%= f.label :number_of_beds_per_room %><br />
-    <%= f.text_field :number_of_beds_per_room %>
+    <%= f.label :floors %><br />
+    <%= f.text_field :floors %>
   </div>
   <div class="actions">
     <%= f.submit %>

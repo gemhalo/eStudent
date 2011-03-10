@@ -4,6 +4,7 @@
   <tr>
     <th>Admission type</th>
     <th>Enrollment type</th>
+
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= admission.admission_type_id %></td>
     <td><%= admission.enrollment_type_id %></td>
+
     <td><%= link_to 'Show', admission %></td>
     <td><%= link_to 'Edit', edit_admission_path(admission) %></td>
     <td><%= link_to 'Destroy', admission, :confirm => 'Are you sure?', :method => :delete %></td>

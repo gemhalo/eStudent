@@ -1,9 +1,24 @@
 EStudent::Application.routes.draw do
+
   resources :admissions
 
   resources :how_tos
 
   resources :events
+
+  resources :departments
+
+  resources :campuses
+
+  resources :academic_calanders
+
+  resources :dormitories
+
+  resources :rooms
+
+  resources :buildings
+
+  resources :department_quotas
 
   resources :departments
 
@@ -23,11 +38,22 @@ EStudent::Application.routes.draw do
   resources :people
   resources :programs
 
- 
-  resources :buildings
+  get "admission_approval/index"
+  get "admission_approval/show_list"
+  get "admission_approval/details"
+  get "admission_approval/approve"
+  get "admission_approval/decline"
+
   get "dormitory_placement/place_dorm"
   get "dormitory_placement/show_placement"
+  post "dormitory_placement/dorm_placing_process"
+  get "dormitory_placement/edit"
+  post "dormitory_placement/update"
+  get "dormitory_placement/destroy"
 
+  get "department_placement/department_placing_process"
+  get "department_placement/show_placement"
+    
   resources :users, :user_sessions
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout

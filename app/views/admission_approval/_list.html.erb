@@ -1,0 +1,28 @@
+<table border="1">
+  <tr>
+    <th>Full Name</th>
+    <th>Sex</th>
+    <th>Admission Status</th>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <% for a in @applicants %>
+  <tr>
+    <td><%= a.person.full_name %> </td>
+    <td><%= a.person.gender %> </td>
+    <% if  a.verified==true %>
+    <td>Admitted</td
+    <% elsif a.verified==false %>
+      <td>Not Admitted</td
+    <% else %>
+      <td>Pending</td
+    <% end %>
+    <td><%= link_to "Details", :action=>"details", :id=>a.person.id%> </td>
+    <td><%= link_to "Approve", :action=>"approve", :id=>a.id %> </td>
+    <td><%= link_to "Decline", :action=>"decline", :id=>a.id %> </td>
+    <% end %>
+  </tr>
+
+</table>
+

@@ -1,0 +1,37 @@
+<%= form_for(@room) do |f| %>
+  <% if @room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+      <ul>
+      <% @room.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :room_number %><br />
+    <%= f.text_field :room_number %>
+  </div>
+  <div class="field">
+    <%= f.label :building_id %><br />
+    <%= f.collection_select :building_id, Building.all, :id, :building_name, :prompt=>"Select Building" %>
+  </div>
+  <div class="field">
+    <%= f.label :floor_number %><br />
+    <%= f.text_field :floor_number %>
+  </div>
+  <div class="field">
+    <%= f.label :holding_capacity %><br />
+    <%= f.text_field :holding_capacity %>
+  </div>
+  <div class="field">
+    <%= f.label :used_for %><br />
+    <%= f.select :used_for, options_for_select(['dormitory', 'Class']) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

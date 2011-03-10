@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20110310135025) do
   create_table "admissions", :force => true do |t|
     t.integer  "admission_type_id"
     t.integer  "enrollment_type_id"
+
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20110310135025) do
 
   create_table "buildings", :force => true do |t|
     t.string   "building_name"
-    t.integer  "number_of_rooms"
-    t.integer  "number_of_beds_per_room"
+    t.integer  "campus_id"
+    t.integer  "floors"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,9 +79,21 @@ ActiveRecord::Schema.define(:version => 20110310135025) do
 
   create_table "dormitories", :force => true do |t|
     t.integer  "student_id"
-    t.string   "dorm"
+    t.integer  "room_id"
+    t.string   "bed_number"
+    t.date     "academic_year"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "educational_backgrounds", :force => true do |t|
+    t.string   "EHEECE_code"
+    t.integer  "school_code"
+    t.integer  "EHEECE_result"
+    t.integer  "EHEECE_maximum_result"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "student_id"
   end
 
   create_table "enrollement_types", :force => true do |t|
@@ -160,12 +173,15 @@ ActiveRecord::Schema.define(:version => 20110310135025) do
     t.datetime "date_of_birth"
     t.string   "place_of_birth"
     t.integer  "ethnicity"
-    t.integer  "nationality"
+    t.integer  "nationality_id"
     t.string   "marital_status"
     t.string   "mother_full_name"
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "disability"
+    t.string   "type_of_disability"
+    t.integer  "region_code"
   end
 
   create_table "programs", :force => true do |t|
@@ -198,6 +214,9 @@ ActiveRecord::Schema.define(:version => 20110310135025) do
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+   
+    t.integer  "enrollment_mode_id"
+    t.integer  "admission_id"
   end
 
   create_table "users", :force => true do |t|
