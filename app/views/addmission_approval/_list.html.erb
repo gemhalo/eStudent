@@ -2,7 +2,7 @@
   <tr>
     <th>Full Name</th>
     <th>Sex</th>
-    <th>Applying for</th>
+    <th>Admission Status</th>
     <td></td>
     <td></td>
     <td></td>
@@ -11,10 +11,16 @@
   <tr>
     <td><%= a.person.full_name %> </td>
     <td><%= a.person.gender %> </td>
-    <td><%= a.admission.major_feild_of_study %> </td>
+    <% if  a.verified==true %>
+    <td>Admitted</td
+    <% elsif a.verified==false %>
+      <td>Not Admitted</td
+    <% else %>
+      <td>Pending</td
+    <% end %>
     <td><%= link_to "Details", :action=>"details", :id=>a.person.id%> </td>
-    <td><%= link_to "Approve", :action=>"approve", :id=>a.admission.id %> </td>
-    <td><%= link_to "Decline", :action=>"index" %> </td>
+    <td><%= link_to "Approve", :action=>"approve", :id=>a.id %> </td>
+    <td><%= link_to "Decline", :action=>"decline", :id=>a.id %> </td>
     <% end %>
   </tr>
 
