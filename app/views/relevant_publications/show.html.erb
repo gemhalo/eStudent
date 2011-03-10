@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @relevant_publication.description %>
+</p>
+
+<p>
+  <b>Published date:</b>
+  <%= @relevant_publication.published_date %>
+</p>
+
+<p>
+  <b>Publication title:</b>
+  <%= @relevant_publication.publication_title %>
+</p>
+
+<p>
+  <b>Attachment file name:</b>
+  <%= @relevant_publication.attachment_file_name %>
+</p>
+
+<p>
+  <b>Attachment content type:</b>
+  <%= @relevant_publication.attachment_content_type %>
+</p>
+
+<p>
+  <b>Attachment file size:</b>
+  <%= @relevant_publication.attachment_file_size %>
+</p>
+
+<p>
+  <b>Applicant:</b>
+  <%= @relevant_publication.applicant_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_relevant_publication_path(@relevant_publication) %> |
+<%= link_to 'Back', relevant_publications_path %>

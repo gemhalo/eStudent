@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Supporter type:</b>
+  <%= @financial_support.supporter_type %>
+</p>
+
+<p>
+  <b>Supporter name:</b>
+  <%= @financial_support.supporter_name %>
+</p>
+
+<p>
+  <b>Supporter telephone:</b>
+  <%= @financial_support.supporter_telephone %>
+</p>
+
+<p>
+  <b>Supporter pobox:</b>
+  <%= @financial_support.supporter_pobox %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @financial_support.email %>
+</p>
+
+<p>
+  <b>Attachment file name:</b>
+  <%= @financial_support.attachment_file_name %>
+</p>
+
+<p>
+  <b>Attachment content type:</b>
+  <%= @financial_support.attachment_content_type %>
+</p>
+
+<p>
+  <b>Attachment file size:</b>
+  <%= @financial_support.attachment_file_size %>
+</p>
+
+<p>
+  <b>Applicant:</b>
+  <%= @financial_support.applicant_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_financial_support_path(@financial_support) %> |
+<%= link_to 'Back', financial_supports_path %>

@@ -6,8 +6,8 @@ class Person < ActiveRecord::Base
   has_one :instructor
   belongs_to :nationality
 
-  validates :name , :presence => true
-  validates :father_name,  :presence => true
+  #validates :name , :presence => true
+  #validates :father_name,  :presence => true
 
   
     def full_name

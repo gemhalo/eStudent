@@ -1,0 +1,23 @@
+<h1>Listing enrollment_mode_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @enrollment_mode_types.each do |enrollment_mode_type| %>
+  <tr>
+    <td><%= enrollment_mode_type.name %></td>
+    <td><%= link_to 'Show', enrollment_mode_type %></td>
+    <td><%= link_to 'Edit', edit_enrollment_mode_type_path(enrollment_mode_type) %></td>
+    <td><%= link_to 'Destroy', enrollment_mode_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Enrollment mode type', new_enrollment_mode_type_path %>

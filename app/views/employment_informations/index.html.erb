@@ -1,0 +1,33 @@
+<h1>Listing employment_informations</h1>
+
+<table>
+  <tr>
+    <th>Job type</th>
+    <th>Employer name</th>
+    <th>Employer telephone</th>
+    <th>Employer pobox</th>
+    <th>Employer email</th>
+    <th>Applicant</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @employment_informations.each do |employment_information| %>
+  <tr>
+    <td><%= employment_information.job_type %></td>
+    <td><%= employment_information.employer_name %></td>
+    <td><%= employment_information.employer_telephone %></td>
+    <td><%= employment_information.employer_pobox %></td>
+    <td><%= employment_information.employer_email %></td>
+    <td><%= employment_information.applicant_id %></td>
+    <td><%= link_to 'Show', employment_information %></td>
+    <td><%= link_to 'Edit', edit_employment_information_path(employment_information) %></td>
+    <td><%= link_to 'Destroy', employment_information, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Employment information', new_employment_information_path %>

@@ -1,17 +1,38 @@
 EStudent::Application.routes.draw do
+  resources :admission_status_types
+
+  resources :enrollment_mode_types
 
   resources :enrollment_types
 
   resources :admissions
 
+  resources :agreements
   resources :how_tos
 
+  resources :educational_backgrounds
+
+  resources :academic_and_professional_qualifications
+
+  resources :research_and_teaching_experiences
+
+  resources :relevant_publications
+
+  resources :references
+
+  resources :financial_supports
+
+  resources :course_exemptions
+
+  resources :employment_informations
   resources :events
 
   resources :departments
 
+  resources :department_choices
   resources :campuses
 
+  resources :emergency_contacts
   resources :academic_calanders
 
   resources :dormitories
@@ -46,6 +67,8 @@ EStudent::Application.routes.draw do
   get "admission_approval/approve"
   get "admission_approval/decline"
 
+ 
+  resources :buildings
   get "dormitory_placement/place_dorm"
   get "dormitory_placement/show_placement"
   post "dormitory_placement/dorm_placing_process"
@@ -79,7 +102,8 @@ EStudent::Application.routes.draw do
   
   
   #post 'student_service_staffs/show'
-  #get  'student_service_staffs/sample'  
+  #get  'student_service_staffs/sample'
+  get  'applicants/edit'
   
   get  'student_service_staffs/selector' 
   post 'student_service_staffs/selector'
@@ -99,6 +123,26 @@ EStudent::Application.routes.draw do
   get "department_head/show_list"
   get "department_head/details"
   get "department_head/approve"
+  resources :applicants 
+  get "moes/import"
+  post "moes/import"
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  resources :users do
+    collection do
+      post 'forgot_password'
+      get 'forgot_password'
+           
+    end
+  end
+
+ 
+
+  resources :sessions
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

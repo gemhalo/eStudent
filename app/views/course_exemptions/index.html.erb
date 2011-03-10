@@ -1,0 +1,27 @@
+<h1>Listing course_exemptions</h1>
+
+<table>
+  <tr>
+    <th>Course name</th>
+    <th>Credit hour</th>
+    <th>Applicant</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @course_exemptions.each do |course_exemption| %>
+  <tr>
+    <td><%= course_exemption.course_name %></td>
+    <td><%= course_exemption.credit_hour %></td>
+    <td><%= course_exemption.applicant_id %></td>
+    <td><%= link_to 'Show', course_exemption %></td>
+    <td><%= link_to 'Edit', edit_course_exemption_path(course_exemption) %></td>
+    <td><%= link_to 'Destroy', course_exemption, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Course exemption', new_course_exemption_path %>
