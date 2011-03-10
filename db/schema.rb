@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110308081034) do
+ActiveRecord::Schema.define(:version => 20110310092235) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -27,13 +27,26 @@ ActiveRecord::Schema.define(:version => 20110308081034) do
     t.datetime "updated_at"
   end
 
+  create_table "admission_status_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "admission_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  
+  create_table "admissions", :force => true do |t|
+    t.integer  "admission_type_id"
+    t.integer  "enrollement_type_id"
+    t.integer  "enrollment_mode_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "agreements", :force => true do |t|
     t.boolean  "agreement"
     t.integer  "applicant_id"
@@ -41,7 +54,18 @@ ActiveRecord::Schema.define(:version => 20110308081034) do
     t.datetime "updated_at"
   end
 
- 
+  create_table "applicants", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "admission_id"
+    t.integer  "college_id"
+    t.string   "entry_level"
+    t.string   "major_field_of_study"
+    t.string   "minor_field_of_study"
+    t.string   "academic_year"
+    t.integer  "admission_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "buildings", :force => true do |t|
     t.string   "building_name"
@@ -126,6 +150,12 @@ ActiveRecord::Schema.define(:version => 20110308081034) do
   end
 
   create_table "enrollement_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enrollment_mode_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
