@@ -12,7 +12,8 @@
             // create instance immediately
             new Ext.BoxComponent({
                 region: 'north',
-                height: 90, // give north and south regions a height
+                height: 80, // give north and south regions a height
+                border: false,
                 autoEl: {
                     tag: 'div',
                     //html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
@@ -35,6 +36,7 @@
                 split: true,
                 width: 200,
                 minSize: 175,
+                border: true,
                 maxSize: 400,
                 collapsible: true,
                 activeItem:0,
@@ -64,7 +66,8 @@
                 collapsible: false,
                 activeItem:0,
                 margins: '0 0 0 5',
- 		fill: false,        
+ 		fill: true,        
+                hideBorders: true,
                 layout: {
                     type: 'accordion',
                     animate: true 

@@ -1,10 +1,48 @@
-.link{
-border:0px groove green;
-text-indent:30px;
+.menu_link{
+  border:0px groove green;
+  text-indent:30px;
+  margin:2px;
+  
+  -moz-border-radius: 4px;
+  border:0px solid;
+  
+}
+.menu_link a:hover{
+  background:#efefef;
+}
+.menu_link a:link,
+.menu_link a:hover,
+.menu_link a:visited {
+  text-decoration: none;
+  color: maroon;
+}
+.link a {
+  color:olive;
+  
+  text-decoration:none;
+  text-indent:30px;
+}
+.login{
+text-align: right;
+--moz-border-radius:1px;
+border:1px;
+
+}
+#ext-gen27s {
+  background: #efefef;
+  color: white;
+}
+#ext-comp-1002 {
+   z-index: -1;
+}
+#logo {
+   float:left;
+   margin:10px;
+}
+#logo_text {
+   float:left;
+   padding-top: 20px;
+   text-indent: 20px;
+   font-size:30px;
 }
 
-
-.link a {color:olive;
-text-decoration:none;
-text-indent:30px;
-}

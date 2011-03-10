@@ -5,13 +5,13 @@ describe "buildings/index.html.erb" do
     assign(:buildings, [
       stub_model(Building,
         :building_name => "Building Name",
-        :number_of_rooms => 1,
-        :number_of_beds_per_room => 1
+        :campus_id => 1,
+        :floors => 1
       ),
       stub_model(Building,
         :building_name => "Building Name",
-        :number_of_rooms => 1,
-        :number_of_beds_per_room => 1
+        :campus_id => 1,
+        :floors => 1
       )
     ])
   end

@@ -4,8 +4,8 @@ describe "buildings/edit.html.erb" do
   before(:each) do
     @building = assign(:building, stub_model(Building,
       :building_name => "MyString",
-      :number_of_rooms => 1,
-      :number_of_beds_per_room => 1
+      :campus_id => 1,
+      :floors => 1
     ))
   end
 
@@ -15,8 +15,8 @@ describe "buildings/edit.html.erb" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form", :action => buildings_path(@building), :method => "post" do
       assert_select "input#building_building_name", :name => "building[building_name]"
-      assert_select "input#building_number_of_rooms", :name => "building[number_of_rooms]"
-      assert_select "input#building_number_of_beds_per_room", :name => "building[number_of_beds_per_room]"
+      assert_select "input#building_campus_id", :name => "building[campus_id]"
+      assert_select "input#building_floors", :name => "building[floors]"
     end
   end
 end

@@ -1,0 +1,2 @@
+module DepartmentQuotasHelper
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110309064434) do
+ActiveRecord::Schema.define(:version => 20110309123928) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -27,12 +27,8 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.integer  "applicant_id"
     t.integer  "enrollement_type_id"
     t.integer  "admission_type_id"
-    t.string   "entry_level"
-    t.boolean  "admision_status"
-    t.integer  "college"
-    t.integer  "accadamic_calender_id"
-    t.string   "major_feild_of_study"
-    t.string   "minor_feild_of_study"
+    t.integer  "enrollment_type_id"
+    t.integer  "enrollment_mode_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "admission_date"
@@ -49,8 +45,8 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
 
   create_table "buildings", :force => true do |t|
     t.string   "building_name"
-    t.integer  "number_of_rooms"
-    t.integer  "number_of_beds_per_room"
+    t.integer  "campus_id"
+    t.integer  "floors"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,7 +97,10 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.datetime "updated_at"
   end
 
-  create_table "department_heads", :force => true do |t|
+  create_table "department_quotas", :force => true do |t|
+    t.integer  "department_id"
+    t.integer  "total_quota"
+    t.integer  "female_percentage"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -119,9 +118,9 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
 
   create_table "dormitories", :force => true do |t|
     t.integer  "student_id"
-    t.string   "building"
-    t.integer  "room"
-    t.integer  "bedno"
+    t.integer  "room_id"
+    t.string   "bed_number"
+    t.date     "academic_year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -222,6 +221,16 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.datetime "updated_at"
   end
 
+  create_table "rooms", :force => true do |t|
+    t.string   "room_number"
+    t.integer  "building_id"
+    t.integer  "floor_number"
+    t.integer  "holding_capacity"
+    t.string   "used_for"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "student_service_staffs", :force => true do |t|
     t.string   "id_number"
     t.string   "rank"
@@ -263,6 +272,7 @@ ActiveRecord::Schema.define(:version => 20110309064434) do
     t.datetime "updated_at"
     t.integer  "person_id"
     t.string   "role"
+    t.integer  "person_id"
   end
 
 end
