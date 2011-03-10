@@ -1,0 +1,36 @@
+require 'spec_helper'
+
+describe "departments/edit.html.erb" do
+  before(:each) do
+    @department = assign(:department, stub_model(Department,
+      :name => "MyString",
+      :college_id => 1,
+<<<<<<< HEAD
+      :dept_head => "MyString"
+=======
+      :telephone => 1,
+      :pobox => "MyString",
+      :email => "MyString",
+      :instructor_id => 1
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+    ))
+  end
+
+  it "renders the edit department form" do
+    render
+
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "form", :action => departments_path(@department), :method => "post" do
+      assert_select "input#department_name", :name => "department[name]"
+      assert_select "input#department_college_id", :name => "department[college_id]"
+<<<<<<< HEAD
+      assert_select "input#department_dept_head", :name => "department[dept_head]"
+=======
+      assert_select "input#department_telephone", :name => "department[telephone]"
+      assert_select "input#department_pobox", :name => "department[pobox]"
+      assert_select "input#department_email", :name => "department[email]"
+      assert_select "input#department_instructor_id", :name => "department[instructor_id]"
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+    end
+  end
+end

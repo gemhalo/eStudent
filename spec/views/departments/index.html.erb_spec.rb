@@ -6,18 +6,12 @@ describe "departments/index.html.erb" do
       stub_model(Department,
         :name => "Name",
         :college_id => 1,
-        :telephone => 1,
-        :pobox => "Pobox",
-        :email => "Email",
-        :instructor_id => 1
+        :dept_head => "Dept Head"
       ),
       stub_model(Department,
         :name => "Name",
         :college_id => 1,
-        :telephone => 1,
-        :pobox => "Pobox",
-        :email => "Email",
-        :instructor_id => 1
+        :dept_head => "Dept Head"
       )
     ])
   end
@@ -29,12 +23,6 @@ describe "departments/index.html.erb" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => 1.to_s, :count => 2
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "Pobox".to_s, :count => 2
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "Email".to_s, :count => 2
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => 1.to_s, :count => 2
+    assert_select "tr>td", :text => "Dept Head".to_s, :count => 2
   end
 end

@@ -6,12 +6,10 @@ describe "admissions/index.html.erb" do
       stub_model(Admission,
         :admission_type_id => 1,
         :enrollment_type_id => 1,
-        :enrollment_mode_id => 1
       ),
       stub_model(Admission,
         :admission_type_id => 1,
         :enrollment_type_id => 1,
-        :enrollment_mode_id => 1
       )
     ])
   end

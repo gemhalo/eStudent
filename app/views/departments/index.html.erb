@@ -4,10 +4,7 @@
   <tr>
     <th>Name</th>
     <th>College</th>
-    <th>Telephone</th>
-    <th>Pobox</th>
-    <th>Email</th>
-    <th>Instructor</th>
+    <th>Dept head</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,10 +14,7 @@
   <tr>
     <td><%= department.name %></td>
     <td><%= department.college_id %></td>
-    <td><%= department.telephone %></td>
-    <td><%= department.pobox %></td>
-    <td><%= department.email %></td>
-    <td><%= department.instructor_id %></td>
+    <td><%= department.dept_head %></td>
     <td><%= link_to 'Show', department %></td>
     <td><%= link_to 'Edit', edit_department_path(department) %></td>
     <td><%= link_to 'Destroy', department, :confirm => 'Are you sure?', :method => :delete %></td>

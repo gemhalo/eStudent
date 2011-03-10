@@ -1,0 +1,136 @@
+class CampusesController < ApplicationController
+  # GET /campuses
+  # GET /campuses.xml
+  def index
+<<<<<<< HEAD
+    @campuses = Campus.all
+=======
+    @campuses = Campuse.all
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @campuses }
+    end
+  end
+
+  # GET /campuses/1
+  # GET /campuses/1.xml
+  def show
+<<<<<<< HEAD
+    @campus = Campus.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @campus }
+=======
+    @campuse = Campuse.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @campuse }
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+    end
+  end
+
+  # GET /campuses/new
+  # GET /campuses/new.xml
+  def new
+<<<<<<< HEAD
+    @campus = Campus.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @campus }
+=======
+    @campuse = Campuse.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @campuse }
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+    end
+  end
+
+  # GET /campuses/1/edit
+  def edit
+<<<<<<< HEAD
+    @campus = Campus.find(params[:id])
+=======
+    @campuse = Campuse.find(params[:id])
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+  end
+
+  # POST /campuses
+  # POST /campuses.xml
+  def create
+<<<<<<< HEAD
+    @campus = Campus.new(params[:campus])
+
+    respond_to do |format|
+      if @campus.save
+        format.html { redirect_to(@campus, :notice => 'Campus was successfully created.') }
+        format.xml  { render :xml => @campus, :status => :created, :location => @campus }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @campus.errors, :status => :unprocessable_entity }
+=======
+    @campuse = Campuse.new(params[:campuse])
+
+    respond_to do |format|
+      if @campuse.save
+        format.html { redirect_to(@campuse, :notice => 'Campuse was successfully created.') }
+        format.xml  { render :xml => @campuse, :status => :created, :location => @campuse }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @campuse.errors, :status => :unprocessable_entity }
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+      end
+    end
+  end
+
+  # PUT /campuses/1
+  # PUT /campuses/1.xml
+  def update
+<<<<<<< HEAD
+    @campus = Campus.find(params[:id])
+
+    respond_to do |format|
+      if @campus.update_attributes(params[:campus])
+        format.html { redirect_to(@campus, :notice => 'Campus was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @campus.errors, :status => :unprocessable_entity }
+=======
+    @campuse = Campuse.find(params[:id])
+
+    respond_to do |format|
+      if @campuse.update_attributes(params[:campuse])
+        format.html { redirect_to(@campuse, :notice => 'Campuse was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @campuse.errors, :status => :unprocessable_entity }
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+      end
+    end
+  end
+
+  # DELETE /campuses/1
+  # DELETE /campuses/1.xml
+  def destroy
+<<<<<<< HEAD
+    @campus = Campus.find(params[:id])
+    @campus.destroy
+=======
+    @campuse = Campuse.find(params[:id])
+    @campuse.destroy
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+
+    respond_to do |format|
+      format.html { redirect_to(campuses_url) }
+      format.xml  { head :ok }
+    end
+  end
+end
