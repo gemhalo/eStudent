@@ -101,3 +101,4 @@ class AdmissionsController < ApplicationController
     end
   end
 end
+
