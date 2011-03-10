@@ -1,5 +1,5 @@
 class StudentServiceStaffsController < ApplicationController
-  layout 'student'
+  layout 'student_service_staff'
   # GET /student_service_staffs
   # GET /student_service_staffs.xml
   # POST /student_service_staffs
