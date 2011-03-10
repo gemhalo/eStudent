@@ -8,8 +8,6 @@ EStudent::Application.routes.draw do
 
   resources :departments
 
-  resources :campuses
-
   resources :academic_calanders
 
   resources :dormitories
@@ -21,8 +19,6 @@ EStudent::Application.routes.draw do
   resources :department_quotas
 
   resources :departments
-
-  resources :campuses
 
   resources :academic_calanders
 
@@ -60,8 +56,6 @@ EStudent::Application.routes.draw do
 
 
   resources :instructors
-
-  resources :colleges
 
   resources :admission_types
 
