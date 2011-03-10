@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @program.name %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%= @program.department_id %>
+</p>
+
+<p>
+  <b>Admission:</b>
+  <%= @program.admission_id %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @program.duration %>
+</p>
+
+<p>
+  <b>Total credit hour:</b>
+  <%= @program.total_credit_hour %>
+</p>
+
+<p>
+  <b>Award type:</b>
+  <%= @program.award_type_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_program_path(@program) %> |
+<%= link_to 'Back', programs_path %>
