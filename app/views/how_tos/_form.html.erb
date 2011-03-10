@@ -1,0 +1,25 @@
+<%= form_for(@how_to) do |f| %>
+  <% if @how_to.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@how_to.errors.count, "error") %> prohibited this how_to from being saved:</h2>
+
+      <ul>
+      <% @how_to.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :detail %><br />
+    <%= f.text_area :detail %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

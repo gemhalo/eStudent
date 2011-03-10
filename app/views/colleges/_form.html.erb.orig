@@ -1,0 +1,51 @@
+<%= form_for(@college) do |f| %>
+  <% if @college.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@college.errors.count, "error") %> prohibited this college from being saved:</h2>
+
+      <ul>
+      <% @college.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :campus_id %><br />
+<<<<<<< HEAD
+    <%= f.collection_select( :campus_id, @campus,:id,:name) %>
+  </div>
+  <div class="field">
+    <%= f.label :dean %><br />
+    <%= f.text_field :dean %>
+=======
+    <%= f.collection_select(:campus_id, @campus,:id,:name) %>
+  </div>
+  <div class="field">
+    <%= f.label :college_telephone %><br />
+    <%= f.text_field :college_telephone %>
+  </div>
+  <div class="field">
+    <%= f.label :college_pobox %><br />
+    <%= f.text_field :college_pobox %>
+  </div>
+  <div class="field">
+    <%= f.label :college_email %><br />
+    <%= f.text_field :college_email %>
+  </div>
+  <div class="field">
+    <%= f.label :instructor_id %><br />
+    <%= f.text_field :instructor_id %>
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

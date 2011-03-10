@@ -22,5 +22,5 @@ context "When saving" do
         @dept.should be_valid
     end
 end
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
 end

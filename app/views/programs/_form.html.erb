@@ -13,47 +13,31 @@
 
 
   <div class="field">
-    <%= f.label :program_id_number %><br />
-    <%= f.text_field :program_id_number %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :program_name %><br />
-    <%= f.text_field :program_name %>
+    <%= f.label :department_id %><br />
+    <%= f.text_field :department_id %>
   </div>
   <div class="field">
-    <%= f.label :level %><br />
-    <%= f.text_field :level %>
-  </div>
-  <div class="field">
-    <%= f.label :enrollment_type %><br />
-    <%= f.collection_select(:enrollment_type,@enrollement_types, :id,:name,:prompt => "Select Enrollment type")%>
-  </div>
-  <div class="field">
-    <%= f.label :mode %><br />
-    <%= f.text_field :mode %>
-  </div>
-  <div class="field">
-    <%= f.label :award_type %><br />
-    <%= f.text_field :award_type %>
+    <%= f.label :admission_id %><br />
+    <%= f.text_field :admission_id %>
   </div>
   <div class="field">
     <%= f.label :duration %><br />
-    <%= f.text_field :duration %>
+    <%= f.date_select :duration %>
   </div>
   <div class="field">
     <%= f.label :total_credit_hour %><br />
     <%= f.text_field :total_credit_hour %>
   </div>
   <div class="field">
-    <%= f.label :department_id %><br />
-    <%= f.text_field :department_id %>
+    <%= f.label :award_type_id %><br />
+    <%= f.text_field :award_type_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 
-
-
-
-  
 <% end %>

@@ -18,4 +18,5 @@ context "When saving" do
         @c.should be_valid
     end
 end
+end 
 end

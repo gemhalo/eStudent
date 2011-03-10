@@ -3,8 +3,8 @@
 <table>
   <tr>
     <th>Building name</th>
-    <th>Number of rooms</th>
-    <th>Number of beds per room</th>
+    <th>Campus</th>
+    <th>Floors</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +13,8 @@
 <% @buildings.each do |building| %>
   <tr>
     <td><%= building.building_name %></td>
-    <td><%= building.number_of_rooms %></td>
-    <td><%= building.number_of_beds_per_room %></td>
+    <td><%= building.campus_id %></td>
+    <td><%= building.floors %></td>
     <td><%= link_to 'Show', building %></td>
     <td><%= link_to 'Edit', edit_building_path(building) %></td>
     <td><%= link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete %></td>

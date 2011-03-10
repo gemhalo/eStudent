@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Student:</b>
+  <%= @dormitory.student_id %>
+</p>
+
+<p>
+  <b>Room:</b>
+  <%= @dormitory.room_id %>
+</p>
+
+<p>
+  <b>Bed number:</b>
+  <%= @dormitory.bed_number %>
+</p>
+
+<p>
+  <b>Academic year:</b>
+  <%= @dormitory.academic_year %>
+</p>
+
+
+<%= link_to 'Edit', edit_dormitory_path(@dormitory) %> |
+<%= link_to 'Back', dormitories_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Department:</b>
+  <%= @department_quota.department_id %>
+</p>
+
+<p>
+  <b>Total quota:</b>
+  <%= @department_quota.total_quota %>
+</p>
+
+<p>
+  <b>Female percentage:</b>
+  <%= @department_quota.female_percentage %>
+</p>
+
+
+<%= link_to 'Edit', edit_department_quota_path(@department_quota) %> |
+<%= link_to 'Back', department_quotas_path %>

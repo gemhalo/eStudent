@@ -1,10 +1,10 @@
-<%= form_for(@campuse) do |f| %>
-  <% if @campuse.errors.any? %>
+<%= form_for(@campus) do |f| %>
+  <% if @campus.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@campuse.errors.count, "error") %> prohibited this campuse from being saved:</h2>
+      <h2><%= pluralize(@campus.errors.count, "error") %> prohibited this campus from being saved:</h2>
 
       <ul>
-      <% @campuse.errors.full_messages.each do |msg| %>
+      <% @campus.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -15,18 +15,7 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :campus_telephone %><br />
-    <%= f.text_field :campus_telephone %>
-  </div>
-  <div class="field">
-    <%= f.label :campus_pobox %><br />
-    <%= f.text_field :campus_pobox %>
-  </div>
-  <div class="field">
-    <%= f.label :campus_email %><br />
-    <%= f.text_field :campus_email %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

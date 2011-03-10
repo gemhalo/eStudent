@@ -11,9 +11,17 @@
   <tr>
     <td><%=  student.person.full_name%></td>
     <td><%=  student.person.gender%></td>
-    <td><%=  "#{student.dormitory.building} " << "Room " << "#{student.dormitory.room} " << "Bed No " << "#{student.dormitory.bedno}" %></td>
-    <td><%= link_to "Edit"%></td>
-    <td><%= link_to "Delete"%></td>
+    <td><%=  "#{student.dormitory.room.building.building_name} " << "Room " << "#{student.dormitory.room.room_number} " << "Bed No " << "#{student.dormitory.bed_number}" %></td>
+    <td><%= link_to "Edit", :action=>"edit", :id=>student.dormitory.id %></td>
+    <td><%= link_to "Delete", :action=>'destroy', :id=> student.dormitory.id, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <% end %>
 </table>
+<%= netzke :students,
+    :class_name => "Basepack::GridPanel",
+    :model => "Student",
+    :columns => [ {:name => :person__full_name,:label => "Fullname" },
+       {:name => :person__gender, :label => "Sex"},
+       {:name => :dormitory, :label=>"Block"}
+     ]
+%>

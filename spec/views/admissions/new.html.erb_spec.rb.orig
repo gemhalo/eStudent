@@ -8,8 +8,7 @@ describe "admissions/new.html.erb" do
 <<<<<<< HEAD
       :enrollment_mode_type_id => 1
 =======
-      :enrollment_mode_id => 1
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
+>>>>>>> 727eafbbd9cc2c272fd7d1920cce0ea4996c1b35
     ).as_new_record)
   end
 
@@ -23,8 +22,8 @@ describe "admissions/new.html.erb" do
 <<<<<<< HEAD
       assert_select "input#admission_enrollment_mode_type_id", :name => "admission[enrollment_mode_type_id]"
 =======
-      assert_select "input#admission_enrollment_mode_id", :name => "admission[enrollment_mode_id]"
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
+
+>>>>>>> 727eafbbd9cc2c272fd7d1920cce0ea4996c1b35
     end
   end
 end

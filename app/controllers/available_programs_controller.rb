@@ -1,0 +1,2 @@
+class AvailableProgramsController < ApplicationController
+end

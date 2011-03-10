@@ -5,10 +5,7 @@ describe "departments/new.html.erb" do
     assign(:department, stub_model(Department,
       :name => "MyString",
       :college_id => 1,
-      :telephone => 1,
-      :pobox => "MyString",
-      :email => "MyString",
-      :instructor_id => 1
+      :dept_head => "MyString"
     ).as_new_record)
   end
 
@@ -19,10 +16,7 @@ describe "departments/new.html.erb" do
     assert_select "form", :action => departments_path, :method => "post" do
       assert_select "input#department_name", :name => "department[name]"
       assert_select "input#department_college_id", :name => "department[college_id]"
-      assert_select "input#department_telephone", :name => "department[telephone]"
-      assert_select "input#department_pobox", :name => "department[pobox]"
-      assert_select "input#department_email", :name => "department[email]"
-      assert_select "input#department_instructor_id", :name => "department[instructor_id]"
+      assert_select "input#department_dept_head", :name => "department[dept_head]"
     end
   end
 end

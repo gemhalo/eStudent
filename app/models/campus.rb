@@ -1,5 +1,6 @@
 class Campus < ActiveRecord::Base
   has_many :college
+  has_many :buildings
   validates_presence_of :name
   validates_uniqueness_of :name
   validates_format_of     :campus_email,
