@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110310203006) do
+ActiveRecord::Schema.define(:version => 20110311074731) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -62,13 +62,6 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
 
   create_table "applicants", :force => true do |t|
     t.integer  "person_id"
-    t.integer  "admission_id"
-    t.integer  "college_id"
-    t.string   "entry_level"
-    t.string   "major_field_of_study"
-    t.string   "minor_field_of_study"
-    t.string   "academic_year"
-    t.integer  "admission_status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "verified",                 :default => false
@@ -76,10 +69,16 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.integer  "admission_type_id"
   end
 
+  create_table "award_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "buildings", :force => true do |t|
     t.string   "building_name"
-    t.integer  "campus_id"
-    t.integer  "floors"
+    t.integer  "number_of_rooms"
+    t.integer  "number_of_beds_per_room"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -103,6 +102,14 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.string   "name"
     t.integer  "campus_id"
     t.string   "dean"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "course_exemptions", :force => true do |t|
+    t.string   "course_name"
+    t.integer  "credit_hour"
+    t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -165,24 +172,13 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
   end
 
   create_table "educational_backgrounds", :force => true do |t|
-    t.string   "institution_type"
-    t.string   "institution_name"
-    t.string   "result_type"
-    t.string   "eheece_code"
-    t.string   "school_code"
-    t.string   "institution_region"
-    t.string   "institution_zone"
-    t.string   "institution_town"
-    t.integer  "result"
-    t.integer  "out_of"
-    t.string   "department"
-    t.string   "college_leave_reason"
-    t.integer  "applicant_id"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
+    t.string   "EHEECE_code"
+    t.integer  "school_code"
+    t.integer  "EHEECE_result"
+    t.integer  "EHEECE_maximum_result"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "student_id"
   end
 
   create_table "emergency_contacts", :force => true do |t|
@@ -203,6 +199,12 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.string   "employer_pobox"
     t.string   "employer_email"
     t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enrollment_mode_types", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

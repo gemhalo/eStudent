@@ -1,4 +1,6 @@
 EStudent::Application.routes.draw do
+  resources :award_types
+
   resources :admission_status_types
 
   resources :enrollment_mode_types
@@ -77,7 +79,8 @@ EStudent::Application.routes.draw do
   get "dormitory_placement/destroy"
    resources :available_programs
   get "available_programs/index"
- get "available_programs/show"
+ post "available_programs/show"
+get "available_programs/show"
 
   get "department_placement/department_placing_process"
   get "department_placement/show_placement"
