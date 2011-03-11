@@ -41,3 +41,16 @@ departments = [
 departments.each do |department|
   Department.create!(:name => department, :college_id => 0,:dept_head => "-")
 end
+
+#AdmissionTypes
+admissionTypes = ["Undergraduate", "Post Graduate","Mature age"]
+
+admissionTypes.each do |admissionType|
+   AdmissionType.create!(:name => admissionType)
+end
+
+#EnrollmentTypes
+enrollmentTypes = ["Regular", "Extension", "Summer","Distance"]
+enrollmentTypes.each do |enrollmentType|
+  EnrollmentType.create!(:name => enrollmentType)
+end
