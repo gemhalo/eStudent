@@ -7,7 +7,7 @@ class InstructorsController < ApplicationController
   # GET /instructors.xml
   def index
     @instructors = Instructor.all
-
+    @perosn = Person.all
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @instructors }
@@ -28,6 +28,7 @@ class InstructorsController < ApplicationController
   # GET /instructors/new
   # GET /instructors/new.xml
   def new
+    @perosn = Person.all
     @instructor = Instructor.new
 
     respond_to do |format|
