@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311074731) do
+ActiveRecord::Schema.define(:version => 20110311130158) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20110311074731) do
     t.boolean  "admission_status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "verified"
   end
 
   create_table "award_types", :force => true do |t|
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20110311074731) do
     t.integer  "campus_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "instructor_id"
   end
 
   create_table "course_exemptions", :force => true do |t|
@@ -146,6 +148,27 @@ ActiveRecord::Schema.define(:version => 20110311074731) do
     t.string   "name"
     t.integer  "college_id"
     t.string   "dept_head"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "educational_backgrounds", :force => true do |t|
+    t.string   "institution_type"
+    t.string   "institution_name"
+    t.string   "result_type"
+    t.string   "eheece_code"
+    t.string   "school_code"
+    t.string   "institution_region"
+    t.string   "institution_zone"
+    t.string   "institution_town"
+    t.integer  "result"
+    t.integer  "out_of"
+    t.string   "department"
+    t.string   "college_leave_reason"
+    t.integer  "applicant_id"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -298,6 +321,17 @@ ActiveRecord::Schema.define(:version => 20110311074731) do
     t.boolean  "disability"
     t.string   "type_of_disability"
     t.integer  "region_code"
+  end
+
+  create_table "programs", :force => true do |t|
+    t.string   "name"
+    t.integer  "department_id"
+    t.integer  "admission_id"
+    t.date     "duration"
+    t.integer  "total_credit_hour"
+    t.integer  "award_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "references", :force => true do |t|
