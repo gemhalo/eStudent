@@ -1,5 +1,5 @@
 class StudentServiceStaffsController < ApplicationController
-  authorize_resource
+#  authorize_resource
   layout 'student_service_staff'
   # GET /student_service_staffs
   # GET /student_service_staffs.xml
