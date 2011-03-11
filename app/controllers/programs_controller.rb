@@ -1,4 +1,5 @@
 class ProgramsController < ApplicationController
+  layout "student_service_staff"
   # GET /programs
   # GET /programs.xml
   def index

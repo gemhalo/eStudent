@@ -4,7 +4,7 @@ class CreateDepartmentChoices < ActiveRecord::Migration
       t.integer :department_id
       t.integer :applicant_id
       t.integer :preference
-
+  
       t.timestamps
     end
   end
