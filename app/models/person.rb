@@ -40,8 +40,10 @@ class Person < ActiveRecord::Base
 	   def username
         (User.where('person_id = ?', self.id)).first.username
       end
-      def Password
+      def password
         (User.where('person_id = ?', self.id)).first.temp_password
       end
-
+      def email
+        (User.where('person_id = ?', self.id)).first.email
+      end
 end
