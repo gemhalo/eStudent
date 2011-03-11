@@ -26,7 +26,8 @@
 <%= netzke :department_choices,
   :model => 'DepartmentChoice',
   :class_name => 'Basepack::GridPanel',
-  :scope => ["applicant_id = ? ", @applicantid]
+  :scope => ["applicant_id = ? ", @applicantid],
+  :height => 200
 %>
 </fieldset>
 </fieldset>

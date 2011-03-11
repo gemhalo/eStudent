@@ -26,8 +26,11 @@ class CourseExemptionsController < ApplicationController
   # GET /course_exemptions/new.xml
   def new
      @applicantid = params[:applicant_id]
-     @admission = Admission.find(@applicantid)
-     @course_exemptions = CourseExemption.find_all_by_applicant_id(params[:applicant_id])
+     @applicant = Applicant.find(@applicantid)
+     @admissionid = @applicant.admission_id
+     logger.info("-----ddd-----#{@admissionid}----------")
+     @admission = Admission.find(@admissionid)
+
      @course_exemption = CourseExemption.new
 
     respond_to do |format|

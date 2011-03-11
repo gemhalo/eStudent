@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110310174757) do
+ActiveRecord::Schema.define(:version => 20110311101805) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20110310174757) do
 
   create_table "admissions", :force => true do |t|
     t.integer  "admission_type_id"
-    t.integer  "enrollment_type_id"
+    t.integer  "enrollement_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

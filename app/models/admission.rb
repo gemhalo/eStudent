@@ -7,7 +7,7 @@ class Admission < ActiveRecord::Base
 
 def admission_name
 
-  [admission_type.name.capitalize ,'-',enrollement_type.name.capitalize, '-',enrollment_mode_type.name.capitalize].join(' ')
+  [admission_type.name.capitalize ,'-',enrollement_type.name.capitalize].join(' ')
 
 end
 

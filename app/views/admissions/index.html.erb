@@ -3,8 +3,7 @@
 <table>
   <tr>
     <th>Admission type</th>
-    <th>Enrollment type</th>
-    <th>Enrollment mode</th>
+     <th>Enrollment mode</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +12,7 @@
 <% @admissions.each do |admission| %>
   <tr>
     <td><%= admission.admission_type.name %></td>
-    <td><%= admission.enrollement_type.name %></td>
-    <td><%= admission.enrollment_mode_type.name %></td>
+   
     <td><%= link_to 'Show', admission %></td>
     <td><%= link_to 'Edit', edit_admission_path(admission) %></td>
     <td><%= link_to 'Destroy', admission, :confirm => 'Are you sure?', :method => :delete %></td>

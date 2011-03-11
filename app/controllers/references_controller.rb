@@ -25,8 +25,13 @@ class ReferencesController < ApplicationController
   # GET /references/new.xml
   def new
     @applicantid = params[:applicant_id]
-    @references=Reference.find_all_by_applicant_id(params[:applicant_id])
+    @applicant = Applicant.find(@applicantid)
+     @admissionid = @applicant.admission_id
+     logger.info("-----ddd-----#{@admissionid}----------")
+     @admission = Admission.find(@admissionid)
     @reference = Reference.new
+
+
 
     respond_to do |format|
       format.html # new.html.erb
