@@ -1,0 +1,2024 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: LDAP::Server::Schema</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (S)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../LDAP.html" title="LDAP (module)">LDAP</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Server.html" title="LDAP::Server (class)">Server</a></span></span>
+     &raquo; 
+    <span class="title">Schema</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: LDAP::Server::Schema
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">LDAP::Server::Schema</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ldap/server/schema.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+This object represents an LDAP schema: that is, a collection of
+objectclasses and attributetypes. Methods are provided for loading the
+schema (from a string or a disk file), and validating an av-hash against
+it.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Schema/AttributeType.html" title="LDAP::Server::Schema::AttributeType (class)">AttributeType</a></span>, <span class='object_link'><a href="Schema/ObjectClass.html" title="LDAP::Server::Schema::ObjectClass (class)">ObjectClass</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="SUBSCHEMA_ENTRY_ATTR-constant" class="">SUBSCHEMA_ENTRY_ATTR =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>cn</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="SUBSCHEMA_ENTRY_VALUE-constant" class="">SUBSCHEMA_ENTRY_VALUE =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Subschema</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_attrtype-instance_method" title="#add_attrtype (instance method)">- (Object) <strong>add_attrtype</strong>(str) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Add an AttributeType to the schema.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_objectclass-instance_method" title="#add_objectclass (instance method)">- (Object) <strong>add_objectclass</strong>(str) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Add an ObjectClass to the schema.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_attrtypes-instance_method" title="#all_attrtypes (instance method)">- (Object) <strong>all_attrtypes</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Return array of all AttributeType objects in this schema.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_objectclasses-instance_method" title="#all_objectclasses (instance method)">- (Object) <strong>all_objectclasses</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Return array of all ObjectClass objects in this schema.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#attr-instance_method" title="#attr (instance method)">- (Object) <strong>attr</strong>(oc, at) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Backwards-compatible for ruby-ldap LDAP::Schema.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#changed-instance_method" title="#changed (instance method)">- (Object) <strong>changed</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Clear the subschema subentry cache, so the next time someone requests it,
+it will be rebuilt.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#find_attrtype-instance_method" title="#find_attrtype (instance method)">- (Object) <strong>find_attrtype</strong>(n) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Locate an attributetype object by name/alias/oid (or raise exception).
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#find_objectclass-instance_method" title="#find_objectclass (instance method)">- (Object) <strong>find_objectclass</strong>(n) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Locate an objectclass object by name/alias/oid (or raise exception).
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Schema) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A new instance of Schema.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load-instance_method" title="#load (instance method)">- (Object) <strong>load</strong>(str_or_io) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Load an OpenLDAP-format schema from a string or IO object (anything which
+responds to &#8216;each_line&#8217;).
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_file-instance_method" title="#load_file (instance method)">- (Object) <strong>load_file</strong>(filename) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Load an OpenLDAP-format schema from a named file (see notes under
+&#8216;load&#8217;).
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_system-instance_method" title="#load_system (instance method)">- (Object) <strong>load_system</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Load in the base set of objectclasses and attributetypes, being the same
+set as OpenLDAP preloads internally.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#may-instance_method" title="#may (instance method)">- (Object) <strong>may</strong>(oc) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Backwards-compatible for ruby-ldap LDAP::Schema.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#must-instance_method" title="#must (instance method)">- (Object) <strong>must</strong>(oc) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Backwards-compatible for ruby-ldap LDAP::Schema.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#names-instance_method" title="#names (instance method)">- (Object) <strong>names</strong>(key) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Hopefully backwards-compatible API for ruby-ldap&#8217;s LDAP::Schema.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve_oids-instance_method" title="#resolve_oids (instance method)">- (Object) <strong>resolve_oids</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+After loading object classes and attr types: resolve oid strings to point
+to objects.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subschema_dn-instance_method" title="#subschema_dn (instance method)">- (Object) <strong>subschema_dn</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+return the DN of the subschema subentry.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subschema_subentry-instance_method" title="#subschema_subentry (instance method)">- (Object) <strong>subschema_subentry</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Return an av hash object giving the subschema subentry.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sup-instance_method" title="#sup (instance method)">- (Object) <strong>sup</strong>(oc) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Backwards-compatible for ruby-ldap LDAP::Schema.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#validate-instance_method" title="#validate (instance method)">- (Object) <strong>validate</strong>(mods, entry = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Validate a new entry or update.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="LDAP::Server::Schema (class)">Schema</a></span></tt>) <strong>initialize</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of Schema
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span>
+  <span class='ivar'>@attrtypes</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>		<span class='comment'># name/alias/oid =&gt; AttributeType instance
+</span>  <span class='ivar'>@objectclasses</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>	<span class='comment'># name/alias/oid =&gt; ObjectClass instance
+</span>  <span class='ivar'>@subschema_cache</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_attrtype-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_attrtype</strong>(str) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Add an AttributeType to the schema
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id add_attrtype'>add_attrtype</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='id a'>a</span> <span class='op'>=</span> <span class='const'>AttributeType</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='ivar'>@attrtypes</span><span class='lbracket'>[</span><span class='id a'>a</span><span class='period'>.</span><span class='id oid'>oid</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id a'>a</span> <span class='kw'>if</span> <span class='id a'>a</span><span class='period'>.</span><span class='id oid'>oid</span>
+  <span class='id a'>a</span><span class='period'>.</span><span class='id names'>names</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span>
+    <span class='ivar'>@attrtypes</span><span class='lbracket'>[</span><span class='id n'>n</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id a'>a</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="add_objectclass-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_objectclass</strong>(str) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Add an ObjectClass to the schema
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78
+79
+80
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 78</span>
+
+<span class='kw'>def</span> <span class='id add_objectclass'>add_objectclass</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='id o'>o</span> <span class='op'>=</span> <span class='const'>ObjectClass</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id str'>str</span><span class='rparen'>)</span>
+  <span class='ivar'>@objectclasses</span><span class='lbracket'>[</span><span class='id o'>o</span><span class='period'>.</span><span class='id oid'>oid</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id o'>o</span> <span class='kw'>if</span> <span class='id o'>o</span><span class='period'>.</span><span class='id oid'>oid</span>
+  <span class='id o'>o</span><span class='period'>.</span><span class='id names'>names</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id n'>n</span><span class='op'>|</span>
+    <span class='ivar'>@objectclasses</span><span class='lbracket'>[</span><span class='id n'>n</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id o'>o</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="all_attrtypes-instance_method">
+  
+    - (<tt>Object</tt>) <strong>all_attrtypes</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Return array of all AttributeType objects in this schema
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='id all_attrtypes'>all_attrtypes</span>
+  <span class='ivar'>@attrtypes</span><span class='period'>.</span><span class='id values'>values</span><span class='period'>.</span><span class='id uniq'>uniq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="all_objectclasses-instance_method">
+  
+    - (<tt>Object</tt>) <strong>all_objectclasses</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Return array of all ObjectClass objects in this schema
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id all_objectclasses'>all_objectclasses</span>
+  <span class='ivar'>@objectclasses</span><span class='period'>.</span><span class='id values'>values</span><span class='period'>.</span><span class='id uniq'>uniq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="attr-instance_method">
+  
+    - (<tt>Object</tt>) <strong>attr</strong>(oc, at) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Backwards-compatible for ruby-ldap LDAP::Schema
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 408</span>
+
+<span class='kw'>def</span> <span class='id attr'>attr</span><span class='lparen'>(</span><span class='id oc'>oc</span><span class='comma'>,</span><span class='id at'>at</span><span class='rparen'>)</span>
+  <span class='id o'>o</span> <span class='op'>=</span> <span class='id find_objectclass'>find_objectclass</span><span class='lparen'>(</span><span class='id oc'>oc</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id at'>at</span><span class='period'>.</span><span class='id upcase'>upcase</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MUST</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='id o'>o</span><span class='period'>.</span><span class='id must'>must</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MAY</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='id o'>o</span><span class='period'>.</span><span class='id may'>may</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>SUP</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='id o'>o</span><span class='period'>.</span><span class='id sup'>sup</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>NAME</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='id o'>o</span><span class='period'>.</span><span class='id names'>names</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>DESC</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='id o'>o</span><span class='period'>.</span><span class='id desc'>desc</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span>
+<span class='kw'>rescue</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="changed-instance_method">
+  
+    - (<tt>Object</tt>) <strong>changed</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Clear the subschema subentry cache, so the next time someone requests it,
+it will be rebuilt
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id changed'>changed</span>
+  <span class='ivar'>@subschema_cache</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="find_attrtype-instance_method">
+  
+    - (<tt>Object</tt>) <strong>find_attrtype</strong>(n) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Locate an attributetype object by name/alias/oid (or raise exception)
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../ResultError/UndefinedAttributeType.html" title="LDAP::ResultError::UndefinedAttributeType (class)">LDAP::ResultError::UndefinedAttributeType</a></span></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id n'>n</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id n'>n</span> <span class='kw'>if</span> <span class='id n'>n</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id n'>n</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Schema</span><span class='op'>::</span><span class='const'>AttributeType</span><span class='rparen'>)</span>
+  <span class='id r'>r</span> <span class='op'>=</span> <span class='ivar'>@attrtypes</span><span class='lbracket'>[</span><span class='id n'>n</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rbracket'>]</span>
+  <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>UndefinedAttributeType</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unknown AttributeType </span><span class='embexpr_beg'>#{</span><span class='id n'>n</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id r'>r</span>
+  <span class='id r'>r</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="find_objectclass-instance_method">
+  
+    - (<tt>Object</tt>) <strong>find_objectclass</strong>(n) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Locate an objectclass object by name/alias/oid (or raise exception)
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../ResultError/ObjectClassViolation.html" title="LDAP::ResultError::ObjectClassViolation (class)">LDAP::ResultError::ObjectClassViolation</a></span></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id find_objectclass'>find_objectclass</span><span class='lparen'>(</span><span class='id n'>n</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id n'>n</span> <span class='kw'>if</span> <span class='id n'>n</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id n'>n</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Schema</span><span class='op'>::</span><span class='const'>ObjectClass</span><span class='rparen'>)</span>
+  <span class='id r'>r</span> <span class='op'>=</span> <span class='ivar'>@objectclasses</span><span class='lbracket'>[</span><span class='id n'>n</span><span class='period'>.</span><span class='id downcase'>downcase</span><span class='rbracket'>]</span>
+  <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>ObjectClassViolation</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unknown ObjectClass </span><span class='embexpr_beg'>#{</span><span class='id n'>n</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id r'>r</span>
+  <span class='id r'>r</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="load-instance_method">
+  
+    - (<tt>Object</tt>) <strong>load</strong>(str_or_io) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Load an OpenLDAP-format schema from a string or IO object (anything which
+responds to &#8216;each_line&#8217;). Lines starting
+&#8216;attributetype&#8217; or &#8216;objectclass&#8217; contain one of
+those objects. Does not implement named objectIdentifier prefixes (used in
+the dyngroup.schema file supplied with openldap, but not documented in
+RFC2252)
+</p>
+<p>
+Note: RFC2252 is strict about the order in which the elements appear, and
+so are we, but OpenLDAP is not. This means that a schema which works in
+OpenLDAP might not load here. For example, RFC2252 says that in an
+objectclass description, &#8220;SUP&#8221; must come before
+&#8220;MAY&#8221;; if they are the other way round, our regexp-based parser
+will not accept it. The solution is simply to modify the definition so that
+the elements appear in the correct order.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 121</span>
+
+<span class='kw'>def</span> <span class='id load'>load</span><span class='lparen'>(</span><span class='id str_or_io'>str_or_io</span><span class='rparen'>)</span>
+  <span class='id meth'>meth</span> <span class='op'>=</span> <span class='symbol'>:junk_line</span>
+  <span class='id data'>data</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id str_or_io'>str_or_io</span><span class='period'>.</span><span class='id each_line'>each_line</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+    <span class='kw'>case</span> <span class='id line'>line</span>
+    <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\s*#</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\s*$</span><span class='regexp_end'>/</span></span>
+      <span class='kw'>next</span>
+    <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^objectclass\s*(.*)$</span><span class='regexp_end'>/i</span></span>
+      <span class='id m'>m</span> <span class='op'>=</span> <span class='gvar'>$~</span>
+      <span class='id send'>send</span><span class='lparen'>(</span><span class='id meth'>meth</span><span class='comma'>,</span> <span class='id data'>data</span><span class='rparen'>)</span>
+      <span class='id meth'>meth</span><span class='comma'>,</span> <span class='id data'>data</span> <span class='op'>=</span> <span class='symbol'>:add_objectclass</span><span class='comma'>,</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^attributetype\s*(.*)$</span><span class='regexp_end'>/i</span></span>
+      <span class='id m'>m</span> <span class='op'>=</span> <span class='gvar'>$~</span>
+      <span class='id send'>send</span><span class='lparen'>(</span><span class='id meth'>meth</span><span class='comma'>,</span> <span class='id data'>data</span><span class='rparen'>)</span>
+      <span class='id meth'>meth</span><span class='comma'>,</span> <span class='id data'>data</span> <span class='op'>=</span> <span class='symbol'>:add_attrtype</span><span class='comma'>,</span> <span class='id m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='kw'>else</span>
+      <span class='id data'>data</span> <span class='op'>&lt;&lt;</span> <span class='id line'>line</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id send'>send</span><span class='lparen'>(</span><span class='id meth'>meth</span><span class='comma'>,</span><span class='id data'>data</span><span class='rparen'>)</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="load_file-instance_method">
+  
+    - (<tt>Object</tt>) <strong>load_file</strong>(filename) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Load an OpenLDAP-format schema from a named file (see notes under
+&#8216;load&#8217;)
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id load_file'>load_file</span><span class='lparen'>(</span><span class='id filename'>filename</span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='id filename'>filename</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id f'>f</span><span class='op'>|</span> <span class='id load'>load</span><span class='lparen'>(</span><span class='id f'>f</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="load_system-instance_method">
+  
+    - (<tt>Object</tt>) <strong>load_system</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Load in the base set of objectclasses and attributetypes, being the same
+set as OpenLDAP preloads internally. Includes objectclasses
+&#8216;top&#8217;, &#8216;objectclass&#8217;; attributetypes
+&#8216;objectclass&#8217; , &#8216;cn&#8217;, &#8216;userPassword&#8217;
+and &#8216;distinguishedName&#8217;; common operational attributes such as
+&#8216;modifyTimestamp&#8217;; plus extras needed for publishing a v3
+schema via LDAP
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 158</span>
+
+<span class='kw'>def</span> <span class='id load_system'>load_system</span>
+  <span class='id load'>load</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;EOS</span><span class='tstring_content'>attributetype ( 1.3.6.1.4.1.250.1.57 NAME 'labeledURI' DESC 'RFC2079: Uniform Resource Identifier with optional label' EQUALITY caseExactMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+attributetype ( 2.5.4.35 NAME 'userPassword' DESC 'RFC2256/2307: password of user' EQUALITY octetStringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.40{128} )
+attributetype ( 2.5.4.3 NAME ( 'cn' 'commonName' ) DESC 'RFC2256: common name(s) for which the entity is known by' SUP name )
+attributetype ( 2.5.4.41 NAME 'name' DESC 'RFC2256: common supertype of name attributes' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{32768} )
+attributetype ( 2.5.4.49 NAME 'distinguishedName' DESC 'RFC2256: common supertype of DN attributes' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 )
+attributetype ( 2.16.840.1.113730.3.1.34 NAME 'ref' DESC 'namedref: subordinate referral URL' EQUALITY caseExactMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 USAGE distributedOperation )
+attributetype ( 2.5.4.1 NAME ( 'aliasedObjectName' 'aliasedEntryName' ) DESC 'RFC2256: name of aliased object' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 SINGLE-VALUE )
+attributetype ( 1.3.6.1.4.1.1466.101.120.16 NAME 'ldapSyntaxes' DESC 'RFC2252: LDAP syntaxes' EQUALITY objectIdentifierFirstComponentMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.54 USAGE directoryOperation )
+attributetype ( 2.5.21.8 NAME 'matchingRuleUse' DESC 'RFC2252: matching rule uses' EQUALITY objectIdentifierFirstComponentMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.31 USAGE directoryOperation )
+attributetype ( 2.5.21.6 NAME 'objectClasses' DESC 'RFC2252: object classes' EQUALITY objectIdentifierFirstComponentMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.37 USAGE directoryOperation )
+attributetype ( 2.5.21.5 NAME 'attributeTypes' DESC 'RFC2252: attribute types' EQUALITY objectIdentifierFirstComponentMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.3 USAGE directoryOperation )
+attributetype ( 2.5.21.4 NAME 'matchingRules' DESC 'RFC2252: matching rules' EQUALITY objectIdentifierFirstComponentMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.30 USAGE directoryOperation )
+attributetype ( 1.3.6.1.1.5 NAME 'vendorVersion' DESC 'RFC3045: version of implementation' EQUALITY caseExactMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE NO-USER-MODIFICATION USAGE dSAOperation )
+attributetype ( 1.3.6.1.1.4 NAME 'vendorName' DESC 'RFC3045: name of implementation vendor' EQUALITY caseExactMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE NO-USER-MODIFICATION USAGE dSAOperation )
+attributetype ( 1.3.6.1.4.1.4203.1.3.5 NAME 'supportedFeatures' DESC 'features supported by the server' EQUALITY objectIdentifierMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.38 USAGE dSAOperation )
+attributetype ( 1.3.6.1.4.1.1466.101.120.14 NAME 'supportedSASLMechanisms' DESC 'RFC2252: supported SASL mechanisms' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 USAGE dSAOperation )
+attributetype ( 1.3.6.1.4.1.1466.101.120.15 NAME 'supportedLDAPVersion' DESC 'RFC2252: supported LDAP versions' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 USAGE dSAOperation )
+attributetype ( 1.3.6.1.4.1.1466.101.120.7 NAME 'supportedExtension' DESC 'RFC2252: supported extended operations' SYNTAX 1.3.6.1.4.1.1466.115.121.1.38 USAGE dSAOperation )
+attributetype ( 1.3.6.1.4.1.1466.101.120.13 NAME 'supportedControl' DESC 'RFC2252: supported controls' SYNTAX 1.3.6.1.4.1.1466.115.121.1.38 USAGE dSAOperation )
+attributetype ( 1.3.6.1.4.1.1466.101.120.5 NAME 'namingContexts' DESC 'RFC2252: naming contexts' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 USAGE dSAOperation )
+attributetype ( 1.3.6.1.4.1.1466.101.120.6 NAME 'altServer' DESC 'RFC2252: alternative servers' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 USAGE dSAOperation )
+attributetype ( 2.5.18.10 NAME 'subschemaSubentry' DESC 'RFC2252: name of controlling subschema entry' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 SINGLE-VALUE NO-USER-MODIFICATION USAGE directoryOperation )
+attributetype ( 2.5.18.9 NAME 'hasSubordinates' DESC 'X.501: entry has children' EQUALITY booleanMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 SINGLE-VALUE NO-USER-MODIFICATION USAGE directoryOperation )
+attributetype ( 2.5.18.4 NAME 'modifiersName' DESC 'RFC2252: name of last modifier' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 SINGLE-VALUE NO-USER-MODIFICATION USAGE directoryOperation )
+attributetype ( 2.5.18.3 NAME 'creatorsName' DESC 'RFC2252: name of creator' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 SINGLE-VALUE NO-USER-MODIFICATION USAGE directoryOperation )
+attributetype ( 2.5.18.2 NAME 'modifyTimestamp' DESC 'RFC2252: time which object was last modified' EQUALITY generalizedTimeMatch ORDERING generalizedTimeOrderingMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 SINGLE-VALUE NO-USER-MODIFICATION USAGE directoryOperation )
+attributetype ( 2.5.18.1 NAME 'createTimestamp' DESC 'RFC2252: time which object was created' EQUALITY generalizedTimeMatch ORDERING generalizedTimeOrderingMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 SINGLE-VALUE NO-USER-MODIFICATION USAGE directoryOperation )
+attributetype ( 2.5.21.9 NAME 'structuralObjectClass' DESC 'X.500(93): structural object class of entry' EQUALITY objectIdentifierMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.38 SINGLE-VALUE NO-USER-MODIFICATION USAGE directoryOperation )
+attributetype ( 2.5.4.0 NAME 'objectClass' DESC 'RFC2256: object classes of the entity' EQUALITY objectIdentifierMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.38 )
+# These ones aren't published by OpenLDAP, but are referenced by the 'subschema' objectclass
+attributetype ( 2.5.21.1 NAME 'dITStructureRules' EQUALITY integerFirstComponentMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.17 USAGE directoryOperation )
+attributetype ( 2.5.21.7 NAME 'nameForms' EQUALITY objectIdentifierFirstComponentMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.35 USAGE directoryOperation )
+attributetype ( 2.5.21.2 NAME 'dITContentRules' EQUALITY objectIdentifierFirstComponentMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.16 USAGE directoryOperation )
+
+objectclass ( 2.5.20.1 NAME 'subschema' DESC 'RFC2252: controlling subschema (sub)entry' AUXILIARY MAY ( dITStructureRules $ nameForms $ ditContentRules $ objectClasses $ attributeTypes $ matchingRules $ matchingRuleUse ) )
+#Don't have definition for subtreeSpecification:
+#objectClass ( 2.5.17.0 NAME 'subentry' SUP top STRUCTURAL MUST ( cn $ subtreeSpecification ) )
+objectClass ( 1.3.6.1.4.1.4203.1.4.1 NAME ( 'OpenLDAProotDSE' 'LDAProotDSE' ) DESC 'OpenLDAP Root DSE object' SUP top STRUCTURAL MAY cn )
+objectClass ( 2.16.840.1.113730.3.2.6 NAME 'referral' DESC 'namedref: named subordinate referral' SUP top STRUCTURAL MUST ref )
+objectClass ( 2.5.6.1 NAME 'alias' DESC 'RFC2256: an alias' SUP top STRUCTURAL MUST aliasedObjectName )
+objectClass ( 1.3.6.1.4.1.1466.101.120.111 NAME 'extensibleObject' DESC 'RFC2252: extensible object' SUP top AUXILIARY )
+objectClass ( 2.5.6.0 NAME 'top' DESC 'top of the superclass chain' ABSTRACT MUST objectClass )
+</span><span class='heredoc_end'>EOS
+</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="may-instance_method">
+  
+    - (<tt>Object</tt>) <strong>may</strong>(oc) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Backwards-compatible for ruby-ldap LDAP::Schema
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+435
+436
+437</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 435</span>
+
+<span class='kw'>def</span> <span class='id may'>may</span><span class='lparen'>(</span><span class='id oc'>oc</span><span class='rparen'>)</span>
+  <span class='id attr'>attr</span><span class='lparen'>(</span><span class='id oc'>oc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MAY</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="must-instance_method">
+  
+    - (<tt>Object</tt>) <strong>must</strong>(oc) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Backwards-compatible for ruby-ldap LDAP::Schema
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+429
+430
+431</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 429</span>
+
+<span class='kw'>def</span> <span class='id must'>must</span><span class='lparen'>(</span><span class='id oc'>oc</span><span class='rparen'>)</span>
+  <span class='id attr'>attr</span><span class='lparen'>(</span><span class='id oc'>oc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MUST</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="names-instance_method">
+  
+    - (<tt>Object</tt>) <strong>names</strong>(key) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Hopefully backwards-compatible API for ruby-ldap&#8217;s LDAP::Schema.
+Since MUST/MAY/SUP may point to schema objects, convert them back to
+strings.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 391</span>
+
+<span class='kw'>def</span> <span class='id names'>names</span><span class='lparen'>(</span><span class='id key'>key</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id key'>key</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>objectClasses</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='id all_objectclasses'>all_objectclasses</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span><span class='period'>.</span><span class='id name'>name</span> <span class='rbrace'>}</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>attributeTypes</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='id all_attrtypes'>all_attrtypes</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span><span class='period'>.</span><span class='id name'>name</span> <span class='rbrace'>}</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ldapSyntaxes</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id all_syntaxes'>all_syntaxes</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span><span class='period'>.</span><span class='id name'>name</span> <span class='rbrace'>}</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>matchingRules</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>MatchingRule</span><span class='period'>.</span><span class='id all_matching_rules'>all_matching_rules</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span> <span class='id e'>e</span><span class='period'>.</span><span class='id name'>name</span> <span class='rbrace'>}</span>
+  <span class='comment'># TODO: matchingRuleUse
+</span>  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="resolve_oids-instance_method">
+  
+    - (<tt>Object</tt>) <strong>resolve_oids</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+After loading object classes and attr types: resolve oid strings to point
+to objects. This will expose schema inconsistencies (e.g. objectclass has
+unknown SUP class or points to unknown attributeType). However, unknown
+Syntaxes just create new Syntax objects.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 210</span>
+
+<span class='kw'>def</span> <span class='id resolve_oids'>resolve_oids</span>
+
+  <span class='id all_attrtypes'>all_attrtypes</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id a'>a</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id a'>a</span><span class='period'>.</span><span class='id sup'>sup</span>
+      <span class='id s'>s</span> <span class='op'>=</span> <span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id a'>a</span><span class='period'>.</span><span class='id sup'>sup</span><span class='rparen'>)</span>
+      <span class='id a'>a</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span>
+        <span class='ivar'>@sup</span> <span class='op'>=</span> <span class='id s'>s</span>
+        <span class='comment'># inherit properties (FIXME: This breaks to_def)
+</span>        <span class='ivar'>@equality</span> <span class='op'>||=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id equality'>equality</span>
+        <span class='ivar'>@ordering</span> <span class='op'>||=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id ordering'>ordering</span>
+        <span class='ivar'>@substr</span> <span class='op'>||=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id substr'>substr</span>
+        <span class='ivar'>@syntax</span> <span class='op'>||=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id syntax'>syntax</span>
+        <span class='ivar'>@maxlen</span> <span class='op'>||=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id maxlen'>maxlen</span>
+        <span class='ivar'>@singlevalue</span> <span class='op'>||=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id singlevalue'>singlevalue</span>
+        <span class='ivar'>@collective</span> <span class='op'>||=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id collective'>collective</span>
+        <span class='ivar'>@nousermod</span> <span class='op'>||=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id nousermod'>nousermod</span>
+        <span class='ivar'>@usage</span> <span class='op'>||=</span> <span class='id s'>s</span><span class='period'>.</span><span class='id usage'>usage</span>
+      <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+    <span class='id a'>a</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='kw'>do</span>
+      <span class='ivar'>@syntax</span> <span class='op'>=</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='ivar'>@syntax</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@syntax</span>
+      <span class='ivar'>@equality</span> <span class='op'>=</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>MatchingRule</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='ivar'>@equality</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@equality</span>
+      <span class='ivar'>@ordering</span> <span class='op'>=</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>MatchingRule</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='ivar'>@ordering</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@ordering</span>
+      <span class='ivar'>@substr</span> <span class='op'>=</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>MatchingRule</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='ivar'>@substr</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@substr</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id all_objectclasses'>all_objectclasses</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id o'>o</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id o'>o</span><span class='period'>.</span><span class='id sup'>sup</span>
+      <span class='id s'>s</span> <span class='op'>=</span> <span class='id o'>o</span><span class='period'>.</span><span class='id sup'>sup</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id ss'>ss</span><span class='op'>|</span> <span class='id find_objectclass'>find_objectclass</span><span class='lparen'>(</span><span class='id ss'>ss</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+      <span class='id o'>o</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='ivar'>@sup</span> <span class='op'>=</span> <span class='id s'>s</span> <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id o'>o</span><span class='period'>.</span><span class='id must'>must</span>
+      <span class='id s'>s</span> <span class='op'>=</span> <span class='id o'>o</span><span class='period'>.</span><span class='id must'>must</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id ss'>ss</span><span class='op'>|</span> <span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id ss'>ss</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+      <span class='id o'>o</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='ivar'>@must</span> <span class='op'>=</span> <span class='id s'>s</span> <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id o'>o</span><span class='period'>.</span><span class='id may'>may</span>
+      <span class='id s'>s</span> <span class='op'>=</span> <span class='id o'>o</span><span class='period'>.</span><span class='id may'>may</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id ss'>ss</span><span class='op'>|</span> <span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id ss'>ss</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+      <span class='id o'>o</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='ivar'>@may</span> <span class='op'>=</span> <span class='id s'>s</span> <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="subschema_dn-instance_method">
+  
+    - (<tt>Object</tt>) <strong>subschema_dn</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+return the DN of the subschema subentry
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id subschema_dn'>subschema_dn</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>SUBSCHEMA_ENTRY_ATTR</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='embexpr_beg'>#{</span><span class='const'>SUBSCHEMA_ENTRY_VALUE</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="subschema_subentry-instance_method">
+  
+    - (<tt>Object</tt>) <strong>subschema_subentry</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Return an av hash object giving the subschema subentry. This is cached, so
+call Schema#changed if it needs to be rebuilt
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id subschema_subentry'>subschema_subentry</span>
+  <span class='ivar'>@subschema_cache</span> <span class='op'>||=</span> <span class='lbrace'>{</span>
+	<span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>objectClass</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>top</span><span class='tstring_end'>'</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>subschema</span><span class='tstring_end'>'</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>extensibleObject</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+	<span class='const'>SUBSCHEMA_ENTRY_ATTR</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='const'>SUBSCHEMA_ENTRY_VALUE</span><span class='rbracket'>]</span><span class='comma'>,</span>
+	<span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>objectClasses</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id all_objectclasses'>all_objectclasses</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='id s'>s</span><span class='period'>.</span><span class='id to_def'>to_def</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+	<span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>attributeTypes</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id all_attrtypes'>all_attrtypes</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='id s'>s</span><span class='period'>.</span><span class='id to_def'>to_def</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+	<span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ldapSyntaxes</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>Server</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id all_syntaxes'>all_syntaxes</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='id s'>s</span><span class='period'>.</span><span class='id to_def'>to_def</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+	<span class='comment'>#'matchingRules' =&gt;
+</span>	<span class='comment'>#'matchingRuleUse' =&gt;
+</span>  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="sup-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sup</strong>(oc) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Backwards-compatible for ruby-ldap LDAP::Schema
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+441
+442
+443</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 441</span>
+
+<span class='kw'>def</span> <span class='id sup'>sup</span><span class='lparen'>(</span><span class='id oc'>oc</span><span class='rparen'>)</span>
+  <span class='id attr'>attr</span><span class='lparen'>(</span><span class='id oc'>oc</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SUP</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="validate-instance_method">
+  
+    - (<tt>Object</tt>) <strong>validate</strong>(mods, entry = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Validate a new entry or update. For a new entry, just pass a hash of
+attr=>[val, val, &#8230;]; for an update, the first parameter is a hash of
+attr=>[:modtype, val, val&#8230;] and the second parameter is the existing
+entry, where it is assumed that the attribute names are already in their
+standard string forms (as returned by attr#name)
+</p>
+<p>
+Returns a hash containing the updated entry.
+</p>
+<p>
+If a block is given, it is called to decide whether the user is allowed to
+update an attribute; parameter is the attr <b>object</b> (not name; use
+#name if you need its name instead). Return false if the update is not
+permitted. Otherwise, the only restriction will be that updates to
+attributes declared &#8216;nousermod&#8217; are forbidden.
+</p>
+<p>
+No DN checks are done here, since we don&#8217;t know the DN. Checking that
+the entry contains an attribute for the RDN is the responsibility of the
+caller.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ldap/server/schema.rb', line 272</span>
+
+<span class='kw'>def</span> <span class='id validate'>validate</span><span class='lparen'>(</span><span class='id mods'>mods</span><span class='comma'>,</span> <span class='id entry'>entry</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+
+  <span class='comment'># Run through the mods, make the normalized names, and perform any
+</span>  <span class='comment'># updates
+</span>
+  <span class='comment'># FIXME: I don't know if these are the right results to return
+</span>  <span class='comment'># for the various types of validation errors
+</span>
+  <span class='id oc_changed'>oc_changed</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='id res'>res</span> <span class='op'>=</span> <span class='id entry'>entry</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='id mods'>mods</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id attrname'>attrname</span><span class='comma'>,</span> <span class='id nv'>nv</span><span class='op'>|</span>
+    <span class='id attr'>attr</span> <span class='op'>=</span> <span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id attrname'>attrname</span><span class='rparen'>)</span>
+    <span class='id attrname'>attrname</span> <span class='op'>=</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+    <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>ConstraintViolation</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot modify </span><span class='embexpr_beg'>#{</span><span class='id attrname'>attrname</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id nousermod'>nousermod</span> <span class='kw'>or</span>
+                                 <span class='lparen'>(</span><span class='id block_given?'>block_given?</span> <span class='kw'>and</span> <span class='op'>!</span><span class='kw'>yield</span><span class='lparen'>(</span><span class='id attr'>attr</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='comment'># Perform the update
+</span>    <span class='id vals'>vals</span> <span class='op'>=</span> <span class='id res'>res</span><span class='lbracket'>[</span><span class='id attrname'>attrname</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id checkvals'>checkvals</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id nv'>nv</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id nv'>nv</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id nv'>nv</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span>
+
+    <span class='kw'>case</span> <span class='id nv'>nv</span><span class='period'>.</span><span class='id first'>first</span>
+    <span class='kw'>when</span> <span class='symbol'>:add</span>
+      <span class='id checkvals'>checkvals</span> <span class='op'>=</span> <span class='id nv'>nv</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+      <span class='id vals'>vals</span> <span class='op'>+=</span> <span class='id checkvals'>checkvals</span>
+      <span class='id vals'>vals</span><span class='period'>.</span><span class='id uniq!'>uniq!</span>   <span class='comment'># FIXME: ?? error if duplicate values
+</span>      <span class='comment'># FIXME: normalize values? e.g. c: gb and c: GB are same value.
+</span>    <span class='kw'>when</span> <span class='symbol'>:delete</span>
+      <span class='id nv'>nv</span> <span class='op'>=</span> <span class='id nv'>nv</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+      <span class='kw'>if</span> <span class='id nv'>nv</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+        <span class='id vals'>vals</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='comment'># ?? error if does not exist
+</span>      <span class='kw'>else</span>
+        <span class='id nv'>nv</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span> <span class='id vals'>vals</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span> <span class='rbrace'>}</span> <span class='comment'># ?? error if value missing
+</span>      <span class='kw'>end</span>
+    <span class='kw'>when</span> <span class='symbol'>:replace</span>
+      <span class='id vals'>vals</span> <span class='op'>=</span> <span class='id checkvals'>checkvals</span> <span class='op'>=</span> <span class='id nv'>nv</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='kw'>else</span>
+      <span class='id vals'>vals</span> <span class='op'>=</span> <span class='id checkvals'>checkvals</span> <span class='op'>=</span> <span class='id nv'>nv</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id vals'>vals</span> <span class='op'>==</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id res'>res</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id attrname'>attrname</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id res'>res</span><span class='lbracket'>[</span><span class='id attrname'>attrname</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id vals'>vals</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Attribute validation
+</span>    <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>ObjectClassViolation</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Attribute </span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'> is SINGLE-VALUE</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id singlevalue'>singlevalue</span> <span class='kw'>and</span> <span class='id vals'>vals</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;</span> <span class='int'>1</span>
+
+    <span class='id checkvals'>checkvals</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id val'>val</span><span class='op'>|</span>
+      <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>InvalidAttributeSyntax</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nil or empty value for attribute </span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id val'>val</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='kw'>or</span> <span class='id val'>val</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+      <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>InvalidAttributeSyntax</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bad value for </span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id val'>val</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id syntax'>syntax</span> <span class='kw'>and</span> <span class='op'>!</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id syntax'>syntax</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='id val'>val</span><span class='rparen'>)</span>
+      <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>InvalidAttributeSyntax</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Value too long for </span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'> (max </span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='period'>.</span><span class='id maxlen'>maxlen</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id maxlen'>maxlen</span> <span class='kw'>and</span> <span class='id val'>val</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>&gt;</span> <span class='id attr'>attr</span><span class='period'>.</span><span class='id maxlen'>maxlen</span>
+    <span class='kw'>end</span>
+
+    <span class='id oc_changed'>oc_changed</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id attrname'>attrname</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>objectClass</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Now do objectClass checks
+</span>  <span class='id oc'>oc</span> <span class='op'>=</span> <span class='id res'>res</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>objectClass</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+  <span class='kw'>unless</span> <span class='id oc'>oc</span>
+    <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>ObjectClassViolation</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>objectClass attribute missing</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id oc'>oc</span> <span class='op'>=</span> <span class='id oc'>oc</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id val'>val</span><span class='op'>|</span> <span class='id find_objectclass'>find_objectclass</span><span class='lparen'>(</span><span class='id val'>val</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+
+  <span class='kw'>if</span> <span class='id oc_changed'>oc_changed</span>
+    <span class='comment'># Add superior objectClasses (note: growing an array while you
+</span>    <span class='comment'># iterate over it seems to work, in ruby-1.8.2 anyway!)
+</span>    <span class='id oc'>oc</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id objectclass'>objectclass</span><span class='op'>|</span>
+      <span class='id objectclass'>objectclass</span><span class='period'>.</span><span class='id sup'>sup</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span>
+        <span class='id oc'>oc</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id oc'>oc</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id s'>s</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='id res'>res</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>objectClass</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id oc'>oc</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id oo'>oo</span><span class='op'>|</span> <span class='id oo'>oo</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span>
+
+    <span class='comment'># Check that exactly one structural objectClass is present
+</span>    <span class='kw'>unless</span> <span class='id oc'>oc</span><span class='period'>.</span><span class='id find_all'>find_all</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id s'>s</span><span class='op'>|</span> <span class='id s'>s</span><span class='period'>.</span><span class='id struct'>struct</span> <span class='op'>==</span> <span class='symbol'>:structural</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id size'>size</span> <span class='op'>&gt;=</span> <span class='int'>1</span>
+      <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>ObjectClassViolation</span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Entry must have at least one structural objectClass</span><span class='tstring_end'>&quot;</span></span>
+        <span class='comment'># Exactly one? But you have to sort out the inheritance problem
+</span>        <span class='comment'># (e.g. both person and organizationalPerson are declared
+</span>        <span class='comment'># structural)
+</span>    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Ensure that all MUST attributes are present
+</span>  <span class='id allow_attr'>allow_attr</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id oc'>oc</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id objectclass'>objectclass</span><span class='op'>|</span>
+    <span class='id objectclass'>objectclass</span><span class='period'>.</span><span class='id must'>must</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+      <span class='kw'>unless</span> <span class='id res'>res</span><span class='lbracket'>[</span><span class='id m'>m</span><span class='period'>.</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='kw'>and</span> <span class='id res'>res</span><span class='lbracket'>[</span><span class='id m'>m</span><span class='period'>.</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+        <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>ObjectClassViolation</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Missing attribute </span><span class='embexpr_beg'>#{</span><span class='id m'>m</span><span class='rbrace'>}</span><span class='tstring_content'> required by objectClass </span><span class='embexpr_beg'>#{</span><span class='id objectclass'>objectclass</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      <span class='id allow_attr'>allow_attr</span><span class='lbracket'>[</span><span class='id m'>m</span><span class='period'>.</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+    <span class='id objectclass'>objectclass</span><span class='period'>.</span><span class='id may'>may</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span>
+      <span class='id allow_attr'>allow_attr</span><span class='lbracket'>[</span><span class='id m'>m</span><span class='period'>.</span><span class='id name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='id oc'>oc</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id objectclass'>objectclass</span><span class='op'>|</span> <span class='id objectclass'>objectclass</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>extensibleObject</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span>
+    <span class='comment'># Now check all the attributes given are permitted by MUST or MAY
+</span>    <span class='id res'>res</span><span class='period'>.</span><span class='id each_key'>each_key</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id attr'>attr</span><span class='op'>|</span>
+      <span class='kw'>unless</span> <span class='id allow_attr'>allow_attr</span><span class='lbracket'>[</span><span class='id attr'>attr</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id find_attrtype'>find_attrtype</span><span class='lparen'>(</span><span class='id attr'>attr</span><span class='rparen'>)</span><span class='period'>.</span><span class='id usage'>usage</span> <span class='op'>==</span> <span class='symbol'>:directoryOperation</span>
+        <span class='id raise'>raise</span> <span class='const'>LDAP</span><span class='op'>::</span><span class='const'>ResultError</span><span class='op'>::</span><span class='const'>ObjectClassViolation</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Attribute </span><span class='embexpr_beg'>#{</span><span class='id attr'>attr</span><span class='rbrace'>}</span><span class='tstring_content'> not permitted by objectClass</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id res'>res</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Sep 13 13:27:17 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.0 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

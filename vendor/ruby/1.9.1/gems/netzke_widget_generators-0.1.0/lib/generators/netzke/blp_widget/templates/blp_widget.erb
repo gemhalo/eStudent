@@ -1,0 +1,21 @@
+module Netzke
+  class <%= class_name %> < BorderLayoutPanel
+    def default_config
+      super.merge({
+        :regions => {
+          :center => {
+            :widget_class_name => "GridPanel",
+            :data_class_name => "<%= data_class %>",
+            :ext_config => {
+              :title => "<%= data_class.pluralize %>"
+            }
+          }
+        },
+        :ext_config => {
+          :header => false
+        }
+      })
+    end
+  
+  end
+end

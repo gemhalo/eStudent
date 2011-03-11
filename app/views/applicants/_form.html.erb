@@ -1,4 +1,4 @@
-<%= form_for(@applicant) do |f| %>
+<%= form_for @applicant, :html => { :multipart => true } do |f| %>
   <% if @applicant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>

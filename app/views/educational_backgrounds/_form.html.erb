@@ -1,4 +1,4 @@
-<%= form_for(@educational_background) do |f| %>
+<%= form_for @educational_background, :html => { :multipart => true } do |f| %>
   <% if @educational_background.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@educational_background.errors.count, "error") %> prohibited this educational_background from being saved:</h2>
@@ -20,7 +20,7 @@
   <tr><td><%= f.label :institution_town %></td><td><%= f.text_field :institution_town %></td><td> <%= f.label :eheece_code %></td><td><%= f.text_field :eheece_code %></td></tr>
   <tr><td> <%= f.label :result %></td><td><%= f.text_field :result %></td><td><%= f.label :school_code %></td><td><%= f.text_field :school_code %></td></tr>
   <tr><td> <%= f.label :out_of %></td><td><%= f.text_field :out_of %></td><td><%= f.label :department %></td><td><%= f.text_field :department %></td></tr>
-  <tr><td><%= f.label :college_leave_reason %></td><td><%= f.text_field :college_leave_reason %></td><td><%= f.label :attachment %></td><td><%= f.file_field :fs, :index => nil %></td></tr>
+  <tr><td><%= f.label :college_leave_reason %></td><td><%= f.text_field :college_leave_reason %></td><td><%= f.label :attachment %></td><td><%= f.file_field :attachment, :index => nil %></td></tr>
   <tr></tr>
 </table>
 

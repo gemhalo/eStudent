@@ -1,4 +1,5 @@
 EStudent::Application.routes.draw do
+ 
   resources :admission_status_types
 
   resources :enrollment_mode_types
