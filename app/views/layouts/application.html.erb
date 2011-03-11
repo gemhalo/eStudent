@@ -11,20 +11,23 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+
    <!-- Main Header Content -->
+    <%= render :partial =>'/shared/header' %>
+
     <%= render :partial =>'/shared/header' %>
     
     <!-- Basic setup menu-->
     <div id="basic_setup">
-            <%= render :partial =>'/shared/student/studentcoursemenu' %><br/>
+            <%= render :partial =>'/shared/application/menuitems' %><br/>
     </div>
     <div id="west" class="x-hide-display">
         <div>
-            <%= render :partial =>'/shared/student/studentacademicsmenu' %><br/>
+            <%= render :partial =>'/shared/application/menuitems' %><br/>
         </div>    
 
         <div id='student_menu'>
-            <%= render :partial =>'/shared/student/studentservicesmenu' %><br/>
+            <%= render :partial =>'/shared/application/menuitems' %><br/>
         </div>
      </div>
     <div id="center2" class="x-hide-display">
@@ -40,6 +43,7 @@
     </div>
 
    <!-- End of Main Content -->
+
 </body>
 </html>
 

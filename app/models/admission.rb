@@ -5,9 +5,9 @@ belongs_to :admission_type
 
   belongs_to :applicant
   
-def admission_name
+def name
 
-  [admission_type.name.capitalize].join(' ')
+  [admission_type.name,enrollment_type.name].join(' ')
 
 end
 end
