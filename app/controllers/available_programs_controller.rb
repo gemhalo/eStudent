@@ -2,13 +2,13 @@ class AvailableProgramsController < ApplicationController
 def index
    @admissiont = AdmissionType.all
    @enrollmentt =EnrollmentType.all
-	@admission = Admission.new	
+	@admission = Admission.all	
 end
 
 def show
-	@admission = Admission.find(params[:admission])
-	logger.info("#--------------- {@admission.inspect}")	
-	@programs = Program.where('admission_id = ?', Admission.where('admission_type_id = ?', params[:id]))
+	
+	
+	@programs = Program.where('admission_id = ?', params[:id])
 
 end
 end

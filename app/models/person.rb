@@ -5,6 +5,7 @@ class Person < ActiveRecord::Base
   has_one :student
   has_one :instructor
   belongs_to :nationality
+  has_many :educational_backgrounds
 
   #validates :name , :presence => true
   #validates :father_name,  :presence => true
@@ -18,15 +19,15 @@ class Person < ActiveRecord::Base
       self.student.college_name
     end
 
-    def regno
-      self.student.educational_backgrounds.first.EHEECE_code
-    end
-    def result
-      self.student.educational_backgrounds.first.EHEECE_result
-    end
-    def maxresult
-      self.student.educational_backgrounds.first.EHEECE_maximum_result
-    end
+#    def regno
+#      self.student.educational_backgrounds.first.EHEECE_code
+#    end
+#    def result
+#      self.student.educational_backgrounds.first.EHEECE_result
+#    end
+#    def maxresult
+#      self.student.educational_backgrounds.first.EHEECE_maximum_result
+#    end
     def school
       self.student.educational_backgrounds.first.school_code
     end
@@ -36,5 +37,11 @@ class Person < ActiveRecord::Base
       1.upto(len) {|i| newpass << chars[rand(chars.size-1)]}
       return newpass
     end
+	   def username
+        (User.where('person_id = ?', self.id)).first.username
+      end
+      def Password
+        (User.where('person_id = ?', self.id)).first.temp_password
+      end
 
 end
