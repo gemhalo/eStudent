@@ -75,13 +75,13 @@
                 items: [
                 {
                     contentEl: 'basic_setup',
-                    title: 'Courses',
+                    title: 'Academics',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },
                 {
                     contentEl: 'west',
-                    title: 'Academics',
+                    title: 'Courses',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },
@@ -93,7 +93,7 @@
                 },*/
                 {
                     contentEl: 'student_menu',
-                    title: 'Services',
+                    title: 'Settings',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 }
