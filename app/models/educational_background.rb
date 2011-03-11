@@ -1,7 +1,8 @@
 class EducationalBackground < ActiveRecord::Base
   belongs_to :applicant
 
-
+#validates :eheece_code, :uniqueness => true
+ 
    has_attached_file :fs,
     :url => "/:class/:attachment/:id/:style_:basename.:extension",
     :default_url => "/:class/:attachment/missing_/:style_default.jpg",

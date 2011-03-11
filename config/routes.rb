@@ -11,9 +11,15 @@ EStudent::Application.routes.draw do
 
   get "moe_data_import/import"
 
-  post "moe_data_import/upload"
-
+  post "moe_data_import/import"
   get "moe_data_import/upload"
+  post "moe_data_import/upload"
+  post "moe_data_import/show"
+  post "moe_data_import/create_account"
+  get "moe_data_import/create_account"
+  
+  
+  resources :moe_data_import
 
   resources :admissions
 

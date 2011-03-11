@@ -2,7 +2,9 @@ require "fastercsv"
 require 'csv'
 
 class MoeDataImportController < ApplicationController
-  layout "student_service_staff"
+
+  layout = "student_service_staff"
+
   def import
   end
 
@@ -28,19 +30,18 @@ class MoeDataImportController < ApplicationController
                 :disability => row[6],
                 :region_code => row[8] )
               
-    @applicant << Applicant.create(:person_id => Person.last.id,
+       @applicant << Applicant.create(:person_id => Person.last.id,
                   :college_id => row[9])
 
-      @educational_background << EducationalBackground.create(:eheece_code => row[0],
+       @educational_background << EducationalBackground.create(:eheece_code => row[0],
               	:school_code => row[7],
                 :result => row[10],
                 :out_of => row[11],
                 :applicant_id => Applicant.last.id)
-
-          
-
-    end
-
+             
+              end
+       
+      
       @person.each  do |p|
       @password = p.random_string(6)
       @user= User.create(
@@ -62,4 +63,8 @@ class MoeDataImportController < ApplicationController
 
 end
 end
+
+  def show
+    @user = params[:user]
+  end
 end
