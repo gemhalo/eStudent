@@ -5,8 +5,11 @@
            :class_name => "Basepack::GridPanel",
            :model => 'Person',
            :columns => [
-           :username, :Password, :father_name, :grand_father_name, :nationality__name ],
+           :eheece_code, :name, :father_name, :grand_father_name, :nationality__name, :result , :out_of, :username, :password, :email ],
            :scope=> {:id.gteq => @person.first.id},
-           :width => 880
-          %>#
+           :width => 880,
+           :height => 400
+          %>
+
+  
 </center>

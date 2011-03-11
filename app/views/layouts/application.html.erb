@@ -11,12 +11,11 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+   <!-- Header Content -->
+     <%= render :partial =>'/shared/header' %>
 
-   <!-- Main Header Content -->
-    <%= render :partial =>'/shared/header' %>
+     <%= render :partial =>'/shared/toplink' %>
 
-    <%= render :partial =>'/shared/header' %>
-    
     <!-- Basic setup menu-->
     <div id="basic_setup">
             <%= render :partial =>'/shared/application/menuitems' %><br/>
@@ -30,12 +29,12 @@
             <%= render :partial =>'/shared/application/menuitems' %><br/>
         </div>
      </div>
-    <div id="center2" class="x-hide-display">
-           <%= yield %>
+    <div id="center2" class="x-hide-display" >
+        <%= yield %>
     </div>
     
-    <div id="notification_area">  
-          <%= render :partial =>'/shared/notification' %><br/>
+    <div id="notification_area"> 
+    	 <%= render :partial =>'/shared/application/notification' %>
     </div>
  
    <div id="south" class="x-hide-display">
@@ -43,7 +42,6 @@
     </div>
 
    <!-- End of Main Content -->
-
 </body>
 </html>
 

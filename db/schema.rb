@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110310203006) do
+ActiveRecord::Schema.define(:version => 20110311093046) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -90,15 +90,6 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.datetime "updated_at"
   end
 
-  create_table "campus", :force => true do |t|
-    t.string   "name"
-    t.integer  "campus_telephone"
-    t.string   "campus_pobox"
-    t.string   "campus_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "campuses", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -173,9 +164,7 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
 
   create_table "dormitories", :force => true do |t|
     t.integer  "student_id"
-    t.integer  "room_id"
-    t.string   "bed_number"
-    t.date     "academic_year"
+    t.string   "dorm"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -199,8 +188,7 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.integer  "attachment_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "student_id"
-  end
+   end
 
   create_table "emergency_contacts", :force => true do |t|
     t.string   "full_name"
@@ -450,7 +438,6 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.datetime "updated_at"
     t.string   "role"
     t.integer  "person_id"
-    t.string   "temp_password"
   end
 
 end
