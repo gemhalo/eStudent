@@ -5,7 +5,7 @@ def department_placing_process
   
   # Disabled students are given priority
 
-  @disabled_applicants=Applicant.all(:include=>[:person, :educational_background], :conditions=> ["people.disability=true"], :order=> ("educational_backgrounds.EHEECE_result desc"))
+  @disabled_applicants=Applicant.all(:include=>[:person, :educational_background], :conditions=> ["people.disability=true"], :order=> ("educational_backgrounds.eheece_result desc"))
 	for ds in @disabled_applicants
 			@depts=ds.department_choices.order("preference")
 			ds.student.department_id=@depts.first.department_id
@@ -15,7 +15,7 @@ def department_placing_process
     #Females are placed according to the given percentage
     
 		@female_applicants=Applicant.all(:include=>		[:person, :educational_background], :conditions=>
-		["people.gender='Female' and people.disability=false"], :order=>("educational_backgrounds.EHEECE_result desc"))
+		["people.gender='Female' and people.disability=false"], :order=>("educational_backgrounds.eheece_result desc"))
 		for fs in @female_applicants
 			@depts=fs.department_choices.order("preference")
 			for d in @depts
@@ -32,7 +32,7 @@ def department_placing_process
     #Finally Males are placed to the remaining space
 
 		@male_applicants=Applicant.all(:include=>[:person, :educational_background], :conditions=>
-        ["people.sex='Male' and people.disability=false"], :order => ("educational_backgrounds.EHEECE_result desc"))
+        ["people.sex='Male' and people.disability=false"], :order => ("educational_backgrounds.eheece_result desc"))
 		for ms in @male_applicants
 			@depts=ms.department_choices.order("preference")
 			for d in @depts
