@@ -81,15 +81,6 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.datetime "updated_at"
   end
 
-  create_table "campus", :force => true do |t|
-    t.string   "name"
-    t.integer  "campus_telephone"
-    t.string   "campus_pobox"
-    t.string   "campus_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "campuses", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -349,17 +340,6 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.boolean  "disability"
     t.string   "type_of_disability"
     t.integer  "region_code"
-  end
-
-  create_table "programs", :force => true do |t|
-    t.string   "name"
-    t.integer  "department_id"
-    t.integer  "admission_id"
-    t.date     "duration"
-    t.integer  "total_credit_hour"
-    t.integer  "award_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "references", :force => true do |t|
