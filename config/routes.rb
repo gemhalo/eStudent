@@ -5,6 +5,12 @@ EStudent::Application.routes.draw do
 
   resources :enrollment_types
 
+  get "moe_data_import/import"
+
+  post "moe_data_import/upload"
+
+  get "moe_data_import/upload"
+
   resources :admissions
 
   resources :agreements

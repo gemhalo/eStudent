@@ -71,9 +71,6 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.integer  "admission_status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "verified",                 :default => false
-    t.integer  "student_service_staff_id"
-    t.integer  "admission_type_id"
   end
 
   create_table "buildings", :force => true do |t|
@@ -102,7 +99,18 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
-    t.string   "dean"
+    t.integer  "college_telephone"
+    t.string   "college_pobox"
+    t.string   "college_email"
+    t.integer  "instructor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "course_exemptions", :force => true do |t|
+    t.string   "course_name"
+    t.integer  "credit_hour"
+    t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -159,7 +167,9 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
 
   create_table "dormitories", :force => true do |t|
     t.integer  "student_id"
-    t.string   "dorm"
+    t.integer  "room_id"
+    t.string   "bed_number"
+    t.date     "academic_year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -203,6 +213,18 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.string   "employer_pobox"
     t.string   "employer_email"
     t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enrollement_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enrollment_mode_types", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -421,6 +443,7 @@ ActiveRecord::Schema.define(:version => 20110310203006) do
     t.datetime "updated_at"
     t.string   "role"
     t.integer  "person_id"
+    t.string   "temp_password"
   end
 
 end
