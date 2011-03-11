@@ -18,11 +18,11 @@
   </div>
   <div class="field">
     <%= f.label :department_id %><br />
-    <%= f.text_field :department_id %>
+    <%= f.collection_select(:department_id,@department,:id, :name) %>
   </div>
   <div class="field">
     <%= f.label :admission_id %><br />
-    <%= f.text_field :admission_id %>
+    <%= f.collection_select(:admission_id ,@admission, :id,:name) %>
   </div>
   <div class="field">
     <%= f.label :duration %><br />
@@ -34,7 +34,7 @@
   </div>
   <div class="field">
     <%= f.label :award_type_id %><br />
-    <%= f.text_field :award_type_id %>
+    <%= f.collection_select(:award_type_id,@awardtype,:id,:name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

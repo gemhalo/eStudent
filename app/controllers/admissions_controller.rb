@@ -3,8 +3,7 @@ class AdmissionsController < ApplicationController
   # GET /admissions.xml
   def index
     @admissions = Admission.all
-    @enrollment_mode_types=EnrollmentModeType.all
-    @enrollement_types = EnrollementType.all
+    @enrollement_types = EnrollmentType.all
     @admission_types = AdmissionType.all
 
     respond_to do |format|
@@ -17,8 +16,7 @@ class AdmissionsController < ApplicationController
   # GET /admissions/1.xml
   def show
     @admission = Admission.find(params[:id])
-    @enrollment_mode_types=EnrollmentModeType.all
-    @enrollement_types = EnrollementType.all
+    @enrollement_types = EnrollmentType.all
     @admission_types = AdmissionType.all
 
     respond_to do |format|
@@ -31,8 +29,7 @@ class AdmissionsController < ApplicationController
   # GET /admissions/new.xml
   def new
     @admission = Admission.new
-    @enrollment_mode_types=EnrollmentModeType.all
-    @enrollement_types = EnrollementType.all
+    @enrollement_types = EnrollmentType.all
     @admission_types = AdmissionType.all
     respond_to do |format|
       format.html # new.html.erb
@@ -43,8 +40,7 @@ class AdmissionsController < ApplicationController
   # GET /admissions/1/edit
   def edit
     @admission = Admission.find(params[:id])
-    @enrollment_mode_types = EnrollmentModeType.all
-    @enrollement_types = EnrollementType.all
+    @enrollement_types = EnrollmentType.all
     @admission_types = AdmissionType.all
   end
 
@@ -52,8 +48,7 @@ class AdmissionsController < ApplicationController
   # POST /admissions.xml
   def create
     @admission = Admission.new(params[:admission])
-    @enrollment_mode_types= EnrollmentModeType.all
-    @enrollement_types = EnrollementType.all
+    @enrollement_types = EnrollmentType.all
     @admission_types = AdmissionType.all
 
     respond_to do |format|
@@ -71,8 +66,7 @@ class AdmissionsController < ApplicationController
   # PUT /admissions/1.xml
   def update
     @admission = Admission.find(params[:id])
-    @enrollment_mode_types= EnrollmentModeType.all
-    @enrollement_types = EnrollementType.all
+    @enrollement_types = EnrollmentType.all
     @admission_types = AdmissionType.all
 
     respond_to do |format|
@@ -90,8 +84,7 @@ class AdmissionsController < ApplicationController
   # DELETE /admissions/1.xml
   def destroy
     @admission = Admission.find(params[:id])
-    @enrollment_mode_types= EnrollmentModeType.all
-    @enrollement_types = EnrollementType.all
+    @enrollement_types = EnrollmentType.all
     @admission_types = AdmissionType.all
     @admission.destroy
 
@@ -101,3 +94,4 @@ class AdmissionsController < ApplicationController
     end
   end
 end
+
