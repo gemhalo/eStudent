@@ -113,6 +113,8 @@
       var field = new Element('input', { type: 'hidden', name: '_method', value: method });
       form.insert(field);
     }
+  
+
 
     if (csrf_param) {
       var param = csrf_param.readAttribute('content'),

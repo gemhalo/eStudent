@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mekelle Univeristy- Student Information System</title>
+  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "/extjs/resources/css/ext-all.css" %>
+  <%= stylesheet_link_tag "/extjs/resources/css/xtheme-gray.css" %>
+  <%= javascript_include_tag :defaults %>
+  <%= netzke_init %>
+  <%= javascript_include_tag "main_page" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+         <!-- Header Content -->
+            <%= render :partial =>'/shared/header' %><br/>
+	<!-- Basic setup menu-->
+    <div id="basic_setup">
+            <%= render :partial =>'/shared/ssstaff/sssacademicsmenu' %><br/>
+    </div>
+    <div id="west" class="x-hide-display">
+        <div>
+            <%= render :partial =>'/shared/ssstaff/ssscoursemenu' %><br/>
+        </div>    
+
+        <div id='student_menu'>
+            <%= render :partial =>'/shared/ssstaff/sssapproval_decisionsmenu' %><br/>
+        </div>
+
+         <div id='sss_west'>
+            <%= render :partial =>'/shared/ssstaff/ssscommunications' %><br/>
+        </div>
+
+	 <div id='services_menu'>
+            <%= render :partial =>'/shared/ssstaff/ssssettingsmenu' %><br/>
+        </div>
+
+
+     </div>
+    <div id="center2" class="x-hide-display">
+        <%= yield %>
+    </div>
+    
+    <div id="notification_area">  
+    	            <%= render :partial =>'/shared/notification' %><br/>
+    </div>
+ 
+   <div id="south" class="x-hide-display">
+        <center><small>Mekelle Univerisity Gemhalo! project</small></center>
+    </div>
+
+   <!-- End of Main Content -->
+</body>
+</html>
+

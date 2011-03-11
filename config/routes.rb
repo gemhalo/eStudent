@@ -1,4 +1,7 @@
 EStudent::Application.routes.draw do
+  get  'student_service_staffs/selector'
+  post 'student_service_staffs/selector'
+
   resources :admission_status_types
 
   resources :enrollment_mode_types
@@ -111,8 +114,6 @@ EStudent::Application.routes.draw do
   #get  'student_service_staffs/sample'
   get  'applicants/edit'
   
-  get  'student_service_staffs/selector' 
-  post 'student_service_staffs/selector'
   
   resources :student_service_staffs
   
