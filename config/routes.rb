@@ -1,4 +1,6 @@
 EStudent::Application.routes.draw do
+  get  'student_service_staffs/selector'
+  post 'student_service_staffs/selector'
   resources :award_types
 
   resources :admission_status_types
@@ -6,6 +8,12 @@ EStudent::Application.routes.draw do
   resources :enrollment_mode_types
 
   resources :enrollment_types
+
+  get "moe_data_import/import"
+
+  post "moe_data_import/upload"
+
+  get "moe_data_import/upload"
 
   resources :admissions
 

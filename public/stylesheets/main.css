@@ -1,0 +1,76 @@
+.menu_link{
+  border:0px groove green;
+  text-indent:30px;
+  margin:2px;
+  
+  -moz-border-radius: 4px;
+  border:0px solid;
+  
+}
+.menu_link a:hover{
+  background:#efefef;
+}
+.menu_link a:link,
+.menu_link a:hover,
+.menu_link a:visited {
+  text-decoration: none;
+  color: maroon;
+}
+.link a {
+  color:olive;
+  
+  text-decoration:none;
+  text-indent:30px;
+}
+.login{
+text-align: right;
+--moz-border-radius:1px;
+border:1px;
+
+}
+#ext-gen64{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen46{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen52{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen58{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen3{
+  background: #efefef;
+}
+
+#ext-gen27s {
+  background: #efefef;
+  color: maroon;
+}
+#ext-comp-1002 {
+   z-index: -1;
+}
+#logo {
+   float:left;
+   margin:8px;
+}
+#logo_text {
+   float:left;
+   padding-top: 20px;
+   text-indent: 480px;
+   font-size:30px;
+}
+#loginl{
+  color:maroon;
+  float:right;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+#howtol{
+  width:300;
+}

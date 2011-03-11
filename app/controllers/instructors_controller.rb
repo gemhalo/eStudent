@@ -1,4 +1,5 @@
 class InstructorsController < ApplicationController
+  layout 'instructor'
   # GET /instructors
   # GET /instructors.xml
   def index
