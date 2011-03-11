@@ -58,11 +58,12 @@ border:1px;
 #logo {
    float:left;
    margin:8px;
+   margin-right:8pt;
 }
 #logo_text {
    float:left;
    padding-top: 20px;
-   text-indent: 480px;
+   text-indent: 10px;
    font-size:30px;
 }
 #loginl{
@@ -73,4 +74,18 @@ border:1px;
 }
 #howtol{
   width:300;
+}
+#toplinks{
+	text-align: center;
+        margin-top: 40px;
+        padding: 10px;
+        margin-left: 550px;
+}
+.roundborder{
+	-moz-border-radius: 10px;
+	border: 1px solid navy;
+        text-align: center;
+	margin: 5px;
+        padding-left: 15px;
+        padding-right:15px;
 }

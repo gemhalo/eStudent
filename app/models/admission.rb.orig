@@ -1,0 +1,20 @@
+class Admission < ActiveRecord::Base
+<<<<<<< HEAD
+has_many :programs
+belongs_to :enrollment_type
+belongs_to :admission_type
+=======
+  belongs_to :applicant
+  belongs_to :admission_type
+  belongs_to :enrollement_type
+  belongs_to :enrollment_mode_type
+
+
+def admission_name
+
+  [admission_type.name.capitalize ,'-',enrollement_type.name.capitalize, '-',enrollment_mode_type.name.capitalize].join(' ')
+
+end
+
+>>>>>>> c961241896fbfeb842cb2563012000ecc4031957
+end

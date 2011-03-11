@@ -1,12 +1,13 @@
-<br/><h1 align="center">Available Programs</h1>
+<br/><h1 align="center">Available Programs</h1><br/>
 <center> <div id="prog">  Mekelle University is found at the town of Mekelle in Tigray region of Northern Ethiopia , at a distance of 783 Kilometers from the Ethiopian capital. The merger the two former colleges: Mekelle Business College and Mekelle University College established the University in May 2000 by the Government of Ethiopia (Council of Ministers, Regulations No. 61/1999 of Article 3) as an autonomous higher education institution. The two colleges have their own historical developments after beginning from scratch, and have also experienced exhausting ascends and descends, with voluminous relocations from place to place.
 </div>
+<br/>
+
+
+
  <center> 
-<% @admissiont.each do |a| %>
-	 <h1><u><%= a.name %></u></h1>
-		<% @enrollmentt.each do |e| %>
-			<% @admission.admission_type_id = a.id, @admission.enrollment_type_id = e.id %>
-			<ul><%= link_to "#{e.name}",:action =>"show" ,:id => @admission  %></ul><br>
-		<% end %>
+<% @admission.each do |a| %>
+	<ul><%= link_to "#{ [a.admission_type.name , "-",a.enrollment_type.name].join}",:action =>"show" ,:id => a.id %></ul><br>
+		
 <% end %>
 </center>
