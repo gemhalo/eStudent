@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311093046) do
+ActiveRecord::Schema.define(:version => 20110311074731) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -68,24 +68,13 @@ ActiveRecord::Schema.define(:version => 20110311093046) do
     t.string   "major_field_of_study"
     t.string   "minor_field_of_study"
     t.string   "academic_year"
-    t.integer  "admission_status"
+    t.boolean  "admission_status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "verified",                 :default => false
-    t.integer  "student_service_staff_id"
-    t.integer  "admission_type_id"
   end
 
   create_table "award_types", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "buildings", :force => true do |t|
-    t.string   "building_name"
-    t.integer  "campus_id"
-    t.integer  "floors"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -99,7 +88,6 @@ ActiveRecord::Schema.define(:version => 20110311093046) do
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
-    t.string   "dean"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -162,34 +150,6 @@ ActiveRecord::Schema.define(:version => 20110311093046) do
     t.datetime "updated_at"
   end
 
-  create_table "dormitories", :force => true do |t|
-    t.integer  "student_id"
-    t.string   "dorm"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "educational_backgrounds", :force => true do |t|
-    t.string   "institution_type"
-    t.string   "institution_name"
-    t.string   "result_type"
-    t.string   "eheece_code"
-    t.string   "school_code"
-    t.string   "institution_region"
-    t.string   "institution_zone"
-    t.string   "institution_town"
-    t.integer  "result"
-    t.integer  "out_of"
-    t.string   "department"
-    t.string   "college_leave_reason"
-    t.integer  "applicant_id"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-   end
-
   create_table "emergency_contacts", :force => true do |t|
     t.string   "full_name"
     t.string   "relationship"
@@ -208,12 +168,6 @@ ActiveRecord::Schema.define(:version => 20110311093046) do
     t.string   "employer_pobox"
     t.string   "employer_email"
     t.integer  "applicant_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "enrollement_types", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -346,17 +300,6 @@ ActiveRecord::Schema.define(:version => 20110311093046) do
     t.integer  "region_code"
   end
 
-  create_table "programs", :force => true do |t|
-    t.string   "name"
-    t.integer  "department_id"
-    t.integer  "admission_id"
-    t.date     "duration"
-    t.integer  "total_credit_hour"
-    t.integer  "award_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "references", :force => true do |t|
     t.string   "full_name"
     t.string   "office_telephone"
@@ -438,6 +381,7 @@ ActiveRecord::Schema.define(:version => 20110311093046) do
     t.datetime "updated_at"
     t.string   "role"
     t.integer  "person_id"
+    t.string   "temp_password"
   end
 
 end
