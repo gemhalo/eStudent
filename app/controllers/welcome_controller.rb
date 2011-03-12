@@ -1,9 +1,9 @@
 class WelcomeController < ApplicationController
-  layout "instructor"
+  layout "application"
   def index
-    render :inline =>
-    "<%= netzke :main_app %>",
-    :layout => true
+#    render :inline =>
+ #   "<%= netzke :main_app %>",
+  #  :layout => true
   end
 
 end

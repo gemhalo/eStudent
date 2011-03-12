@@ -18,11 +18,7 @@
   <div class="field">
     <%= f.label :enrollment_type_id %><br />
     <%= f.collection_select(:enrollment_type_id ,@enrollement_types, :id,:name,:prompt=> "Select Enrollment Type") %>
-  </div>
-  <div class="field">
-    <%= f.label :enrollment_mode_type_id %><br />
-    <%= f.collection_select(:enrollment_mode_type_id ,@enrollment_mode_types, :id,:name,:prompt => "Select Enrollment mode") %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
