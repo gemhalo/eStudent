@@ -1,19 +1,14 @@
 class Program < ActiveRecord::Base
-<<<<<<< HEAD
-=======
+belongs_to :admission
 
 #has_many :curriculum
 has_many :course, :through => :curriculum
+<<<<<<< HEAD
 
-validates :program_id_number , :presence =>true
-validates :program_name , :presence =>true
-validates :level , :presence =>true
-validates :enrollment_type , :presence =>true
-validates :mode , :presence =>true
-validates :award_type , :presence =>true
+=======
+>>>>>>> af45e1d7b97edcfbe246854efd1b53ed85d062c0
 validates :duration , :presence =>true
 validates :total_credit_hour , :presence =>true
 
 
->>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
 end

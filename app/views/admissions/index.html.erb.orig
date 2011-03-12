@@ -4,10 +4,7 @@
   <tr>
     <th>Admission type</th>
     <th>Enrollment type</th>
-<<<<<<< HEAD
-=======
-    <th>Enrollment mode</th>
->>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+
     <th></th>
     <th></th>
     <th></th>
@@ -15,12 +12,15 @@
 
 <% @admissions.each do |admission| %>
   <tr>
+<<<<<<< HEAD
+    <td><%= admission.admission_type.name %></td>
+    <td><%= admission.enrollement_type.name %></td>
+    <td><%= admission.enrollment_mode_type.name %></td>
+=======
     <td><%= admission.admission_type_id %></td>
     <td><%= admission.enrollment_type_id %></td>
-<<<<<<< HEAD
-=======
-    <td><%= admission.enrollment_mode_id %></td>
->>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+
+>>>>>>> 727eafbbd9cc2c272fd7d1920cce0ea4996c1b35
     <td><%= link_to 'Show', admission %></td>
     <td><%= link_to 'Edit', edit_admission_path(admission) %></td>
     <td><%= link_to 'Destroy', admission, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,10 +1,12 @@
 class ProgramsController < ApplicationController
+  layout "student_service_staff"
   # GET /programs
   # GET /programs.xml
   def index
     @programs = Program.all
-    @enrollement_types= EnrollementType.all
-
+    @department = Department.all
+  @admission = Admission.all
+  @awardtype = AwardType.all
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @programs }
@@ -15,7 +17,9 @@ class ProgramsController < ApplicationController
   # GET /programs/1.xml
   def show
     @program = Program.find(params[:id])
-   @enrollement_types= EnrollementType.all
+  @department = Department.all
+  @admission = Admission.all
+  @awardtype = AwardType.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +31,10 @@ class ProgramsController < ApplicationController
   # GET /programs/new.xml
   def new
     @program = Program.new
-    @enrollement_types= EnrollementType.all
+   @department = Department.all
+  @admission = Admission.all
+  @awardtype = AwardType.all
+    #@enrollement_types= EnrollementType.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,14 +45,18 @@ class ProgramsController < ApplicationController
   # GET /programs/1/edit
   def edit
     @program = Program.find(params[:id])
-   @enrollement_types= EnrollementType.all
+   @department = Department.all
+  @admission = Admission.all
+  @awardtype = AwardType.all
   end
 
   # POST /programs
   # POST /programs.xml
   def create
     @program = Program.new(params[:program])
-    @enrollement_types= EnrollementType.all
+    @department = Department.all
+  @admission = Admission.all
+  @awardtype = AwardType.all
 
     respond_to do |format|
       if @program.save
@@ -62,7 +73,7 @@ class ProgramsController < ApplicationController
   # PUT /programs/1.xml
   def update
     @program = Program.find(params[:id])
-    @enrollement_types= EnrollementType.all
+   # @enrollement_types= EnrollementType.all
 
     respond_to do |format|
       if @program.update_attributes(params[:program])
@@ -79,7 +90,7 @@ class ProgramsController < ApplicationController
   # DELETE /programs/1.xml
   def destroy
     @program = Program.find(params[:id])
-   @enrollement_types= EnrollementType.all
+  # @enrollement_types= EnrollementType.all
     @program.destroy
 
     respond_to do |format|

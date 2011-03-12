@@ -9,7 +9,12 @@ gem 'fastercsv'
 gem  'will_paginate', '~>3.0.pre2'
 #To generate model diagrams
 gem  'railroad'
-
+#gem 'roo', '1.9.3'
+#gem 'rubyzip','0.9.4'
+gem 'nokogiri'
+#gem 'spreadsheet'
+#gem 'odf-spreadsheet'
+#gem 'google-spreadsheet-ruby'
 # User experience using ExtJS javascript framework and netzke rails-ExtJS bridge
 # Get it from git repo and install it
 gem 'netzke-core',  :git  => "http://github.com/skozlov/netzke-core.git"

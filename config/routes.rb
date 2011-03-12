@@ -1,13 +1,54 @@
 EStudent::Application.routes.draw do
+  get  'student_service_staffs/selector'
+  post 'student_service_staffs/selector'
+  resources :award_types
+
+  resources :admission_status_types
+
+  resources :enrollment_mode_types
+
+  resources :enrollment_types
+
+  get "moe_data_import/import"
+
+  post "moe_data_import/import"
+  get "moe_data_import/upload"
+  post "moe_data_import/upload"
+  post "moe_data_import/show"
+  post "moe_data_import/create_account"
+  get "moe_data_import/create_account"
+  
+  
+  resources :moe_data_import
 
   resources :admissions
 
+  resources :agreements
   resources :how_tos
 
+  resources :educational_backgrounds
+
+  resources :academic_and_professional_qualifications
+
+  resources :research_and_teaching_experiences
+
+  resources :relevant_publications
+
+  resources :references
+
+  resources :financial_supports
+
+  resources :course_exemptions
+
+  resources :employment_informations
   resources :events
 
   resources :departments
 
+  resources :department_choices
+  resources :campuses
+
+  resources :emergency_contacts
   resources :academic_calanders
 
   resources :dormitories
@@ -20,10 +61,12 @@ EStudent::Application.routes.draw do
 
   resources :departments
 
+  resources :campuses
+
   resources :academic_calanders
 
   netzke
-  #root :to => "welcome#index"
+  root :to => "welcome#index"
   root :to => "users#index"
   resources :family_backgrounds
   resources :colleges
@@ -40,12 +83,18 @@ EStudent::Application.routes.draw do
   get "admission_approval/approve"
   get "admission_approval/decline"
 
+ 
   get "dormitory_placement/place_dorm"
   get "dormitory_placement/show_placement"
   post "dormitory_placement/dorm_placing_process"
   get "dormitory_placement/edit"
   post "dormitory_placement/update"
   get "dormitory_placement/destroy"
+
+   resources :available_programs
+  get "available_programs/index"
+ post "available_programs/show"
+get "available_programs/show"
 
   get "department_placement/department_placing_process"
   get "department_placement/show_placement"
@@ -56,6 +105,8 @@ EStudent::Application.routes.draw do
 
 
   resources :instructors
+
+  resources :colleges
 
   resources :admission_types
 
@@ -68,7 +119,8 @@ EStudent::Application.routes.draw do
   
   
   #post 'student_service_staffs/show'
-  #get  'student_service_staffs/sample'  
+  #get  'student_service_staffs/sample'
+  get  'applicants/edit'
   
   get  'student_service_staffs/selector' 
   post 'student_service_staffs/selector'
@@ -88,6 +140,26 @@ EStudent::Application.routes.draw do
   get "department_head/show_list"
   get "department_head/details"
   get "department_head/approve"
+  resources :applicants 
+  get "moes/import"
+  post "moes/import"
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  resources :users do
+    collection do
+      post 'forgot_password'
+      get 'forgot_password'
+           
+    end
+  end
+
+ 
+
+  resources :sessions
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

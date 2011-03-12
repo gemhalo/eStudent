@@ -1,0 +1,35 @@
+<h1>Listing relevant_publications</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Published date</th>
+    <th>Publication title</th>
+    <th>Attachment file name</th>
+    <th>Attachment content type</th>
+    <th>Attachment file size</th>
+    <th>Applicant</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @relevant_publications.each do |relevant_publication| %>
+  <tr>
+    <td><%= relevant_publication.description %></td>
+    <td><%= relevant_publication.published_date %></td>
+    <td><%= relevant_publication.publication_title %></td>
+    <td><%= relevant_publication.attachment_file_name %></td>
+    <td><%= relevant_publication.attachment_content_type %></td>
+    <td><%= relevant_publication.attachment_file_size %></td>
+    <td><%= relevant_publication.applicant_id %></td>
+    <td><%= link_to 'Show', relevant_publication %></td>
+    <td><%= link_to 'Edit', edit_relevant_publication_path(relevant_publication) %></td>
+    <td><%= link_to 'Destroy', relevant_publication, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Relevant publication', new_relevant_publication_path %>

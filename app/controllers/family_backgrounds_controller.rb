@@ -25,11 +25,10 @@ class FamilyBackgroundsController < ApplicationController
   # GET /family_backgrounds/new
   # GET /family_backgrounds/new.xml
   def new
-    @applicantid = params[:applicantid]
-     @family_backgrounds = FamilyBackground.find_all_by_applicant_id(params[:applicantid])
+    @applicantid = params[:applicant_id]
+    @family_backgrounds = FamilyBackground.find_all_by_applicant_id(params[:applicant_id])
     @family_background = FamilyBackground.new
-     
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @family_background }
@@ -46,14 +45,14 @@ class FamilyBackgroundsController < ApplicationController
   # POST /family_backgrounds
   # POST /family_backgrounds.xml
   def create
-     flash["@applicantid"] = params[:applicantid]
+    @applicantid = params[:applicantid]
      @family_background = FamilyBackground.new(params[:family_background])
       respond_to do |format|
       
       if @family_background.save
-        logger.info("---------session----------#{session["@applicantid"]}")
+       
          @family_backgrounds = FamilyBackground.find_all_by_applicant_id(@applicantid)
-         format.html { render :action => "new" }
+          format.html { redirect_to :controller => 'family_backgrounds', :action => 'new', :applicant_id => @family_background.applicant_id }
          
       else
         format.html { render :action => "new" }

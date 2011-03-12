@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date issued:</b>
+  <%= @academic_and_professional_qualification.date_issued %>
+</p>
+
+<p>
+  <b>Attachment file name:</b>
+  <%= @academic_and_professional_qualification.attachment_file_name %>
+</p>
+
+<p>
+  <b>Attachment content type:</b>
+  <%= @academic_and_professional_qualification.attachment_content_type %>
+</p>
+
+<p>
+  <b>Attachment file size:</b>
+  <%= @academic_and_professional_qualification.attachment_file_size %>
+</p>
+
+<p>
+  <b>Applicant:</b>
+  <%= @academic_and_professional_qualification.applicant_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_academic_and_professional_qualification_path(@academic_and_professional_qualification) %> |
+<%= link_to 'Back', academic_and_professional_qualifications_path %>

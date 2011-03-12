@@ -1,0 +1,32 @@
+<h1>Listing academic_and_professional_qualifications</h1>
+
+<table>
+  <tr>
+    <th>Date issued</th>
+    <th>Attachment file name</th>
+    <th>Attachment content type</th>
+    <th>Attachment file size</th>
+    <th>Applicant</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @academic_and_professional_qualifications.each do |academic_and_professional_qualification| %>
+  <tr>
+    <td><%= academic_and_professional_qualification.date_issued %></td>
+    <td><%= academic_and_professional_qualification.attachment_file_name %></td>
+    <td><%= academic_and_professional_qualification.attachment_content_type %></td>
+    <td><%= academic_and_professional_qualification.attachment_file_size %></td>
+    <td><%= academic_and_professional_qualification.applicant_id %></td>
+    <td><%= link_to 'Show', academic_and_professional_qualification %></td>
+    <td><%= link_to 'Edit', edit_academic_and_professional_qualification_path(academic_and_professional_qualification) %></td>
+    <td><%= link_to 'Destroy', academic_and_professional_qualification, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Academic and professional qualification', new_academic_and_professional_qualification_path %>
+<%end%>

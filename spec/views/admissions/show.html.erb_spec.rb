@@ -5,7 +5,7 @@ describe "admissions/show.html.erb" do
     @admission = assign(:admission, stub_model(Admission,
       :admission_type_id => 1,
       :enrollment_type_id => 1,
-     
+      :enrollment_mode_type_id => 1
     ))
   end
 

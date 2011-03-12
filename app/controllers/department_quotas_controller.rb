@@ -1,4 +1,5 @@
 class DepartmentQuotasController < ApplicationController
+  layout "instructor"
   # GET /department_quotas
   # GET /department_quotas.xml
   def index

@@ -10,9 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110310185553) do
+ActiveRecord::Schema.define(:version => 20110311130158) do
 
   create_table "abilities", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academic_and_professional_qualifications", :force => true do |t|
+    t.date     "date_issued"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -20,6 +30,12 @@ ActiveRecord::Schema.define(:version => 20110310185553) do
   create_table "academic_calanders", :force => true do |t|
     t.date     "start_date"
     t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "admission_status_types", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,13 +53,24 @@ ActiveRecord::Schema.define(:version => 20110310185553) do
     t.datetime "updated_at"
   end
 
-  create_table "applicants", :force => true do |t|
-    t.integer  "person_id"
+  create_table "agreements", :force => true do |t|
+    t.boolean  "agreement"
+    t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "verified",                 :default => false
-    t.integer  "student_service_staff_id"
-    t.integer  "admission_type_id"
+  end
+
+  create_table "applicants", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "admission_id"
+    t.integer  "college_id"
+    t.string   "entry_level"
+    t.string   "major_field_of_study"
+    t.string   "minor_field_of_study"
+    t.string   "academic_year"
+    t.boolean  "admission_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "buildings", :force => true do |t|
@@ -63,10 +90,15 @@ ActiveRecord::Schema.define(:version => 20110310185553) do
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
-    t.integer  "college_telephone"
-    t.string   "college_pobox"
-    t.string   "college_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "instructor_id"
+  end
+
+  create_table "course_exemptions", :force => true do |t|
+    t.string   "course_name"
+    t.integer  "credit_hour"
+    t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -97,6 +129,14 @@ ActiveRecord::Schema.define(:version => 20110310185553) do
     t.datetime "updated_at"
   end
 
+  create_table "department_choices", :force => true do |t|
+    t.integer  "department_id"
+    t.integer  "applicant_id"
+    t.integer  "preference"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "department_quotas", :force => true do |t|
     t.integer  "department_id"
     t.integer  "total_quota"
@@ -123,16 +163,55 @@ ActiveRecord::Schema.define(:version => 20110310185553) do
   end
 
   create_table "educational_backgrounds", :force => true do |t|
-    t.string   "EHEECE_code"
-    t.integer  "school_code"
-    t.integer  "EHEECE_result"
-    t.integer  "EHEECE_maximum_result"
+    t.string   "institution_type"
+    t.string   "institution_name"
+    t.string   "result_type"
+    t.string   "eheece_code"
+    t.string   "school_code"
+    t.string   "institution_region"
+    t.string   "institution_zone"
+    t.string   "institution_town"
+    t.integer  "result"
+    t.integer  "out_of"
+    t.string   "department"
+    t.string   "college_leave_reason"
+    t.integer  "applicant_id"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "student_id"
   end
 
-  create_table "enrollement_types", :force => true do |t|
+  create_table "emergency_contacts", :force => true do |t|
+    t.string   "full_name"
+    t.string   "relationship"
+    t.string   "residence_telephone"
+    t.string   "office_telephone"
+    t.string   "mobile_telephone"
+    t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employment_informations", :force => true do |t|
+    t.string   "job_type"
+    t.string   "employer_name"
+    t.string   "employer_telephone"
+    t.string   "employer_pobox"
+    t.string   "employer_email"
+    t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enrollment_mode_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enrollment_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -164,6 +243,20 @@ ActiveRecord::Schema.define(:version => 20110310185553) do
     t.integer  "applicant_id"
   end
 
+  create_table "financial_supports", :force => true do |t|
+    t.string   "supporter_type"
+    t.string   "supporter_name"
+    t.string   "supporter_telephone"
+    t.string   "supporter_pobox"
+    t.string   "email"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "how_tos", :force => true do |t|
     t.string   "title"
     t.string   "detail"
@@ -178,6 +271,26 @@ ActiveRecord::Schema.define(:version => 20110310185553) do
     t.integer  "role_id"
     t.integer  "department_id"
     t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moes", :force => true do |t|
+    t.string   "registration_no"
+    t.string   "first_name"
+    t.string   "father_name"
+    t.string   "grand_father_name"
+    t.string   "nationality"
+    t.string   "sex"
+    t.string   "sight"
+    t.integer  "age"
+    t.string   "school_code"
+    t.string   "region"
+    t.string   "stream"
+    t.integer  "id_no"
+    t.string   "placement"
+    t.float    "result"
+    t.integer  "result_out_of"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -227,6 +340,36 @@ ActiveRecord::Schema.define(:version => 20110310185553) do
     t.date     "duration"
     t.integer  "total_credit_hour"
     t.integer  "award_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "references", :force => true do |t|
+    t.string   "full_name"
+    t.string   "office_telephone"
+    t.string   "mobile_telephone"
+    t.string   "email"
+    t.string   "profession"
+    t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relevant_publications", :force => true do |t|
+    t.string   "description"
+    t.date     "published_date"
+    t.string   "publication_title"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "research_and_teaching_experiences", :force => true do |t|
+    t.string   "description"
+    t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -282,6 +425,7 @@ ActiveRecord::Schema.define(:version => 20110310185553) do
     t.datetime "updated_at"
     t.string   "role"
     t.integer  "person_id"
+    t.string   "temp_password"
   end
 
 end

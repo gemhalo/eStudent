@@ -8,6 +8,9 @@ describe "admissions/edit.html.erb" do
       :enrollment_type_id => 1
 =======
       :enrollment_type_id => 1,
+<<<<<<< HEAD
+      :enrollment_mode_type_id => 1
+=======
       :enrollment_mode_id => 1
 >>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
     ))
@@ -21,9 +24,10 @@ describe "admissions/edit.html.erb" do
       assert_select "input#admission_admission_type_id", :name => "admission[admission_type_id]"
       assert_select "input#admission_enrollment_type_id", :name => "admission[enrollment_type_id]"
 <<<<<<< HEAD
+      assert_select "input#admission_enrollment_mode_type_id", :name => "admission[enrollment_mode_type_id]"
 =======
       assert_select "input#admission_enrollment_mode_id", :name => "admission[enrollment_mode_id]"
->>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+>>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
     end
   end
 end

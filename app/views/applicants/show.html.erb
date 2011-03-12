@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Person:</b>
+  <%= @applicant.person_id %>
+</p>
+
+<p>
+  <b>Admission:</b>
+  <%= @applicant.admission_id %>
+</p>
+
+<p>
+  <b>College:</b>
+  <%= @applicant.college_id %>
+</p>
+
+<p>
+  <b>Entry level:</b>
+  <%= @applicant.entry_level %>
+</p>
+
+<p>
+  <b>Major field of study:</b>
+  <%= @applicant.major_field_of_study %>
+</p>
+
+<p>
+  <b>Minor field of study:</b>
+  <%= @applicant.minor_field_of_study %>
+</p>
+
+<p>
+  <b>Academic year:</b>
+  <%= @applicant.academic_year %>
+</p>
+
+<p>
+  <b>Admission status:</b>
+  <%= @applicant.admission_status %>
+</p>
+
+
+<%= link_to 'Edit', edit_applicant_path(@applicant) %> |
+<%= link_to 'Back', applicants_path %>

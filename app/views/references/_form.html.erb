@@ -1,0 +1,37 @@
+<fieldset>
+<fieldset><legend>Reference (at least Three)</legend>
+<%= form_for(@reference) do |f| %>
+  <% if @reference.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reference.errors.count, "error") %> prohibited this reference from being saved:</h2>
+
+      <ul>
+      <% @reference.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+   <% end %>
+  <%= f.hidden_field :applicant_id, :value => @applicantid %>
+<table><tr><td><%= f.label :full_name %></td><td><%= f.text_field :full_name %></td><td><%= f.label :office_telephone %></td><td><%= f.text_field :office_telephone %></td></tr>
+  <tr><td><%= f.label :profession %></td><td> <%= f.text_field :profession %></td><td><%= f.label :mobile_telephone %></td><td><%= f.text_field :mobile_telephone %></td></tr>
+  <tr><td><%= f.label :email %></td><td><%= f.text_field :email %></td></tr>
+</table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <% end %>
+</fieldset>
+  <fieldset><legend>References List</legend>
+  <%= netzke :references,
+  :model => 'Reference',
+  :class_name => 'Basepack::GridPanel',
+  :scope => ["applicant_id = ? ", @applicantid]
+%>
+</fieldset>
+</fieldset>
+<%= link_to 'Previous', :controller=> 'financial_supports', :action => "new" , :applicant_id => @applicantid %>
+<%= link_to 'Next', :controller=> 'agreements', :action => 'new' , :applicant_id => @applicantid%>
+<br />

@@ -1,14 +1,15 @@
+<center>
 <p id="notice"><%= notice %></p>
 
 <br>
   <h1><u><%= @how_to.title %></u></h1>
 </p>
-<table border="0">
+<div id="howtol">
+<table border="0" width="250" align="center">
 <tr> 
-  Detail:
   <td><%= @how_to.detail %>
 </p>
 <table>
-
+</div>
 <%= link_to 'Edit', edit_how_to_path(@how_to) %> |
 <%= link_to 'Back', how_tos_path %>

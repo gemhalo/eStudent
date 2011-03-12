@@ -4,15 +4,26 @@ describe "departments/new.html.erb" do
   before(:each) do
     assign(:department, stub_model(Department,
       :name => "MyString",
+<<<<<<< HEAD
+<<<<<<< HEAD
+      :college_id => 1
+=======
+      :college_id => 1,
+=======
       :college_id => 1,
 <<<<<<< HEAD
       :dept_head => "MyString"
 =======
+>>>>>>> 727eafbbd9cc2c272fd7d1920cce0ea4996c1b35
       :telephone => 1,
       :pobox => "MyString",
       :email => "MyString",
       :instructor_id => 1
+<<<<<<< HEAD
+>>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
+=======
 >>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+>>>>>>> 727eafbbd9cc2c272fd7d1920cce0ea4996c1b35
     ).as_new_record)
   end
 
@@ -24,13 +35,20 @@ describe "departments/new.html.erb" do
       assert_select "input#department_name", :name => "department[name]"
       assert_select "input#department_college_id", :name => "department[college_id]"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
       assert_select "input#department_dept_head", :name => "department[dept_head]"
+>>>>>>> 727eafbbd9cc2c272fd7d1920cce0ea4996c1b35
 =======
       assert_select "input#department_telephone", :name => "department[telephone]"
       assert_select "input#department_pobox", :name => "department[pobox]"
       assert_select "input#department_email", :name => "department[email]"
       assert_select "input#department_instructor_id", :name => "department[instructor_id]"
+<<<<<<< HEAD
+>>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
+=======
 >>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+>>>>>>> 727eafbbd9cc2c272fd7d1920cce0ea4996c1b35
     end
   end
 end

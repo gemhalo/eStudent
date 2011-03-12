@@ -1,4 +1,5 @@
 class AdmissionApprovalController < ApplicationController
+  layout "instructor"
   def index
 
         #@current_user=session[:user_name]

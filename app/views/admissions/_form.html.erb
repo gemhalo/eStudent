@@ -13,14 +13,14 @@
 
   <div class="field">
     <%= f.label :admission_type_id %><br />
-    <%= f.text_field :admission_type_id %>
+    <%= f.collection_select(:admission_type_id ,@admission_types, :id,:name,:prompt=> "Select Admission Type") %>
   </div>
   <div class="field">
     <%= f.label :enrollment_type_id %><br />
-    <%= f.text_field :enrollment_type_id %>
-  </div>
+    <%= f.collection_select(:enrollment_type_id ,@enrollement_types, :id,:name,:prompt=> "Select Enrollment Type") %>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

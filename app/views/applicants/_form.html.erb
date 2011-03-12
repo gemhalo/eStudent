@@ -1,23 +1,22 @@
 <%= form_for(@applicant) do |f| %>
-    <% if @applicant.errors.any? %>
+  <% if @applicant.errors.any? %>
     <div id="error_explanation">
-    <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
+      <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
 
-    <ul>
-    <% @applicant.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-    </ul>
+      <ul>
+      <% @applicant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
-    <% end %>
-    <fieldset><legend>Applicant Information</legend>
-    <table border ="0"><tr>
-    <td><%= f.label :name %>
-    </td><td>
-     
+  <% end %>
+   <fieldset><legend>Applicant Information</legend>
+    
 
-    <%= fields_for(@applicant.person) do |p|%>
-    <%= p.text_field :name %></td>
+    <%= fields_for "@applicant[person_attributes]" do |p|%>
+     <table border ="0"><tr>
+      <td><%= p.label :name %> </td>
+      <td> <%= p.text_field :name %></td>
         <td><%= p.label :date_of_birth %><br /></td>
         <td> <%= p.date_select :date_of_birth %></td></tr>
         <tr><td><%= p.label :father_name %></td>
@@ -37,24 +36,41 @@
         <td><%= p.label :marital_status %></td>
         <td><%= p.select :marital_status,["Married","Single","Divorced","Widow"],:prompt=>"Select Marital Status" %></td></tr>
         <tr><td><%= p.label :photo %></td>
-        <td><%= p.text_field :photo %></td></tr>
+        <td><%=  p.file_field :photo %></td>
+        </tr>
         </table>
-     <% end %>   
+     <% end %>
     </fieldset><br></br>
     <!-- end applicant info -->
 
     <fieldset><legend>Admission Information</legend>
+      
+     
+    
+       <table><tr>
+   <td> <%= f.label :admission_id %></td>
+   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:admission_name ,:prompt=> "Select Admission")%></td></tr>
+  
+        <tr><td> <%= f.label :college_id %></td>
+          <td><%= f.collection_select(:college_id ,@College, :id,:name,:prompt=> "Select College")%></td></tr>
+  
+  
+        <tr><td> <%= f.label :entry_level %></td>
+          <td><%= f.select :entry_level,["Freshman","Transfer","Advance Standing"] %></td></tr>
+        <tr><td>    <%= f.label :major_field_of_study %></td>
+          <td><%= f.text_field :major_field_of_study %></td></tr>
 
-    <%= fields_for(@admission) do |f| %>
-    <table border="0"><tr><td> <%= f.label :admission_type_id %></td><td><%= f.collection_select(:admission_type_id,@Admissiontype,:id,:name,:prompt=>"Select Admission Type") %></td><td><%= f.label :Acadamic_Calander %><br /></td><td></td></tr>
-    <tr><td><%= f.label :Enrollement_type %></td><td><%= f.collection_select(:enrollement_type_id,@Enrollementtype,:id,:name, :prompt=>"Select enrollment Type") %></td><td><%= f.label :major_feild_of_study %></td><td>  <%= f.text_field :major_feild_of_study %></td></tr>
-    <tr><td><%= f.label :entry_level %></td><td><%= f.select :entry_level,["Fresh man","Transfer","Advance Standing"],:prompt=>"Select Entry Level" %></td><td> <%= f.label :minor_field_of_study %></td><td><%= f.text_field :minor_feild_of_study %></td></tr>
-    <tr><td><%= f.label :college %></td><td><%= f.collection_select(:college,@College,:id,:name,:prompt=>"Select Collage") %></td></tr>
-    </table>
-    <%end%>
-    </fieldset><br></br>
-    <div class="actions">
-    <%= f.submit %>
-    </div>
+        <tr><td><%= f.label :minor_field_of_study %></td>
+          <td>  <%= f.text_field :minor_field_of_study %></td></tr>
+        <tr><td>    <%= f.label :academic_year %></td>
+          <td> <%= f.text_field :academic_year %></td></tr>
+
+      
+      </table>
+     
+    </fieldset>
+         <div class="actions">
+          <%= f.submit %>
+         </div>
 <% end %>
 
