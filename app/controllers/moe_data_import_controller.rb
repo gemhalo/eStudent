@@ -59,11 +59,10 @@ class MoeDataImportController < ApplicationController
               flash[:notice] = "account Not Really Created"
           end
        
-
 end
 end
 
   def show
-    @user = params[:user]
+    #@person = Person.find(params[:id])
   end
 end

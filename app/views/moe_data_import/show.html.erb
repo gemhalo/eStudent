@@ -1,2 +1,7 @@
 <%=  flash[:notice]%>
-<%= @user.inspect %>
+<%= @person.each do|p| %>
+First Name<%= @person.name  %>
+Father Name<%= @person.father_name %>
+User Name<%= @person.user.username %>
+Password <%= @person.temp_password %>
+<% end %>
