@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(:version => 20110311130158) do
     t.boolean  "admission_status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "verified"
+  end
+
+  create_table "award_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "buildings", :force => true do |t|
@@ -201,6 +208,12 @@ ActiveRecord::Schema.define(:version => 20110311130158) do
     t.string   "employer_pobox"
     t.string   "employer_email"
     t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enrollement_types", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -424,8 +437,6 @@ ActiveRecord::Schema.define(:version => 20110311130158) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
-    t.integer  "person_id"
-    t.string   "temp_password"
   end
 
 end

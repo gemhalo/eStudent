@@ -11,8 +11,28 @@
 </p>
 
 <p>
+<<<<<<< HEAD
   <b>Dean:</b>
+  <%= @college.dean %>
+=======
+  <b>College telephone:</b>
+  <%= @college.college_telephone %>
+</p>
+
+<p>
+  <b>College pobox:</b>
+  <%= @college.college_pobox %>
+</p>
+
+<p>
+  <b>College email:</b>
+  <%= @college.college_email %>
+</p>
+
+<p>
+  <b>Instructor:</b>
   <%= @college.instructor_id %>
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
 </p>
 
 

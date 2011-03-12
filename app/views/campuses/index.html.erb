@@ -1,22 +1,17 @@
-<h1>Listing campus</h1>
+<h1>Listing campuses</h1>
 
 <table>
   <tr>
     <th>Name</th>
-    <th>Campus telephone</th>
-    <th>Campus pobox</th>
-    <th>Campus email</th>
+
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @campus.each do |campus| %>
+<% @campuses.each do |campus| %>
   <tr>
     <td><%= campus.name %></td>
-    <td><%= campus.campus_telephone %></td>
-    <td><%= campus.campus_pobox %></td>
-    <td><%= campus.campus_email %></td>
     <td><%= link_to 'Show', campus %></td>
     <td><%= link_to 'Edit', edit_campus_path(campus) %></td>
     <td><%= link_to 'Destroy', campus, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_for(@campus) do |f| %>
   <% if @campus.errors.any? %>
     <div id="error_explanation">
@@ -5,6 +6,15 @@
 
       <ul>
       <% @campus.errors.full_messages.each do |msg| %>
+=======
+<%= form_for(@campuse) do |f| %>
+  <% if @campuse.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campuse.errors.count, "error") %> prohibited this campuse from being saved:</h2>
+
+      <ul>
+      <% @campuse.errors.full_messages.each do |msg| %>
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -15,6 +25,8 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+<<<<<<< HEAD
+=======
   <div class="field">
     <%= f.label :campus_telephone %><br />
     <%= f.text_field :campus_telephone %>
@@ -27,6 +39,7 @@
     <%= f.label :campus_email %><br />
     <%= f.text_field :campus_email %>
   </div>
+>>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
   <div class="actions">
     <%= f.submit %>
   </div>
