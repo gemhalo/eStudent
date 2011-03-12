@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311093046) do
+ActiveRecord::Schema.define(:version => 20110312071024) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -68,9 +68,10 @@ ActiveRecord::Schema.define(:version => 20110311093046) do
     t.string   "major_field_of_study"
     t.string   "minor_field_of_study"
     t.string   "academic_year"
-    t.integer  "admission_status"
+    t.integer  "admission_status_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "enrollment_mode_type_id"
   end
 
   create_table "award_types", :force => true do |t|
@@ -83,6 +84,15 @@ ActiveRecord::Schema.define(:version => 20110311093046) do
     t.string   "building_name"
     t.integer  "campus_id"
     t.integer  "floors"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "campus", :force => true do |t|
+    t.string   "name"
+    t.integer  "campus_telephone"
+    t.string   "campus_pobox"
+    t.string   "campus_email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -346,6 +356,17 @@ ActiveRecord::Schema.define(:version => 20110311093046) do
     t.boolean  "disability"
     t.string   "type_of_disability"
     t.integer  "region_code"
+  end
+
+  create_table "programs", :force => true do |t|
+    t.string   "name"
+    t.integer  "department_id"
+    t.integer  "admission_id"
+    t.date     "duration"
+    t.integer  "total_credit_hour"
+    t.integer  "award_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "references", :force => true do |t|
