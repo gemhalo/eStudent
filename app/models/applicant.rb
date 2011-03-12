@@ -1,4 +1,4 @@
-class Applicant < ActiveRecord::Base
+ class Applicant < ActiveRecord::Base
   belongs_to :person
   has_many :admission
   has_many :family_background
@@ -11,7 +11,7 @@ class Applicant < ActiveRecord::Base
   has_many :relevant_publication
   has_many :research_and_teaching_experience
   has_many :academic_and_professional_qualification
-  has_many :educational_background
+  has_many :educational_backgrounds
   after_initialize :init_person
   after_save :save_person
  # accepts_nested_attributes_for :person
