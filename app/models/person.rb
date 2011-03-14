@@ -5,7 +5,7 @@ class Person < ActiveRecord::Base
   has_one :student
   has_one :instructor
   belongs_to :nationality
-  has_many :educational_backgrounds
+  
   #validates :name, :uniqueness => {:scope => [:name, :father_name, :grand_father_name]}
   #validates :name , :presence => true
   #validates :father_name,  :presence => true

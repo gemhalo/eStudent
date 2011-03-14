@@ -5,11 +5,11 @@ def department_placing_process
   
   # Disabled students are given priority
 
-  @disabled_applicants=Applicant.all(:include=>[:person, :educational_backgrounds], :conditions=> ["people.disability=?",false], :order=> ("educational_backgrounds.result desc"))
+  @disabled_applicants=Applicant.all(:include=>[:person, :educational_backgrounds], :conditions=> ["people.disability=?",true], :order=> ("educational_backgrounds.result desc"))
 	for ds in @disabled_applicants
 			@depts=ds.department_choices.order("preference")
 			ds.student.department_id=@depts.first.department_id
-			ds.save!
+			ds.student.save!
 	end
 
     #Females are placed according to the given percentage
@@ -22,7 +22,7 @@ def department_placing_process
 				if Student.where("department_id=?",d.department_id).count <
 					Department.find(d.department_id).department_quota.femaleno
 					fs.student.department_id=d.department_id
-					fs.save!
+					fs.student.save!
 					break
 
 				end
@@ -39,7 +39,7 @@ def department_placing_process
 				if Student.where("department_id=?",d.department_id).count <
 					Department.find(d.department_id).department_quota.total_quota
 					ms.student.department_id=d.department_id
-					ms.save!
+					ms.student.save!
 					break
 				end
 			end
