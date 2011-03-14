@@ -41,7 +41,17 @@ class MoeDataImportController < ApplicationController
               end
        
       
+end
+
+  def show
+    
+    @person = Person.find(params[:id])
+
       @person.each  do |p|
+      if p.user.person_id
+        flash[:notice] = "User account for #{p.name}-#{p.father_name}  already created and is #{p.user.user}"
+      end
+
       @password = p.random_string(6)
       @user= User.create(
         :username => [p.name, p.applicant.educational_background.first.eheece_code].join,
@@ -52,18 +62,13 @@ class MoeDataImportController < ApplicationController
         :temp_password => @password
       )
 
-      
+
           if @user.save
               flash[:notice] =  "Account Created"
           else
               flash[:notice] = "account Not Really Created"
           end
-       
 
 end
-end
-
-  def show
-    @user = params[:user]
   end
 end
