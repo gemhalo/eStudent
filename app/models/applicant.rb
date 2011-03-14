@@ -15,8 +15,8 @@ class Applicant < ActiveRecord::Base
   after_initialize :init_person
   after_save :save_person
  # accepts_nested_attributes_for :person
-
-
+  scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
+  scope :not_verified, self.where('verified = ?', "f")
 
   def full_name
     self.person.full_name
@@ -47,4 +47,5 @@ class Applicant < ActiveRecord::Base
   def save_person
     self.person.save!
   end
+  
 end
