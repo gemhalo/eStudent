@@ -15,11 +15,10 @@ class MoeDataImportController < ApplicationController
     @person = []
     @applicant = []
     @educational_background  = []
-
     @file = params[:file]
     CSV.foreach(@file, :col_sep=> ",", :headers => true) do |row|
-
-      @person << Person.create(:name => row[1],
+      
+      @person << Person.create!(:name => row[1],
 
               	:father_name => row[2],
                 :grand_father_name => row[3],
@@ -30,7 +29,14 @@ class MoeDataImportController < ApplicationController
                 :region_code => row[8] )
               
        @applicant << Applicant.create(:person_id => Person.last.id,
-                  :college_id => row[9])
+                  :college_id => College.where('name like ?' ,"%#{row[9]}%").first.id,
+                  :enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
+                  :admission_id => Admission.where('admission_type_id = ? and enrollment_type_id = ?',
+                    AdmissionType.where('name like ?', "%#{row[12]}%"),
+                    EnrollmentType.where('name like ?', "%#{row[13]}%")).first.id,
+
+                 :admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
+              )
 
        @educational_background << EducationalBackground.create(:eheece_code => row[0],
               	:school_code => row[7],
@@ -46,24 +52,24 @@ end
   def show
     
     @person = Person.find(params[:id])
-
+    @user = User.new
+    @user = []
+    
       @person.each  do |p|
-        
-      @user = User.new
-      
-      @password = p.random_string(6)
-      @user = User.create(
-        :username => [p.name, p.applicant.educational_background.first.eheece_code].join,
-        :password => @password,
-        :password_confirmation => @password,
-        :email => [p.name, p.applicant.educational_background.first.eheece_code,'@mu.edu.et'].join,
-        :person_id => p.id,
-        :temp_password => @password
-      )
-
+          @password = p.random_string(6)
+       
+           @user << User.create(
+              :username => [p.name, p.applicant.educational_background.first.eheece_code].join,
+              :password => @password,
+              :password_confirmation => @password,
+              :email => [p.name, p.applicant.educational_background.first.eheece_code,'@mu.edu.et'].join,
+              :person_id => p.id,
+              :temp_password => @password
+            )
+            
 
       
-
-end
+      end
+      
   end
 end
