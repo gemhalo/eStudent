@@ -188,7 +188,7 @@ ActiveRecord::Schema.define(:version => 20110311093046) do
     t.integer  "attachment_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
-   end
+  end
 
   create_table "emergency_contacts", :force => true do |t|
     t.string   "full_name"
