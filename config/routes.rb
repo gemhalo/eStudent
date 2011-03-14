@@ -25,6 +25,7 @@ EStudent::Application.routes.draw do
 
   resources :agreements
   resources :how_tos
+  post "how_tos/showpage"
 
   resources :educational_backgrounds
 

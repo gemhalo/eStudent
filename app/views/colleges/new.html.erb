@@ -1,5 +1,12 @@
+<center>
 <h1>New college</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
+<%= netzke :colleges,
+    :class_name => "Basepack::GridPanel",
+    :model => 'College',
 
+    :width => 550,
+    :height => 300
+%>
 <%= link_to 'Back', colleges_path %>
