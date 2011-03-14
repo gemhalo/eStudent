@@ -5,7 +5,9 @@ class StudentServiceStaffsController < ApplicationController
   # GET /student_service_staffs.xml
   # POST /student_service_staffs
   def index
-    @admission_types = AdmissionType.all
+    @applicant = Applicant.all
+    @program = Program.all
+
  #   @enrollement_types = EnrollmentType.all
     @verifieds=params[:verify]
     if request[:method] =="GET" 
@@ -94,9 +96,17 @@ class StudentServiceStaffsController < ApplicationController
 
   def selector
   #  @param_value = params[:ne]
-    @admission_types = AdmissionType.all
+    @program = Program.all
+    @admission = Admission.all
+    @applicant = Applicant.all
     @verifieds=params[:verify]
 
   end
+  def selected
+    @programs = Programs.all
+    @applicant = Applocant.all
+    @verifieds=params[:verify]
+  end
+
 
 end
