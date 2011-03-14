@@ -1,27 +1,29 @@
-<h1>Listing departments</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>College</th>
-    <th>Dept head</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @departments.each do |department| %>
-  <tr>
-    <td><%= department.name %></td>
-    <td><%= department.college_id %></td>
-    <td><%= department.dept_head %></td>
-    <td><%= link_to 'Show', department %></td>
-    <td><%= link_to 'Edit', edit_department_path(department) %></td>
-    <td><%= link_to 'Destroy', department, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Department', new_department_path %>
+<%
+ # netzke calls the Netzke module
+ # campuses is the variable passed by the controller
+ # model is the activeRecord model to use
+ # class_name is the UI renderer 
+%>
+<center>
+<%= netzke :departments,
+    :model => "Department",
+    :class_name => "Basepack::GridPanel",
+    :columns  => [
+        {:name => "name", :label => "Department name ", :width => 600}
+    ],
+  
+    #Create menu 
+    :bbar => nil,
+    :tbar => [{
+      :menu => [:add.action, :edit.action, :apply.action, :del.action],
+      :text => "Edit inline",
+      :icon =>"/images/icons/table.png"
+    },{
+      :menu => [:add_in_form.action, :edit_in_form.action],
+      :text => "Edit in form",
+      :icon => "/images/icons/application_form.png"
+    }],
+    :width => 600,
+    :height => 300
+%>
+</center>
