@@ -26,6 +26,7 @@ layout "student_service_staff"
   # GET /colleges/new
   # GET /colleges/new.xml
   def new
+    @instructor = Instructor.all
     @college = College.new
     @campus = Campus.all
     respond_to do |format|
