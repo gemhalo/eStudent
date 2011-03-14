@@ -1,7 +1,12 @@
-<%=  flash[:notice]%>
-<%= @person.each do|p| %>
-First Name<%= @person.name  %>
-Father Name<%= @person.father_name %>
-User Name<%= @person.user.username %>
-Password <%= @person.temp_password %>
-<% end %>
+
+<h2>Account is produced for the following students</h2>
+  <%= netzke :people,
+           :class_name => "Basepack::GridPanel",
+           :model => 'Person',
+           :columns => [
+           :name, :father_name, :grand_father_name, :username, :password, :email ],
+           :scope=> {:id.gteq => @person.first.id},
+           :width => 880,
+           :height => 200
+          %>
+
