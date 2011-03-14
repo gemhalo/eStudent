@@ -18,19 +18,22 @@ class Person < ActiveRecord::Base
 #    def college_name
 #      self.student.college_name
 #    end
+    def p
+      self.applicant.educational_background
+    end
 
-    def eheece_code
-      self.applicant.educational_background.first.eheece_code
-    end
-    def result
-      self.applicant.educational_background.first.result
-    end
-    def out_of
-      self.applicant.educational_background.first.out_of
-    end
-    def school
-      self.applicant.educational_background.first.school_code
-    end
+#    def eheece_code
+#      self.applicant.educational_background.first.eheece_code
+#    end
+#    def result
+#      self.applicant.educational_background.first.result
+#    end
+#    def out_of
+#      self.applicant.educational_background.first.out_of
+#    end
+#    def school
+#      self.applicant.educational_background.first.school_code
+#    end
     def random_string(len)
       chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
       newpass=""

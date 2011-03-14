@@ -1,12 +1,14 @@
 
+
 <h2>Account is produced for the following students</h2>
-  <%= netzke :people,
+<%= flash[:notice] %>
+<%= netzke :user,
            :class_name => "Basepack::GridPanel",
            :model => 'Person',
            :columns => [
            :name, :father_name, :grand_father_name, :username, :password, :email ],
-           :scope=> {:id.gteq => @person.first.id},
+           :scope=> {:id.gteq => @user.first.id},
            :width => 880,
-           :height => 200
+           :height => 400
           %>
 

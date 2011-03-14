@@ -48,12 +48,11 @@ end
     @person = Person.find(params[:id])
 
       @person.each  do |p|
-      if p.user.person_id
-        flash[:notice] = "User account for #{p.name}-#{p.father_name}  already created and is #{p.user.user}"
-      end
-
+        
+      @user = User.new
+      
       @password = p.random_string(6)
-      @user= User.create(
+      @user = User.create(
         :username => [p.name, p.applicant.educational_background.first.eheece_code].join,
         :password => @password,
         :password_confirmation => @password,
@@ -63,11 +62,7 @@ end
       )
 
 
-          if @user.save
-              flash[:notice] =  "Account Created"
-          else
-              flash[:notice] = "account Not Really Created"
-          end
+      
 
 end
   end
