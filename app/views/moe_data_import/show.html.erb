@@ -1,2 +1,12 @@
-<%=  flash[:notice]%>
-<%= @user.inspect %>
+
+<h2>Account is produced for the following students</h2>
+  <%= netzke :people,
+           :class_name => "Basepack::GridPanel",
+           :model => 'Person',
+           :columns => [
+           :name, :father_name, :grand_father_name, :username, :password, :email ],
+           :scope=> {:id.gteq => @person.first.id},
+           :width => 880,
+           :height => 200
+          %>
+

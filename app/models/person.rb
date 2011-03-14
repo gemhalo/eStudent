@@ -37,13 +37,5 @@ class Person < ActiveRecord::Base
       1.upto(len) {|i| newpass << chars[rand(chars.size-1)]}
       return newpass
     end
-	   def username
-        (User.where('person_id = ?', self.id)).first.username
-      end
-      def password
-        (User.where('person_id = ?', self.id)).first.temp_password
-      end
-      def email
-        (User.where('person_id = ?', self.id)).first.email
-      end
+     
 end
