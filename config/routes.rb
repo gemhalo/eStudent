@@ -124,6 +124,10 @@ get "available_programs/show"
   
   get  'student_service_staffs/selector' 
   post 'student_service_staffs/selector'
+
+  get  'student_service_staffs/selected'
+  post 'student_service_staffs/selected'
+
   
   resources :student_service_staffs
   

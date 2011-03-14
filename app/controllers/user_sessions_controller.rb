@@ -1,6 +1,14 @@
 class UserSessionsController < ApplicationController
   # GET /user_sessions
   # GET /user_sessions.xml
+
+ if current_user.role == "instructor"
+   redirect_to instructors_url
+ else
+  redirect_to student_service_staff_url
+  end
+
+
   def new
     @user_session = UserSession.new
 
@@ -39,4 +47,3 @@ class UserSessionsController < ApplicationController
     end
   end
 end
-
