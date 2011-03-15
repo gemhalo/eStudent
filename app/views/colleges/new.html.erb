@@ -1,5 +1,24 @@
+<center>
 <h1>New college</h1>
+<%= netzke :colleges,
+        :class_name => "Basepack::GridPanel",
+        :model => "College",
+    :bbar => nil,
+    :tbar => [{
+      :menu => [:add.action, :edit.action, :apply.action, :del.action, :search.action ],
+      :text => "Inline Actions",
+      :icon =>"/images/icons/table.png"
+    },{
+      :menu => [:add_in_form.action, :edit_in_form.action],
+      :text => "Form Actions",
+      :icon => "/images/icons/application_form.png"
+    },
+      :menu => [:add_in_form.action],:text => "Place Department"],
+   
+    :width => 600,
+    :height => 400,
+%>
 
-<%= render 'form' %>
+<%#= render 'form' %>
 
-<%= link_to 'Back', colleges_path %>
+<%#= link_to 'Back', colleges_path %>

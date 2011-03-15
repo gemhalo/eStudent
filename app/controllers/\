@@ -2,31 +2,27 @@ class UsersController < ApplicationController
   
   # GET /users
   # GET /users.xml
-before_filter do
-	redirect_to new_user_session_path unless current_user #authenticated?
-end 
- def index
+  def index
+   if current_user do
     path = case current_user.role
     when 'instructor'
-      instructors_path
-    when 'admin'
-	users_manageusers_path
+       instructors_path
+#    when 'admin'
+ #      users_path
     when 'student'
        students_path
     when 'student_service_staff'
-      student_service_staffs_path
-     else
-    end
+       student_service_staffs_path
+      else
 
     redirect_to path     
-
-    #@users = User.all
+    @users = User.all
 
     #respond_to do |format|
-     # format.html # index.html.erb
-    #  format.xml  { render :xml => @users }
-   #   format.pdf { render :xml => @users }
-    #end
+    #  format.html # index.html.erb
+     # format.xml  { render :xml => @users }
+      #format.pdf { render :xml => @users }
+    end
   end
   def assign_roles  
   end
@@ -108,26 +104,6 @@ end
 
   # DELETE /users/1
   # DELETE /users/1.xml
-  def manageusers
-
-    @users = User.all
-
-    #respond_to do |format|
-     # format.html # index.html.erb
-    #  format.xml  { render :xml => @users }
-   #   format.pdf { render :xml => @users }
-   # end 
-  def forgot_password
-    #user = User.new
-    @user = User.find_by_email(params[:users][:email])
-    logger.info("jjjjjjjjjjj #{@user.email}")
-    
-    @password = @user.random_string(6)
-    Notifications.forgot_password(email, @password )
-    
-
-  end
-
   def destroy
     @user = User.find(params[:id])
     @user.destroy

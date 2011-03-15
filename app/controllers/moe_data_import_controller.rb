@@ -5,12 +5,14 @@ class MoeDataImportController < ApplicationController
   layout  'student_service_staff'
 
   def import
+	@applicants=Applicant.not_verified
   end
 
   def upload
 
     @person = Person.new
     @applicant = Applicant.new
+    @applicants=Applicant.not_verified
     @educational_background = EducationalBackground.new
     @person = []
     @applicant = []
