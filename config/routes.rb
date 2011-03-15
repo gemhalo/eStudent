@@ -98,11 +98,12 @@ get "available_programs/show"
 
   get "department_placement/department_placing_process"
   get "department_placement/show_placement"
-    
+  get "users/forgot_password"
   resources :users, :user_sessions
+     
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
-
+  get "users/forgot_password"
 
   resources :instructors
 

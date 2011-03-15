@@ -1,17 +1,4 @@
 
-
-
-<%#= flash[:notice] %>
-
-<%#= netzke :user,
-           :class_name => "Basepack::GridPanel",
-           :model => 'User',
-           :columns => [
-           :person__name, :person__father_name, :person__grand_father_name, :username, :temp_password, :email ],
-           :scope=> {:id.gteq => @user.first.id},
-           :width => 880,
-           :height => 400
-          %>
 <style> @media print{
     .noPrint{
          display: none;
@@ -24,7 +11,8 @@
   <h1><u>E-student Temporary Username and Password</u></h1><br></br>
 </center>
 <center>
-  <p length ="20" > Dear <u><%= u.person.name %> - <%= u.person.father_name %> - <%= u.person.grand_father_name %></U> you have been admitted to mekelle University.</br><br></br> Now you can access the e-Student using the following username and password</p> <br></br>
+  <p length ="20" > Dear <u><%= u.person.name %> - <%= u.person.father_name %> - <%= u.person.grand_father_name %></U>
+    you have been admitted to mekelle University.</br><br></br> Now you can access the e-Student using the following username and password</p> <br></br>
   Username_____<%= u.username %><br></br>
     Password________<%= u.temp_password %><br></br>
     

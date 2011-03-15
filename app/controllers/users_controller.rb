@@ -91,6 +91,17 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.xml
+  def forgot_password
+    #user = User.new
+    @user = User.find_by_email(params[:users][:email])
+    logger.info("jjjjjjjjjjj #{@user.email}")
+    
+    @password = @user.random_string(6)
+    Notifications.forgot_password(email, @password )
+    
+
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
