@@ -2,7 +2,7 @@ class CreateHowTos < ActiveRecord::Migration
   def self.up
     create_table :how_tos do |t|
       t.string :title
-      t.string :detail
+      t.text :detail
 
       t.timestamps
     end

@@ -4,12 +4,31 @@ class UsersController < ApplicationController
   # GET /users.xml
   def index
     @users = User.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @users }
-      #format.pdf { render :xml => @users }
+before_filter do
+	redirect_to new_user_session_path unless current_user #authenticated?
+end 
+ def index
+    path = case current_user.role
+    when 'instructor'
+      instructors_path
+    when 'admin'
+	users_manageusers_path
+    when 'student'
+       students_path
+    when 'student_service_staff'
+      student_service_staffs_path
+     else
     end
+
+    redirect_to path     
+
+    #@users = User.all
+
+    #respond_to do |format|
+     # format.html # index.html.erb
+    #  format.xml  { render :xml => @users }
+   #   format.pdf { render :xml => @users }
+    #end
   end
   def assign_roles  
   end
@@ -76,6 +95,15 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.xml
+  def manageusers
+
+    @users = User.all
+
+    #respond_to do |format|
+     # format.html # index.html.erb
+    #  format.xml  { render :xml => @users }
+   #   format.pdf { render :xml => @users }
+   # end 
   def forgot_password
 
     if request.post?
@@ -103,6 +131,6 @@ class UsersController < ApplicationController
     end
   end
 end
-
+end
 
 

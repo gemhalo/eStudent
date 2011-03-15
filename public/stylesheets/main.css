@@ -3,9 +3,12 @@
   text-indent:30px;
   -moz-border-radius: 4px;
   border:0px solid;
-  
+
 }
-#ext-comp-1055{
+
+#ext-comp-1046,
+#ext-comp-1055
+{
 	z-index: -20;
 }
 #ext-comp-1052{
@@ -23,7 +26,7 @@
 }
 .link a {
   color:olive;
-  
+
   text-decoration:none;
   text-indent:30px;
 }
@@ -71,12 +74,15 @@ border:1px;
    text-indent: 10px;
    font-size:30px;
 }
+#loginl a {
+  z-index:100 ;
+}
 #loginl{
   color:maroon;
   float:right;
   margin-right: 30px;
   margin-top: 10px;
-  z-index: 10px;
+  z-index: 100;
 }
 #howtol{
   width:300;
@@ -95,3 +101,4 @@ border:1px;
         padding-left: 15px;
         padding-right:15px;
 }
+
