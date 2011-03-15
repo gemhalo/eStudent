@@ -1,5 +1,5 @@
 class CollegesController < ApplicationController
-layout "student_service_staff"
+  layout "student_service_staff"
   #authorize_resource
   # GET /colleges
   # GET /colleges.xml
@@ -26,6 +26,7 @@ layout "student_service_staff"
   # GET /colleges/new
   # GET /colleges/new.xml
   def new
+    @instructor = Instructor.all
     @college = College.new
     @campus = Campus.all
     respond_to do |format|
@@ -84,3 +85,4 @@ layout "student_service_staff"
     end
   end
 end
+

@@ -1,11 +1,19 @@
 .menu_link{
   border:0px groove green;
   text-indent:30px;
-  margin:2px;
-  
   -moz-border-radius: 4px;
   border:0px solid;
-  
+
+}
+
+#ext-comp-1046,
+#ext-comp-1055
+{
+	z-index: -20;
+}
+#ext-comp-1052{
+	        z-index: -20;
+
 }
 .menu_link a:hover{
   background:#efefef;
@@ -18,7 +26,7 @@
 }
 .link a {
   color:olive;
-  
+
   text-decoration:none;
   text-indent:30px;
 }
@@ -53,7 +61,7 @@ border:1px;
   color: maroon;
 }
 #ext-comp-1002 {
-   z-index: -1;
+   z-index: -10;
 }
 #logo {
    float:left;
@@ -66,11 +74,15 @@ border:1px;
    text-indent: 10px;
    font-size:30px;
 }
+#loginl a {
+  z-index:100 ;
+}
 #loginl{
   color:maroon;
   float:right;
   margin-right: 30px;
   margin-top: 10px;
+  z-index: 100;
 }
 #howtol{
   width:300;
@@ -89,3 +101,4 @@ border:1px;
         padding-left: 15px;
         padding-right:15px;
 }
+

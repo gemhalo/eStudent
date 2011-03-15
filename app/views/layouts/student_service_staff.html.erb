@@ -12,7 +12,23 @@
 </head>
 <body>
    <!-- Header Content -->
-     <%= render :partial =>'/shared/header' %>
+   <div id='north' style="float:none;clear:both;z-index:-4">
+        <div class='left' style="float:none;clear:both;border:0">
+          <div id="logo">      <img src='/images/mu_icon_64.png'/ style='align:right'> </div>
+          <div id="logo_text">  <h3>  Welcome to eStudent </h3> </div>
+        </div>
+       <div id="loginl" >
+        <% if current_user %>
+            Hello <%= current_user.username %> (<%= link_to 'Logout', logout_path, :method => :delete %>)
+        <% else %>
+          <%= link_to "Register", new_user_path, :method => :get %> |
+          <%= link_to "Login", login_url, :method => :get %>
+
+        <% end %>
+        </div>
+    </div>
+
+     <%#= render :partial =>'/shared/header' %>
 
      <%= render :partial =>'/shared/toplink' %>
 
@@ -21,9 +37,8 @@
             <%= render :partial =>'/shared/ssstaff/menuitems' %><br/>
     </div>
     <div id="west" class="x-hide-display">
-        <div>
-            <%= render :partial =>'/shared/ssstaff/menuitems' %><br/>
-        </div>    
+            <%= render :partial =>'/shared/ssstaff/settingitems' %><br/>
+        </div>
 
         <div id='student_menu'>
             <%= render :partial =>'/shared/ssstaff/settingitems' %><br/>
@@ -32,11 +47,11 @@
     <div id="center2" class="x-hide-display" >
         <%= yield %>
     </div>
-    
-    <div id="notification_area"> 
-    	 <%= render :partial =>'/shared/notification' %>
+
+    <div id="notification_area">
+    	 <%= render :partial =>'/shared/ssstaff/notification' %>
     </div>
- 
+
    <div id="south" class="x-hide-display">
         <center><small>Mekelle Univerisity Gemhalo! project</small></center>
     </div>

@@ -15,6 +15,20 @@
     <%= f.label :id_number %><br />
     <%= f.text_field :id_number %>
   </div>
+   <!-- include person here --> 
+     <%= fields_for "instructor[person_attributes]",f.person do |person_form| %> 
+       <%= person_form.label :name %><br/>
+       <%= person_form.text_field :name %> <br/>
+
+       <%= person_form.label :father_name %><br/>
+       <%= person_form.text_field :father_name %><br/>
+
+       <%= person_form.label :grand_father_name %><br/>
+       <%= person_form.text_field :grand_father_name %>
+
+     <% end %>  
+  
+
   <div class="field">
     <%= f.label :academic_rank %><br />
     <%= f.text_field :academic_rank %>
@@ -30,10 +44,6 @@
   <div class="field">
     <%= f.label :department_id %><br />
     <%= f.text_field :department_id %>
-  </div>
-  <div class="field">
-    <%= f.label :person_id %><br />
-    <%= f.text_field :person_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
