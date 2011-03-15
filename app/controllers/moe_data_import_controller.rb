@@ -18,7 +18,7 @@ class MoeDataImportController < ApplicationController
     @applicant = []
     @educational_background  = []
     @file = params[:file]
-    CSV.foreach(@file, :col_sep=> ",", :headers => true) do |row|
+    CSV.foreach(@file, :col_sep=> "," , :headers => true) do |row|
       
       @person << Person.create!(:name => row[1],
 
@@ -31,7 +31,7 @@ class MoeDataImportController < ApplicationController
                 :region_code => row[8] )
               
        @applicant << Applicant.create(:person_id => Person.last.id,
-                  :college_id => College.where('name like ?' ,"%#{row[9]}%").first.id,
+                  :college_id => College.where('name like ?', "%#{row[9]}%").first.id,
                   :enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
                   :admission_id => Admission.where('admission_type_id = ? and enrollment_type_id = ?',
                     AdmissionType.where('name like ?', "%#{row[12]}%"),
