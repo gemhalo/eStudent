@@ -1,5 +1,8 @@
 <h1>Listing colleges</h1>
-
+<%= netzke :colleges,
+	:class_name => "Basepack::GridPanel",
+    	:model => "College"
+%>
 <table>
   <tr>
     <th>Name</th>
@@ -14,7 +17,7 @@
   <tr>
     <td><%= college.name %></td>
     <td><%= college.campus_id %></td>
-    <td><%= college.dean %></td>
+    <td><%= college.instructor_id %></td>
     <td><%= link_to 'Show', college %></td>
     <td><%= link_to 'Edit', edit_college_path(college) %></td>
     <td><%= link_to 'Destroy', college, :confirm => 'Are you sure?', :method => :delete %></td>

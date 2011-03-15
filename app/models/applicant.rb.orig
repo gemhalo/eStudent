@@ -13,11 +13,18 @@
   has_many :research_and_teaching_experience
   has_many :academic_and_professional_qualification
   has_many :educational_backgrounds
-  after_initialize :init_person
-  after_save :save_person
+  #after_initialize :init_person
+  #after_save :save_person
  # accepts_nested_attributes_for :person
+<<<<<<< HEAD
+    def result
+      self.applicant.educational_backgrounds.first.result
+    end
+
+=======
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
   scope :not_verified, self.where('verified = ?', "f")
+>>>>>>> b9a1fc5e6e76656e639a339a4c553f8890f36625
 
   def full_name
     self.person.full_name

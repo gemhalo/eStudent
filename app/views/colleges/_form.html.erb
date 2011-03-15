@@ -22,8 +22,8 @@
     <%= f.collection_select( :campus_id, @campus,:id,:name) %>
   </div>
   <div class="field">
-    <%= f.label :dean %><br />
-    <%= f.text_field :instructor_id %>
+    Dean <br />
+    <%= f.collection_select( :person_id, @person,:id,:name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

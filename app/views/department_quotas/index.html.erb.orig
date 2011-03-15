@@ -52,7 +52,11 @@
 
 <br />
 
+<<<<<<< HEAD
+<%= link_to 'Add Department quota', new_department_quota_path %><br/><br/>
+=======
 <%#= link_to 'Add Department quota', new_department_quota_path %>
+>>>>>>> b9a1fc5e6e76656e639a339a4c553f8890f36625
 
 <div>
   <b><%#= link_to 'Place Students', :controller=>"department_placement", :action=>'department_placing_process' %></b>
