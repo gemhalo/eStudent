@@ -117,8 +117,17 @@ end
     #  format.xml  { render :xml => @users }
    #   format.pdf { render :xml => @users }
    # end 
+  def forgot_password
+    #user = User.new
+    @user = User.find_by_email(params[:users][:email])
+    logger.info("jjjjjjjjjjj #{@user.email}")
+    
+    @password = @user.random_string(6)
+    Notifications.forgot_password(email, @password )
+    
 
   end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
@@ -129,4 +138,4 @@ end
     end
   end
 end
-
+end

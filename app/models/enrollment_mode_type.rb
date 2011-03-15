@@ -1,3 +1,3 @@
 class EnrollmentModeType < ActiveRecord::Base
-  has_many :admission
+  has_many :applicants
 end
