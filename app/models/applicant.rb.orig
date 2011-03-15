@@ -16,10 +16,17 @@ class Applicant < ActiveRecord::Base
   has_many :relevant_publication
   has_many :research_and_teaching_experience
   has_many :academic_and_professional_qualification
+<<<<<<< HEAD
+  has_many :educational_background
+ # after_initialize :init_person
+ # after_save :save_person
+  accepts_nested_attributes_for :person
+=======
   has_many :educational_backgrounds
   #after_initialize :init_person
   #after_save :save_person
- accepts_nested_attributes_for :person
+ # accepts_nested_attributes_for :person
+>>>>>>> 8f835f2dd3333772c24438f5b16ca9182eafeb44
 
   #validates :person_id, :uniqueness => true
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")

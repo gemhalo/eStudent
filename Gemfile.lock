@@ -95,8 +95,6 @@ GEM
       thor (>= 0.13.6)
     netzke_widget_generators (0.1.0)
     nokogiri (1.4.4)
-    oauth (0.4.4)
-    odf-spreadsheet (0.1.0)
     paperclip (2.3.8)
       activerecord
       activesupport

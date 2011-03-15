@@ -1,28 +1,28 @@
 class DepartmentPlacementController < ApplicationController
-
+layout "instructor"
 
 def department_placing_process
   
   # Disabled students are given priority
 
-  @disabled_applicants=Applicant.all(:include=>[:person, :educational_background], :conditions=> ["people.disability=true"], :order=> ("educational_backgrounds.EHEECE_result desc"))
+  @disabled_applicants=Applicant.all(:include=>[:person, :educational_backgrounds], :conditions=> ["people.disability=?",true], :order=> ("educational_backgrounds.result desc"))
 	for ds in @disabled_applicants
 			@depts=ds.department_choices.order("preference")
 			ds.student.department_id=@depts.first.department_id
-			ds.save!
+			ds.student.save!
 	end
 
     #Females are placed according to the given percentage
     
-		@female_applicants=Applicant.all(:include=>		[:person, :educational_background], :conditions=>
-		["people.gender='Female' and people.disability=false"], :order=>("educational_backgrounds.EHEECE_result desc"))
+		@female_applicants=Applicant.all(:include=>		[:person, :educational_backgrounds], :conditions=>
+		["people.gender='F' and people.disability=?",false], :order=>("educational_backgrounds.result desc"))
 		for fs in @female_applicants
 			@depts=fs.department_choices.order("preference")
 			for d in @depts
 				if Student.where("department_id=?",d.department_id).count <
 					Department.find(d.department_id).department_quota.femaleno
 					fs.student.department_id=d.department_id
-					fs.save!
+					fs.student.save!
 					break
 
 				end
@@ -31,15 +31,15 @@ def department_placing_process
 
     #Finally Males are placed to the remaining space
 
-		@male_applicants=Applicant.all(:include=>[:person, :educational_background], :conditions=>
-        ["people.sex='Male' and people.disability=false"], :order => ("educational_backgrounds.EHEECE_result desc"))
+		@male_applicants=Applicant.all(:include=>[:person, :educational_backgrounds], :conditions=>
+        ["people.gender='M' and people.disability=?",false], :order => ("educational_backgrounds.result desc"))
 		for ms in @male_applicants
 			@depts=ms.department_choices.order("preference")
 			for d in @depts
 				if Student.where("department_id=?",d.department_id).count <
 					Department.find(d.department_id).department_quota.total_quota
 					ms.student.department_id=d.department_id
-					ms.save!
+					ms.student.save!
 					break
 				end
 			end

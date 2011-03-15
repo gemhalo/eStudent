@@ -1,5 +1,7 @@
 class Department < ActiveRecord::Base
   belongs_to :college
+  has_many :students
+  has_one :department_quota
   has_many  :instructors
   has_one :departmrnt_quota
   validates_presence_of :name

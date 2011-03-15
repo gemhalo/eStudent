@@ -1,23 +1,23 @@
-<h1>Listing enrollment_types</h1>
+<center>
+<%= netzke :enrollment_types,
+  :class_name => "Basepack::GridPanel",
+  :model => "EnrollmentType",
+  :view_config => {
+    :force_fit =>  true
+  },
+  :border => true,
+  #:bbar => nil,
+  :tbar => [{
+  :menu => [:add.action, :edit.action, :apply.action, :del.action],
+  :text => "Edit inline",
+  :icon =>"/images/icons/table.png"
+  },{
+  :menu => [:add_in_form.action, :edit_in_form.action],
+  :text => "Edit in form",
+  :icon => "/images/icons/application_form.png"
+  }],
+  :width => 600,
+  :height => 350
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @enrollment_types.each do |enrollment_type| %>
-  <tr>
-    <td><%= enrollment_type.name %></td>
-    <td><%= link_to 'Show', enrollment_type %></td>
-    <td><%= link_to 'Edit', edit_enrollment_type_path(enrollment_type) %></td>
-    <td><%= link_to 'Destroy', enrollment_type, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Enrollment type', new_enrollment_type_path %>
+%>
+</center>
