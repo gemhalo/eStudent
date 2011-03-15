@@ -51,7 +51,7 @@ class EducationalBackgroundsController < ApplicationController
     @educational_background = EducationalBackground.new(params[:educational_background])
       respond_to do |format|
 
-      if @educational_background.save!
+      if @educational_background.save
 
         @educational_backgrounds = EducationalBackground.find_all_by_applicant_id(@applicantid)
          format.html { redirect_to :controller => 'educational_backgrounds', :action => 'new', :applicant_id => @educational_background.applicant_id }

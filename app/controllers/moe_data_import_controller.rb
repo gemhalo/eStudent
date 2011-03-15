@@ -2,22 +2,23 @@ require "fastercsv"
 require 'csv'
 
 class MoeDataImportController < ApplicationController
-  def import
 
+  layout = "student_service_staff"
+
+  def import
   end
 
   def upload
 
     @person = Person.new
-    @student = Student.new
+    @applicant = Applicant.new
     @educational_background = EducationalBackground.new
     @person = []
-    @student = []
+    @applicant = []
     @educational_background  = []
 
     @file = params[:file]
-      #logger.info("filelllllllllllllllll #{CSV::Reader.parse(@file)}")
-   	CSV.foreach(@file, :col_sep=> ",", :headers => true) do |row|
+    CSV.foreach(@file, :col_sep=> ",", :headers => true) do |row|
 
       @person << Person.create(:name => row[1],
 
@@ -29,29 +30,41 @@ class MoeDataImportController < ApplicationController
                 :disability => row[6],
                 :region_code => row[8] )
               
-    @student << Student.create(:person_id => Person.last.id ,
-               :college_name=> row[9])
+       @applicant << Applicant.create(:person_id => Person.last.id,
+                  :college_id => row[9])
 
-
-      @educational_background << EducationalBackground.create(:EHEECE_code => row[0],
+       @educational_background << EducationalBackground.create(:eheece_code => row[0],
               	:school_code => row[7],
-                :EHEECE_result => row[10],
-                :EHEECE_maximum_result => row[11],
-                :student_id => Student.last.id)
+                :result => row[10],
+                :out_of => row[11],
+                :applicant_id => Applicant.last.id)
+             
+              end
+       
+      
+      @person.each  do |p|
+      @password = p.random_string(6)
+      @user= User.create(
+        :username => [p.name, p.applicant.educational_background.first.eheece_code].join,
+        :password => @password,
+        :password_confirmation => @password,
+        :email => [p.name, p.applicant.educational_background.first.eheece_code,'@mu.edu.et'].join,
+        :person_id => p.id,
+        :temp_password => @password
+      )
 
-          
+      
+          if @user.save
+              flash[:notice] =  "Account Created"
+          else
+              flash[:notice] = "account Not Really Created"
+          end
+       
 
-   end
-
-#    @user_name= Array.new
-#    #@i=0
-#    @person.each  do |p|
-#        User.create(:username => [p.name, p.student.educational_backgrounds.last.EHEECE_code].join, :email => p.random_string(6))
-#   end
-
-         @myfile =  CSV.read(@file, :col_sep => ",", :headers => false)
-          
-  end
-  
+end
 end
 
+  def show
+    @user = params[:user]
+  end
+end

@@ -10,4 +10,4 @@ class CreateAdmissionTypes < ActiveRecord::Migration
   def self.down
     drop_table :admission_types
   end
-end
+end   

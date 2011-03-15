@@ -12,9 +12,9 @@ class Applicant < ActiveRecord::Base
   has_many :research_and_teaching_experience
   has_many :academic_and_professional_qualification
   has_many :educational_background
-  after_initialize :init_person
-  after_save :save_person
- # accepts_nested_attributes_for :person
+ # after_initialize :init_person
+ # after_save :save_person
+  accepts_nested_attributes_for :person
 
 
 

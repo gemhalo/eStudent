@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311101805) do
+ActiveRecord::Schema.define(:version => 20110315063647) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20110311101805) do
     t.string   "major_field_of_study"
     t.string   "minor_field_of_study"
     t.string   "academic_year"
-    t.integer  "admission_status"
+    t.boolean  "admission_status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -337,12 +337,14 @@ ActiveRecord::Schema.define(:version => 20110311101805) do
     t.integer  "nationality_id"
     t.string   "marital_status"
     t.string   "mother_full_name"
-    t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "disability"
     t.string   "type_of_disability"
     t.integer  "region_code"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   create_table "programs", :force => true do |t|

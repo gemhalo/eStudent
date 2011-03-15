@@ -3,6 +3,9 @@ class Admission < ActiveRecord::Base
   belongs_to :admission_type
   belongs_to :enrollement_type
   belongs_to :enrollment_mode_type
+  has_many :programs
+
+  
 
 
 def admission_name

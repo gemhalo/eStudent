@@ -62,7 +62,7 @@ class CourseExemptionsController < ApplicationController
          format.html { redirect_to :controller => 'course_exemptions', :action => 'new', :applicant_id => @course_exemption.applicant_id }
    
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to :controller => 'course_exemptions', :action => 'new', :applicant_id => @course_exemption.applicant_id }
         format.xml  { render :xml => @course_exemption.errors, :status => :unprocessable_entity }
       end
     end

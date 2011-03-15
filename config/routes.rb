@@ -1,8 +1,26 @@
 EStudent::Application.routes.draw do
- 
+  get  'student_service_staffs/selector'
+  post 'student_service_staffs/selector'
+  resources :award_types
+
   resources :admission_status_types
 
   resources :enrollment_mode_types
+
+  resources :enrollment_types
+
+  get "moe_data_import/import"
+
+  post "moe_data_import/import"
+  get "moe_data_import/upload"
+  post "moe_data_import/upload"
+  post "moe_data_import/show"
+  post "moe_data_import/create_account"
+  get "moe_data_import/create_account"
+  
+  get 'financial_supports/new'
+  post 'financial_supports/new'
+  resources :moe_data_import
 
   resources :admissions
 
@@ -74,6 +92,10 @@ EStudent::Application.routes.draw do
   get "dormitory_placement/edit"
   post "dormitory_placement/update"
   get "dormitory_placement/destroy"
+   resources :available_programs
+  get "available_programs/index"
+ post "available_programs/show"
+get "available_programs/show"
 
   get "department_placement/department_placing_process"
   get "department_placement/show_placement"

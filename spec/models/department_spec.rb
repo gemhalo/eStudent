@@ -7,7 +7,7 @@ describe  Department do
    @dept = Department.new
  end
  context "When created" do
-    it " must have first name" do
+    it " must have name" do
         @dept.name = "Adhaki"
         @dept.name.should_not be_blank
     end
@@ -19,3 +19,4 @@ context "When saving" do
     end
 end
 end
+
