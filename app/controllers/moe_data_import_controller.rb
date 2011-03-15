@@ -66,7 +66,8 @@ end
               :password_confirmation => @password,
               :email => [p.name, p.applicant.educational_background.first.eheece_code,'@mu.edu.et'].join,
               :person_id => p.id,
-              :temp_password => @password
+              :temp_password => @password,
+              :role => "student"
             )
             
 

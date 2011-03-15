@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   
   # GET /users
   # GET /users.xml
-  def index
-    @users = User.all
+
 before_filter do
 	redirect_to new_user_session_path unless current_user #authenticated?
-end 
+end
+
  def index
     path = case current_user.role
     when 'instructor'
@@ -14,7 +14,7 @@ end
     when 'admin'
 	users_manageusers_path
     when 'student'
-       students_path
+       application_path
     when 'student_service_staff'
       student_service_staffs_path
      else
