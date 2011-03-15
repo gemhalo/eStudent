@@ -40,12 +40,6 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.datetime "updated_at"
   end
 
-  create_table "admission_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "admissions", :force => true do |t|
     t.integer  "admission_type_id"
     t.integer  "enrollment_type_id"
@@ -68,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.string   "major_field_of_study"
     t.string   "minor_field_of_study"
     t.string   "academic_year"
-    t.boolean  "admission_status_type_id"
+    t.boolean  "admission_status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "verified"
@@ -213,12 +207,6 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.datetime "updated_at"
   end
 
-  create_table "enrollement_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "enrollment_mode_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -273,7 +261,7 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
 
   create_table "how_tos", :force => true do |t|
     t.string   "title"
-    t.string   "detail"
+    t.text     "detail"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -439,6 +427,8 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.integer  "person_id"
+    t.string   "temp_password"
   end
 
 end

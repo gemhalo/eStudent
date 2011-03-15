@@ -4,29 +4,56 @@ EStudent::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   root :to => "users#index"
-  resources :users, :user_sessions
-  match 'login' => 'user_sessions#new', :as => :login
-  match 'logout' => 'user_sessions#destroy', :as => :logout
-  get  'student_service_staffs/selector'
-  post 'student_service_staffs/selector'
-  resources :award_types
-
-  resources :admission_status_types
-
-  resources :enrollment_mode_types
-
-  resources :enrollment_types
-
+  
   get "moe_data_import/import"
-
   post "moe_data_import/import"
   get "moe_data_import/upload"
   post "moe_data_import/upload"
   get "moe_data_import/show"
   post "moe_data_import/create_account"
   get "moe_data_import/create_account"
+
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+  get "users/forgot_password"
+  resources :users, :user_sessions
   
-  resource :session 
+  get  'student_service_staffs/selector'
+  post 'student_service_staffs/selector'
+
+  get "admission_approval/index"
+  get "admission_approval/show_list"
+  get "admission_approval/details"
+  get "admission_approval/approve"
+  get "admission_approval/decline"
+
+
+  resources :buildings
+  get "dormitory_placement/place_dorm"
+  get "dormitory_placement/show_placement"
+  post "dormitory_placement/dorm_placing_process"
+  get "dormitory_placement/edit"
+  post "dormitory_placement/update"
+  get "dormitory_placement/destroy"
+
+  get "available_programs/index"
+  post "available_programs/show"
+  get "available_programs/show"
+
+  get "department_placement/department_placing_process"
+  get "department_placement/show_placement"
+  
+  resources :available_programs
+  resources :award_types
+
+
+  resources :admission_status_types
+  resources :enrollment_mode_types
+  resources :enrollment_types
+
+
+
+  resource :session
   resources :moe_data_import
 
   resources :admissions
@@ -83,34 +110,7 @@ EStudent::Application.routes.draw do
   resources :ethnicities
   resources :people
   resources :programs
-
-  get "admission_approval/index"
-  get "admission_approval/show_list"
-  get "admission_approval/details"
-  get "admission_approval/approve"
-  get "admission_approval/decline"
-
- 
-  get "dormitory_placement/place_dorm"
-  get "dormitory_placement/show_placement"
-  post "dormitory_placement/dorm_placing_process"
-  get "dormitory_placement/edit"
-  post "dormitory_placement/update"
-  get "dormitory_placement/destroy"
-
-   resources :available_programs
-  get "available_programs/index"
- post "available_programs/show"
-get "available_programs/show"
-
-  get "department_placement/department_placing_process"
-  get "department_placement/show_placement"
-  get "users/forgot_password"
-  resources :users, :user_sessions
      
-  match 'login' => 'user_sessions#new', :as => :login
-  match 'logout' => 'user_sessions#destroy', :as => :logout
-  get "users/forgot_password"
 
   resources :instructors
 
@@ -124,35 +124,32 @@ get "available_programs/show"
 
   resources :ethnicities
   #post 'student_service_staffs/index'
-  
-  
+
+
   #post 'student_service_staffs/show'
   #get  'student_service_staffs/sample'
   get  'applicants/edit'
-  
-  get  'student_service_staffs/selector' 
+
+  get  'student_service_staffs/selector'
   post 'student_service_staffs/selector'
 
   get  'student_service_staffs/selected'
   post 'student_service_staffs/selected'
 
-  
+
   resources :student_service_staffs
-  
-  
+
+
   #resources :studentservicestaffs
-  
+
 
   resources :people
   resources :applicants
 
   netzke
+
   
-  get "department_head/index"
-  get "department_head/show_list"
-  get "department_head/details"
-  get "department_head/approve"
-  resources :applicants 
+  resources :applicants
   get "moes/import"
   post "moes/import"
 
@@ -160,15 +157,15 @@ get "available_programs/show"
     collection do
       post 'forgot_password'
       get 'forgot_password'
-           
+
     end
   end
 
- 
+
 
   resources :sessions
 
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

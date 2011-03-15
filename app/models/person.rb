@@ -10,7 +10,7 @@ class Person < ActiveRecord::Base
   #validates :name , :presence => true
   #validates :father_name,  :presence => true
 #validates :name, :uniqueness => true
-  
+
     def full_name
         [name,father_name,grand_father_name].join(' ')
     end
@@ -45,5 +45,6 @@ class Person < ActiveRecord::Base
       1.upto(len) {|i| newpass << chars[rand(chars.size-1)]}
       return newpass
     end
-     
+
 end
+
