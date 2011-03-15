@@ -40,12 +40,6 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.datetime "updated_at"
   end
 
-  create_table "admission_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "admissions", :force => true do |t|
     t.integer  "admission_type_id"
     t.integer  "enrollment_type_id"
@@ -250,7 +244,7 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
 
   create_table "how_tos", :force => true do |t|
     t.string   "title"
-    t.string   "detail"
+    t.text     "detail"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

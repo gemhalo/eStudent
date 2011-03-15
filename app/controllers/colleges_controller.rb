@@ -1,5 +1,5 @@
 class CollegesController < ApplicationController
-layout "student_service_staff"
+  layout "student_service_staff"
   #authorize_resource
   # GET /colleges
   # GET /colleges.xml
@@ -85,3 +85,4 @@ layout "student_service_staff"
     end
   end
 end
+
