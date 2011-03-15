@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 before_filter do
 	redirect_to new_user_session_path unless current_user #authenticated?
 end 
+
  def index
     @users = User.all
     path = case current_user.role
@@ -13,8 +14,8 @@ end
     when 'admin'
 	users_manageusers_path
     when 'student'
-       students_path
-    when 'student_service_staff'
+       new_applicant_path
+    when 'ssstaff'
       student_service_staffs_path
      else
     end
