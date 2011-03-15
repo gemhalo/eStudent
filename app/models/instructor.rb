@@ -1,7 +1,9 @@
 class Instructor < ActiveRecord::Base
-	belongs_to :person
+  belongs_to  :department
+	belongs_to  :person
+  attr_accessor :name, :father_name, :grand_father_name, :full_name
         #accepts_nested_attributes_for :person
-       attr_accessor :name, :father_name
+
        after_initialize :init_person
        before_save :save_person
 
@@ -9,7 +11,7 @@ class Instructor < ActiveRecord::Base
          self.person = Person.new if self.person_id.nil?
        end
 
-       def save_person 
+       def save_person
           self.person.save
        end
 
@@ -19,3 +21,4 @@ class Instructor < ActiveRecord::Base
         end
      end
 end
+

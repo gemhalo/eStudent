@@ -1,30 +1,35 @@
-<h1>Listing colleges</h1>
-<%= netzke :colleges,
-	:class_name => "Basepack::GridPanel",
-    	:model => "College"
+<%
+ # netzke calls the Netzke module
+ # campuses is the variable passed by the controller
+ # model is the activeRecord model to use
+ # class_name is the UI renderer
 %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Campus</th>
-    <th>Dean</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<center>
+<%= netzke :colleges,
+    :model => "College",
+    :class_name => "Basepack::GridPanel",
+    :border => true,
+    :view_config => {
+      :force_fit => true
+    },
+    :columns  => [
+        {:name => :name, :label => "College name"},
+        {:name => :campus__name}
+    ],
 
-<% @colleges.each do |college| %>
-  <tr>
-    <td><%= college.name %></td>
-    <td><%= college.campus_id %></td>
-    <td><%= college.instructor_id %></td>
-    <td><%= link_to 'Show', college %></td>
-    <td><%= link_to 'Edit', edit_college_path(college) %></td>
-    <td><%= link_to 'Destroy', college, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+    #Create menu
+    :bbar => nil,
+    :tbar => [{
+      :menu => [:add.action, :edit.action, :apply.action, :del.action],
+      :text => "Edit inline",
+      :icon =>"/images/icons/table.png"
+    },{
+      :menu => [:add_in_form.action, :edit_in_form.action],
+      :text => "Edit in form",
+      :icon => "/images/icons/application_form.png"
+    }],
+    :width => 600,
+    :height => 300
+%>
+</center>
 
-<br />
-
-<%= link_to 'New College', new_college_path %>

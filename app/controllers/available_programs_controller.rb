@@ -2,7 +2,7 @@ class AvailableProgramsController < ApplicationController
 def index
    @admissiont = AdmissionType.all
    @enrollmentt =EnrollmentType.all
-	@admission = Admission.all	
+   @admission = Admission.all	
 end
 
 def show
