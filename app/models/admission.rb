@@ -2,8 +2,7 @@ class Admission < ActiveRecord::Base
 has_many :programs
 belongs_to :enrollment_type
 belongs_to :admission_type
-
-  belongs_to :applicant
+has_many :applicants
   
 def name
 

@@ -5,20 +5,28 @@ class Person < ActiveRecord::Base
   has_one :student
   has_one :instructor
   belongs_to :nationality
-  
-  #validates :name, :uniqueness => {:scope => [:name, :father_name, :grand_father_name]}
+  has_many :educational_backgrounds
+ #validates :name, :uniqueness => {:scope => [:name, :father_name, :grand_father_name]}
   #validates :name , :presence => true
   #validates :father_name,  :presence => true
-
+#validates :name, :uniqueness => true
   
     def full_name
         [name,father_name,grand_father_name].join(' ')
     end
 #
-#    def college_name
-#      self.student.college_name
-#    end
-
+    def college_name
+      self.applicant.college.name
+    end
+    def admission_status
+      self.applicant.admission_status_type.name
+    end
+    def enrollment_mode
+      self.applicant.enrollment_mode_type.name
+    end
+   def admission_type
+     [self.applicant.admission.admission_type.name, self.applicant.admission.enrollment_type.name].join('-')
+   end
     def eheece_code
       self.applicant.educational_background.first.eheece_code
     end

@@ -5,34 +5,44 @@ class Person < ActiveRecord::Base
   has_one :student
   has_one :instructor
   belongs_to :nationality
-
-  validates :name , :presence => true
-  validates :father_name,  :presence => true
-
 <<<<<<< HEAD
-  inheritable_attributes :father_name
+  
+  #validates :name, :uniqueness => {:scope => [:name, :father_name, :grand_father_name]}
 =======
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
+  has_many :educational_backgrounds
+ #validates :name, :uniqueness => {:scope => [:name, :father_name, :grand_father_name]}
+>>>>>>> bc583c58de2c3ef488ec3cf63c230a8aa6cd3e0b
+  #validates :name , :presence => true
+  #validates :father_name,  :presence => true
+#validates :name, :uniqueness => true
   
     def full_name
         [name,father_name,grand_father_name].join(' ')
     end
-
+#
     def college_name
-      self.student.college_name
+      self.applicant.college.name
     end
-
-    def regno
-      self.student.educational_backgrounds.first.EHEECE_code
+    def admission_status
+      self.applicant.admission_status_type.name
+    end
+    def enrollment_mode
+      self.applicant.enrollment_mode_type.name
+    end
+   def admission_type
+     [self.applicant.admission.admission_type.name, self.applicant.admission.enrollment_type.name].join('-')
+   end
+    def eheece_code
+      self.applicant.educational_background.first.eheece_code
     end
     def result
-      self.student.educational_backgrounds.first.EHEECE_result
+      self.applicant.educational_background.first.result
     end
-    def maxresult
-      self.student.educational_backgrounds.first.EHEECE_maximum_result
+    def out_of
+      self.applicant.educational_background.first.out_of
     end
     def school
-      self.student.educational_backgrounds.first.school_code
+      self.applicant.educational_background.first.school_code
     end
     def random_string(len)
       chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
@@ -40,5 +50,5 @@ class Person < ActiveRecord::Base
       1.upto(len) {|i| newpass << chars[rand(chars.size-1)]}
       return newpass
     end
-
+     
 end
