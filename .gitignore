@@ -6,3 +6,5 @@ tmp/**/*
 nbproject/
 nbproject/**/*
 **/*.orig
+public/people/photos/**/*
+public/relevant_publications/attachements/**/*
