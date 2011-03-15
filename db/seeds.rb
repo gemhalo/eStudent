@@ -41,3 +41,8 @@ departments = [
 departments.each do |department|
   Department.create!(:name => department, :college_id => 0,:dept_head => "-")
 end
+
+users = ["student","instructor","student_service_staff"]
+users.each do |user|
+  User.create!({:username => user,:password => user, :password_confirmation => user, :role => user, :email => "#{user}@mu.edu.et" } )
+end
