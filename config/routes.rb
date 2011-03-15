@@ -1,6 +1,8 @@
 EStudent::Application.routes.draw do
   get  'users/manageusers'
-  post 'users/manageusers'
+ # post 'users/manageusers'
+  get "users/forgot_password"
+  post "users/forgot_password"
   get "sessions/create"
   get "sessions/destroy"
   root :to => "users#index"
@@ -98,19 +100,20 @@ EStudent::Application.routes.draw do
   get "dormitory_placement/edit"
   post "dormitory_placement/update"
   get "dormitory_placement/destroy"
-   resources :available_programs
+  resources :available_programs
   get "available_programs/index"
- post "available_programs/show"
-get "available_programs/show"
+  post "available_programs/show"
+  get "available_programs/show"
 
   get "department_placement/department_placing_process"
   get "department_placement/show_placement"
+
   get "users/forgot_password"
   resources :users, :user_sessions
      
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
-  get "users/forgot_password"
+  
 
   resources :instructors
 
