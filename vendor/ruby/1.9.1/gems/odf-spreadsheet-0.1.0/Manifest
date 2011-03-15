@@ -1,0 +1,11 @@
+MIT-LICENSE
+Manifest
+README
+Rakefile
+lib/spreadsheet.rb
+lib/spreadsheet/builder.rb
+lib/spreadsheet/builder_xml_builder.rb
+lib/spreadsheet/libxml_xml_builder.rb
+lib/spreadsheet/template_handler.rb
+samples/rich.rb
+samples/simple.rb

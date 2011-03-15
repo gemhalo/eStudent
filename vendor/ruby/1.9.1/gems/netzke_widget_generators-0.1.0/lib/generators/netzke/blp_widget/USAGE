@@ -1,0 +1,8 @@
+Description:
+    Creates a BorderLayoutPanel Netzke widget
+
+Example:
+    rails g blp_widget my_blp Boss
+
+    This will create:
+        lib/netzke/blp/my_blp.rb

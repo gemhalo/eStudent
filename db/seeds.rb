@@ -46,3 +46,14 @@ users = ["student","instructor","student_service_staff"]
 users.each do |user|
   User.create!({:username => user,:password => user, :password_confirmation => user, :role => user, :email => "#{user}@mu.edu.et" } )
 end
+
+admission_types = ["Undergraduate", "Postgraduate", "Mature Age"]
+enrollment_types = ["Regular", "Extension","Summer","Distance"]
+
+admission_types.each do |admission_type|
+   AdmissionType.create!({:name => admission_type})
+end
+enrollment_types.each do |enrollment_type|
+   EnrollmentType.create!({:name => enrollment_type})
+end
+

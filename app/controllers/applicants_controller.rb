@@ -24,7 +24,9 @@ class ApplicantsController < ApplicationController
   # GET /applicants/new
   # GET /applicants/new.xml
   def new
-    @applicant = Applicant.new
+    @person = Person.new
+    @applicant = @person.applicant.build
+    #@applicant = Applicant.new
     @ethnicity   = Ethnicity.all
     @nationality = Nationality.all
     @Admission = Admission.all
@@ -50,13 +52,15 @@ class ApplicantsController < ApplicationController
     @Admissiontype    = AdmissionType.all
     @Enrollementtype  = EnrollementType.all
     @College    = College.all
-     @admission_status_types = AdmissionStatusType.all
-    @applicant = Applicant.new(params[:applicant])
+    @admission_status_types = AdmissionStatusType.all
+    @person = Person.create(params[:person])
+    @applicant = @person.applicant.create(params[:applicant])
+      #Applicant.new(params[:applicant])
 
 
     respond_to do |format|
-      if @applicant.save
-       format.html { redirect_to :controller => 'family_backgrounds', :action => 'new', :applicant_id => @applicant.id }
+      if @applicant.save!
+        format.html { redirect_to :controller => 'family_backgrounds', :action => 'new', :applicant_id => @applicant.id}
 
      else
         format.html { render :action => "new" }

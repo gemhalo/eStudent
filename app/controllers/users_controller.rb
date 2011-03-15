@@ -5,22 +5,24 @@ class UsersController < ApplicationController
 before_filter do
 	redirect_to new_user_session_path unless current_user #authenticated?
 end 
+
  def index
+    @users = User.all
     path = case current_user.role
     when 'instructor'
       instructors_path
     when 'admin'
 	users_manageusers_path
     when 'student'
-       students_path
-    when 'student_service_staff'
+       new_applicant_path
+    when 'ssstaff'
       student_service_staffs_path
      else
     end
 
     redirect_to path     
 
-    #@users = User.all
+#    @users = User.all
 
     #respond_to do |format|
      # format.html # index.html.erb
@@ -33,21 +35,6 @@ end
 
   # GET /users/1
   # GET /users/1.xml
-
-  def forgot_password
-    
-    if request.post?
-        u = User.find_by_email(params[:users][:email])
-        if u and u.send_new_password
-          
-         # redirect_to :contoller => "users",:action => "forgot_password"
-        else
-          
-        flash[:notice] = "user doesn't exist"
-        
-        end
-    end
-  end
 
   def show
     @user = User.find(params[:id])
@@ -118,15 +105,21 @@ end
    #   format.pdf { render :xml => @users }
    # end 
   def forgot_password
-    #user = User.new
-    @user = User.find_by_email(params[:users][:email])
-    logger.info("jjjjjjjjjjj #{@user.email}")
-    
-    @password = @user.random_string(6)
-    Notifications.forgot_password(email, @password )
-    
 
+    if request.post?
+      #@users = User.new
+      u = User.find_by_email(params[:users][:email])
+
+      if u and u.send_password
+        flash[:notice] = "Password Sent Successfuly"
+      else
+        flash[:notice] = "User with this email doesnot exist"
+      end
+    #logger.info("jjjjjjjjjjj #{@user.inspect}")
+    end
   end
+
+       
 
   def destroy
     @user = User.find(params[:id])
@@ -139,3 +132,5 @@ end
   end
 end
 end
+
+

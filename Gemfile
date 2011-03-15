@@ -20,7 +20,7 @@ gem 'nokogiri'
 gem 'netzke-core',  :git  => "http://github.com/skozlov/netzke-core.git"
 gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
 gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.git"
-
+gem 'paperclip'
 #Or clone each package in vendor/gems/netzke then use it from there
 
 #gem 'netzke-core',          :path => File.expand_path('../vendor/gems/netzke/netzke-core', __FILE__)

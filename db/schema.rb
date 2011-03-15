@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110312083405) do
+ActiveRecord::Schema.define(:version => 20110315094055) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -40,9 +40,15 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.datetime "updated_at"
   end
 
+  create_table "admission_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "admissions", :force => true do |t|
     t.integer  "admission_type_id"
-    t.integer  "enrollment_type_id"
+    t.integer  "enrollement_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,6 +77,14 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
 
   create_table "award_types", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "buildings", :force => true do |t|
+    t.string   "building_name"
+    t.integer  "campus_id"
+    t.integer  "floors"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -147,6 +161,15 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.datetime "updated_at"
   end
 
+  create_table "dormitories", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "room_id"
+    t.string   "bed_number"
+    t.date     "academic_year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "educational_backgrounds", :force => true do |t|
     t.string   "institution_type"
     t.string   "institution_name"
@@ -186,6 +209,12 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.string   "employer_pobox"
     t.string   "employer_email"
     t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enrollement_types", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -310,12 +339,14 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.integer  "nationality_id"
     t.string   "marital_status"
     t.string   "mother_full_name"
-    t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "disability"
     t.string   "type_of_disability"
     t.integer  "region_code"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   create_table "programs", :force => true do |t|
@@ -368,6 +399,16 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "student_service_staffs", :force => true do |t|
     t.string   "id_number"

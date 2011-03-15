@@ -22,5 +22,6 @@ EStudent::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  #This is deprecated config.action_controller.session_store = :active_record_store
 end
 
