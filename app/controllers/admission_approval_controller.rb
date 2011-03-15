@@ -4,12 +4,12 @@ class AdmissionApprovalController < ApplicationController
 
         #@current_user=session[:user_name]
         #dept=current_user.person.instructor.department_id
-        @applicants=Applicant.all(:conditions=>["verified=?",false])
+        @applicants=Applicant.all(:conditions=>["admission_status=? and verified=?",false,true])
      end
 
   def show_list
   	#dept=current_user.person.instructor.department_id
-    @applicants=Applicant.all(:conditions=>["verified =?", false])
+    @applicants=Applicant.all(:conditions=>["admission_status =? and verified=?", false, true])
   end
 
   def details
@@ -22,16 +22,16 @@ class AdmissionApprovalController < ApplicationController
       #  ["admissions.major_feild_of_study =#{dept}"])
 
     applicant=Applicant.find(params[:id])
-    applicant.verified=true
+    applicant.admission_status=true
     if applicant.save!
       @applicants=Applicant.all
-      flash[:notice]="successfully approved"
+#      flash[:notice]="successfully approved"
       render "show_list"
     end
   end
   def decline
     a=Applicant.find(params[:id])
-    a.verified=false
+    a.admission_status=false
     a.save!
     @applicants=Applicant.all
     render "show_list"

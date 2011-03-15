@@ -6,8 +6,8 @@
            :columns => [
            :eheece_code, :name, :father_name, :grand_father_name, :nationality__name, :result , :out_of],
            :scope=> {:id.gteq => @person.first.id},
-           :width => 880,
-           :height => 200
+           :width => 650,
+           :height =>350
           %>
 
   <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>

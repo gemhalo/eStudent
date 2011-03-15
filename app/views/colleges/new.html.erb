@@ -5,14 +5,16 @@
         :model => "College",
     :bbar => nil,
     :tbar => [{
-      :menu => [:add.action, :edit.action, :apply.action, :del.action],
-      :text => "Edit inline",
+      :menu => [:add.action, :edit.action, :apply.action, :del.action, :search.action ],
+      :text => "Inline Actions",
       :icon =>"/images/icons/table.png"
     },{
       :menu => [:add_in_form.action, :edit_in_form.action],
-      :text => "Edit in form",
+      :text => "Form Actions",
       :icon => "/images/icons/application_form.png"
-    }],
+    },
+      :menu => [:add_in_form.action],:text => "Place Department"],
+   
     :width => 600,
     :height => 400,
 %>

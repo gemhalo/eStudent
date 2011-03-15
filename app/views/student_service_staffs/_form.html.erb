@@ -1,11 +1,9 @@
 <center><div style="width:400;border:blue;text-align:left">
 <%= form_tag student_service_staffs_selected_path do  %>
-<%#= label_tag :Select_program %>
-<%#= collection_select(:status,:enrollment_type_id,     @applicant,:id,:name,:prompt => false ) %> <br>
 <%= label_tag :Select_admission_type %>
-<%= collection_select(:status,:admission_type_id,     @admission,:id,:name,:prompt => false ) %> <br>
-<%= label_tag :Select_program %>
-<%= collection_select(:status,:name,    @program ,:id,:name,:prompt => false ) %> <br>
+<%= collection_select(:status,:admission_id,     @admission,:id,:name,:prompt => false ) %> <br>
+<%= label_tag :Select_College %>
+<%= collection_select(:status,:college_id,    @college ,:id,:name,:prompt => false ) %> <br>
 <%= label_tag :Verified %> <%= check_box_tag 'verify' %><br>
 <%= submit_tag :Filter_by_department %> 
 <% end %>

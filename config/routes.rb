@@ -1,4 +1,12 @@
 EStudent::Application.routes.draw do
+  get  'users/manageusers'
+  post 'users/manageusers'
+  get "sessions/create"
+  get "sessions/destroy"
+  root :to => "users#index"
+  resources :users, :user_sessions
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
   get  'student_service_staffs/selector'
   post 'student_service_staffs/selector'
   resources :award_types
@@ -18,7 +26,7 @@ EStudent::Application.routes.draw do
   post "moe_data_import/create_account"
   get "moe_data_import/create_account"
   
-  
+  resource :session 
   resources :moe_data_import
 
   resources :admissions
@@ -67,7 +75,6 @@ EStudent::Application.routes.draw do
 
   netzke
   root :to => "welcome#index"
-  root :to => "users#index"
   resources :family_backgrounds
   resources :colleges
   resources :admission_types
@@ -99,9 +106,6 @@ get "available_programs/show"
   get "department_placement/department_placing_process"
   get "department_placement/show_placement"
     
-  resources :users, :user_sessions
-  match 'login' => 'user_sessions#new', :as => :login
-  match 'logout' => 'user_sessions#destroy', :as => :logout
 
 
   resources :instructors
@@ -147,9 +151,6 @@ get "available_programs/show"
   resources :applicants 
   get "moes/import"
   post "moes/import"
-  get "sessions/create"
-
-  get "sessions/destroy"
 
   resources :users do
     collection do
