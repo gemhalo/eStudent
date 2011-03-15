@@ -45,6 +45,10 @@ border:1px;
   background: #efefef;
   color: navy;
 }
+#ext-comp-1089{
+  z-index:-10;
+}
+
 #ext-gen58{
   background: #efefef;
   color: navy;
