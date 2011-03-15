@@ -2,12 +2,11 @@ class UsersController < ApplicationController
   
   # GET /users
   # GET /users.xml
-  def index
-    @users = User.all
 before_filter do
 	redirect_to new_user_session_path unless current_user #authenticated?
 end 
  def index
+    @users = User.all
     path = case current_user.role
     when 'instructor'
       instructors_path
@@ -22,7 +21,7 @@ end
 
     redirect_to path     
 
-    #@users = User.all
+#    @users = User.all
 
     #respond_to do |format|
      # format.html # index.html.erb
