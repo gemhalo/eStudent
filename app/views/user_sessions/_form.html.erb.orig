@@ -23,7 +23,15 @@
   </div>
   <div class="actions">
     <%= f.submit "Login" %>
+<<<<<<< HEAD
+  </div> <br>
+<%= link_to "Register", new_user_path, :method => :get %> |
+          <%= link_to "Forgot Password", login_url, :method => :get %>
+
+=======
+    <%= link_to "Forgot Password", :controller => "users", :action => "forgot_password"%>
   </div>
+>>>>>>> bc583c58de2c3ef488ec3cf63c230a8aa6cd3e0b
 </div>
   
 <% end %>
