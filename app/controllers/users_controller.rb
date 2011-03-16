@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 #end
 
  def index
+   
     @users = User.all
     path = case current_user.role
     when 'instructor'

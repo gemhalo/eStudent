@@ -36,7 +36,12 @@
   <div class="field">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %>
-    </div>
+  </div>
+  <div id="captcha" style="300">
+    <%= f.label :humanizer_answer, @user.humanizer_question %><hr/>
+    <%= f.text_field :humanizer_answer %>
+    <%= f.hidden_field :humanizer_question_id %>  
+  </div>
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>
