@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110315094055) do
+ActiveRecord::Schema.define(:version => 20110315111345) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20110315094055) do
 
   create_table "admissions", :force => true do |t|
     t.integer  "admission_type_id"
-    t.integer  "enrollement_type_id"
+    t.integer  "enrollment_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20110315094055) do
     t.string   "major_field_of_study"
     t.string   "minor_field_of_study"
     t.string   "academic_year"
-    t.boolean  "admission_status"
+    t.boolean  "admission_status_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "verified"
@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(:version => 20110315094055) do
     t.integer  "student_id"
     t.integer  "room_id"
     t.string   "bed_number"
-    t.date     "academic_year"
+    t.integer  "academic_calendar_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -209,12 +209,6 @@ ActiveRecord::Schema.define(:version => 20110315094055) do
     t.string   "employer_pobox"
     t.string   "employer_email"
     t.integer  "applicant_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "enrollement_types", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

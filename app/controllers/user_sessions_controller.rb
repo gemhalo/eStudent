@@ -16,8 +16,9 @@ class UserSessionsController < ApplicationController
     #    student_service_staffs_index_path
      # else
    # end
-#	redirect_to :controller =>"instructor"    
- end  
+#	redirect_to :controller =>"instructor"
+   redirect_to new_user_session_path
+ end
   def new
     @user_session = UserSession.new
 
@@ -56,3 +57,4 @@ class UserSessionsController < ApplicationController
     end
   end
 end
+

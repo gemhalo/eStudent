@@ -4,7 +4,7 @@ class Person < ActiveRecord::Base
   has_one :student_service_staff
   has_one :student
   has_one :instructor
-  #belongs_to :nationality
+  belongs_to :nationality
   has_many :educational_backgrounds
   #validates :name, :uniqueness => {:scope => [:name, :father_name, :grand_father_name]}
   #validates :name , :presence => true
@@ -18,10 +18,10 @@ class Person < ActiveRecord::Base
     :path => ":rails_root/public/:class/:attachment/:id/:style_:basename.:extension"
 
 
- validates_attachment_presence :photo
- validates_attachment_content_type :photo, :content_type => 'image/jpeg'
+ #validates_attachment_presence :photo
+ #validates_attachment_content_type :photo, :content_type => 'image/jpeg'
  #validates_presence_of  :name, :father_name, :grand_father_name, :mother_full_name, :gender,:date_of_birth, :place_of_birth, :ethnicity, :nationality_id, :marital_status, :disability, :type_of_disability, :region_code
-  
+
     def full_name
         [name,father_name,grand_father_name].join(' ')
     end
@@ -39,16 +39,16 @@ class Person < ActiveRecord::Base
      [self.applicant.admission.admission_type.name, self.applicant.admission.enrollment_type.name].join('-')
    end
     def eheece_code
-      self.applicant.educational_background.first.eheece_code
+      self.applicant.educational_backgrounds.first.eheece_code
     end
     def result
-      self.applicant.educational_background.first.result
+      self.applicant.educational_backgrounds.first.result
     end
     def out_of
-      self.applicant.educational_background.first.out_of
+      self.applicant.educational_backgrounds.first.out_of
     end
     def school
-      self.applicant.educational_background.first.school_code
+      self.applicant.educational_backgrounds.first.school_code
     end
     def random_string(len)
       chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
@@ -65,4 +65,6 @@ class Person < ActiveRecord::Base
       def email
         (User.where('person_id = ?', self.id)).first.email
       end
+
 end
+

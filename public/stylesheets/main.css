@@ -7,6 +7,12 @@
 }
 
 #ext-comp-1046,
+#ext-comp-1088{
+  z-index:-10;
+}
+#ext-gen3i{
+  z-index:10;
+}
 #ext-comp-1055
 {
 	z-index: -20;

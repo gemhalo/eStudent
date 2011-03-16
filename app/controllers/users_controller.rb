@@ -1,10 +1,11 @@
+
 class UsersController < ApplicationController
-  
+
   # GET /users
   # GET /users.xml
-before_filter do
-	redirect_to new_user_session_path unless current_user #authenticated?
-end 
+#before_filter do
+#	redirect_to new_user_session_path unless current_user #authenticated?
+#end
 
  def index
     @users = User.all
@@ -15,12 +16,12 @@ end
 	users_manageusers_path
     when 'student'
        new_applicant_path
-    when 'ssstaff'
+  when 'student_service_staff'
       student_service_staffs_path
      else
     end
 
-    redirect_to path     
+    redirect_to path
 
 #    @users = User.all
 
@@ -30,7 +31,7 @@ end
    #   format.pdf { render :xml => @users }
     #end
   end
-  def assign_roles  
+  def assign_roles
   end
 
   # GET /users/1
@@ -65,7 +66,7 @@ end
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'Registration successfull') }
@@ -103,7 +104,7 @@ end
      # format.html # index.html.erb
     #  format.xml  { render :xml => @users }
    #   format.pdf { render :xml => @users }
-   # end 
+   # end
   def forgot_password
 
     if request.post?
@@ -119,7 +120,7 @@ end
     end
   end
 
-       
+
 
   def destroy
     @user = User.find(params[:id])
@@ -132,5 +133,4 @@ end
   end
 end
 end
-
 

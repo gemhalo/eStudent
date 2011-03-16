@@ -41,8 +41,9 @@ EStudent::Application.routes.draw do
   get "department_head/show_list"
 
   get "department_placement/department_placing_process"
-  post "dormitory_placement/dorm_placing_process"
 
+  get "dormitory_placement/dorm_placing_process"
+  post "dormitory_placement/dorm_placing_process"
   get "department_placement/show_placement"
   get "dormitory_placement/destroy"
   get "dormitory_placement/edit"
@@ -122,7 +123,7 @@ EStudent::Application.routes.draw do
   resources :rooms
   #resources :sessions
   resources :student_service_staffs
- 
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -181,3 +182,4 @@ EStudent::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+

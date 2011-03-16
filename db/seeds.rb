@@ -24,18 +24,18 @@ colleges.each do |college|
   College.create!(:name => college, :campus_id => 0 )
 end
 
-#Department 
+#Department
 departments = [
   "Biology",
   "Chemistry",
-  "Earth Sciences", 
+  "Earth Sciences",
   "Physics",
   "Architecture and Urban Planning",
   "Civil Engineering",
   "Computing",
   "Mechanical Engineering",
   "Geography and Environmental Sciences",
-  "Electrical and Computer Engineering", 
+  "Electrical and Computer Engineering",
   "Industrial Engineering"
 ]
 departments.each do |department|
@@ -56,4 +56,6 @@ end
 enrollment_types.each do |enrollment_type|
    EnrollmentType.create!({:name => enrollment_type})
 end
+
+#nationalities
 
