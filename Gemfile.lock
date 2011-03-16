@@ -78,6 +78,7 @@ GEM
       json (~> 1.4.6)
     haml (3.0.25)
     hashie (1.0.0)
+    humanizer (2.4.3)
     i18n (0.5.0)
     json (1.4.6)
     mail (2.2.15)
@@ -159,6 +160,7 @@ DEPENDENCIES
   fastercsv
   haml
   hashie
+  humanizer
   mysql2
   netzke-basepack!
   netzke-core!
