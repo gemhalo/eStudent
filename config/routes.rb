@@ -101,12 +101,9 @@ EStudent::Application.routes.draw do
   resources :educational_backgrounds
   resources :emergency_contacts
   resources :employment_informations
-  resources :enrollement_types
+  #resources :enrollement_types   
   resources :enrollment_mode_types
   resources :enrollment_types
-  #Remove this later
-  resources :enrollement_types
-  #resource :session
   resources :ethnicities
   resources :events
   resources :family_backgrounds

@@ -10,9 +10,9 @@ class StudentServiceStaffsController < ApplicationController
     @college = College.all
 
 
- #   @enrollement_types = EnrollmentType.all
+ #   @enrollment_types = EnrollmentType.all
     @verifieds=params[:verify]
-#    if request[:method] =="GET" 
+#    if request[:method] =="GET"
       @student_service_staffs = StudentServiceStaff.all
       # Apply filters to display students only that this user can approve
   #    @applicants = Applicant.all
@@ -20,7 +20,7 @@ class StudentServiceStaffsController < ApplicationController
         format.html # index.html.erb
         format.xml  { render :xml => @student_service_staffs }
       end
- #   else 
+ #   else
   #    @applicants = Applicant.where("verified =#{params[:verified]}")
   #  end
   end
@@ -114,3 +114,4 @@ class StudentServiceStaffsController < ApplicationController
 
 
 end
+

@@ -5,11 +5,8 @@ describe "admissions/edit.html.erb" do
     @admission = assign(:admission, stub_model(Admission,
       :admission_type_id => 1,
       :enrollment_type_id => 1,
-<<<<<<< HEAD
+
       :enrollment_mode_type_id => 1
-=======
-   
->>>>>>> 727eafbbd9cc2c272fd7d1920cce0ea4996c1b35
     ))
   end
 
