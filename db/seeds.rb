@@ -74,6 +74,6 @@ colleges = [
 ]
 
 colleges.each do | college |
-  college
+
 end
 
