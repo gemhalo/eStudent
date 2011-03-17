@@ -96,27 +96,19 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.xml
-  def manageusers
 
-    @users = User.all
-
-    #respond_to do |format|
-     # format.html # index.html.erb
-    #  format.xml  { render :xml => @users }
-   #   format.pdf { render :xml => @users }
-   # end
   def forgot_password
 
     if request.post?
       #@users = User.new
       u = User.find_by_email(params[:users][:email])
-
+      logger.info("jjjjjjjjjjj #{u.inspect}")
       if u and u.send_password
         flash[:notice] = "Password Sent Successfuly"
       else
         flash[:notice] = "User with this email doesnot exist"
       end
-    #logger.info("jjjjjjjjjjj #{@user.inspect}")
+    
     end
   end
 
@@ -131,6 +123,5 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
-end
 end
 
