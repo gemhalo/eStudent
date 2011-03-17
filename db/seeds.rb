@@ -16,7 +16,7 @@ Admission.delete_all
 User.delete_all
 
 #Campuses
-campuses = ["Adi-Haqi","Arid(Endayesus)", "Ayder"]
+campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
 
 campuses.each do |campus|
   Campus.create!( { :name => campus } )
@@ -64,16 +64,39 @@ end
 
 #College
 colleges = [
-  { :name => "Natural and Computational Science", :campus => "Endayesus" } ,
-  { :name => "Engineering" , :campus => "Endayesus" } ,
-  { :name => "Social Sciences & Languages", :campus => "Endayesus"} ,
-  { :name => "Ethiopian Institute of Technology", :campus => "Endayesus" } ,
-  { :name => "Business and Economics" , :campus => "Adi Haqi" } ,
-  { :name => "Law" , :campus => "Adi Haqi" }
+  { :name => "Natural and Computational Science", :campus => "Arid(Endayesus)" } ,
+  { :name => "Engineering" , :campus => "Arid(Endayesus)" } ,
+  { :name => "Social Sciences & Languages", :campus => "Arid(Endayesus)"} ,
+  { :name => "Ethiopian Institute of Technology", :campus => "Arid(Endayesus)" } ,
+  { :name => "Business and Economics" , :campus => "Adi-Haqi" } ,
+  { :name => "Law" , :campus => "Adi-Haqi" },
+  { :name => "Medicine" , :campus => "Ayder" }
 
 ]
 
 colleges.each do | college |
+  College.create!({ :name => college[:name], :campus_id => Campus.find_by_name(college[:campus]),
+          :instructor_id => 0
+  })
+end
 
+#Department
+departments = [
+  { :name => "Biology", :college => "Natural and Computational Science"},
+  { :name => "Chemistry", :college => "Natural and Computational Science"},
+  { :name => "Earth Sciencees", :college => "Natural and Computational Science" },
+  { :name => "Physics", :college => "Natural and Computational Science" },
+  { :name => "Architecture and Urban Planning", :college => "Natural and Computational Science" },
+  { :name => "Civil Engineering", :college => "Natural and Computational Science" },
+  { :name => "Computing", :college => "Natural and Computational Science" },
+  { :name => "Mechanical Engineering", :college => "Natural and Computational Science" },
+  { :name => "Geography and Environmental Sciences", :college => "Natural and Computational Science" },
+  { :name => "Electrical and Computer Engineering", :college => "Natural and Computational Science" },
+  { :name => "Industrial Engineering", :college => "Natural and Computational Science" }
+]
+departments.each do |department|
+  Department.create!({ :name => department[:name],
+                     :college_id => CollCollege.delete_allege.find_by_name(department[:college]).id,
+                     :dept_head => "-" } )
 end
 
