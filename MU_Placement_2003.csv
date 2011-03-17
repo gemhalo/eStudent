@@ -1,5 +1,4 @@
 Regno,Firstname,Fathername,Grandfathername,nationality,Sex,disability,schoolcode,region,PlacementField,Result,out of,Admission type,Enrollment type,Enrollment mode,Admission_status
-801716,ABADI,ADHANOM,KIDANU,America,M,0,1010102,1,Engineer,376,700,Undergraduate,Regular,Full ,Admitted
+801716,ABADI,ADHANOM,KIDANU,America,M,0,1010102,1,Engineer,376,700,Undergraduate,Regular,Full Time ,Admitted
 801717,ABADI,GEBRE,GIDEY,Germen,M,0,1010102,1,Engineering,402,700,Undergraduate,Regular,Full Time,Admitted
 882062,ABDU,SHIFAW,BESHIR,America,M,0,11030101,11,Agriculture,350,700,Undergraduate,Regular,Full Time,Rejected
-
