@@ -96,7 +96,7 @@ departments = [
 ]
 departments.each do |department|
   Department.create!({ :name => department[:name],
-                     :college_id => CollCollege.delete_allege.find_by_name(department[:college]).id,
+                     :college_id => College.find_by_name(department[:college]).id,
                      :dept_head => "-" } )
 end
 
