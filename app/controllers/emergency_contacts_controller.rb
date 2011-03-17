@@ -52,12 +52,13 @@ class EmergencyContactsController < ApplicationController
 
       if @emergency_contact.save
         logger.info("---------session----------#{session["@applicantid"]}")
-        @emergency_contacts = EmergencyContact.find_all_by_applicant_id(@applicantid)
+        
           format.html { redirect_to :controller => 'emergency_contacts', :action => 'new', :applicant_id => @emergency_contact.applicant_id }
 
     
       else
-        format.html { render :action => "new" }
+          render :action => "new", :applicant_id => 27 
+        #format.html { render :action => "new" }
         format.xml  { render :xml => @emergency_contact.errors, :status => :unprocessable_entity }
       end
     end

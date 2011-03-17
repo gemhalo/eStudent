@@ -1,6 +1,6 @@
 <fieldset>
 <fieldset><legend>Financial Support</legend>
-<%= form_for(@financial_support) do |f| %>
+<%= form_for (@financial_support), :html => { :multipart => true } do |f| %>
   <% if @financial_support.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@financial_support.errors.count, "error") %> prohibited this financial_support from being saved:</h2>
@@ -16,7 +16,7 @@
 <table>
   <tr><td><%= f.label :supporter_type %></td><td><%= f.select :supporter_type,["Non-Governmental org.","Governmental","Self-Support"],:prompt=>"Select Support Type" %></td><td><%= f.label :supporter_telephone %></td><td><%= f.text_field :supporter_telephone %></td></tr>
   <tr><td> <%= f.label :supporter_name %></td><td> <%= f.text_field :supporter_name %></td><td><%= f.label :supporter_pobox %></td><td><%= f.text_field :supporter_pobox %></td></tr>
-  <tr><td><%= f.label :email %></td><td><%= f.text_field :email %></td><td><%= f.label :attachment %></td><td><%= f.file_field :fs, :index => nil %></td></tr>
+  <tr><td><%= f.label :email %></td><td><%= f.text_field :email %></td><td><%= f.label :attachment %></td><td><%= f.file_field :attachment%></td></tr>
 </table>
   <div class="actions">
     <%= f.submit %>
@@ -27,7 +27,8 @@
  <%= netzke :financial_supports,
   :model => 'FinancialSupport',
   :class_name => 'Basepack::GridPanel',
-  :scope => ["applicant_id = ? ", @applicantid]
+  :scope => ["applicant_id = ? ", @applicantid],
+  :height => 200
 %>
 </fieldset>
 </fieldset>

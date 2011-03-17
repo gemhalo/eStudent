@@ -1,5 +1,5 @@
 <h1>New admission</h1>
-<%= netzke :admission,
+<%#= netzke :admission,
         :class_name => "Basepack::GridPanel",
         :model => "Admission",
     #:bbar => nil,
@@ -16,6 +16,6 @@
     :height => 400,
 %>
 
-<%#= render 'form' %>
+<%= render 'form' %>
 
 <%= link_to 'Back', admissions_path %>

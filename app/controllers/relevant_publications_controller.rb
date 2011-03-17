@@ -44,17 +44,17 @@ class RelevantPublicationsController < ApplicationController
   # POST /relevant_publications
   # POST /relevant_publications.xml
   def create
-    
- flash["@applicantid"] = params[:applicant_id]
+
      @relevant_publication = RelevantPublication.new(params[:relevant_publication])
+
       respond_to do |format|
 
       if @relevant_publication.save
-        logger.info("---------session----------#{session["@applicantid"]}")
-        @relevant_publications = RelevantPublication.find_all_by_applicant_id(@applicantid)
-         format.html { render :action => "new" }
+     
+         format.html { redirect_to :controller => 'relevant_publications', :action => 'new', :applicant_id => @relevant_publication.applicant_id }
       else
-        format.html { render :action => "new" }
+        
+         format.html { redirect_to :controller => 'relevant_publications', :action => 'new', :applicant_id => @relevant_publication.applicant_id }
         format.xml  { render :xml => @relevant_publication.errors, :status => :unprocessable_entity }
       end
     end
