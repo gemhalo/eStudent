@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   def send_password
     new_pass = User.random_string(6)
     self.password = self.password_confirmation = new_pass
-    
+
     self.save
 
     Notification.deliver_forgot_password(self.email,self.username,  new_pass)
@@ -26,6 +26,6 @@ class User < ActiveRecord::Base
     return newpass
   end
 
-     
+
 end
 

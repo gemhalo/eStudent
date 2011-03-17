@@ -1,12 +1,12 @@
 <div style="margin:30px">
 <center>
 <h1>Department Placement and Quota Setting</h1>
-          
+
 <%= netzke :Department_Quotes,
     :class_name => "Basepack::GridPanel",
     :model => 'DepartmentQuota',
     #:columns => [
-#	:department_id, 
+#	:department_id,
 #	{:name => :total_quota, :label => "Total Quota"},
 #	:female_percentage
 #	]
@@ -27,37 +27,7 @@
     :height => 400,
 
 %>
-<!--
-<table>
-  <tr>
-    <th>Department</th>
-    <th>Total quota</th>
-    <th>Female percentage</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% #@department_quotas.each do |department_quota| %>
-  <tr>
-    <td><%#= department_quota.department_id %></td>
-    <td><%#= department_quota.total_quota %></td>
-    <td><%#= department_quota.female_percentage %></td>
-    <td><%#= link_to 'Show', department_quota %></td>
-    <td><%#= link_to 'Edit', edit_department_quota_path(department_quota) %></td>
-    <td><%#= link_to 'Destroy', department_quota, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% #end %>
-</table>
-
-<br />
-
-<%#= link_to 'Add Department quota', new_department_quota_path %>
-
-<div>
-  <b><%#= link_to 'Place Students', :controller=>"department_placement", :action=>'department_placing_process' %></b>
-</div>
--->
 <br>
 <div>
   <b><%= link_to 'Place Students', :controller=>"department_placement", :action=>'department_placing_process' %></b>
