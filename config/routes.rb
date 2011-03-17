@@ -76,7 +76,7 @@ EStudent::Application.routes.draw do
 
   get "users/forgot_password"
   post "users/forgot_password"
-
+  #get "users/edit"
   get  'users/manageusers'
   post 'users/manageusers'
 

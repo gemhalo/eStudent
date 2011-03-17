@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  include Humanizer
-  require_human_on :create
+  #include Humanizer
+  #require_human_on :create #,  :except => :username => "admin"
   belongs_to :person
   acts_as_authentic
 
