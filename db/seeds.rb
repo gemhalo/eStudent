@@ -7,55 +7,13 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 #Campuses
-campuses = ["Adi-Haqi","Arid(Endayesus)", "Ayder"]
-campuses.each do |campus|
-  Campus.create!(:name => campus)
-end
-
-#College
-colleges = [
-  "Natural and Computational Science",
-  "Engineering",
-  "Social Sciences & Languages",
-  "Ethiopian Institute of Technology"
+campuses =[
+  {:name => "Adihaqi",
+   :colleges => [
+      { :name => "",
+        :departments => []
+      }
+   ]
+  }
 ]
-
-colleges.each do |college|
-  College.create!(:name => college, :campus_id => 0 )
-end
-
-#Department
-departments = [
-  "Biology",
-  "Chemistry",
-  "Earth Sciences",
-  "Physics",
-  "Architecture and Urban Planning",
-  "Civil Engineering",
-  "Computing",
-  "Mechanical Engineering",
-  "Geography and Environmental Sciences",
-  "Electrical and Computer Engineering",
-  "Industrial Engineering"
-]
-departments.each do |department|
-  Department.create!(:name => department, :college_id => 0,:dept_head => "-")
-end
-
-users = ["student","instructor","student_service_staff"]
-users.each do |user|
-  User.create!({:username => user,:password => user, :password_confirmation => user, :role => user, :email => "#{user}@mu.edu.et" } )
-end
-
-admission_types = ["Undergraduate", "Postgraduate", "Mature Age"]
-enrollment_types = ["Regular", "Extension","Summer","Distance"]
-
-admission_types.each do |admission_type|
-   AdmissionType.create!({:name => admission_type})
-end
-enrollment_types.each do |enrollment_type|
-   EnrollmentType.create!({:name => enrollment_type})
-end
-
-#nationalities
 
