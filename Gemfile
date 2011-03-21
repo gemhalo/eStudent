@@ -1,26 +1,34 @@
 source 'http://rubygems.org'
 #Gems required for all environments
 gem 'rails', '3.0.4'
-gem 'authlogic'
-gem 'cancan'
 #We will enable this when we want to work with  Bundle edge Rails instead: 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+# Security
+gem 'authlogic'
+gem 'cancan'
+gem 'humanizer'
+
+# Spread sheet types
 gem 'fastercsv'
+
+#PDF
+
 gem  'will_paginate', '~>3.0.pre2'
 #To generate model diagrams
 gem  'railroad'
-gem 'roo', '1.9.3'
-gem 'rubyzip','0.9.4'
+#gem 'roo', '1.9.3'
+#gem 'rubyzip','0.9.4'
 gem 'nokogiri'
-gem 'spreadsheet'
-gem 'odf-spreadsheet'
-gem 'google-spreadsheet-ruby'
+#gem 'spreadsheet'
+#gem 'odf-spreadsheet'
+#gem 'google-spreadsheet-ruby'
 # User experience using ExtJS javascript framework and netzke rails-ExtJS bridge
 # Get it from git repo and install it
 gem 'netzke-core',  :git  => "http://github.com/skozlov/netzke-core.git"
 gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
 gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.git"
-
+gem 'paperclip'
 #Or clone each package in vendor/gems/netzke then use it from there
 
 #gem 'netzke-core',          :path => File.expand_path('../vendor/gems/netzke/netzke-core', __FILE__)

@@ -1,15 +1,4 @@
-Regno,Firstname,Fathername,Grandfathername,nationality,Sex,disability,schoolcode,region,PlacementField,Result,out of,Admission type,Enrollment type,Enrollment mode
-801716,ABADI,ADHANOM,KIDANU,America,M,0,1010102,1,Engineering,376,700,Undergraduate,Regular,Full time
-801717,ABADI,GEBRE,GIDEY,Germen,M,0,1010102,1,Engineering,402,700,Undergraduate,Regular,Full time
-808660,ABADI,ALEMU,TEBEJE,Ethiopia,M,0,1040102,1,Engineering,396,700,Undergraduate,Regular,Full time
-811266,ABADI,WELEGEBRIEL,TEFERI,Ethiopia,M,0,1060104,1,Engineering,365,700,Undergraduate,Regular,Full time
-803654,ABADIT,GEBREKIDAN,TEWELU,Ethiopia,F,0,1020104,1,Engineering,362,700,Undergraduate,Regular,Full time
-870745,ABANEZER,MEKONEN,ALEMU,Ethiopia,M,0,4170102,4,Engineering,347,700,Undergraduate,Regular,Full time
-847083,ABAY,SEIFU,MAMMO,Ethiopia,M,0,4010113,4,Engineering,435,700,Undergraduate,Regular,Full time
-832616,ABAYE,AYALEW,ZELEKE,Ethiopia,M,0,3060107,3,Engineering,349,700,Undergraduate,Regular,Full time
-923966,ABDELA,NEJIB,ABDELA,America,M,0,14100201,14,Engineering,374,700,Undergraduate,Regular,Full time
-878744,ABDI,ABDULAHI,AHMED,Ethiopia,M,0,5030102,5,Engineering,361,700,Undergraduate,Regular,Full time
-878778,ABDIKARIM,ABDIRAHMAN,ABDILAHI,Ethiopia,M,0,5030102,5,Engineering,352,700,Undergraduate,Regular,Full time
-882062,ABDU,SHIFAW,BESHIR,Ethiopia,M,0,11030101,11,Engineering,350,700,Undergraduate,Regular,Full time
-878778,ABDIKARIM,ABDIRAHMAN,ABDILAHI,Germen,M,0,5030102,5,Engineering,352,700,Undergraduate,Regular,Full time
-882062,ABDU,SHIFAW,BESHIR,America,M,0,11030101,11,Engineering,350,700,Undergraduate,Regular,Full time
+Regno,Firstname,Fathername,Grandfathername,nationality,Sex,disability,schoolcode,region,PlacementField,Result,out of,Admission type,Enrollment type,Enrollment mode,Admission_status
+801716,ABADI,ADHANOM,KIDANU,America,M,0,1010102,1,Engineer,376,700,Undergraduate,Regular,Full Time ,Admitted
+801717,ABADI,GEBRE,GIDEY,Germen,M,0,1010102,1,Engineering,402,700,Undergraduate,Regular,Full Time,Admitted
+882062,ABDU,SHIFAW,BESHIR,America,M,0,11030101,11,Agriculture,350,700,Undergraduate,Regular,Full Time,Rejected

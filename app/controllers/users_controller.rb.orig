@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
   # GET /users
   # GET /users.xml
 #before_filter do
@@ -25,7 +26,6 @@ class UsersController < ApplicationController
     end
 
     redirect_to path
-  
 
 #    @users = User.all
 #
@@ -35,6 +35,25 @@ class UsersController < ApplicationController
    # end
   end
   
+=======
+
+  def index
+    path = case current_user.role
+      when 'instructor'
+        instructors_path
+      when 'admin'
+        users_manageusers_path
+      when 'student'
+        new_applicant_path
+      when 'student_service_staff'
+        student_service_staffs_path
+      else
+    end
+
+    redirect_to path
+  end
+
+>>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
   def assign_roles
 
   end
@@ -102,11 +121,14 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.xml
 
+<<<<<<< HEAD
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
    #   format.pdf { render :xml => @users }
     end
+=======
+>>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
   def forgot_password
 
     if request.post?
@@ -122,8 +144,11 @@ class UsersController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
   def destroy
     @user = User.find(params[:id])
     @user.destroy

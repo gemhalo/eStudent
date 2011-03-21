@@ -68,11 +68,8 @@ ActiveRecord::Schema.define(:version => 20110315111345) do
     t.string   "major_field_of_study"
     t.string   "minor_field_of_study"
     t.string   "academic_year"
-<<<<<<< HEAD
     t.boolean  "admission_status"
-=======
     t.integer  "admission_status_type_id"
->>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "enrollment_mode_type_id"
