@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 #Gems required for all environments
 gem 'rails', '3.0.4'
-#We will enable this when we want to work with  Bundle edge Rails instead: 
+#We will enable this when we want to work with  Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # Security
@@ -30,9 +30,14 @@ gem 'paperclip'
 #gem 'google-spreadsheet-ruby'
 # User experience using ExtJS javascript framework and netzke rails-ExtJS bridge
 # Get it from git repo and install it
-gem 'netzke-core', '0.6.6', :git  => "http://github.com/skozlov/netzke-core.git"
-gem 'netzke-basepack', '0.6.4', :git => "http://github.com/skozlov/netzke-basepack.git"
-gem 'netzke-persistence', '0.1.1', :git => "http://github.com/skozlov/netzke-persistence.git"
+#gem 'netzke-core', '0.6.6', :git  => "http://github.com/skozlov/netzke-core.git"
+#gem 'netzke-basepack', '0.6.5', :git => "http://github.com/skozlov/netzke-basepack.git"
+#gem 'netzke-persistence', '0.1.1', :git => "http://github.com/skozlov/netzke-persistence.git"
+
+gem 'netzke-core', :git  => "http://github.com/skozlov/netzke-core.git", :tag => 'v0.6.6'
+gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git", :tag => 'v0.6.4'
+gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.git"
+
 
 #Or simply use the installed gem
 #gem 'netzke-core', '0.6.5'
