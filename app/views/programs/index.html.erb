@@ -1,34 +1,27 @@
+<%
+ # netzke calls the Netzke module
+ # campuses is the variable passed by the controller
+ # model is the activeRecord model to use
+ # class_name is the UI renderer
+%>
+<center>
+<%= netzke :programs,
+    :model => "Program",
+    :class_name => "Basepack::GridPanel",
+    
 
-<h1>Listing programs</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Department</th>
-    <th>Admission</th>
-    <th>Duration</th>
-    <th>Total credit hour</th>
-    <th>Award type</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @programs.each do |program| %>
-  <tr>
-    <td><%= program.name %></td>
-    <td><%= program.department_id %></td>
-    <td><%= program.admission_id %></td>
-    <td><%= program.duration %></td>
-    <td><%= program.total_credit_hour %></td>
-    <td><%= program.award_type_id %></td>
-    <td><%= link_to 'Show', program %></td>
-    <td><%= link_to 'Edit', edit_program_path(program) %></td>
-    <td><%= link_to 'Destroy', program, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Program', new_program_path %>
+    #Create menu
+    :bbar => nil,
+    :tbar => [{
+      :menu => [:add.action, :edit.action, :apply.action, :del.action],
+      :text => "Edit inline",
+      :icon =>"/images/icons/table.png"
+    },{
+      :menu => [:add_in_form.action, :edit_in_form.action],
+      :text => "Edit in form",
+      :icon => "/images/icons/application_form.png"
+    }],
+    
+    :height => 300
+%>
+</center>

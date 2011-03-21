@@ -1,5 +1,39 @@
-<h1>New how_to</h1>
+<div style="margin:5px">
+<%
+ # netzke calls the Netzke module
+ # campuses is the variable passed by the controller
+ # model is the activeRecord model to use
+ # class_name is the UI renderer
+%>
+<center>
+<%= netzke :how_tos,
+    :model => "HowTo",
+    :class_name => "Basepack::GridPanel",
+    :border => true,
+    :header => false,
+    :columns => [
+      { :name => :title , :label => "Title"},
+      { :name => :detail, :label => "Detail"}
+    ],
+    :view_config => {
+          :force_fit => true # force the columns to occupy all the available width
+     },
 
-<%= render 'form' %>
 
-<%= link_to 'Back', how_tos_path %>
+    #Create menu
+    :bbar => nil,
+    :tbar => [{
+      :menu => [:add.action, :edit.action, :apply.action, :del.action],
+      :text => "Edit inline",
+      :icon =>"/images/icons/table.png"
+    },{
+      :menu => [:add_in_form.action, :edit_in_form.action],
+      :text => "Edit in form",
+      :icon => "/images/icons/application_form.png"
+    }],
+    :width => 600,
+    :height => 300
+%>
+</center>
+</div>
+

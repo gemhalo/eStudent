@@ -1,4 +1,5 @@
 class CampusesController < ApplicationController
+layout "admin"
   # GET /campuses
   # GET /campuses.xml
   def index

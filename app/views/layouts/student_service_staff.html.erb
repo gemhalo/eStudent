@@ -11,39 +11,32 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-   <!-- Main Content -->
-   <div id='north'>
-        <div class='left'>
-            <img src='/images/mu_icon_64.png'/>
-	    <h4>  Welcome to eStudent </h4>
-        </div>
-    </div>
+   <!-- Header Content -->
+
+     <%= render :partial =>'/shared/header' %>
+
+     <%= render :partial =>'/shared/toplink' %>
+
     <!-- Basic setup menu-->
     <div id="basic_setup">
-            <%= render :partial =>'/shared/ssstaff/ssscoursemenu' %><br/>
+            <%= render :partial =>'/shared/ssstaff/menuitems' %><br/>
     </div>
     <div id="west" class="x-hide-display">
-        <div>
-            <%= render :partial =>'/shared/ssstaff/sssacademicsmenu' %><br/>
-        </div>    
+            <%= render :partial =>'/shared/ssstaff/settingitems' %><br/>
+        </div>
 
         <div id='student_menu'>
-            <%= render :partial =>'/shared/ssstaff/sssservicesmenu' %><br/>
+            <%= render :partial =>'/shared/ssstaff/settingitems' %><br/>
         </div>
-
-         <div id='student_menu'>
-            <%= render :partial =>'/shared/ssstaff/sssservicesmenu' %><br/>
-        </div>
-
      </div>
-    <div id="center2" class="x-hide-display">
+    <div id="center2" class="x-hide-display" >
         <%= yield %>
     </div>
-    
-    <div id="notification_area">  
-     <h1> East is her</h1>
+
+    <div id="notification_area">
+    	 <%= render :partial =>'/shared/ssstaff/notification' %>
     </div>
- 
+
    <div id="south" class="x-hide-display">
         <center><small>Mekelle Univerisity Gemhalo! project</small></center>
     </div>

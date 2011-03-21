@@ -1,25 +1,16 @@
-<h1>Listing how_tos</h1>
+<br/>
+<div>
+ <h1 align="center"> How to apply</h1>
+<hr/>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Detail</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @how_tos.each do |how_to| %>
-  <tr>
-    <td><%= how_to.title %></td>
-    <td><%= how_to.detail %></td>
-    <td><%= link_to 'Show', how_to %></td>
-    <td><%= link_to 'Edit', edit_how_to_path(how_to) %></td>
-    <td><%= link_to 'Destroy', how_to, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<%
+@count=0;
+@how_tos.each do |how_to| %>
+
+<h2><%=(@count=@count+1) %> : <%=how_to.title %></h2>
+<p><%=how_to.detail %></p>
+<hr/>
 <% end %>
-</table>
+</div>
 
-<br />
-
-<%= link_to 'New How to', new_how_to_path %>

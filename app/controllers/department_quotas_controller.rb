@@ -1,9 +1,10 @@
 class DepartmentQuotasController < ApplicationController
+  layout "instructor"
   # GET /department_quotas
   # GET /department_quotas.xml
   def index
     @department_quotas = DepartmentQuota.all
-
+    @applicants=Applicant.not_approved
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @department_quotas }
@@ -25,6 +26,8 @@ class DepartmentQuotasController < ApplicationController
   # GET /department_quotas/new.xml
   def new
     @department_quota = DepartmentQuota.new
+    @applicants=Applicant.not_approved
+
 
     respond_to do |format|
       format.html # new.html.erb

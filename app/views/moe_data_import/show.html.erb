@@ -1,0 +1,25 @@
+<input type="submit" class="noPrint" value="Print All" onClick="window.print();"></input>
+<style> @media print{
+    .noPrint{
+         display: none;
+    }
+  }
+</style>
+<% @user.each do |u| %>
+<center><%= link_to image_tag("mu_icon_64.png"),{:controller=>"moe_data_import", :action=>"show"} %><br></br>
+  <big><u> Mekelle University</u></big><br></br>
+  <h1><u>E-student Temporary Username and Password</u></h1><br></br>
+</center>
+<center>
+  <p length ="20" > Dear <u><%= u.person.name %> - <%= u.person.father_name %> - <%= u.person.grand_father_name %></U>
+    you have been admitted to mekelle University.</br><br></br> Now you can access the e-Student using the following username and password</p> <br></br>
+  Username_____<%= u.username %><br></br>
+    Password________<%= u.temp_password %><br></br>
+    
+    please change your password as soon as you login to the system </cente> <br></br></center>
+<input type="submit" class="noPrint" value="Print" onClick="window.print();"></input>
+<hr></hr>
+<% end %>
+
+
+

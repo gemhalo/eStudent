@@ -47,7 +47,8 @@ class EducationalBackgroundsController < ApplicationController
 
 
     flash["@applicantid"] = params[:applicant_id]
-     @educational_background = EducationalBackground.new(params[:educational_background])
+     
+    @educational_background = EducationalBackground.new(params[:educational_background])
       respond_to do |format|
 
       if @educational_background.save

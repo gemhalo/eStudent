@@ -1,4 +1,5 @@
 class EnrollmentTypesController < ApplicationController
+layout "admin"
   # GET /enrollment_types
   # GET /enrollment_types.xml
   def index

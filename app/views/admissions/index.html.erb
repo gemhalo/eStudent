@@ -1,27 +1,23 @@
-<h1>Listing admissions</h1>
-
-<table>
-  <tr>
-    <th>Admission type</th>
-    <th>Enrollment type</th>
-    <th>Enrollment mode</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @admissions.each do |admission| %>
-  <tr>
-    <td><%= admission.admission_type.name %></td>
-    <td><%= admission.enrollement_type.name %></td>
-    <td><%= admission.enrollment_mode_type.name %></td>
-    <td><%= link_to 'Show', admission %></td>
-    <td><%= link_to 'Edit', edit_admission_path(admission) %></td>
-    <td><%= link_to 'Destroy', admission, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Admission', new_admission_path %>
+<center>
+<%= netzke :admissions,
+  :class_name => "Basepack::GridPanel",
+  :model => "Admission",
+  :view_config => {
+    :force_fit =>  true
+  },
+  :border => true,
+  #:bbar => nil,
+  :tbar => [{
+  :menu => [:add.action, :edit.action, :apply.action, :del.action],
+  :text => "Edit inline",
+  :icon =>"/images/icons/table.png"
+  },{
+  :menu => [:add_in_form.action, :edit_in_form.action],
+  :text => "Edit in form",
+  :icon => "/images/icons/application_form.png"
+  }],
+  :width => 600,
+  :height => 350
+  
+%>
+</center>

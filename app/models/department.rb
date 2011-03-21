@@ -1,5 +1,8 @@
 class Department < ActiveRecord::Base
   belongs_to :college
+  has_many :students
+  has_one :department_quota
+  has_many  :instructors
   has_one :departmrnt_quota
   validates_presence_of :name
   validates_uniqueness_of :name
@@ -7,3 +10,4 @@ class Department < ActiveRecord::Base
   #belongs_to :department_choice
   has_many :department_choice
 end
+

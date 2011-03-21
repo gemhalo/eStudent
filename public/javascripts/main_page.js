@@ -12,8 +12,9 @@
             // create instance immediately
             new Ext.BoxComponent({
                 region: 'north',
-                height: 80, // give north and south regions a height
+                height: 90, // give north and south regions a height
                 border: false,
+		//header:false,
                 autoEl: {
                     tag: 'div',
                     //html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
@@ -23,10 +24,11 @@
                 region: 'south',
                 contentEl: 'south',
                 split: true,
-                height: 100,
-                minSize: 100,
+                height: 40,
+                minSize: 40,
                 maxSize: 200,
                 collapsible: true,
+		header: false,
                 //title: 'Footer',
                 margins: '0 0 0 5'
             },{ 
@@ -75,25 +77,25 @@
                 items: [
                 {
                     contentEl: 'basic_setup',
-                    title: 'Courses',
+                    title: 'Academics',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },
                 {
                     contentEl: 'west',
-                    title: 'Academics',
+                    title: 'Courses',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },
                 /*{
-                    contentEl: 'west_south',
-                    title: 'Navigation',
+                    contentEl: 'sss_west',
+                    title: 'Communications',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },*/
                 {
                     contentEl: 'student_menu',
-                    title: 'Services',
+                    title: 'Settings',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 }
