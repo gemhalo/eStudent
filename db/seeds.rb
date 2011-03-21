@@ -14,6 +14,7 @@ AdmissionType.delete_all
 EnrollmentType.delete_all
 Admission.delete_all
 User.delete_all
+Building.delete_all
 
 #Campuses
 campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
@@ -53,7 +54,10 @@ users = [
   { :username => "samy" , :password => "samy",    :role => "instructor",
     :email => "instructor@campus.com"},
   { :username => "yemane",:password => "yemane",  :role => "student_service_staff",
-    :email => "sss@campus.com"}
+    :email => "sss@campus.com"},
+  { :username => "admin",:password => "admin",  :role => "admin",
+    :email => "admin@campus.com"}
+
 ]
 
 users.each do |user|
