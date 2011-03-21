@@ -1,3 +1,4 @@
+<%= render 'applicant' %>
 <%= form_for @educational_background, :html => { :multipart => true } do |f| %>
   <% if @educational_background.errors.any? %>
     <div id="error_explanation">

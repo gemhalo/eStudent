@@ -1,0 +1,17 @@
+
+<fieldset><legend><b><%= Person.find(@applicant.person_id).full_name%></b></legend>
+  <table>
+  <tr>
+  <td rowspan="3"><%= image_tag @applicant.person.photo.url(:small) %></td>
+   <td><b>Sex: </b></td>
+  <td><%= @applicant.person.gender%></td>
+  
+  <td><b>Birth Date:</b></td>
+  <td><%= @applicant.person.date_of_birth%></td></tr>
+ 
+
+ 
+ 
+
+  </table>
+  <td><b>Department:</b> </td></fieldset>

@@ -26,6 +26,7 @@ class EmergencyContactsController < ApplicationController
   def new
 
     @applicantid = params[:applicant_id]
+    @applicant = Applicant.find(@applicantid)
     #@emergency_contacts = EmergencyContact.find_all_by_applicant_id(params[:applicant_id])
     #@emergency_contacts = [ EmergencyContact.find(1) ]
     @emergency_contact = EmergencyContact.new

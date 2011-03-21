@@ -26,6 +26,7 @@ class FamilyBackgroundsController < ApplicationController
   # GET /family_backgrounds/new.xml
   def new
     @applicantid = params[:applicant_id]
+    @applicant = Applicant.find(@applicantid)
     @family_backgrounds = FamilyBackground.find_all_by_applicant_id(params[:applicant_id])
     @family_background = FamilyBackground.new
     
@@ -51,7 +52,7 @@ class FamilyBackgroundsController < ApplicationController
       
       if @family_background.save
        
-         @family_backgrounds = FamilyBackground.find_all_by_applicant_id(@applicantid)z
+         
           format.html { redirect_to :controller => 'family_backgrounds', :action => 'new', :applicant_id => @family_background.applicant_id }
          
       else
