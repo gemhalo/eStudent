@@ -23,7 +23,6 @@ campuses.each do |campus|
   Campus.create!( { :name => campus } )
 end
 
-
 admission_types = ["Undergraduate", "Postgraduate"]
 enrollment_types = ["Regular", "Extension","Summer","Distance"]
 
@@ -37,9 +36,9 @@ end
 
 #Create admissions
 
-admission_types.each do | admission_type1 |
+admission_types.each do | admission_type1 | # {Undergraduate, Postgraduate} x
 
-  enrollment_types.each do | enrollment_type1 |
+  enrollment_types.each do | enrollment_type1 | # { Regular, Extension, Summer, Distance}
 
     Admission.create!({ :admission_type_id => AdmissionType.find_by_name(admission_type1).id,
                         :enrollment_type_id => EnrollmentType.find_by_name(enrollment_type1)
@@ -47,6 +46,7 @@ admission_types.each do | admission_type1 |
   end
 
 end
+
 #Create users
 users = [
   { :username => "gere" , :password => "gere",    :role => "student",

@@ -35,9 +35,11 @@ class MoeDataImportController < ApplicationController
                   #:enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
                   :admission_id => Admission.where('admission_type_id = ? and enrollment_type_id = ?',
                     AdmissionType.where('name like ?', "%#{row[12]}%").first,
-                    EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id
-
-                 #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
+                    EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id,
+		  :verified => false,
+		  :admission_status => false
+			
+ #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
               )
 
        @educational_background << EducationalBackground.create(:eheece_code => row[0],

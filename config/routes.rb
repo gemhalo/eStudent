@@ -1,4 +1,15 @@
 EStudent::Application.routes.draw do
+  get "admin/index"
+
+ #This must be the only exception resources that must come at first
+  resources :user_sessions
+  resources :users do
+    collection do
+      get 'forgot_password'
+      post 'forgot_password'
+    end
+  end
+
   netzke
   root :to => "user_sessions#new"
   #root :to => "users#index"
@@ -71,13 +82,7 @@ EStudent::Application.routes.draw do
   get  'users/manageusers'
   post 'users/manageusers'
 
-  resources :user_sessions
-  resources :users do
-    collection do
-      get 'forgot_password'
-      post 'forgot_password'
-    end
-  end
+
   resources :academic_and_professional_qualifications
   resources :academic_calanders
   resources :admissions
@@ -101,6 +106,9 @@ EStudent::Application.routes.draw do
   #resources :enrollement_types
   resources :enrollment_mode_types
   resources :enrollment_types
+  #Remove this later
+
+  #resource :session
   resources :ethnicities
   resources :events
   resources :family_backgrounds
@@ -117,7 +125,7 @@ EStudent::Application.routes.draw do
   resources :rooms
   #resources :sessions
   resources :student_service_staffs
-
+  resources :admin
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
