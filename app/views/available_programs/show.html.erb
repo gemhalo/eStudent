@@ -1,5 +1,13 @@
 
-
+<table border="1">
+  <tr>
+    <td>Program  Name </td>
+    <td>Duration /year </td>
+    <td>Total Credit Hour </td>
+  </tr>
 <% @programs.each do |p| %>
-<%= p.name %><br>
+  <tr><td><%= p.name %></td>
+    <td><%= p.duration %></td>
+    <td><%= p.total_credit_hour %></td>
+</tr>
 <% end %>

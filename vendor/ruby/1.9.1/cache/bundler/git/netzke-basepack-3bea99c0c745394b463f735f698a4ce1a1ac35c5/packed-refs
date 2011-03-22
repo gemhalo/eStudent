@@ -1,0 +1,9 @@
+# pack-refs with: peeled 
+56aefb43f555f025b6bdf68dd25034ea545cc15d refs/tags/v0.6.4
+a35c0782ce9c18dfc70f61d2e43ce8a8d945ac53 refs/tags/v0.6.3
+879be40ced7872eb37318bbb7b78ff85d3b0c1f9 refs/tags/v0.6.2
+ef3c9d5c621cd90f33f516dd7788d1491093aa40 refs/tags/v0.6.1
+274cf212915f8b456f355e5869d33850360ca577 refs/heads/rails2
+5eff1369720e40d0935ff9cc6beffe1aa892fd6e refs/heads/master
+997e2fd1354b3fe4e11da972fc9c3e1a8df47cc6 refs/heads/direct
+a413be7f6ef5809e76c030494d3835b3ca1211b9 refs/heads/column_plugins
