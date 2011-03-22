@@ -38,10 +38,10 @@ class ApplicationController < ActionController::Base
       store_location
       flash[:notice] = "You must be logged out to access this page"
 <<<<<<< HEAD
-     # redirect_to account_url
+    #  redirect_to account_url
 =======
-      redirect_to account_url
->>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
+     # redirect_to account_url
+>>>>>>> 2fb72abf02bdc96b6a438733e353d32c37853e01
       return false
     end
   end

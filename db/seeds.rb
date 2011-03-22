@@ -79,8 +79,7 @@ colleges = [
 ]
 
 colleges.each do | college |
-  College.create!({ :name => college[:name], :campus_id => Campus.find_by_name(college[:campus]),
-          :instructor_id => 0
+  College.create!({ :name => college[:name], :campus_id => Campus.find_by_name(college[:campus])
   })
 end
 

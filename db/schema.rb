@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(:version => 20110315094055) do
     t.integer  "campus_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "instructor_id"
   end
 
   create_table "course_exemptions", :force => true do |t|
@@ -157,15 +156,6 @@ ActiveRecord::Schema.define(:version => 20110315094055) do
     t.string   "name"
     t.integer  "college_id"
     t.string   "dept_head"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "dormitories", :force => true do |t|
-    t.integer  "student_id"
-    t.integer  "room_id"
-    t.string   "bed_number"
-    t.integer  "academic_calendar_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
