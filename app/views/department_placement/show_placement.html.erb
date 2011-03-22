@@ -1,5 +1,17 @@
-<br/>
-
+<center> <br/>
+<%#= netzke :Department_Placement,
+    :class_name =>"Basepack::GridPanel",
+    :model=> 'Person',
+    :columns => [
+      :name,
+      :father_name,
+      :grand_father_name,
+      :department__name
+      ],
+     :width =>650,
+     :height => 300
+      
+%>
 <table border="+1">
     <tr>
       <th>Name</th>

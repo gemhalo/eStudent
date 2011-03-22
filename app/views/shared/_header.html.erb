@@ -5,7 +5,9 @@
         </div>
        <div id="loginl">
         <% if current_user %>
-            Hello <%= current_user.username %> (<%= link_to 'Logout', logout_path, :method => :delete %>)
+          Hello <%= current_user.username %> (<%= link_to 'Logout', logout_path, :method => :delete %>)
+           | <%= link_to 'My Account', edit_user_path(current_user) %>
+
         <% else %>
           <%= link_to "Register", new_user_path, :method => :get %> |
           <%= link_to "Login", login_url, :method => :get %>

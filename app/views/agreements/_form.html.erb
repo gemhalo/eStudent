@@ -1,4 +1,4 @@
-<fieldset><legend>Agreement</legend>
+<fieldset><legend><h1>Agreement</h1></legend>
 <%= form_for(@agreement) do |f| %>
   <% if @agreement.errors.any? %>
     <div id="error_explanation">
@@ -12,14 +12,16 @@
     </div>
   <% end %>
 <%= f.hidden_field :applicant_id, :value => @applicantid %>
-<table>
-  <tr><td><%= f.label :agreement %></td>
-    <td><%= f.check_box :agreement %></td></tr>
+<table align ="center">
+  <tr><td><h1>I hereby declare that to the best of my knowledge, the information stated above is correct</h1> </td><td><%= f.check_box :agreement %></td>
+    </tr>
 </table>
   
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" align="center">
+    <%= f.submit value="Apply"%>
   </div>
 </fieldset>
-<%= link_to 'Previous', :controller=> 'department_choices', :action => "new" , :applicant_id => @applicantid %>
+
+
+
 <% end %>

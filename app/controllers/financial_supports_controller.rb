@@ -25,7 +25,6 @@ class FinancialSupportsController < ApplicationController
   # GET /financial_supports/new.xml
   def new
     @applicantid = params[:applicant_id]
-     @financial_supports = FinancialSupport.find_all_by_applicant_id(params[:applicant_id])
     @financial_support = FinancialSupport.new
 
     respond_to do |format|
@@ -44,18 +43,18 @@ class FinancialSupportsController < ApplicationController
   # POST /financial_supports
   # POST /financial_supports.xml
   def create
-    
-    flash["@applicantid"] = params[:applicant_id]
+ 
      @financial_support = FinancialSupport.new(params[:financial_support])
+
       respond_to do |format|
 
       if @financial_support.save
-        @financial_supports = FinancialSupport.find_all_by_applicant_id(@applicantid)
-         format.html { redirect_to :controller => 'financial_supports', :action => 'new', :applicant_id => @financial_support.applicant_id }
 
+          format.html { redirect_to :controller => 'financial_supports', :action => 'new', :applicant_id => @financial_support.applicant_id }
    
       else
-        format.html { render :action => "new" }
+
+        format.html { redirect_to :controller => 'financial_supports', :action => 'new', :applicant_id => @financial_support.applicant_id }
         format.xml  { render :xml => @financial_support.errors, :status => :unprocessable_entity }
       end
     end

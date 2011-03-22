@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h1><p id="notice"><%= notice %></p></h1>
 <fieldset>
 <fieldset><legend>Department Choice</legend>
 <%= form_for(@department_choice) do |f| %>
@@ -26,7 +26,8 @@
 <%= netzke :department_choices,
   :model => 'DepartmentChoice',
   :class_name => 'Basepack::GridPanel',
-  :scope => ["applicant_id = ? ", @applicantid]
+  :scope => ["applicant_id = ? ", @applicantid],
+  :height => 200
 %>
 </fieldset>
 </fieldset>

@@ -7,17 +7,15 @@
 
 <p>
   <b>Enrollment type:</b>
+<<<<<<< HEAD
   <%= @admission.enrollement_type_id %>
 </p>
 
-<<<<<<< HEAD
-<p>
-  <b>Enrollment mode type:</b>
-  <%= @admission.enrollment_mode_type_id %>
-</p>
-
 =======
->>>>>>> 727eafbbd9cc2c272fd7d1920cce0ea4996c1b35
+  <%= @admission.enrollment_type_id %>
+</p>
+>>>>>>> 04c47fd5505ed8079716b69ce1f28ac886822858
+
 
 <%= link_to 'Edit', edit_admission_path(@admission) %> |
 <%= link_to 'Back', admissions_path %>

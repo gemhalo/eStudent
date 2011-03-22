@@ -1,5 +1,5 @@
 class DepartmentPlacementController < ApplicationController
-
+layout "instructor"
 
 def department_placing_process
   
@@ -15,7 +15,7 @@ def department_placing_process
     #Females are placed according to the given percentage
     
 		@female_applicants=Applicant.all(:include=>		[:person, :educational_backgrounds], :conditions=>
-		["people.gender='Female' and people.disability=?",false], :order=>("educational_backgrounds.result desc"))
+		["people.gender='F' and people.disability=?",false], :order=>("educational_backgrounds.result desc"))
 		for fs in @female_applicants
 			@depts=fs.department_choices.order("preference")
 			for d in @depts
@@ -32,7 +32,7 @@ def department_placing_process
     #Finally Males are placed to the remaining space
 
 		@male_applicants=Applicant.all(:include=>[:person, :educational_backgrounds], :conditions=>
-        ["people.gender='Male' and people.disability=?",false], :order => ("educational_backgrounds.result desc"))
+        ["people.gender='M' and people.disability=?",false], :order => ("educational_backgrounds.result desc"))
 		for ms in @male_applicants
 			@depts=ms.department_choices.order("preference")
 			for d in @depts

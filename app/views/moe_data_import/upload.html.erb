@@ -1,15 +1,17 @@
-<%= flash[:notice] %><br>
-<center>
+<%= flash[:notice] %>
+
+
 <%= netzke :people,
            :class_name => "Basepack::GridPanel",
-           :model => 'Person',
-           :columns => [
-           :name, :father_name, :grand_father_name, :nationality__name, :result , :out_of,:college_name, :admission_type, :admission_status, :enrollment_mode],
-           :scope=> {:id.gteq => @person.first.id},
-           :width => 650,
-           :height =>350
+           :model => 'Applicant',
+          # :columns => [
+          # :name, :father_name, :grand_father_name],
+           #:scope=> {:id => 640},
+           :width => 650
+           
           %>
-
+<%= @person.inspect %>
   <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>
 
-</center>
+
+

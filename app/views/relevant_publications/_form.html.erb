@@ -18,7 +18,8 @@
 <tr><td><%= f.label :publication_title %></td><td> <%= f.text_field :publication_title %></td></tr>
 <tr><td><%= f.label :description %></td><td><%= f.text_field :description %></td></tr>
 <tr><td> <%= f.label :published_date %></td><td><%= f.date_select :published_date %></td></tr>
-<tr><td><%= f.label :attachment %></td><td><%= f.file_field :fs, :index => nil %></td></tr>
+<tr><td><%= f.label :attachment %></td><td><%= f.file_field :attachment,  %></td></tr>
+
 </table>
  <div class="actions">
     <%= f.submit %>
@@ -29,7 +30,8 @@
   <%= netzke :relevant_publications,
   :model => 'RelevantPublication',
   :class_name => 'Basepack::GridPanel',
-  :scope => ["applicant_id = ? ", @applicantid]
+  :scope => ["applicant_id = ? ", @applicantid],
+  :height => 200
 %>
 </fieldset>
 </fieldset>

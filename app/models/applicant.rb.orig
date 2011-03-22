@@ -1,16 +1,16 @@
  class Applicant < ActiveRecord::Base
   belongs_to :person
-<<<<<<< HEAD
-  has_one :student
-  has_many :admission
-=======
   belongs_to :admission
   belongs_to :admission_status_type
   belongs_to :enrollment_mode_type
   belongs_to :college
->>>>>>> bc583c58de2c3ef488ec3cf63c230a8aa6cd3e0b
+  has_one :student
   has_many :family_background
+<<<<<<< HEAD
   has_many :emergency_contacts
+=======
+  has_many :emergency_contact
+>>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
   has_many :department_choices
   has_many :employment_information
 
@@ -21,9 +21,15 @@
   has_many :research_and_teaching_experience
   has_many :academic_and_professional_qualification
   has_many :educational_backgrounds
+<<<<<<< HEAD
   after_initialize :init_person
   after_save :save_person
  # accepts_nested_attributes_for :person
+=======
+  #after_initialize :init_person
+  #after_save :save_person
+ accepts_nested_attributes_for :person
+>>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
 
   #validates :person_id, :uniqueness => true
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
