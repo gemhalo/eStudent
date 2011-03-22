@@ -12,20 +12,20 @@
   <% end %>
 <center>
 <div style="margin:100px;border:1pt outset green;width:450px">
-  <legend> Please Login</legend>
-  <div class="field" style="align:left">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+  <h1> Please Login</h1>
+  <div class="field" >
+    <%= f.label :username %> 
+    <%= f.text_field :username %> 
   </div>
-  <div class="field">
+  <div class="field" >
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password %> 
   </div>
-  <div class="actions">
+  <div class="actions" >
     <%= f.submit "Login" %>
   </div>
   <%= link_to "Forgot Password" , :controller => "users", :action => "forgot_password" %>
 </div>
-<%= link_to "Forgot my password", :controller=>"users", :action=>"forgot_password" %>  
 
 <% end %>
+</center>

@@ -1,7 +1,7 @@
 class InstructorsController < ApplicationController
 #  redirect_to :controller =>"user" :action => "new"
 # unless @current_user
-  authorize_resource
+ # authorize_resource
   layout 'instructor'
   # GET /instructors
   # GET /instructors.xml

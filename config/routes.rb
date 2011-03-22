@@ -1,4 +1,6 @@
 EStudent::Application.routes.draw do
+  get "admin/index"
+
  #This must be the only exception resources that must come at first
   resources :user_sessions
   resources :users do
@@ -101,11 +103,11 @@ EStudent::Application.routes.draw do
   resources :educational_backgrounds
   resources :emergency_contacts
   resources :employment_informations
-  resources :enrollement_types
+  #resources :enrollement_types
   resources :enrollment_mode_types
   resources :enrollment_types
   #Remove this later
-  resources :enrollement_types
+
   #resource :session
   resources :ethnicities
   resources :events
@@ -123,6 +125,7 @@ EStudent::Application.routes.draw do
   resources :rooms
   #resources :sessions
   resources :student_service_staffs
+  resources :admin
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

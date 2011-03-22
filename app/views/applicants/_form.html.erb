@@ -53,10 +53,10 @@
     
        <table><tr>
    <td> <%= f.label :admission_id %></td>
-   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:admission_name ,:prompt=> "Select Admission")%></td></tr>
+   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:name ,:prompt=> "Select Admission")%></td></tr>
   
         <tr><td> <%= f.label :college_id %></td>
-          <td><%= f.collection_select(:college_id ,@College, :id,:name,:prompt=> "Select College")%></td></tr>
+          <td><%= f.collection_select(:college_id ,@College, :id, :name,:prompt=> "Select College")%></td></tr>
   
   
         <tr><td> <%= f.label :entry_level %></td>
