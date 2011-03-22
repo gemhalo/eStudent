@@ -51,7 +51,7 @@ class ApplicantsController < ApplicationController
 
     @nationality = Nationality.all
     @Admissiontype    = AdmissionType.all
-    @Enrollementtype  = EnrollmentType.all
+    @Enrollmenttype  = EnrollmentType.all
     @College    = College.all
     @admission_status_types = AdmissionStatusType.all
     @person = Person.create(params[:person])
