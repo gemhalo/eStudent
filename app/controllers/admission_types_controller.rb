@@ -1,5 +1,5 @@
 class AdmissionTypesController < ApplicationController
-layout "student_service_staff"
+layout "admin"
   # GET /admission_types
   # GET /admission_types.xml
   def index

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mekelle Univeristy- Student Information System</title>
+  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "/extjs/resources/css/ext-all.css" %>
+  <%= stylesheet_link_tag "/extjs/resources/css/xtheme-gray.css" %>
+  <%= javascript_include_tag :defaults %>
+  <%= netzke_init %>
+  <%= javascript_include_tag "main_page" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+   <!-- Header Content -->
+<<<<<<< HEAD
+     <%= render :partial =>'/shared/header' %>
+     <%= render :partial =>'/shared/toplink' %>
+=======
+   <div id='north' style="float:none;clear:both;z-index:-4">
+        <div class='left' style="float:none;clear:both;border:0">
+          <div id="logo">      <img src='/images/mu_icon_64.png'/ style='align:right'> </div>
+          <div id="logo_text">  <h3>  Welcome to eStudent </h3> </div>
+        </div>
+       <div id="loginl" >
+        <% if current_user %>
+            Hello <%= current_user.username %> (<%= link_to 'Logout', logout_path, :method => :delete %>)
+        <% else %>
+          <%= link_to "Register", new_user_path, :method => :get %> |
+          <%= link_to "Login", login_url, :method => :get %>
+
+        <% end %>
+        </div>
+    </div>
+
+     <%#= render :partial =>'/shared/header' %>
+
+     <%= render :partial =>'/shared/toplink' %>
+
+>>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
+    <!-- Basic setup menu-->
+    <div id="basic_setup">
+            <%= render :partial =>'/shared/instructor/menuitems' %><br/>
+    </div>
+    <div id="west" class="x-hide-display">
+        <div>
+            <%= render :partial =>'/shared/instructor/menuitems' %><br/>
+        </div>
+
+        <div id='student_menu'>
+            <%= render :partial =>'/shared/instructor/menuitems' %><br/>
+        </div>
+     </div>
+    <div id="center2" class="x-hide-display" >
+        <%= yield %>
+    </div>
+
+    <div id="notification_area">
+    	 <%= render :partial =>'/shared/instructor/notification' %>
+    </div>
+
+   <div id="south" class="x-hide-display">
+        <center><small>Mekelle Univerisity Gemhalo! project</small></center>
+    </div>
+
+   <!-- End of Main Content -->
+</body>
+</html>
+

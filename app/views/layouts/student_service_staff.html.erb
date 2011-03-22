@@ -12,23 +12,8 @@
 </head>
 <body>
    <!-- Header Content -->
-   <div id='north' style="float:none;clear:both;z-index:-4">
-        <div class='left' style="float:none;clear:both;border:0">
-          <div id="logo">      <img src='/images/mu_icon_64.png'/ style='align:right'> </div>
-          <div id="logo_text">  <h3>  Welcome to eStudent </h3> </div>
-        </div>
-       <div id="loginl" >
-        <% if current_user %>
-            Hello <%= current_user.username %> (<%= link_to 'Logout', logout_path, :method => :delete %>)
-        <% else %>
-          <%= link_to "Register", new_user_path, :method => :get %> |
-          <%= link_to "Login", login_url, :method => :get %>
 
-        <% end %>
-        </div>
-    </div>
-
-     <%#= render :partial =>'/shared/header' %>
+     <%= render :partial =>'/shared/header' %>
 
      <%= render :partial =>'/shared/toplink' %>
 

@@ -12,8 +12,9 @@
             // create instance immediately
             new Ext.BoxComponent({
                 region: 'north',
-                height: 80, // give north and south regions a height
+                height: 90, // give north and south regions a height
                 border: false,
+		//header:false,
                 autoEl: {
                     tag: 'div',
                     //html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
@@ -23,10 +24,11 @@
                 region: 'south',
                 contentEl: 'south',
                 split: true,
-                height: 50,
-                minSize: 50,
+                height: 40,
+                minSize: 40,
                 maxSize: 200,
                 collapsible: true,
+		header: false,
                 //title: 'Footer',
                 margins: '0 0 0 5'
             },{ 

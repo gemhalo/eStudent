@@ -1,10 +1,10 @@
-<%= form_for(@enrollement_type) do |f| %>
-  <% if @enrollement_type.errors.any? %>
+<%= form_for(@enrollment_type) do |f| %>
+  <% if @enrollment_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@enrollement_type.errors.count, "error") %> prohibited this enrollement_type from being saved:</h2>
+      <h2><%= pluralize(@enrollment_type.errors.count, "error") %> prohibited this enrollment_type from being saved:</h2>
 
       <ul>
-      <% @enrollement_type.errors.full_messages.each do |msg| %>
+      <% @enrollment_type.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
