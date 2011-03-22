@@ -9,6 +9,7 @@ class InstructorsController < ApplicationController
     @instructors = Instructor.all
     @applicants = Applicant.not_approved
     @person = Person.all
+    @menuitems=Menuitem.all
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @instructors }

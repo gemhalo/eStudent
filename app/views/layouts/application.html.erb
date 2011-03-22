@@ -17,20 +17,14 @@
      <%= render :partial =>'/shared/toplink' %>
 
     <!-- Basic setup menu-->
-    <div id="basic_setup">
             <%= render :partial =>'/shared/application/menuitems' %><br/>
-    </div>
-    <div id="west" class="x-hide-display">
-        <div>
-            <%= render :partial =>'/shared/application/menuitems' %><br/>
-        </div>    
 
-        <div id='student_menu'>
-            <%= render :partial =>'/shared/application/menuitems' %><br/>
-        </div>
-     </div>
-    <div id="center2" class="x-hide-display" >
+<div id="center1" class="x-hide-display" >
         <%= yield %>
+    </div>     
+<div id="center2" class="x-hide-display" >
+     <%= render :partial =>'/shared/toplink' %>
+
     </div>
     
     <div id="notification_area"> 

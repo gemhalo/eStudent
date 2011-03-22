@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
   layout 'application'
 
   helper_method :current_user_session, :current_user
-
+  def index
+	@menuitems=Menuitem.all
+  end
   private
 
   def current_user_session

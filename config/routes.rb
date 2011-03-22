@@ -1,4 +1,6 @@
 EStudent::Application.routes.draw do
+  resources :menuitems
+
   get "admin/index"
 
  #This must be the only exception resources that must come at first
@@ -126,7 +128,7 @@ EStudent::Application.routes.draw do
   #resources :sessions
   resources :student_service_staffs
   resources :admin
-
+  resources :menuitems
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

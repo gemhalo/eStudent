@@ -3,9 +3,8 @@ class UserSessionsController < ApplicationController
   before_filter :require_user, :only =>  :destroy
 
   def index
-
+        @menuitems=Menuitem.all
   end
-
   def new
     @user_session = UserSession.new
 

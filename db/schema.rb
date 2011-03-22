@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110315111345) do
+ActiveRecord::Schema.define(:version => 20110322064713) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -69,11 +69,10 @@ ActiveRecord::Schema.define(:version => 20110315111345) do
     t.string   "minor_field_of_study"
     t.string   "academic_year"
     t.boolean  "admission_status"
-    t.integer  "admission_status_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "enrollment_mode_type_id"
     t.boolean  "verified"
+    t.integer  "enrollment_mode_type_id"
   end
 
   create_table "award_types", :force => true do |t|
@@ -90,15 +89,6 @@ ActiveRecord::Schema.define(:version => 20110315111345) do
     t.datetime "updated_at"
   end
 
-  create_table "campus", :force => true do |t|
-    t.string   "name"
-    t.integer  "campus_telephone"
-    t.string   "campus_pobox"
-    t.string   "campus_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "campuses", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -108,12 +98,9 @@ ActiveRecord::Schema.define(:version => 20110315111345) do
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
-    t.integer  "college_telephone"
-    t.string   "college_pobox"
-    t.string   "college_email"
-    t.integer  "instructor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "instructor_id"
   end
 
   create_table "course_exemptions", :force => true do |t|
@@ -178,7 +165,7 @@ ActiveRecord::Schema.define(:version => 20110315111345) do
     t.integer  "student_id"
     t.integer  "room_id"
     t.string   "bed_number"
-    t.date     "academic_year"
+    t.integer  "academic_calendar_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -222,12 +209,6 @@ ActiveRecord::Schema.define(:version => 20110315111345) do
     t.string   "employer_pobox"
     t.string   "employer_email"
     t.integer  "applicant_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "enrollement_types", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -286,7 +267,7 @@ ActiveRecord::Schema.define(:version => 20110315111345) do
 
   create_table "how_tos", :force => true do |t|
     t.string   "title"
-    t.string   "detail"
+    t.text     "detail"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -298,6 +279,16 @@ ActiveRecord::Schema.define(:version => 20110315111345) do
     t.integer  "role_id"
     t.integer  "department_id"
     t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menuitems", :force => true do |t|
+    t.string   "title"
+    t.string   "linkpath"
+    t.string   "linkicon"
+    t.integer  "role_id"
+    t.string   "catagory"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
