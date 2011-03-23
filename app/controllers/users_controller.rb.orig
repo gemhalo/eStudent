@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-  
 before_filter do
 	redirect_to new_user_session_path unless current_user #authenticated?
 end
@@ -10,6 +9,16 @@ end
     @temp=User.where("temp_password=? and username=?","",current_user.username).count
    # @temp=User.find_by_username(current_user.username).temp_password.nil?
     path = case current_user.role
+<<<<<<< HEAD
+      when 'instructor'
+        instructors_path
+      when 'admin'
+        users_manageusers_path
+      when 'student'
+        new_applicant_path
+      when 'student_service_staff'
+        student_service_staffs_path
+=======
     when 'instructor'
       instructors_path
     when 'student'
@@ -23,6 +32,7 @@ end
   when 'student_service_staff'
       student_service_staffs_path
      else
+>>>>>>> 8561db890ac0eea6824eecf766d3f2bb1288708e
     end
 
     redirect_to path

@@ -1,6 +1,6 @@
 <div style="margin:30px">
 <center>
-   <%= netzke :Approve_Applicants,
+   <%#= netzke :Approve_Applicants,
          :class_name => "Basepack::GridPanel",
          :model => 'Applicant',
          :border => true,
@@ -15,8 +15,6 @@
                 :scope => {:admission_status => false, :verified => true},
 		:width => 650
     %>
-<!--
-
 <table border="1">
   <tr>
     <th>Full Name</th>
@@ -26,21 +24,21 @@
     <td></td>
     <td></td>
   </tr>
-    <%# for a in @applicants %>
+    <% for a in @applicants %>
   <tr>
-    <td><%#= a.person.full_name %> </td>
-    <td><%#= a.person.gender %> </td>
-    <%# if  a.verified==true %>
+    <td><%= a.person.full_name %> </td>
+    <td><%= a.person.gender %> </td>
+    <% if  a.admission_status==true %>
     <td>Admitted</td
-    <% #elsif a.verified==false %>
+    <% elsif a.admission_status==false %>
       <td>Not Admitted</td
-    <%# else %>
+    <% else %>
       <td>Pending</td
-    <% #end %>
-    <td><%#= link_to "Details", :action=>"details", :id=>a.person.id%> </td>
-    <td><%#= link_to "Approve", :action=>"approve", :id=>a.id %> </td>
-    <td><%#= link_to "Decline", :action=>"decline", :id=>a.id %> </td>
-    <% #end %>
+    <% end %>
+    <td><%= link_to "Details", :action=>"details", :id=>a.person.id%> </td>
+    <td><%= link_to "Approve", :action=>"approve", :id=>a.id %> </td>
+    <td><%= link_to "Decline", :action=>"decline", :id=>a.id %> </td>
+    <% end %>
   </tr>
 
 </table>

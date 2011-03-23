@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(:version => 20110315094055) do
     t.integer  "student_id"
     t.integer  "room_id"
     t.string   "bed_number"
-    t.date     "academic_year"
+    t.integer  "academic_calendar_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
