@@ -1,11 +1,11 @@
  Ext.onReady(function(){
-    
+
         // NOTE: This is an example showing simple state management. During development,
         // it is generally best to disable state management as dynamically-generated ids
         // can change across page loads, leading to unpredictable results.  The developer
         // should ensure that stable state ids are set for stateful components in real apps.
-        Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
-        
+        //Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+
         var viewport = new Ext.Viewport({
             layout: 'border',
             items: [
@@ -31,7 +31,7 @@
 		header: false,
                 //title: 'Footer',
                 margins: '0 0 0 5'
-            },{ 
+            },{
                 region: 'east',
                 id: 'east-panel', // see Ext.getCmp() below
                 title: 'Notification Area',
@@ -53,9 +53,9 @@
                     title: 'Notifications',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
-                  }   
+                  }
    		]
-              
+
 	    }, {
                 region: 'west',
                 id: 'west-panel', // see Ext.getCmp() below
@@ -68,11 +68,11 @@
                 collapsible: false,
                 activeItem:0,
                 margins: '0 0 0 5',
- 		fill: true,        
+ 		fill: true,
                 hideBorders: true,
                 layout: {
                     type: 'accordion',
-                    animate: true 
+                    animate: true
                 },
                 items: [
                 {
@@ -99,7 +99,7 @@
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 }
-                
+
                 /*{
                     id:'mu_forms',
                     title: 'Forms Menu',
@@ -127,11 +127,12 @@
                 }]
             })]
         });
-        // get a reference to the HTML element with id "hideit" and add a click listener to it 
+        // get a reference to the HTML element with id "hideit" and add a click listener to it
         Ext.get("hideit").on('click', function(){
-            // get a reference to the Panel that was created with id = 'west-panel' 
+            // get a reference to the Panel that was created with id = 'west-panel'
             var w = Ext.getCmp('west-panel');
             // expand or collapse that Panel based on its collapsed property state
             w.collapsed ? w.expand() : w.collapse();
         });
     });
+

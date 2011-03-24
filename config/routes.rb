@@ -126,6 +126,7 @@ EStudent::Application.routes.draw do
   #resources :sessions
   resources :student_service_staffs
   resources :admin
+  resources :components
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

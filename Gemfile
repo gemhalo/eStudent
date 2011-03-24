@@ -23,7 +23,7 @@ gem  'railroad'
 #gem 'rubyzip','0.9.4'
 
 gem 'nokogiri'
-gem 'paperclip'
+#gem 'paperclip'
 
 #gem 'spreadsheet'
 #gem 'odf-spreadsheet'

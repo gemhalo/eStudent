@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-before_filter do
-	redirect_to new_user_session_path unless current_user #authenticated?
-end
 
  def index
     @temp=User.where("temp_password=? and username=?","",current_user.username).count
@@ -25,7 +22,7 @@ end
     end
 
     redirect_to path
-  
+
 
 #    @users = User.all
 #
@@ -34,7 +31,7 @@ end
    #   format.xml  { render :xml => @users }
    # end
   end
-  
+
   def assign_roles
 
   end
@@ -87,8 +84,8 @@ end
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-    @user.temp_password="" 
-    respond_to do |format|      
+    @user.temp_password=""
+    respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
@@ -118,7 +115,7 @@ end
       else
         flash[:notice] = "User with this email doesnot exist"
       end
-    
+
     end
   end
 
