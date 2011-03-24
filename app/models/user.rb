@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   #include Humanizer
-  #require_human_on :create #,  :except => :username => "admin"
+  #require_human_on :create #
   belongs_to :person
-  #acts_as_authentic
+
+  acts_as_authentic
 
 	ROLES = %w[admin student  guest instructor student_service_staff]
 	def role?(base_role)
