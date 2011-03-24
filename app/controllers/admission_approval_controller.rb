@@ -1,15 +1,14 @@
 class AdmissionApprovalController < ApplicationController
   layout "instructor"
   def index
-
         #@current_user=session[:user_name]
         #dept=current_user.person.instructor.department_id
-        @applicants=Applicant.all(:conditions=>["verified=?",false])
+        @applicants=Applicant.all(:conditions=>["admission_status=? and verified=?", false,true])
      end
 
   def show_list
   	#dept=current_user.person.instructor.department_id
-    @applicants=Applicant.all(:conditions=>["verified=?", false])
+    @applicants=Applicant.all(:conditions=>["admission_status=? and verified=?", false,true])
   end
 
   def details
@@ -23,15 +22,21 @@ class AdmissionApprovalController < ApplicationController
 
     applicant=Applicant.find(params[:id])
     applicant.admission_status=true
-    appliant.build_student
     
     if applicant.save!
-      if applicant.admission.admission_type.name=="undergradute" and applicant.admission.enrollment_type.name="regular"
-        applicant.student.id_number=applicant.temp_id_number
+      if applicant.student.nil?
+        applicant.build_student
+        applicant.student.applicant_id=applicant.id
+      if applicant.admission.admission_type.name=="Undergraduate" and applicant.admission.enrollment_type.name=="Regular"
+        #applicant.student.id_number=applicant.temp_id_number
+        assign_id(applicant)
       else
         assign_id(applicant)
       end
-      
+
+      applicant.student.save!
+    end
+
       @applicants=Applicant.all
 #      flash[:notice]="successfully approved"
       render "show_list"
@@ -42,14 +47,14 @@ class AdmissionApprovalController < ApplicationController
 
     college=applicant.college.name
     collegename=college[college.index("(")+1..college.index(")")-1].upcase
-    program=applicant.admission.program_type.name[0].upcase
+    program=applicant.admission.admission_type.name[0].upcase
     enrollment=applicant.admission.enrollment_type.name[0].upcase
-    date=Date.today
+    date=Date.today  # will be replaced by academic_year
     seqno=applicant.id.to_s
     while(seqno.length < 4)
       seqno="0" << "#{seqno}"
     end
-    if (date.month==1..8 or(date.month==9 and date.day<11))
+    if ( (1..8)===date.month or(date.month==9 and date.day<11))
       ethiopian_year=date.year - 8
     else
       ethiopian_year=date.year - 7

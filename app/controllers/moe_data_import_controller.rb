@@ -79,12 +79,12 @@ end
             collegename=college[college.index("(")+1..college.index(")")-1].upcase
             program=p.applicant.admission.program_type.name[0].upcase
             enrollment=p.applicant.admission.enrollment_type.name[0].upcase
-            date=Date.today
+            date=Date.today  # will be replaced by academic_year
             seqno=p.applicant.id.to_s
             while(seqno.length < 4)
               seqno="0" << "#{seqno}"
             end
-            if (date.month==1..8 or(date.month==9 and date.day<11))
+            if ((1..8)===date.month or(date.month==9 and date.day<11))
               ethiopian_year=date.year - 8
             else
               ethiopian_year=date.year - 7
