@@ -49,8 +49,8 @@ gem 'netzke-persistence'
 #gem 'netzke-basepack',      :path => File.expand_path('../vendor/gems/netzke/netzke-basepack', __FILE__)
 #gem 'netzke-persistence',   :path => File.expand_path('../vendor/gems/netzke/netzke-persistence', __FILE__)
 
-#gem 'netzke_widget_generators'
-#gem 'netzke_config'
+gem 'netzke_widget_generators'
+gem 'netzke_config'
 
 #Creates dependencies for RMagick we'll get this later
 #gem 'extjs-theme'
