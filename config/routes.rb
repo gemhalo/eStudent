@@ -1,4 +1,5 @@
 EStudent::Application.routes.draw do
+  netzke
   get "admin/index"
 
  #This must be the only exception resources that must come at first
@@ -10,7 +11,7 @@ EStudent::Application.routes.draw do
     end
   end
 
-  netzke
+
   root :to => "user_sessions#new"
   #root :to => "users#index"
   #root :to => "welcome#index"

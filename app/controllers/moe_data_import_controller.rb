@@ -37,8 +37,9 @@ class MoeDataImportController < ApplicationController
                     AdmissionType.where('name like ?', "%#{row[12]}%").first,
                     EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id,
 		  :verified => false,
-		  :admission_status_type_id => false
-			
+#:admission_status_type_id => false
+  	  :admission_status => false
+
  #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
               )
 
@@ -72,7 +73,7 @@ end
               :temp_password => @password,
               :role => "student"
             )
- 
+
 
 
       end
