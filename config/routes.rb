@@ -2,16 +2,6 @@ EStudent::Application.routes.draw do
   netzke
   get "admin/index"
 
- #This must be the only exception resources that must come at first
-  resources :user_sessions
-  resources :users do
-    collection do
-      get 'forgot_password'
-      post 'forgot_password'
-    end
-  end
-
-
   root :to => "user_sessions#new"
   #root :to => "users#index"
   #root :to => "welcome#index"
@@ -82,6 +72,14 @@ EStudent::Application.routes.draw do
   #get "users/edit"
   get  'users/manageusers'
   post 'users/manageusers'
+
+  resources :user_sessions
+  resources :users do
+    collection do
+      get 'forgot_password'
+      post 'forgot_password'
+    end
+  end
 
 
   resources :academic_and_professional_qualifications

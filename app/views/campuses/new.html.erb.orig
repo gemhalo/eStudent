@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-<h1>New campus</h1>
-=======
-<h1>New campuse</h1>
->>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
-
-<%= render 'form' %>
-
-<%= link_to 'Back', campuses_path %>
