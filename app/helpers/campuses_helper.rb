@@ -1,2 +1,0 @@
-module CampusesHelper
-end

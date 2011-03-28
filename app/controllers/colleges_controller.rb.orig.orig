@@ -1,9 +1,13 @@
 class CollegesController < ApplicationController
 <<<<<<< HEAD
+layout "student_service_staff"
+=======
+<<<<<<< HEAD
   layout "admin"
 =======
   layout "student_service_staff"
 >>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
+>>>>>>> 8561db890ac0eea6824eecf766d3f2bb1288708e
   #authorize_resource
   # GET /colleges
   # GET /colleges.xml

@@ -21,10 +21,14 @@ gem  'railroad'
 #gem 'roo', '1.9.3'
 
 #gem 'rubyzip','0.9.4'
-
+<<<<<<< HEAD
 #gem 'nokogiri'
+=======
+
+gem 'nokogiri'
 gem 'paperclip'
 
+>>>>>>> 8561db890ac0eea6824eecf766d3f2bb1288708e
 #gem 'spreadsheet'
 #gem 'odf-spreadsheet'
 #gem 'google-spreadsheet-ruby'
