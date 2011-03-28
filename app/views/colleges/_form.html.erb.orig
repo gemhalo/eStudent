@@ -19,31 +19,16 @@
   </div>
   <div class="field">
     <%= f.label :campus_id %><br />
-<<<<<<< HEAD
     <%= f.collection_select( :campus_id, @campus,:id,:name) %>
   </div>
   <div class="field">
+<<<<<<< HEAD
     <%= f.label :dean %><br />
-    <%= f.text_field :dean %>
-=======
-    <%= f.collection_select(:campus_id, @campus,:id,:name) %>
-  </div>
-  <div class="field">
-    <%= f.label :college_telephone %><br />
-    <%= f.text_field :college_telephone %>
-  </div>
-  <div class="field">
-    <%= f.label :college_pobox %><br />
-    <%= f.text_field :college_pobox %>
-  </div>
-  <div class="field">
-    <%= f.label :college_email %><br />
-    <%= f.text_field :college_email %>
-  </div>
-  <div class="field">
-    <%= f.label :instructor_id %><br />
     <%= f.text_field :instructor_id %>
->>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
+=======
+    Dean <br />
+    <%= f.collection_select( :person_id, @person,:id,:name) %>
+>>>>>>> b9a1fc5e6e76656e639a339a4c553f8890f36625
   </div>
   <div class="actions">
     <%= f.submit %>

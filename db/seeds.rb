@@ -55,7 +55,7 @@ users = [
     :email => "instructor@campus.com"},
   { :username => "yemane",:password => "yemane",  :role => "student_service_staff",
     :email => "sss@campus.com"},
-  { :username => "admin",:password => "admin",  :role => "admin",
+  { :username => "admin",:password => "admin",    :role => "admin",
     :email => "admin@campus.com"}
 
 ]
