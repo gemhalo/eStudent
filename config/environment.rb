@@ -1,8 +1,6 @@
 # Load the rails application
 require File.expand_path('../application', __FILE__)
 
-# Initialize the rails application
-EStudent::Application.initialize!
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :address => "smtp.gmail.com",
@@ -13,4 +11,6 @@ ActionMailer::Base.smtp_settings = {
   :authentication => :plain,
   :tls => true
 }
+# Initialize the rails application
+EStudent::Application.initialize!
 

@@ -55,7 +55,7 @@ users = [
     :email => "instructor@campus.com"},
   { :username => "yemane",:password => "yemane",  :role => "student_service_staff",
     :email => "sss@campus.com"},
-  { :username => "admin",:password => "admin",  :role => "admin",
+  { :username => "admin",:password => "admin",    :role => "admin",
     :email => "admin@campus.com"}
 
 ]
@@ -119,7 +119,7 @@ menuitems = [
 #instructors menu items
 
  { :linktitle => "Approve Applicant" , :linkcontroller => "admission_approval",    :linkaction => "index",
-    :linkicon => "/icons/briefcase.png", :role_id=>"instructor", :catagory=>"academics" },
+    :linkicon => "/icons/application_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
  { :linktitle => "Department Placement" , :linkcontroller => "department_quotas",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },

@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+#source 'http://rubygems.org'
 #Gems required for all environments
 gem 'rails', '3.0.4'
 #We will enable this when we want to work with  Bundle edge Rails instead:
@@ -13,6 +13,7 @@ gem 'humanizer'
 gem 'fastercsv'
 
 #PDF
+gem 'pdfkit'
 
 gem  'will_paginate', '~>3.0.pre2'
 #To generate model diagrams
@@ -36,15 +37,15 @@ gem 'paperclip'
 #gem 'netzke-basepack', '0.6.5', :git => "http://github.com/skozlov/netzke-basepack.git"
 #gem 'netzke-persistence', '0.1.1', :git => "http://github.com/skozlov/netzke-persistence.git"
 
-gem 'netzke-core', :git  => "http://github.com/skozlov/netzke-core.git", :tag => 'v0.6.6'
-gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git", :tag => 'v0.6.4'
-gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.git"
+#gem 'netzke-core', :git  => "http://github.com/skozlov/netzke-core.git", :tag => 'v0.6.6'
+#gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git", :tag => 'v0.6.4'
+#gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.git"
 
 
 #Or simply use the installed gem
-#gem 'netzke-core', '0.6.5'
-#gem 'netzke-basepack', '0.6.5'
-#gem 'netzke-persistence'
+gem 'netzke-core', '0.6.6'
+gem 'netzke-basepack', '0.6.4'
+gem 'netzke-persistence'
 
 #Or clone each package in vendor/gems/netzke then use it from there
 #gem 'netzke-core',          :path => File.expand_path('../vendor/gems/netzke/netzke-core', __FILE__)

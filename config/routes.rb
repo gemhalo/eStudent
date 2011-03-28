@@ -1,4 +1,5 @@
 EStudent::Application.routes.draw do
+  netzke
   resources :menuitems
 
   get "admin/index"
@@ -84,6 +85,14 @@ EStudent::Application.routes.draw do
   get  'users/manageusers'
   post 'users/manageusers'
 
+  resources :user_sessions
+  resources :users do
+    collection do
+      get 'forgot_password'
+      post 'forgot_password'
+    end
+  end
+
 
   resources :academic_and_professional_qualifications
   resources :academic_calanders
@@ -128,8 +137,10 @@ EStudent::Application.routes.draw do
   #resources :sessions
   resources :student_service_staffs
   resources :admin
+  resources :components
+
   resources :menuitems
-  netzke
+ # netzke
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
