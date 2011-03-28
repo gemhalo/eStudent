@@ -108,7 +108,7 @@ menuitems = [
 
 # Student Service Staff
  { :linktitle => "Import Data" , :linkcontroller => "moe_data_import",    :linkaction => "import",
-    :linkicon => "/iconis/database_add.png", :role_id=>"student_service_staff", :catagory=>"academics" },
+    :linkicon => "/icons/database_add.png", :role_id=>"student_service_staff", :catagory=>"academics" },
 
  { :linktitle => "Screen Applicants" , :linkcontroller => "student_service_staffs",    :linkaction => "selected",
     :linkicon => "/icons/application_view_detail.png", :role_id=>"student_service_staff", :catagory=>"academics" },
