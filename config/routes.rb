@@ -20,8 +20,10 @@ EStudent::Application.routes.draw do
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
 
-  get  "admission_status_notfication_inputs/send"
-  post "admission_status_notfication_inputs/send"
+  get  'admission_status_notfication_inputs/sendadmisson'
+  post 'admission_status_notfication_inputs/sendadmisson'
+  
+  
 
   get "admission_approval/approve"
 

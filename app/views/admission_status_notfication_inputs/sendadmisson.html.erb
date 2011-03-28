@@ -1,9 +1,8 @@
-<%= start_form_tag :controller => 'admission_status_notfication_inputs', :action => 'sendadmisson'%>
-
-<h3>Notification</h3>
-Collage :<%= select_tag "collage",options_from_collection_for_select(@collage,"id","name")%>
-Acadamic Calander: <%= text_field "acadamic" %><br/>
-
+<h1<%= $messa %></h1>
+<%= form_tag :controller => 'admission_status_notfication_inputs', :action => 'sendadmisson' do%>
+<table>
+  <tr><td>Collage :</td><td><%= select_tag "collage",options_from_collection_for_select(@collage,"id","name")%><br></br></td></tr>
+  <tr><td>Academic Calender:</td><td><%= text_field_tag "acadamic" %></td></tr>
+</table>
 <%= submit_tag 'Send' %>
-
-<%= end_form_tag %>
+<% end %>

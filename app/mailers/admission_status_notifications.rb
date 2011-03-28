@@ -1,25 +1,27 @@
 class AdmissionStatusNotifications < ActionMailer::Base
-  default :from => "from@example.com"
+     default :from => "yonimethodic@gmail.com"
+  def notification (collageid,acadamiccalanderid)
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.admission_status_notifications.notification.subject
-  #
-  def self.notification (collageid,acadamiccalanderid)
-     @applicant = Applicant.find_by_sql("select applicants.admission_status,people.name,users.email
-                                                  Inner join people on applicants.person_id = people.id
-                                                  Inner join users on people.id = users.person_id where applicants.collageid and applicants.accadamic_year",collageid,acadamiccalanderid )
-    @applicant.each do |app|
+    @applicant = Applicant.where('applicants.college_id = ? and applicants.academic_year = ?',collageid,acadamiccalanderid)
 
-        @subject= "Mekelle University: Admission Status Notification"
-        @body= "Dear...#{app.name} your Document is Reviewed  and you are #{app.admission_status} "
-        @recipients= app.email
-        @from= 'yonimethodic@gmail.com'
-        @sent_on = Time.now
-        @headers = {}
+    logger.info("------------sscount----------#{@applicant.count}")
+      if (@applicant.count != 0)
+
+          @applicant.each do |app|
+
+            logger.info("------------sscountvv----------#{app.person.user.email}")
+
+         mail(:to => app.person.user.email, :subject => "Mekelle University: Admission Status Notification", :from => "yonimethodic@gmail.com",:date => Time.now)
+
+        @username = Person.find(app.person).name
+        @message = app.admission_status
+
+      end
+    else
+
+                return  $messa = "There no applicants to notify"
+    
 
     end
-   
-  end
+end
 end

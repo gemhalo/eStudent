@@ -38,5 +38,7 @@ module EStudent
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    config.action_mailer.raise_delivery_errors = true
+config.action_mailer.perform_deliveries = true
   end
 end

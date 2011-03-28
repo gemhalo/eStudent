@@ -1,3 +1,11 @@
-AdmissionStatusNotifications#notification
+<h1>Admission Status Notifications</h1>
 
-<%= @greeting %>, find me in app/views/app/views/admission_status_notifications/notification.text.erb
+<%if @message == true %>
+
+       Dear <%=@username %> your Document is reviewed and you are <h1>Approved</h1>
+
+<% else %>
+      
+       Dear <%=@username %> your Document is reviewed and you are <h1>Rejected</h1>
+
+<% end %>
