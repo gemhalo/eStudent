@@ -3,9 +3,10 @@ class Student < ActiveRecord::Base
   belongs_to :applicant
   has_one :dormitory
   belongs_to :department
-
-  validates :id_number, :presence => true, :uniqueness => true
-  validates :applicant_id, :presence => true, :uniqueness => true
+<<<<<<< HEAD
+=======
+  has_many :educational_backgrounds
+>>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
 
  include ActiveModel::Serialization
  #attr_accessible :college_name

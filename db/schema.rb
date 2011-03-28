@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110315094055) do
+ActiveRecord::Schema.define(:version => 20110323090024) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20110315094055) do
     t.datetime "updated_at"
     t.boolean  "verified"
     t.integer  "enrollment_mode_type_id"
+    t.string   "temp_id_number"
   end
 
   create_table "award_types", :force => true do |t|
@@ -416,17 +417,11 @@ ActiveRecord::Schema.define(:version => 20110315094055) do
 
   create_table "students", :force => true do |t|
     t.string   "id_number"
+    t.integer  "applicant_id"
     t.integer  "department_id"
-    t.integer  "enrollment_type_id"
-    t.integer  "admission_type_id"
     t.integer  "program_id"
-    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "college_name"
-    t.integer  "enrollment_mode_id"
-    t.integer  "admission_id"
-    t.integer  "applicant_id"
   end
 
   create_table "users", :force => true do |t|
