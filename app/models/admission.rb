@@ -1,13 +1,14 @@
 class Admission < ActiveRecord::Base
-has_many :programs
-belongs_to :enrollment_type
-belongs_to :admission_type
+  #belongs_to :applicant
+  belongs_to :admission_type
+  #belongs_to :enrollement_type
+  belongs_to :enrollment_type
+  #belongs_to :enrollment_mode_type
+  has_many   :programs
 
-  belongs_to :applicant
-  
-def name
-
-  [admission_type.name,enrollment_type.name].join(' ')
+  def name
+    [ self.admission_type.name.capitalize,self.enrollment_type.name.capitalize ].join('-')
+  end
 
 end
-end
+

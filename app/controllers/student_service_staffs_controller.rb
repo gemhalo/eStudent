@@ -5,20 +5,24 @@ class StudentServiceStaffsController < ApplicationController
   # GET /student_service_staffs.xml
   # POST /student_service_staffs
   def index
-    @admission_types = AdmissionType.all
- #   @enrollement_types = EnrollmentType.all
+    @applicants = Applicant.not_verified
+    @program = Program.all
+    @college = College.all
+
+
+ #   @enrollment_types = EnrollmentType.all
     @verifieds=params[:verify]
-    if request[:method] =="GET" 
+#    if request[:method] =="GET"
       @student_service_staffs = StudentServiceStaff.all
       # Apply filters to display students only that this user can approve
-      @applicants = Applicant.all
+  #    @applicants = Applicant.all
       respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @student_service_staffs }
       end
-    else 
-      @applicants = Applicant.where("verified =#{params[:verified]}")
-    end
+ #   else
+  #    @applicants = Applicant.where("verified =#{params[:verified]}")
+  #  end
   end
 
   # GET /student_service_staffs/1
@@ -93,10 +97,21 @@ class StudentServiceStaffsController < ApplicationController
 
 
   def selector
-  #  @param_value = params[:ne]
-    @admission_types = AdmissionType.all
+    @college = College.all
+    @admission = Admission.all
+    @applicant = Applicant.all
     @verifieds=params[:verify]
+    @applicants = Applicant.not_verified
 
   end
+  def selected
+    @applicants = Applicant.not_verified
+    @college = College.all
+    @admission = Admission.all
+    @applicant = Applicant.all
+    @verifieds=params[:verify]
+  end
+
 
 end
+

@@ -10,19 +10,22 @@
       </ul>
     </div>
   <% end %>
-<fieldset>
-  <legend> Please Login</legend>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+<center>
+<div style="margin:100px;border:1pt outset green;width:450px">
+  <h1> Please Login</h1>
+  <div class="field" >
+    <%= f.label :username %> 
+    <%= f.text_field :username %> 
   </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+  <div class="field" >
+    <%= f.label :password %>
+    <%= f.password_field :password %> 
   </div>
-  <div class="actions">
+  <div class="actions" >
     <%= f.submit "Login" %>
   </div>
-</fieldset>
-  
+  <%= link_to "Forgot Password" , :controller => "users", :action => "forgot_password" %>
+</div>
+
 <% end %>
+</center>

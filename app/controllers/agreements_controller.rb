@@ -51,7 +51,7 @@ class AgreementsController < ApplicationController
       if @agreement.save
 
         @agreements = Agreement.find_all_by_applicant_id(@applicantid)
-          format.html { redirect_to :controller => 'agreements', :action => 'new', :applicant_id => @agreement.applicant_id }
+          format.html { redirect_to :controller => 'agreements', :action => 'index' }
 
 
       else

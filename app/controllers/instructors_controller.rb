@@ -1,13 +1,14 @@
 class InstructorsController < ApplicationController
 #  redirect_to :controller =>"user" :action => "new"
 # unless @current_user
-#  authorize_resource
+ # authorize_resource
   layout 'instructor'
   # GET /instructors
   # GET /instructors.xml
   def index
     @instructors = Instructor.all
-    @perosn = Person.all
+    @applicants = Applicant.not_approved
+    @person = Person.all
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @instructors }
@@ -28,9 +29,9 @@ class InstructorsController < ApplicationController
   # GET /instructors/new
   # GET /instructors/new.xml
   def new
-    @perosn = Person.all
+    
     @instructor = Instructor.new
-
+   # @instructor.person.build
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @instructor }

@@ -1,7 +1,0 @@
-class AdmissionType < ActiveRecord::Base
-<<<<<<< HEAD
-has_and_belongs_to_many :enrollment_type
-=======
-  has_many :admission
->>>>>>> c961241896fbfeb842cb2563012000ecc4031957
-end

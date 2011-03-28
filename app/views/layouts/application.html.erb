@@ -3,8 +3,6 @@
 <head>
   <title>Mekelle Univeristy- Student Information System</title>
   <%= stylesheet_link_tag :all %>
-  <%= stylesheet_link_tag "/extjs/resources/css/ext-all.css" %>
-  <%= stylesheet_link_tag "/extjs/resources/css/xtheme-gray.css" %>
   <%= javascript_include_tag :defaults %>
   <%= netzke_init %>
   <%= javascript_include_tag "main_page" %>
@@ -23,7 +21,7 @@
     <div id="west" class="x-hide-display">
         <div>
             <%= render :partial =>'/shared/application/menuitems' %><br/>
-        </div>    
+        </div>
 
         <div id='student_menu'>
             <%= render :partial =>'/shared/application/menuitems' %><br/>
@@ -32,11 +30,11 @@
     <div id="center2" class="x-hide-display" >
         <%= yield %>
     </div>
-    
-    <div id="notification_area"> 
+
+    <div id="notification_area">
     	 <%= render :partial =>'/shared/application/notification' %>
     </div>
- 
+
    <div id="south" class="x-hide-display">
         <center><small>Mekelle Univerisity Gemhalo! project</small></center>
     </div>

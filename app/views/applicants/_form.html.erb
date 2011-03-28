@@ -1,4 +1,4 @@
-<%= form_for(@applicant) do |f| %>
+<%= form_for @applicant, :html => { :multipart => true } do |f| %>
   <% if @applicant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
@@ -13,7 +13,8 @@
    <fieldset><legend>Applicant Information</legend>
     
 
-    <%= fields_for "@applicant[person_attributes]" do |p|%>
+    <%= fields_for @person do |p|%>
+ 
      <table border ="0"><tr>
       <td><%= p.label :name %> </td>
       <td> <%= p.text_field :name %></td>
@@ -29,14 +30,17 @@
         <td><%= p.collection_select(:ethnicity,@ethnicity,:id,:name,:prompt=>"Select Ethnicity") %></td></tr>
         <tr><td><%= p.label :mother_full_name %><br /></td>
         <td><%= p.text_field :mother_full_name %></td>
-        <td><%= p.label :nationality %></td>
-        <td><%= p.collection_select(:nationality,@nationality,:id,:name,:prompt=>"Select Nationality") %></td></tr>
+        <td><%= p.label :nationality_id %></td>
+        <td><%= p.collection_select(:nationality_id,@nationality,:id,:name,:prompt=>"Select Nationality") %></td></tr>
         <tr><td><%= p.label :place_of_birth %><br /></td>
         <td><%= p.text_field :place_of_birth %></td>
         <td><%= p.label :marital_status %></td>
         <td><%= p.select :marital_status,["Married","Single","Divorced","Widow"],:prompt=>"Select Marital Status" %></td></tr>
         <tr><td><%= p.label :photo %></td>
         <td><%=  p.file_field :photo %></td>
+        
+        
+
         </tr>
         </table>
      <% end %>
@@ -49,10 +53,10 @@
     
        <table><tr>
    <td> <%= f.label :admission_id %></td>
-   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:admission_name ,:prompt=> "Select Admission")%></td></tr>
+   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:name ,:prompt=> "Select Admission")%></td></tr>
   
         <tr><td> <%= f.label :college_id %></td>
-          <td><%= f.collection_select(:college_id ,@College, :id,:name,:prompt=> "Select College")%></td></tr>
+          <td><%= f.collection_select(:college_id ,@College, :id, :name,:prompt=> "Select College")%></td></tr>
   
   
         <tr><td> <%= f.label :entry_level %></td>
@@ -67,6 +71,7 @@
 
       
       </table>
+
      
     </fieldset>
          <div class="actions">

@@ -1,25 +1,7 @@
-<h1>Listing agreements</h1>
-
-<table>
-  <tr>
-    <th>Agreement</th>
-    <th>Applicant</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @agreements.each do |agreement| %>
-  <tr>
-    <td><%= agreement.agreement %></td>
-    <td><%= agreement.applicant_id %></td>
-    <td><%= link_to 'Show', agreement %></td>
-    <td><%= link_to 'Edit', edit_agreement_path(agreement) %></td>
-    <td><%= link_to 'Destroy', agreement, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Agreement', new_agreement_path %>
+<html><head></head><body align ="center">
+    <fieldset><h1><legend>Application Submission Status Confirmation</legend></h1>
+<br></br><br></br><br></br><br></br>
+      <p> <h1 align="center">Dear ,Yonatan you have successfully submitted your application</h1></p><br></br>
+<br></br><br></br><br></br><br></br>
+</fieldset>
+  </body></html>

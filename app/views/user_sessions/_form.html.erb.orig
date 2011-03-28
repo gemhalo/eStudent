@@ -1,0 +1,48 @@
+<%= form_for(@user_session) do |f| %>
+  <% if @user_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_session.errors.count, "error") %> prohibited this user_session from being saved:</h2>
+
+      <ul>
+      <% @user_session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<center>
+<div style="margin:100px;border:1pt outset green;width:450px">
+<<<<<<< HEAD
+  <h1> Please Login</h1>
+  <div class="field" >
+    <%= f.label :username %> 
+    <%= f.text_field :username %> 
+  </div>
+  <div class="field" >
+    <%= f.label :password %>
+    <%= f.password_field :password %> 
+=======
+  <legend> Please Login</legend>
+  <div class="field" style="align:left">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+>>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
+  </div>
+  <div class="actions" >
+    <%= f.submit "Login" %>
+  </div>
+  <%= link_to "Forgot Password" , :controller => "users", :action => "forgot_password" %>
+</div>
+<<<<<<< HEAD
+
+<% end %>
+</center>
+=======
+<%= link_to "Forgot my password", :controller=>"users", :action=>"forgot_password" %>  
+
+<% end %>
+>>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5

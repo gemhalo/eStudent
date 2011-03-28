@@ -26,8 +26,11 @@ class CourseExemptionsController < ApplicationController
   # GET /course_exemptions/new.xml
   def new
      @applicantid = params[:applicant_id]
-     @admission = Admission.find(@applicantid)
-     @course_exemptions = CourseExemption.find_all_by_applicant_id(params[:applicant_id])
+     @applicant = Applicant.find(@applicantid)
+     @admissionid = @applicant.admission_id
+     logger.info("-----ddd-----#{@admissionid}----------")
+     @admission = Admission.find(@admissionid)
+
      @course_exemption = CourseExemption.new
 
     respond_to do |format|
@@ -59,7 +62,7 @@ class CourseExemptionsController < ApplicationController
          format.html { redirect_to :controller => 'course_exemptions', :action => 'new', :applicant_id => @course_exemption.applicant_id }
    
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to :controller => 'course_exemptions', :action => 'new', :applicant_id => @course_exemption.applicant_id }
         format.xml  { render :xml => @course_exemption.errors, :status => :unprocessable_entity }
       end
     end

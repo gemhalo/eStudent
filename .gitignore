@@ -3,6 +3,9 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 *~
-nbproject/
+.project
+nbproject
 nbproject/**/*
 **/*.orig
+public/people/photos/**/*
+public/relevant_publications/attachements/**/*

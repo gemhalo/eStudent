@@ -23,7 +23,8 @@
 <%= netzke :course_exemptions,
   :model => 'CourseExemption',
   :class_name => 'Basepack::GridPanel',
-  :scope => ["applicant_id = ? ", @applicantid]
+  :scope => ["applicant_id = ? ", @applicantid],
+  :height => 200
 %>
   </fieldset>
 </fieldset>

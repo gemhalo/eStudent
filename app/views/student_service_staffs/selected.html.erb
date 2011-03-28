@@ -1,0 +1,27 @@
+<center>
+<div style="margin:40px">
+<h1> List of Applicants!!! </h1>
+<% unless (params[:status]).nil? %>
+<% @stud_dept = (params[:status])[:admission_id] %>
+<% end %>
+<%  @verif = false %>
+<%  @verify = (params[:verify]) %>
+<% if @verify!= nil
+  @verif= @verify.to_b
+  end
+    %>
+   <%= netzke :applicants,
+        :class_name => "Basepack::GridPanel",
+        :model => 'Applicant',
+        :border => true,
+	:columns => [
+               :person__name,
+               :person__father_name,
+               :person__grand_father_name,
+               :name => :verified
+               ],
+               :scope => {:verified => @verif},
+               :width => 650,
+	       :height=>350
+    %>
+</div>

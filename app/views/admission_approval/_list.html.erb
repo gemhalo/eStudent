@@ -1,3 +1,20 @@
+<div style="margin:30px">
+<center>
+   <%#= netzke :Approve_Applicants,
+         :class_name => "Basepack::GridPanel",
+         :model => 'Applicant',
+         :border => true,
+	 :columns => [
+               {:name => :person__name,:label=>"Name"}, 
+               {:name => :person__father_name,:label=>"Father Name"},
+               {:name => :person__grand_father_name,:label=>"Grand Father Name"},
+	       {:name => :person__gender, :label=> "Sex"},
+               :name => :admission_status
+               ],
+              # :scope => {:admission_id=>@stud_dept, :verified => @verif},
+                :scope => {:admission_status => false, :verified => true},
+		:width => 650
+    %>
 <table border="1">
   <tr>
     <th>Full Name</th>
@@ -11,9 +28,9 @@
   <tr>
     <td><%= a.person.full_name %> </td>
     <td><%= a.person.gender %> </td>
-    <% if  a.verified==true %>
+    <% if  a.admission_status==true %>
     <td>Admitted</td
-    <% elsif a.verified==false %>
+    <% elsif a.admission_status==false %>
       <td>Not Admitted</td
     <% else %>
       <td>Pending</td
@@ -25,4 +42,3 @@
   </tr>
 
 </table>
-

@@ -1,0 +1,16 @@
+class Student < ActiveRecord::Base
+  belongs_to :person
+  belongs_to :applicant
+  has_one :dormitory
+  belongs_to :department
+<<<<<<< HEAD
+=======
+  has_many :educational_backgrounds
+>>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
+
+ include ActiveModel::Serialization
+ #attr_accessible :college_name
+# def attributes
+#   { 'college_name' => @college_name}
+# end
+end

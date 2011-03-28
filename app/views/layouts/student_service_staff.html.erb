@@ -12,6 +12,7 @@
 </head>
 <body>
    <!-- Header Content -->
+
      <%= render :partial =>'/shared/header' %>
 
      <%= render :partial =>'/shared/toplink' %>
@@ -22,7 +23,7 @@
     </div>
     <div id="west" class="x-hide-display">
             <%= render :partial =>'/shared/ssstaff/settingitems' %><br/>
-        </div>    
+        </div>
 
         <div id='student_menu'>
             <%= render :partial =>'/shared/ssstaff/settingitems' %><br/>
@@ -31,11 +32,11 @@
     <div id="center2" class="x-hide-display" >
         <%= yield %>
     </div>
-    
-    <div id="notification_area"> 
-    	 <%= render :partial =>'/shared/notification' %>
+
+    <div id="notification_area">
+    	 <%= render :partial =>'/shared/ssstaff/notification' %>
     </div>
- 
+
    <div id="south" class="x-hide-display">
         <center><small>Mekelle Univerisity Gemhalo! project</small></center>
     </div>
