@@ -2,7 +2,9 @@ source 'http://rubygems.org'
 #Gems required for all environments
 gem 'rails', '3.0.4'
 gem 'authlogic'
+gem 'event-calendar', :require => 'event_calendar'
 gem 'cancan'
+#gem "pdfkit"
 #We will enable this when we want to work with  Bundle edge Rails instead: 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'fastercsv'
@@ -128,7 +130,7 @@ end
 
 #Gems required for test and production environments
 group :test, :production do
-
+gem "pdfkit"
   # PostgreSQL
   #gem 'pg', :require => 'pg'
   #MySQL
@@ -141,4 +143,6 @@ end
 group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
+
+
 

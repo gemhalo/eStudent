@@ -1,31 +1,24 @@
-<h1>Listing events</h1>
+<div style="margin:5px">
+<%= netzke :calendar,
+    :class_name => "Basepack::GridPanel",
+    :model => 'Event',
+    :border => true,
+    :width => 800,
+    :height => 400,
+    :header => false,
+   # :columns => [ {:name => :name, :label => "Campus name", :width =>600}],
 
-<table>
-  <tr>
-    <th>Academic calander</th>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Title</th>
-    <th>Detail</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.academic_calander_id %></td>
-    <td><%= event.start_date %></td>
-    <td><%= event.end_date %></td>
-    <td><%= event.title %></td>
-    <td><%= event.detail %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Event', new_event_path %>
+#Create menu
+:bbar => nil,
+:tbar => [{
+:menu => [:add.action, :edit.action, :apply.action, :del.action],
+:text => "Edit inline",
+:icon =>"/images/icons/table.png"
+},{
+:menu => [:add_in_form.action, :edit_in_form.action],
+:text => "Edit in form",
+:icon => "/images/icons/application_form.png"
+}]
+%>
+</div>

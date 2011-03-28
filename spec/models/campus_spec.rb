@@ -16,7 +16,7 @@ context "When saving" do
     it " empty name should not be valid" do
         @c.name = "adhaki"
         @c.should be_valid
-    end
+
 end
 end 
 end

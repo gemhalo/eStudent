@@ -10,8 +10,12 @@
          <div class='menu_link'><img src='/icons/college.png'/ width=20 height=20>
                  <%= link_to "Add college", new_college_path %><br><div>
 
+<<<<<<< HEAD
         
 		<div class='menu_link'><img src='/icons/department.png'/ width=20 height=20>
+=======
+         <div class='menu_link'><img src='/icons/application_side_list.png'/ width=20 height=20>
+>>>>>>> a5bf7674b048821429ada117d93eec5c31513664
                  <%= link_to "Add Department", new_department_path %><br><div>
 
         <div class='menu_link'><img src='/icons/application_side_list.png'/ width=20 height=20>
@@ -34,7 +38,4 @@
 	
 	<div class='menu_link'><img src='/icons/award_star_silver_1.png'/ width=20 height=20>
                   <%= link_to "Academic Calendar", academic_calanders_path %><br> </div>
-
-            <div class='menu_link'><img src='/icons/award_star_silver_1.png'/ width=20 height=20>
-                  <%= link_to "Event", events_path %><br> </div>
 

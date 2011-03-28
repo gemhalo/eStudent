@@ -7,7 +7,7 @@ describe  College do
    @co = College.new
  end
  context "When created" do
-    it " must have first name" do
+    it " must have name" do
         @co.name = "Adhaki"
         @co.name.should_not be_blank
     end

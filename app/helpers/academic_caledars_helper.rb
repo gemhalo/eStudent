@@ -1,0 +1,2 @@
+module AcademicCaledarsHelper
+end

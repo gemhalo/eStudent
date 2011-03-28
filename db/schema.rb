@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110312083405) do
+ActiveRecord::Schema.define(:version => 20110324141342) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.datetime "updated_at"
   end
 
-  create_table "academic_calanders", :force => true do |t|
+  create_table "academic_calendars", :force => true do |t|
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at"
@@ -71,8 +71,10 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.integer  "admission_status_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "verified",                 :default => false
+    t.integer  "student_service_staff_id"
+    t.integer  "admission_type_id"
     t.integer  "enrollment_mode_type_id"
-    t.boolean  "verified"
   end
 
   create_table "award_types", :force => true do |t|
@@ -89,15 +91,6 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.datetime "updated_at"
   end
 
-  create_table "campus", :force => true do |t|
-    t.string   "name"
-    t.integer  "campus_telephone"
-    t.string   "campus_pobox"
-    t.string   "campus_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "campuses", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -107,12 +100,10 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
-    t.integer  "college_telephone"
-    t.string   "college_pobox"
-    t.string   "college_email"
-    t.integer  "instructor_id"
+    t.string   "dean"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "instructor_id"
   end
 
   create_table "course_exemptions", :force => true do |t|
@@ -175,9 +166,7 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
 
   create_table "dormitories", :force => true do |t|
     t.integer  "student_id"
-    t.integer  "room_id"
-    t.string   "bed_number"
-    t.date     "academic_year"
+    t.string   "dorm"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -250,13 +239,12 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
   end
 
   create_table "events", :force => true do |t|
-    t.integer  "academic_calander_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.string   "title"
-    t.string   "detail"
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "details"
   end
 
   create_table "family_backgrounds", :force => true do |t|
@@ -452,7 +440,6 @@ ActiveRecord::Schema.define(:version => 20110312083405) do
     t.datetime "updated_at"
     t.string   "role"
     t.integer  "person_id"
-    t.string   "temp_password"
   end
 
 end

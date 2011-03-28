@@ -1,4 +1,13 @@
 EStudent::Application.routes.draw do
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+
+
+  get "event_viewer/index"
+
+  get "event_viewer/show"
+  resources :event_viewer
+  resources :academic_caledars
+
   get  'student_service_staffs/selector'
   post 'student_service_staffs/selector'
   resources :award_types
@@ -64,7 +73,7 @@ EStudent::Application.routes.draw do
 
   resources :campuses
 
-  resources :academic_calanders
+  resources :academic_calendars
 
   netzke
   root :to => "welcome#index"
