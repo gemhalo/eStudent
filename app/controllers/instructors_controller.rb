@@ -9,8 +9,7 @@ class InstructorsController < ApplicationController
     @instructors = Instructor.all
     @applicants = Applicant.not_approved
     @person = Person.all
-    @menuitems=Menuitem.where("role_id=?",@current_user.role)
-#    @menuitems=Menuitem.fetch_menu
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @instructors }

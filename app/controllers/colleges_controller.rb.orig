@@ -89,4 +89,7 @@ class CollegesController < ApplicationController
     end
   end
 end
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8561db890ac0eea6824eecf766d3f2bb1288708e

@@ -29,14 +29,15 @@ class MoeDataImportController < ApplicationController
                 :region_code => row[8] )
 
        @applicant << Applicant.create(:person_id => Person.last.id,
-                  :college_id => College.where('name like ?', "%#{row[9]}%").first.id,
-                  #:enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
+               #   :college_id => College.where('name like ?', "%#{row[9]}%").first.id,
+               #   :enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
                   :admission_id => Admission.where('admission_type_id = ? and enrollment_type_id = ?',
                     AdmissionType.where('name like ?', "%#{row[12]}%").first,
                     EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id,
 		  :verified => false,
 		  :admission_status => false
- 		  #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
+			
+ #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
               )
 
        @educational_background << EducationalBackground.create(:eheece_code => row[0],
@@ -70,8 +71,25 @@ end
               :role => "student"
             )
 
-
-
+      # Generating ID Number for each imported student
+      
+            college=p.applicant.college.name
+            collegename=college[college.index("(")+1..college.index(")")-1].upcase
+            program=p.applicant.admission.program_type.name[0].upcase
+            enrollment=p.applicant.admission.enrollment_type.name[0].upcase
+            date=Date.today  # will be replaced by academic_year
+            seqno=p.applicant.id.to_s
+            while(seqno.length < 4)
+              seqno="0" << "#{seqno}"
+            end
+            if ((1..8)===date.month or(date.month==9 and date.day<11))
+              ethiopian_year=date.year - 8
+            else
+              ethiopian_year=date.year - 7
+            end
+            idnumber="#{collegename}" << "/" << "#{program}" << "#{enrollment}" << "#{seqno}" << "/" << "#{ethiopian_year}"
+            p.applicant.temp_id_number=idnumber
+            p.applicant.save!
       end
 
   end
