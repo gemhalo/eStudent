@@ -1,4 +1,6 @@
 EStudent::Application.routes.draw do
+  get "admission_status_notfication_inputs/Send"
+
   get "admin/index"
 
  #This must be the only exception resources that must come at first
@@ -17,6 +19,9 @@ EStudent::Application.routes.draw do
 
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
+
+  get  "admission_status_notfication_inputs/send"
+  post "admission_status_notfication_inputs/send"
 
   get "admission_approval/approve"
 
