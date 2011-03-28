@@ -1,0 +1,9 @@
+<br>
+<<<<<<< HEAD
+<div class='menu_link' stiyle="text-indent:10px"><img src='/icons/note.png'/ width=20 height=20> 
+<%= link_to "Events", :controller => "calendar", :action =>"index" %><br><div>
+=======
+<div class='menu_link' stiyle="text-indent:10px"><img src='/icons/note.png'/ width=20 height=20>
+<%= link_to "Application Deadline", how_tos_path %><br><div>
+>>>>>>> 578454184557a2d29c9ff5b56685af8938295cdb
+

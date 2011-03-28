@@ -1,16 +1,16 @@
 <<<<<<< HEAD
 <div style="margin:5px">
-<%= netzke :campuses,
+<%= netzke :calendar,
     :class_name => "Basepack::GridPanel",
-    :model => 'Campus',
+    :model => 'Event',
     :border => true,
-    :width => 600,
-    :height => 300,
+    :width => 800,
+    :height => 400,
     :header => false,
-    :columns => [ {:name => :name, :label => "Campus name", :width =>600}],
+   # :columns => [ {:name => :name, :label => "Campus name", :width =>600}],
 
 
-#Create menu 
+#Create menu
 :bbar => nil,
 :tbar => [{
 :menu => [:add.action, :edit.action, :apply.action, :del.action],
@@ -31,12 +31,10 @@
  # class_name is the UI renderer
 %>
 <center>
-<%= netzke :campuses,
-    :model => "Campus",
+<%= netzke :events,
+    :model => "Event",
     :class_name => "Basepack::GridPanel",
-    :columns  => [
-        {:name => "name", :label => "Campus name ", :width => 600}
-    ],
+
 
     #Create menu
     :bbar => nil,
@@ -53,5 +51,4 @@
     :height => 300
 %>
 </center>
-
 >>>>>>> 578454184557a2d29c9ff5b56685af8938295cdb

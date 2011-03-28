@@ -6,10 +6,17 @@ gem 'rails', '3.0.4'
 
 # Security
 gem 'authlogic'
+gem 'event-calendar', :require => 'event_calendar'
 gem 'cancan'
+<<<<<<< HEAD
+#gem "pdfkit"
+#We will enable this when we want to work with  Bundle edge Rails instead: 
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+=======
 gem 'humanizer'
 
 # Spread sheet types
+>>>>>>> 578454184557a2d29c9ff5b56685af8938295cdb
 gem 'fastercsv'
 
 #PDF
@@ -21,14 +28,10 @@ gem  'railroad'
 #gem 'roo', '1.9.3'
 
 #gem 'rubyzip','0.9.4'
-<<<<<<< HEAD
-#gem 'nokogiri'
-=======
 
-gem 'nokogiri'
+#gem 'nokogiri'
 gem 'paperclip'
 
->>>>>>> 8561db890ac0eea6824eecf766d3f2bb1288708e
 #gem 'spreadsheet'
 #gem 'odf-spreadsheet'
 #gem 'google-spreadsheet-ruby'
@@ -154,7 +157,7 @@ end
 
 #Gems required for test and production environments
 group :test, :production do
-
+gem "pdfkit"
   # PostgreSQL
   #gem 'pg', :require => 'pg'
   #MySQL
@@ -167,4 +170,6 @@ end
 group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
+
+
 
