@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
     t.datetime "updated_at"
   end
 
-  create_table "academic_calendars", :force => true do |t|
+  create_table "academic_calanders", :force => true do |t|
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at"
@@ -71,9 +71,7 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
     t.boolean  "admission_status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "verified",                 :default => false
-    t.integer  "student_service_staff_id"
-    t.integer  "admission_type_id"
+    t.boolean  "verified"
     t.integer  "enrollment_mode_type_id"
     t.string   "temp_id_number"
   end
@@ -101,7 +99,6 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
   create_table "colleges", :force => true do |t|
     t.string   "name"
     t.integer  "campus_id"
-    t.string   "dean"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "instructor_id"
@@ -167,7 +164,9 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
 
   create_table "dormitories", :force => true do |t|
     t.integer  "student_id"
-    t.string   "dorm"
+    t.integer  "room_id"
+    t.string   "bed_number"
+    t.integer  "academic_calendar_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -215,12 +214,6 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
     t.datetime "updated_at"
   end
 
-  create_table "enrollement_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "enrollment_mode_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -240,12 +233,13 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
   end
 
   create_table "events", :force => true do |t|
-    t.string   "name"
-    t.datetime "start_at"
-    t.datetime "end_at"
+    t.integer  "academic_calander_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "title"
+    t.string   "detail"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "details"
   end
 
   create_table "family_backgrounds", :force => true do |t|
@@ -340,7 +334,6 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
     t.integer  "nationality_id"
     t.string   "marital_status"
     t.string   "mother_full_name"
-    t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "disability"
@@ -426,16 +419,12 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
     t.string   "id_number"
     t.integer  "applicant_id"
     t.integer  "department_id"
-    t.integer  "enrollment_type_id"
-    t.integer  "admission_type_id"
     t.integer  "program_id"
-    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "college_name"
     t.integer  "enrollment_mode_id"
     t.integer  "admission_id"
-    t.integer  "applicant_id"
   end
 
   create_table "users", :force => true do |t|
