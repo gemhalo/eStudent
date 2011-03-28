@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-#before_filter do
-#	redirect_to new_user_session_path unless current_user #authenticated?
-#end
-
+layout "welcome"
  def index
     @menuitems=Menuitem.all
     @temp=User.where("temp_password=? and username=?","",current_user.username).count

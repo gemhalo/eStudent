@@ -1,14 +1,13 @@
 class AdmissionApprovalController < ApplicationController
-  layout "instructor"
   def index
-
-        #@current_user=session[:user_name]
-        #dept=current_user.person.instructor.department_id
+    @menuitems=Menuitem.where("role_id=?",@current_user.role)
         @applicants=Applicant.all(:conditions=>["admission_status=? and verified=?",false,true])
      end
 
   def show_list
   	#dept=current_user.person.instructor.department_id
+    @menuitems=Menuitem.where("role_id=?",@current_user.role)
+
     @applicants=Applicant.all(:conditions=>["admission_status =? and verified=?", false, true])
   end
 

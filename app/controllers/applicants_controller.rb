@@ -1,5 +1,4 @@
 class ApplicantsController < ApplicationController
-  layout "student"
   # GET /applicants
   # GET /applicants.xml
   def index
@@ -51,7 +50,7 @@ class ApplicantsController < ApplicationController
 
     @nationality = Nationality.all
     @Admissiontype    = AdmissionType.all
-    @Enrollementtype  = EnrollmentType.all
+    @Enrollmenttype  = EnrollmentType.all
     @College    = College.all
     @admission_status_types = AdmissionStatusType.all
     @person = Person.create(params[:person])

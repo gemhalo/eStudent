@@ -284,11 +284,10 @@ ActiveRecord::Schema.define(:version => 20110322064713) do
   end
 
   create_table "menuitems", :force => true do |t|
-    t.string   "linktitle"
-    t.string   "linkcontroller"
-    t.string   "linkaction"
+    t.string   "title"
+    t.string   "linkpath"
     t.string   "linkicon"
-    t.string   "role_id"
+    t.integer  "role_id"
     t.string   "catagory"
     t.datetime "created_at"
     t.datetime "updated_at"

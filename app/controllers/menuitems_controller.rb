@@ -1,6 +1,7 @@
 class MenuitemsController < ApplicationController
   # GET /menuitems
   # GET /menuitems.xml
+ layout "welcome"
   def index
     @menuitems = Menuitem.all
 

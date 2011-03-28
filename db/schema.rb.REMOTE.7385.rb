@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110322064713) do
+ActiveRecord::Schema.define(:version => 20110315094055) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -279,17 +279,6 @@ ActiveRecord::Schema.define(:version => 20110322064713) do
     t.integer  "role_id"
     t.integer  "department_id"
     t.integer  "person_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "menuitems", :force => true do |t|
-    t.string   "linktitle"
-    t.string   "linkcontroller"
-    t.string   "linkaction"
-    t.string   "linkicon"
-    t.string   "role_id"
-    t.string   "catagory"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

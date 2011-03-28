@@ -1,10 +1,11 @@
 class CreateMenuitems < ActiveRecord::Migration
   def self.up
     create_table :menuitems do |t|
-      t.string :title
-      t.string :linkpath
+      t.string :linktitle
+      t.string :linkcontroller
+      t.string :linkaction
       t.string :linkicon
-      t.integer :role_id
+      t.string :role_id
       t.string :catagory
 
       t.timestamps

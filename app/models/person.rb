@@ -66,5 +66,7 @@ class Person < ActiveRecord::Base
         (User.where('person_id = ?', self.id)).first.email
       end
 
+
+
 end
 

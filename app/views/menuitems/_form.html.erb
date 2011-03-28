@@ -13,12 +13,17 @@
 
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :linktitle %>
   </div>
   <div class="field">
-    <%= f.label :linkpath %><br />
-    <%= f.text_field :linkpath %>
+    <%= f.label :controller %><br />
+    <%= f.text_field :linkcontroller %>
   </div>
+  <div class="field">
+    <%= f.label :action %><br />
+    <%= f.text_field :linkaction %>
+  </div>
+
   <div class="field">
     <%= f.label :linkicon %><br />
     <%= f.text_field :linkicon %>
@@ -29,7 +34,9 @@
   </div>
   <div class="field">
     <%= f.label :catagory %><br />
-    <%= f.text_field :catagory %>
+    <% @catagory=["academics", "communications","settings"] %>
+    <%= f.collection_select :catagory, @catagory, :to_s, :humanize %>
+
   </div>
   <div class="actions">
     <%= f.submit %>

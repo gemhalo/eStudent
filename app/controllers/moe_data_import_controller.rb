@@ -3,8 +3,6 @@ require 'csv'
 
 class MoeDataImportController < ApplicationController
 
-  layout  'student_service_staff'
-
   def import
 	@applicants=Applicant.not_verified
   end
@@ -38,8 +36,7 @@ class MoeDataImportController < ApplicationController
                     EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id,
 		  :verified => false,
 		  :admission_status => false
-			
- #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
+ 		  #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
               )
 
        @educational_background << EducationalBackground.create(:eheece_code => row[0],

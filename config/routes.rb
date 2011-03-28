@@ -12,7 +12,7 @@ EStudent::Application.routes.draw do
     end
   end
 
-  netzke
+#  netzke
   root :to => "user_sessions#new"
   #root :to => "users#index"
   #root :to => "welcome#index"
@@ -105,11 +105,11 @@ EStudent::Application.routes.draw do
   resources :educational_backgrounds
   resources :emergency_contacts
   resources :employment_informations
-  resources :enrollement_types
+  #resources :enrollement_types
   resources :enrollment_mode_types
   resources :enrollment_types
   #Remove this later
-  resources :enrollement_types
+
   #resource :session
   resources :ethnicities
   resources :events
@@ -129,6 +129,7 @@ EStudent::Application.routes.draw do
   resources :student_service_staffs
   resources :admin
   resources :menuitems
+  netzke
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

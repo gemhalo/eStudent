@@ -1,10 +1,7 @@
 class UserSessionsController < ApplicationController
   before_filter :require_no_user, :only => [ :new, :create ]
   before_filter :require_user, :only =>  :destroy
-
-  def index
-        @menuitems=Menuitem.all
-  end
+  layout "welcome"
   def new
     @user_session = UserSession.new
 

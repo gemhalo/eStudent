@@ -4,7 +4,7 @@ layout "admin"
   # GET /admissions.xml
   def index
     @admissions = Admission.all
-    @enrollement_types = EnrollmentType.all
+    @enrollment_types = EnrollmentType.all
     @admission_types = AdmissionType.all
 
     respond_to do |format|
@@ -17,7 +17,7 @@ layout "admin"
   # GET /admissions/1.xml
   def show
     @admission = Admission.find(params[:id])
-    @enrollement_types = EnrollmentType.all
+    @enrollment_types = EnrollmentType.all
     @admission_types = AdmissionType.all
 
     respond_to do |format|
@@ -30,7 +30,7 @@ layout "admin"
   # GET /admissions/new.xml
   def new
     @admission = Admission.new
-    @enrollement_types = EnrollmentType.all
+    @enrollment_types = EnrollmentType.all
     @admission_types = AdmissionType.all
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +41,7 @@ layout "admin"
   # GET /admissions/1/edit
   def edit
     @admission = Admission.find(params[:id])
-    @enrollement_types = EnrollmentType.all
+    @enrollment_types = EnrollmentType.all
     @admission_types = AdmissionType.all
   end
 
@@ -49,7 +49,7 @@ layout "admin"
   # POST /admissions.xml
   def create
     @admission = Admission.new(params[:admission])
-    @enrollement_types = EnrollmentType.all
+    @enrollment_types = EnrollmentType.all
     @admission_types = AdmissionType.all
 
     respond_to do |format|
@@ -67,7 +67,7 @@ layout "admin"
   # PUT /admissions/1.xml
   def update
     @admission = Admission.find(params[:id])
-    @enrollement_types = EnrollmentType.all
+    @enrollment_types = EnrollmentType.all
     @admission_types = AdmissionType.all
 
     respond_to do |format|
@@ -85,7 +85,7 @@ layout "admin"
   # DELETE /admissions/1.xml
   def destroy
     @admission = Admission.find(params[:id])
-    @enrollement_types = EnrollmentType.all
+    @enrollment_types = EnrollmentType.all
     @admission_types = AdmissionType.all
     @admission.destroy
 

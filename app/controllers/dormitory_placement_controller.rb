@@ -1,5 +1,4 @@
 class DormitoryPlacementController < ApplicationController
-  layout "student_service_staff"
 
   def place_dorm
     @buildings=Building.all

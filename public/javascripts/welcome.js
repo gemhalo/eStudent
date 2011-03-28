@@ -12,7 +12,6 @@
             // create instance immediately
             new Ext.BoxComponent({
                 region: 'north',
-                //contentEl: 'north',
                 height: 90, // give north and south regions a height
                 border: false,
 		//header:false,
@@ -88,7 +87,7 @@
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },
-                {
+ /*               {
                     contentEl: 'communications',
                     title: 'Communications',
                     border: false,
@@ -100,7 +99,7 @@
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 }
-                
+                */
                 /*{
                     id:'mu_forms',
                     title: 'Forms Menu',
@@ -114,8 +113,8 @@
             // as a Container
             new Ext.TabPanel({
                 region: 'center', // a center region is ALWAYS required for border layout
-               deferredRender: false,
-                activeTab:0,     // first tab initially active
+                deferredRender: false,
+                activeTab: 0,     // first tab initially active
                 items: [/*{
                     contentEl: 'center1',
                     title: 'Close Me',
@@ -127,17 +126,6 @@
                     autoScroll: true
                 }]
             })]
-        });
-         new Ext.TabPanel({
-                region: 'north', // a center region is ALWAYS required for border layout
-               deferredRender: false,
-                activeTab:0,     // first tab initially active
-		items:[
-			{
-                        contentEl: 'div',	
-			title: 'samy'
-			}
-		]
         });
         // get a reference to the HTML element with id "hideit" and add a click listener to it 
         Ext.get("hideit").on('click', function(){
