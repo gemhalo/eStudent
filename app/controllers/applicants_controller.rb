@@ -33,13 +33,18 @@ class ApplicantsController < ApplicationController
     @Admission = Admission.all
     @College = College.all
     @admission_status_types = AdmissionStatusType.all
+if @current_user.person_id.nil?
+
 
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @applicant }
     end
+else
+  @applicant = @current_user.person.applicant
+  redirect_to :controller => "applicants", :action => "edit", :id => @applicant
   end
-
+  end
   # GET /applicants/1/edit
   def edit
     @applicant = Applicant.find(params[:id])

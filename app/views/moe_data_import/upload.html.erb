@@ -6,9 +6,9 @@
            :model => 'Person',
            :columns => [
            :name, :father_name, :grand_father_name],
-           :scope=> {:id.gteq => @person.first.id},
+           :scope=> {:id => @person},
            :width => 650
            
           %>
-<%= @person.inspect %>
+
   <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>

@@ -1,4 +1,10 @@
-<input type="submit" class="noPrint" value="Print All" onClick="window.print();"></input>
+
+<div id="messages">
+<% flash[:notice].each do |notice| %>
+  <%= notice %><br/>
+<% end %>
+</div>
+<input type="submit" class="noPrint" value="Print All" onClick="show.html.erb.print();"></input>
 <style> @media print{
     .noPrint{
          display: none;
@@ -17,7 +23,7 @@
     Password________<%= u.temp_password %><br></br>
     
     please change your password as soon as you login to the system </cente> <br></br></center>
-<input type="submit" class="noPrint" value="Print" onClick="window.print();"></input>
+<input type="submit" class="noPrint" value="Print" onClick ="window.print()" ></input>
 <hr></hr>
 <% end %>
 

@@ -8,7 +8,7 @@ gem 'rails', '3.0.4'
 gem 'authlogic'
 gem 'cancan'
 gem 'humanizer'
-
+gem 'wicked_pdf'
 # Spread sheet types
 gem 'fastercsv'
 

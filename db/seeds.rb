@@ -12,6 +12,7 @@ College.delete_all
 Department.delete_all
 AdmissionType.delete_all
 EnrollmentType.delete_all
+EnrollmentModeType.delete_all
 Admission.delete_all
 User.delete_all
 Building.delete_all
@@ -41,7 +42,7 @@ admission_types.each do | admission_type1 | # {Undergraduate, Postgraduate} x
   enrollment_types.each do | enrollment_type1 | # { Regular, Extension, Summer, Distance}
 
     Admission.create!({ :admission_type_id => AdmissionType.find_by_name(admission_type1).id,
-                        :enrollment_type_id => EnrollmentType.find_by_name(enrollment_type1)
+                        :enrollment_type_id => EnrollmentType.find_by_name(enrollment_type1).id
                       })
   end
 
@@ -80,6 +81,7 @@ colleges = [
 
 colleges.each do | college |
   College.create!({ :name => college[:name], :campus_id => Campus.find_by_name(college[:campus])
+#          :instructor_id => 0
   })
 end
 
@@ -102,4 +104,21 @@ departments.each do |department|
                      :college_id => College.find_by_name(department[:college]).id,
                      :dept_head => "-" } )
 end
+
+#create enrollment mode type
+
+enrollment_mode_types  = [{:name => "Full Time"},{:name => "Part Time"}]
+
+enrollment_mode_types.each do |emt|
+  EnrollmentModeType.create!({:name => emt[:name]})
+end
+
+# create nationality
+
+nationality = [{:name => "Ethiopia"},{:name => "Germen"}, {:name => "America"}]
+
+nationality.each do |country|
+  Nationality.create!({:name => country[:name]})
+end
+
 
