@@ -29,6 +29,7 @@ class DepartmentChoicesController < ApplicationController
   # GET /department_choices/new.xml
   def new
      @applicantid = params[:applicant_id]
+     @applicant = Applicant.find(@applicantid)
      @Existdep  = DepartmentChoice.where("applicant_id = ? ",@applicantid)
      a = Array.new
      @Existdep.each do |dep|

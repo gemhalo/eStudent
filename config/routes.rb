@@ -13,13 +13,15 @@ EStudent::Application.routes.draw do
     end
   end
 
-#  netzke
+  netzke
   root :to => "user_sessions#new"
   #root :to => "users#index"
   #root :to => "welcome#index"
 
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
+
+ 
 
   get "admission_approval/approve"
 
@@ -46,6 +48,7 @@ EStudent::Application.routes.draw do
   get "department_head/show_list"
 
   get "department_placement/department_placing_process"
+  post "dormitory_placement/dorm_placing_process"
 
   get "dormitory_placement/dorm_placing_process"
   post "dormitory_placement/dorm_placing_process"
@@ -84,6 +87,10 @@ EStudent::Application.routes.draw do
   #get "users/edit"
   get  'users/manageusers'
   post 'users/manageusers'
+<<<<<<< HEAD
+get 'available_programs/index_pdf'
+post 'available_programs/index_pdf'
+=======
 
   resources :user_sessions
   resources :users do
@@ -93,6 +100,7 @@ EStudent::Application.routes.draw do
     end
   end
 
+>>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
 
   resources :academic_and_professional_qualifications
   resources :academic_calanders

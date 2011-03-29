@@ -2,6 +2,30 @@
 <div style="margin:40px">
 	<h1> Welcome to Student Service Staff's Dashborad </h1>
 </div>
-
-
+<%= netzke :Grade_Processing_Grid,
+            :class_name => "Basepack::TabPanel",
+            :items => [{
+              :class_name => "Basepack::GridPanel",
+              :model => "Applicant",
+              :title => "List of Students"
+            },
+{
+              :class_name => "Basepack::GridPanel",
+              :model => "College",
+              :title => "Grade Report"
+            },
+{
+              :class_name => "Basepack::GridPanel",
+              :model => "Department",
+              :title => "Transcript"
+            },
+             {
+              :class_name => "Basepack::GridPanel",
+              :model => "Admission",
+              :title => "Temporary Deploma"
+            }],
+            :width => 700,
+            :border => true,
+            :active_tab => 0
+%>
 

@@ -167,3 +167,5 @@ group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
 
+gem 'wkhtmltopdf'
+gem 'pdfkit'
