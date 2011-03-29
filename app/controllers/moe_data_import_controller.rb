@@ -3,8 +3,6 @@ require 'csv'
 
 class MoeDataImportController < ApplicationController
 
-  layout  'student_service_staff'
-
   def import
 	@applicants=Applicant.not_verified
   end
@@ -31,6 +29,7 @@ class MoeDataImportController < ApplicationController
                 :region_code => row[8] )
 
        @applicant << Applicant.create(:person_id => Person.last.id,
+<<<<<<< HEAD
                   :college_id => College.where('name like ?', "%#{row[9]}%").first,
                   #:enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
                   :admission_id => Admission.where('admission_type_id = ? and enrollment_type_id = ?',
@@ -38,6 +37,15 @@ class MoeDataImportController < ApplicationController
                     EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id,
                     :verified => false
 		  #:admission_status_type_id => false
+=======
+               #   :college_id => College.where('name like ?', "%#{row[9]}%").first.id,
+               #   :enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
+                  :admission_id => Admission.where('admission_type_id = ? and enrollment_type_id = ?',
+                    AdmissionType.where('name like ?', "%#{row[12]}%").first,
+                    EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id,
+		  :verified => false,
+		  :admission_status => false
+>>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
 			
  #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
               )

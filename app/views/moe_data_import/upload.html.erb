@@ -1,3 +1,4 @@
+<div style="margin:30px">
 <%= flash[:notice] %>
 
 
@@ -6,10 +7,16 @@
            :model => 'Person',
            :columns => [
            :name, :father_name, :grand_father_name],
-           :scope=> {:id.gteq => @person.first.id},
+#           :scope=> {:id.gteq => @person.first.id},
            :width => 650
            
+<<<<<<< HEAD
           %>#
 
 <%= @person.inspect %>
 <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>
+=======
+          %>
+  <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>
+</div>
+>>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
