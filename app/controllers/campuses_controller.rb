@@ -1,8 +1,13 @@
 class CampusesController < ApplicationController
 layout "admin"
+  #Breadcrumbs
+  add_breadcrumb "Home", :root_path
+  
+  
   # GET /campuses
   # GET /campuses.xml
   def index
+    add_breadcrumb "Campuses", :campuses_path
     @campuses = Campus.all
 
     respond_to do |format|

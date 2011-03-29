@@ -4,7 +4,9 @@
  # model is the activeRecord model to use
  # class_name is the UI renderer
 %>
+<%= render_breadcrumbs :separator => " >> " %>		
 <center style="media:print;">
+  
 <%= netzke :campuses,
     :model => "Campus",
     :class_name => "Basepack::GridPanel",

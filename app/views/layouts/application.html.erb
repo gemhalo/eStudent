@@ -10,10 +10,11 @@
 
 </head>
 <body>
-   <!-- Header Content -->
+   <!-- Header Content -->  
      <%= render :partial =>'/shared/header' %>
 
      <%= render :partial =>'/shared/toplink' %>
+ 
 
     <!-- Basic setup menu-->
     <div id="basic_setup">
@@ -29,6 +30,7 @@
         </div>
      </div>
     <div id="center2" class="x-hide-display" >
+        <%= render_breadcrumbs %>	
         <%= yield %>
     </div>
 

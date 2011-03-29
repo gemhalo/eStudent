@@ -9,6 +9,8 @@ gem 'authlogic'
 gem 'cancan'
 gem 'humanizer'
 
+gem 'breadcrumbs', '0.1.6'
+gem 'breadcrumbs_on_rails', '1.0.1'
 # Spread sheet types
 gem 'fastercsv'
 
