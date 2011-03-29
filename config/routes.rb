@@ -34,16 +34,12 @@ EStudent::Application.routes.draw do
   get "available_programs/show"
   post "available_programs/show"
 
-  get "department_head/approve"
-
-  get "department_head/details"
-
-  get "department_head/index"
-
-  get "department_head/show_list"
-
   get "department_placement/department_placing_process"
 
+  get "dormitory_placement/select_batch"
+  post "dormitory_placement/select_batch"
+  get "dormitory_placement/fresh_students_dorm_placement"
+  get "dormitory_placement/existing_students_dorm_placement"
   get "dormitory_placement/dorm_placing_process"
   post "dormitory_placement/dorm_placing_process"
   get "department_placement/show_placement"

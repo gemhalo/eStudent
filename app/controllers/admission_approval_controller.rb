@@ -26,7 +26,6 @@ class AdmissionApprovalController < ApplicationController
     if applicant.save!
       if applicant.student.nil?
         applicant.build_student
-        applicant.student.applicant_id=applicant.id
       if applicant.admission.admission_type.name=="Undergraduate" and applicant.admission.enrollment_type.name=="Regular"
         #applicant.student.id_number=applicant.temp_id_number
         assign_id(applicant)
@@ -35,6 +34,7 @@ class AdmissionApprovalController < ApplicationController
       end
 
       applicant.student.save!
+      
     end
 
       @applicants=Applicant.all
@@ -68,6 +68,10 @@ class AdmissionApprovalController < ApplicationController
   def decline
     a=Applicant.find(params[:id])
     a.admission_status=false
+    if !a.student.nil?
+      a.student.destroy
+      a.student.save!
+    end
     a.save!
     @applicants=Applicant.all
     render "show_list"

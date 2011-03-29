@@ -7,26 +7,50 @@ class DormitoryPlacementController < ApplicationController
 
   end
 
+  def select_batch
+    if params[:batch]=="fresh"
+      render :action=>'fresh_students_dorm_placement'
+    elsif params[:batch]=="others"
+      render :action=>'existing_students_dorm_placement'
+    end
+  end
+
+  def fresh_students_dorm_placement
+  end
+
+  def existing_students_dorm_placement
+  end
+
   def dorm_placing_process
 
     @dormitories = Dormitory.all
 
-    @building=Building.find(params[:building]) unless params[:building].nil? do
-      building=@building.building_name
-      @rooms=@building.rooms
+    if params[:building].nil? or params[:college].nil?
+     flash[:notice] = "Please Fill All the Fields"
+      render :action=>"place_dorm"
+    else
 
-      @colleges=College.find(params[:college]) unless params[:college].nil? do
-          students=Student.all
-          rooms=@rooms.count
+    buildings=Building.find(params[:building])
+    gender=params[:gender]
+
+    class_year=params[:class_year] unless params[:class_year].nil?
+    college=params[:college] unless params[:college].nil?
+    department=Department.find(params[:department]) unless params[:department].nil?
+
+      students=Student.all(:include=>[:department,:applicant=>[:person]], :conditions=>
+      ("departments.college_id=#{college}"))
           studentcounter=0
+        for b in buildings
+            @rooms=b.rooms
           for room in @rooms
             for bed in 1..room.holding_capacity
               student=students[studentcounter.to_i]
               if student.nil?
                 break
               else
-                student.build_dormitory
-                #student.dormitory.building="#{building}"
+                if student.dormitory.nil?
+                  student.build_dormitory
+                end
                 student.dormitory.room_id=room.id
                 student.dormitory.bed_number="#{bed}"
                 student.dormitory.save!
@@ -34,15 +58,14 @@ class DormitoryPlacementController < ApplicationController
               end
             end
           end
-          render :action=>'show_placement'
       end
+          redirect_to :action=>"show_placement"
     end
-      flash[:warning] = "You have not given any parameters"
-      redirect_to dormitories_path
+      #redirect_to dormitories_path
   end
 
   def show_placement
-    @students=Student.all
+    @dormitories=Dormitory.all
 
   end
 
@@ -54,8 +77,7 @@ class DormitoryPlacementController < ApplicationController
 
     @dormitory=Dormitory.find(params[:id])
     @dormitory.update_attributes(params[:dormitory])
-    @students=Student.all
-    render :action=> 'show_placement'
+    redirect_to :action=> 'show_placement'
   end
 
   # This piece of code deletes Dormitory
@@ -64,7 +86,7 @@ class DormitoryPlacementController < ApplicationController
     @dormitory = Dormitory.find(params[:id])
     @dormitory.destroy
     flash[:notice]="deleted"
-    render :action=>''
+    redirect_to :action=> 'show_placement'
   end
 
 end

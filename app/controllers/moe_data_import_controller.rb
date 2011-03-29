@@ -10,14 +10,14 @@ class MoeDataImportController < ApplicationController
   end
 
   def upload
-
-    @person = Person.new
-    @applicant = Applicant.new
-    @applicants = Applicant.not_verified
-    @educational_background = EducationalBackground.new
+    #@person1 = Person.new
     @person = []
     @applicant = []
     @educational_background  = []
+    #@applicant = Applicant.new
+    @applicants = Applicant.not_verified
+    @educational_background = EducationalBackground.new
+    
     @file = params[:file]
     CSV.foreach(@file, :col_sep=> "," , :headers => true) do |row|
 
@@ -31,13 +31,13 @@ class MoeDataImportController < ApplicationController
                 :region_code => row[8] )
 
        @applicant << Applicant.create(:person_id => Person.last.id,
-                  :college_id => College.where('name like ?', "%#{row[9]}%").first.id,
+                  :college_id => College.where('name like ?', "%#{row[9]}%").first,
                   #:enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
                   :admission_id => Admission.where('admission_type_id = ? and enrollment_type_id = ?',
                     AdmissionType.where('name like ?', "%#{row[12]}%").first,
                     EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id,
-		  :verified => false,
-		  :admission_status_type_id => false
+                    :verified => false
+		  #:admission_status_type_id => false
 			
  #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
               )
@@ -63,7 +63,7 @@ end
       @person.each  do |p|
           @password = p.random_string(6)
 
-           @user << User.create(
+           @user << User.create!(
               :username => [p.name, p.applicant.first.educational_backgrounds.first.eheece_code].join,
               :password => @password,
               :password_confirmation => @password,
@@ -72,12 +72,12 @@ end
               :temp_password => @password,
               :role => "student"
             )
+      end
 
-      # Generating ID Number for each imported student
-      
+        for p in @person
             college=p.applicant.college.name
             collegename=college[college.index("(")+1..college.index(")")-1].upcase
-            program=p.applicant.admission.program_type.name[0].upcase
+            program=p.applicant.admission.admission_type.name[0].upcase
             enrollment=p.applicant.admission.enrollment_type.name[0].upcase
             date=Date.today  # will be replaced by academic_year
             seqno=p.applicant.id.to_s
@@ -91,8 +91,9 @@ end
             end
             idnumber="#{collegename}" << "/" << "#{program}" << "#{enrollment}" << "#{seqno}" << "/" << "#{ethiopian_year}"
             p.applicant.temp_id_number=idnumber
+            logger.info("============#{p.applicant.temp_id_number}==========================" )
             p.applicant.save!
-      end
+        end
 
   end
 end

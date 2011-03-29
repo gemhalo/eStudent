@@ -1,0 +1,17 @@
+<fieldset style="width: 60%">
+  <legend><b>Dormitory Placement For Existing Students</b></legend><br/>
+  <%= form_tag(:action=> "dorm_placing_process", :method=>"get") do %>
+  <b><%= label_tag "Building" %></b>                
+<%= select_tag "building", options_from_collection_for_select(Building.all, "id", "building_name"), :multiple=>true, :size=>2%><br/><br/>
+  <b><%= label_tag "College" %></b>
+          <%= select_tag "college", options_from_collection_for_select(College.all, "id", "name")%><br/><br/>
+  <b><%= label_tag "Department" %></b>
+            <%= select_tag "Department", options_from_collection_for_select(Department.all, "id", "name")%><br/><br/>
+  <b><%= label_tag "Class Year" %></b>
+            <%= select_tag "class_year", options_for_select(['1','2','3','4','5','6','7'])%><br/><br/>
+            <b><%= label_tag "Sex" %></b>&nbsp;&nbsp;&nbsp;
+  <%= radio_button_tag 'gender', 'M' %> Males
+  <%= radio_button_tag 'gender', 'F' %> Females<br/><br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;<%= submit_tag "Place"  %><br/><br/>
+  <% end %>
+</fieldset>
