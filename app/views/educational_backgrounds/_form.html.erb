@@ -1,3 +1,4 @@
+<%= render 'applicants/applicant' %>
 <%= form_for @educational_background, :html => { :multipart => true } do |f| %>
   <% if @educational_background.errors.any? %>
     <div id="error_explanation">
@@ -30,7 +31,7 @@
 <% end %>
 
   <fieldset><legend>Educational Background List</legend>
-<%= netzke :educational_backgrounds,
+<%#= netzke :educational_backgrounds,
   :model => 'EducationalBackground',
   :class_name => 'Basepack::GridPanel',
   :scope => ["applicant_id = ?", @applicantid],

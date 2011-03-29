@@ -1,3 +1,4 @@
+<%=  render 'applicants/applicant'%>
 <fieldset>
 <fieldset><legend>Family Background</legend>
 <%= form_for(@family_background) do |f| %>
@@ -23,7 +24,7 @@
 <% end %>
   </fieldset>
 <fieldset><legend>Family Background List</legend>
- <%= netzke :family_backgrounds,
+ <%#= netzke :family_backgrounds,
   :model => 'FamilyBackground',
   :class_name => 'Basepack::GridPanel',
   :scope =>  ["applicant_id = ?", @applicantid],

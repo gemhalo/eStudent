@@ -133,6 +133,7 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.25)
     will_paginate (3.0.pre2)
+    wkhtmltopdf (0.1.2)
 
 PLATFORMS
   ruby
@@ -166,3 +167,4 @@ DEPENDENCIES
   sass
   sqlite3-ruby
   will_paginate (~> 3.0.pre2)
+  wkhtmltopdf

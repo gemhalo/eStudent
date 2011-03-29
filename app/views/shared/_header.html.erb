@@ -1,17 +1,26 @@
-<div id='north' style="float:none;clear:both;z-index:400">
-        <div class='left' style="float:none;clear:both;border:0">
-          <div id="logo">      <img src='/images/mu_icon_64.png'/ style='align:right'> </div>
-          <div id="logo_text">  <h3>  Welcome to eStudent </h3> </div>
-        </div>
+<div class='left' style="float:none;clear:both;border:1">
+<div id="logo">      
+  <img src='/images/mu_icon_64.png'/ style='align:right'> 
+</div>
+<div id="logo_text">  <h3>  Welcome to eStudent </h3> </div>
+    </div>
        <div id="loginl">
         <% if current_user %>
             Hello <%= current_user.username %> <%= link_to 'Account Settings', edit_user_path(current_user) %> |
 					       (<%= link_to 'Logout', logout_path, :method => :delete %>)
         <% else %>
+           
           <%= link_to "Create Account", new_user_path, :method => :get %> |
-          <%= link_to "Login", login_url, :method => :get %>
-
-        <% end %>
-        </div>
+          <%= link_to "Login", login_url, :method => :get %> |
+        <%end%>
+       </div>
+        
     </div>
+
+        </div>
+ 
+    </div>
+
+
+     </div>
 

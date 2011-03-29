@@ -25,6 +25,7 @@ class ResearchAndTeachingExperiencesController < ApplicationController
   # GET /research_and_teaching_experiences/new.xml
   def new
     @applicantid = params[:applicant_id]
+    @applicant = Applicant.find(@applicantid)
     @research_and_teaching_experiences = ResearchAndTeachingExperience.find_all_by_applicant_id(params[:applicant_id])
     @research_and_teaching_experience = ResearchAndTeachingExperience.new
 
