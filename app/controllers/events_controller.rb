@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   # GET /events/new.xml
   def new
     @event = Event.new
-  @ac = AcademicCalendar.all
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @event }
@@ -35,14 +35,13 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
-@ac = AcademicCalendar.all
   end
 
   # POST /events
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
-@ac = AcademicCalendar.all
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to(:action => 'index', :notice => 'Event was successfully created.') }
@@ -61,7 +60,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to(:action => 'index', :notice => 'Event was successfully updated.') }
+        format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

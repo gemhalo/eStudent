@@ -1,24 +1,24 @@
+<p id="notice"><%= notice %></p>
 
-<table>
-  <th><b>Title:</b></th>
-  <tr>
-    <td> <%= @event.name%></td></tr>
-  
-  <th><b>Start date:</b></th>
-  <tr>
-  <td> <%= @event.start_at %></td>
-  </tr>
+<p>
+  <b>Title:</b>
+  <%= @event.name %>
+</p>
 
+<p>
+  <b>Start at:</b>
+  <%= @event.start_at %>
+</p>
 
-<th> <b>End date:</b></th>
-<tr>
-  <td> <%= @event.end_at %></td></tr>
+<p>
+  <b>End at:</b>
+  <%= @event.end_at %>
+</p>
 
- <th> <b>Details:</b></th>
-<tr>
-  <td> <%= @event.details %></td></tr>
-
-</table>
+<p>
+  <b>Detail:</b>
+  <%= @event.details %>
+</p>
 
 
 

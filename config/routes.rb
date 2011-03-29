@@ -1,7 +1,9 @@
 EStudent::Application.routes.draw do
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+
   netzke
   get "admin/index"
-
+# root :to => "welcome#index"
   root :to => "user_sessions#new"
   #root :to => "users#index"
   #root :to => "welcome#index"
@@ -80,7 +82,7 @@ EStudent::Application.routes.draw do
       post 'forgot_password'
     end
   end
-
+ 
 
   resources :academic_and_professional_qualifications
   resources :academic_calanders
@@ -92,6 +94,7 @@ EStudent::Application.routes.draw do
   resources :available_programs
   resources :award_types
   resources :buildings
+ resources :calendar
   resources :campuses
   resources :colleges
   resources :course_exemptions
