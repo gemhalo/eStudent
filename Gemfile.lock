@@ -1,30 +1,4 @@
-GIT
-  remote: http://github.com/skozlov/netzke-basepack.git
-  revision: 56aefb43f555f025b6bdf68dd25034ea545cc15d
-  tag: v0.6.4
-  specs:
-    netzke-basepack (0.6.4)
-      acts_as_list
-      meta_where (>= 0.9.3)
-      netzke-core (~> 0.6.4)
-      will_paginate (~> 3.0.pre2)
-
-GIT
-  remote: http://github.com/skozlov/netzke-core.git
-  revision: 76b05e9d1c2fc88d0697d2cb2d890bb78d92bbf4
-  tag: v0.6.6
-  specs:
-    netzke-core (0.6.6)
-      activesupport (>= 3.0.1)
-
-GIT
-  remote: http://github.com/skozlov/netzke-persistence.git
-  revision: 9ec27e397661989cff0d765b5849452c77ca0036
-  specs:
-    netzke-persistence (0.1.1)
-
 GEM
-  remote: http://rubygems.org/
   specs:
     abstract (1.0.0)
     actionmailer (3.0.4)
@@ -94,13 +68,21 @@ GEM
       arel (~> 2.0.7)
     mime-types (1.16)
     mysql2 (0.2.6)
+    netzke-basepack (0.6.4)
+      acts_as_list
+      meta_where (>= 0.9.3)
+      netzke-core (~> 0.6.4)
+      will_paginate (~> 3.0.pre2)
+    netzke-core (0.6.6)
+      activesupport (>= 3.0.1)
+    netzke-persistence (0.1.0)
     netzke_config (0.3.0)
       thor (>= 0.13.6)
     netzke_widget_generators (0.1.0)
-    nokogiri (1.4.4)
     paperclip (2.3.8)
       activerecord
       activesupport
+    pdfkit (0.5.0)
     polyglot (0.3.1)
     rack (1.2.2)
     rack-mount (0.6.13)
@@ -165,13 +147,13 @@ DEPENDENCIES
   hashie
   humanizer
   mysql2
-  netzke-basepack!
-  netzke-core!
-  netzke-persistence!
+  netzke-basepack (= 0.6.4)
+  netzke-core (= 0.6.6)
+  netzke-persistence
   netzke_config
   netzke_widget_generators
-  nokogiri
   paperclip
+  pdfkit
   railroad
   rails (= 3.0.4)
   rails3-generators

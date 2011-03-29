@@ -1,4 +1,4 @@
-class Applicant < ActiveRecord::Base
+ class Applicant < ActiveRecord::Base
   belongs_to :person
   belongs_to :admission
   belongs_to :admission_status_type
@@ -6,7 +6,7 @@ class Applicant < ActiveRecord::Base
   belongs_to :college
   has_one :student
   has_many :family_background
-  has_many :emergency_contact
+  has_many :emergency_contacts
   has_many :department_choices
   has_many :employment_information
 

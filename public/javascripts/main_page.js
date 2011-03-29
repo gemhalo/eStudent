@@ -1,5 +1,5 @@
  Ext.onReady(function(){
-    
+
         // NOTE: This is an example showing simple state management. During development,
         // it is generally best to disable state management as dynamically-generated ids
         // can change across page loads, leading to unpredictable results.  The developer
@@ -14,7 +14,7 @@
                 region: 'north',
                 height: 90, // give north and south regions a height
                 border: false,
-		//header:false,
+		       //header:false,
                 autoEl: {
                     tag: 'div',
                     //html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
@@ -31,7 +31,7 @@
 		header: false,
                 //title: 'Footer',
                 margins: '0 0 0 5'
-            },{ 
+            },{
                 region: 'east',
                 id: 'east-panel', // see Ext.getCmp() below
                 title: 'Notification Area',
@@ -53,9 +53,9 @@
                     title: 'Notifications',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
-                  }   
+                  }
    		]
-              
+
 	    }, {
                 region: 'west',
                 id: 'west-panel', // see Ext.getCmp() below
@@ -68,33 +68,33 @@
                 collapsible: false,
                 activeItem:0,
                 margins: '0 0 0 5',
- 		fill: true,        
+ 		fill: true,
                 hideBorders: true,
                 layout: {
                     type: 'accordion',
-                    animate: true 
+                    animate: true
                 },
                 items: [
                 {
-                    contentEl: 'basic_setup',
+                    contentEl: 'academics',
                     title: 'Academics',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },
                 {
-                    contentEl: 'west',
+                    contentEl: 'courses',
                     title: 'Courses',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },
-                /*{
-                    contentEl: 'sss_west',
+                {
+                    contentEl: 'communications',
                     title: 'Communications',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
-                },*/
+                },
                 {
-                    contentEl: 'student_menu',
+                    contentEl: 'settings',
                     title: 'Settings',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
@@ -127,11 +127,12 @@
                 }]
             })]
         });
-        // get a reference to the HTML element with id "hideit" and add a click listener to it 
+        // get a reference to the HTML element with id "hideit" and add a click listener to it
         Ext.get("hideit").on('click', function(){
-            // get a reference to the Panel that was created with id = 'west-panel' 
+            // get a reference to the Panel that was created with id = 'west-panel'
             var w = Ext.getCmp('west-panel');
             // expand or collapse that Panel based on its collapsed property state
             w.collapsed ? w.expand() : w.collapse();
         });
     });
+

@@ -10,8 +10,8 @@
 #ext-comp-1088{
   z-index:-10;
 }
-#ext-gen3i{
-  z-index:10;
+#ext-gen3{
+  z-index:-10;
 }
 #ext-comp-1055
 {
@@ -88,14 +88,13 @@ border:1px;
    font-size:30px;
 }
 #loginl a {
-  z-index:100 ;
 }
 #loginl{
   color:maroon;
   float:right;
   margin-right: 30px;
   margin-top: 10px;
-  z-index: 100;
+  z-index: 90000;
 }
 #howtol{
   width:300;

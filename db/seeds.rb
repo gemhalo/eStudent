@@ -16,7 +16,7 @@ EnrollmentModeType.delete_all
 Admission.delete_all
 User.delete_all
 Building.delete_all
-
+Menuitem.delete_all
 #Campuses
 campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
 
@@ -56,7 +56,7 @@ users = [
     :email => "instructor@campus.com"},
   { :username => "yemane",:password => "yemane",  :role => "student_service_staff",
     :email => "sss@campus.com"},
-  { :username => "admin",:password => "admin",  :role => "admin",
+  { :username => "admin",:password => "admin",    :role => "admin",
     :email => "admin@campus.com"}
 
 ]
@@ -105,20 +105,55 @@ departments.each do |department|
                      :dept_head => "-" } )
 end
 
-#create enrollment mode type
+#Create menuitems
+menuitems = [
 
-enrollment_mode_types  = [{:name => "Full Time"},{:name => "Part Time"}]
+# Student Service Staff
+ { :linktitle => "Import Data" , :linkcontroller => "moe_data_import",    :linkaction => "import",
+    :linkicon => "/icons/database_add.png", :role_id=>"student_service_staff", :catagory=>"academics" },
 
-enrollment_mode_types.each do |emt|
-  EnrollmentModeType.create!({:name => emt[:name]})
-end
+ { :linktitle => "Screen Applicants" , :linkcontroller => "student_service_staffs",    :linkaction => "selected",
+    :linkicon => "/icons/application_view_detail.png", :role_id=>"student_service_staff", :catagory=>"academics" },
 
-# create nationality
+{ :linktitle => "Place Dorm" , :linkcontroller => "dormitory_placement",    :linkaction => "place_dorm",
+    :linkicon => "/icons/house.png", :role_id=>"student_service_staff", :catagory=>"academics" },
 
-nationality = [{:name => "Ethiopia"},{:name => "Germen"}, {:name => "America"}]
+#instructors menu items
 
-nationality.each do |country|
-  Nationality.create!({:name => country[:name]})
+ { :linktitle => "Approve Applicant" , :linkcontroller => "admission_approval",    :linkaction => "index",
+    :linkicon => "/icons/application_go.png", :role_id=>"instructor", :catagory=>"academics" },
+
+ { :linktitle => "Department Placement" , :linkcontroller => "department_quotas",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+
+#students menu items
+ { :linktitle => "Apply Online" , :linkcontroller => "applicants",    :linkaction => "new",
+    :linkicon => "/icons/database_add.png", :role_id=>"student", :catagory=>"academics" },
+
+#admin menu items
+ 
+
+{ :linktitle => "Campuses" , :linkcontroller => "campuses",    :linkaction => "index",
+    :linkicon => "/icons/brick_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Colleges" , :linkcontroller => "colleges",    :linkaction => "index",
+    :linkicon => "/icons/door.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Departments" , :linkcontroller => "departments",    :linkaction => "index",
+    :linkicon => "/icons/coins_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Admission Types" , :linkcontroller => "admission_types",    :linkaction => "index",
+    :linkicon => "/icons/font_go.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Enrollment Types" , :linkcontroller => "enrollment_types",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+
+]
+menuitems.each do |menuitem|
+  Menuitem.create!({:linktitle => menuitem[:linktitle],:linkcontroller => menuitem[:linkcontroller],
+                :linkaction => menuitem[:linkaction], :linkicon => menuitem[:linkicon],
+                :role_id => menuitem[:role_id], :catagory=>menuitem[:catagory] } )
 end
 
 

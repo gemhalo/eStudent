@@ -1,0 +1,37 @@
+     <% @menuitems = menus %>
+     <%if @menuitems !=nil %>
+     <% @menuitems.each do |t| %>
+     <% @catagory1 = t.catagory %>
+     <div id="academics">
+     <% if @catagory1 == "academics" %>
+     <div class='menu_link'><img src='<%= t.linkicon %>'/ width=20 height=20>
+                  <%= link_to "#{t.linktitle}", :controller => t.linkcontroller, :action => t.linkaction %><br> </div>
+     <%end end%>
+
+     <% @menuitems.each do |t| %>
+     <% @catagory2 = t.catagory %>
+     <div id="courses">
+     <% if @catagory2 == "courses" %>
+     <div class='menu_link'><img src='<%= t.linkicon %>'/ width=20 height=20>
+                  <%= link_to "#{t.linktitle}", :controller => t.linkcontroller, :action => t.linkaction %><br> </div>
+     <%end end%>
+
+     <% @menuitems.each do |t| %>
+     <% @catagory3 = t.catagory %>
+     <div id="communications">
+     <% if @catagory3 == "communications" %>
+     <div class='menu_link'><img src='<%= t.linkicon %>'/ width=20 height=20>
+                  <%= link_to "#{t.linktitle}", :controller => t.linkcontroller, :action => t.linkaction %><br> </div>
+     <%end end%>
+
+     <% @menuitems.each do |t| %>
+     <% @catagory4 = t.catagory %>
+     <div id="settings">
+     <% if @catagory4 == "settings" %>
+     <div class='menu_link'><img src='<%= t.linkicon %>'/ width=20 height=20>
+                  <%= link_to "#{t.linktitle}", :controller => t.linkcontroller, :action => t.linkaction %><br> </div>
+     <%end end%>
+
+     <%end%>
+
+

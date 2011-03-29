@@ -30,7 +30,7 @@
 <% end %>
 
   <fieldset><legend>Educational Background List</legend>
-<%= netzke :educational_backgrounds,
+<%#= netzke :educational_backgrounds,
   :model => 'EducationalBackground',
   :class_name => 'Basepack::GridPanel',
   :scope => ["applicant_id = ?", @applicantid],

@@ -1,5 +1,4 @@
 class AdminController < ApplicationController
- layout "admin"
   def index
 	@users= User.all
  	   respond_to do |format|
