@@ -7,10 +7,21 @@
         <% if current_user %>
             Hello <%= current_user.username %> (<%= link_to 'Logout', logout_path, :method => :delete %>)
         <% else %>
+           
           <%= link_to "Register", new_user_path, :method => :get %> |
-          <%= link_to "Login", login_url, :method => :get %>
+          <%= link_to "Login", login_url, :method => :get %> |
+              <%end%>
+          <%if current_user%>
+          <% @applicantId = Applicant.find(current_user.person_id)  %>
+            <%= link_to "Edit Profile",:controller=> 'applicants', :action => "edit" , :applicant_id => @applicantId %>
+          
 
         <% end %>
-        </div>
+           </div>
+         
+           
+        
+
+ 
     </div>
 

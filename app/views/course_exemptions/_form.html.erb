@@ -1,5 +1,5 @@
 
-<%=  render 'applicant'%><fieldset>
+<%=  render 'applicants/applicant'%><fieldset>
 <fieldset><legend>Course Exemption (if any)</legend>
 <%= form_for(@course_exemption) do |f| %>
   <% if @course_exemption.errors.any? %>

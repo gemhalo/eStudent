@@ -78,7 +78,8 @@ EStudent::Application.routes.draw do
 
   get  'users/manageusers'
   post 'users/manageusers'
-
+get 'available_programs/index_pdf'
+post 'available_programs/index_pdf'
 
   resources :academic_and_professional_qualifications
   resources :academic_calanders

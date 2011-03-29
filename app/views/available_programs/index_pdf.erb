@@ -1,0 +1,9 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<%= "index_pdf" %>
+<%= link_to 'Create PDF document',:controller => 'available_programs', :action =>'index_pdf', :format => :pdf) %>
+<%=  match '/download_pdf(.:format)' => "available_programs#index_pdf", :method => :get, :as=>:index_pdf%>
+<%end%>
