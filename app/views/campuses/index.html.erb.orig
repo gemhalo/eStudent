@@ -1,45 +1,40 @@
-<h1>Listing campuses</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
 <<<<<<< HEAD
+<center>
+<%= netzke :colleges,
 =======
-    <th>Campus telephone</th>
-    <th>Campus pobox</th>
-    <th>Campus email</th>
->>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%
+ # netzke calls the Netzke module
+ # campuses is the variable passed by the controller
+ # model is the activeRecord model to use
+ # class_name is the UI renderer
+%>
+<center style="media:print;">
+<%= netzke :campuses,
+>>>>>>> 17feca219c09a6f19f9ab2c210d9d89fc9931efe
+    :model => "Campus",
+    :class_name => "Basepack::GridPanel",
+    :border => true,
+    :view_config => {
+      :force_fit => true
+    },
+    :columns  => [
+        {:name => :name, :label => "Campus name"},
+    ],
 
-<<<<<<< HEAD
-<% @campuses.each do |campus| %>
-  <tr>
-    <td><%= campus.name %></td>
-    <td><%= link_to 'Show', campus %></td>
-    <td><%= link_to 'Edit', edit_campus_path(campus) %></td>
-    <td><%= link_to 'Destroy', campus, :confirm => 'Are you sure?', :method => :delete %></td>
-=======
-<% @campuses.each do |campuse| %>
-  <tr>
-    <td><%= campuse.name %></td>
-    <td><%= campuse.campus_telephone %></td>
-    <td><%= campuse.campus_pobox %></td>
-    <td><%= campuse.campus_email %></td>
-    <td><%= link_to 'Show', campuse %></td>
-    <td><%= link_to 'Edit', edit_campuse_path(campuse) %></td>
-    <td><%= link_to 'Destroy', campuse, :confirm => 'Are you sure?', :method => :delete %></td>
->>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5
-  </tr>
-<% end %>
-</table>
+    #Create menu
+    :bbar => nil,
+    :tbar => [{
+      :menu => [:add.action, :edit.action, :apply.action, :del.action],
+      :text => "Edit inline",
+      :icon =>"/images/icons/table.png"
+    },{
+      :menu => [:add_in_form.action, :edit_in_form.action],
+      :text => "Edit in form",
+      :icon => "/images/icons/application_form.png"
+    }],
+    :width => 600,
+    :height => 300
+%>
+</center>
 
-<br />
 
-<<<<<<< HEAD
-<%= link_to 'New Campus', new_campus_path %>
-=======
-<%= link_to 'New Campuse', new_campuse_path %>
->>>>>>> 07b5c14affd0c3fee722cd4f324327fbdbf999b5

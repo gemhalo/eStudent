@@ -1,9 +1,8 @@
-<div id='north' style="float:none;clear:both;z-index:3000">
-        <div class='left' style="float:none;clear:both;border:0">
+	<div class='left' style="float:none;clear:both;border:1">
           <div id="logo">      <img src='/images/mu_icon_64.png'/ style='align:right'> </div>
           <div id="logo_text">  <h3>  Welcome to eStudent </h3> </div>
         </div>
-       <div id="loginl" style="z-index:3000">
+       <div id="loginl">
         <% if current_user %>
             Hello <%= current_user.username %> <%= link_to 'Account Settings', edit_user_path(current_user) %> |
 					       (<%= link_to 'Logout', logout_path, :method => :delete %>)
@@ -14,4 +13,3 @@
         <% end %>
         </div>
     </div>
-

@@ -1,9 +1,13 @@
 <center>
-<%= netzke :campuses,
+<%= netzke :colleges,
     :model => "Campus",
     :class_name => "Basepack::GridPanel",
+    :border => true,
+    :view_config => {
+      :force_fit => true
+    },
     :columns  => [
-        {:name => "name", :label => "Campus name ", :width => 600}
+        {:name => :name, :label => "Campus name"},
     ],
 
     #Create menu
@@ -21,4 +25,3 @@
     :height => 300
 %>
 </center>
-
