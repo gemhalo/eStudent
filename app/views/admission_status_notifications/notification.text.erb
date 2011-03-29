@@ -1,11 +1,12 @@
-<h1>Admission Status Notifications</h1>
 
-<%if @message == true %>
+Admission Status Notifications
 
-       Dear <%=@username %> your Document is reviewed and you are <h1>Approved</h1>
+<%  if @message == true %>
+
+       Dear <%=@username %> your Document is reviewed and you are Approved
 
 <% else %>
       
-       Dear <%=@username %> your Document is reviewed and you are <h1>Rejected</h1>
+       Dear <%=@username %> your Document is reviewed and you are Declined
 
 <% end %>
