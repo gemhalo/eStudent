@@ -422,7 +422,6 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
     t.integer  "program_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "college_name"
     t.integer  "enrollment_mode_id"
     t.integer  "admission_id"
   end
