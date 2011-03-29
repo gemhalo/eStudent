@@ -32,7 +32,7 @@ class PeopleController < ApplicationController
     @ethnicity = Ethnicity.all
     @nationality = Nationality.all
     @Admissiontype = AdmissionType.all
-    @Enrollementtype = EnrollementType.all
+    @Enrollmenttype = EnrollmentType.all
     @College = College.all
     #@AcadamicCalander = AcadamicCalander.all
     
@@ -57,7 +57,7 @@ class PeopleController < ApplicationController
     @ethnicity = Ethnicity.all
     @nationality = Nationality.all
     @Admissiontype = AdmissionType.all
-    @Enrollementtype = EnrollementType.all
+    @Enrollmenttype = EnrollmentType.all
     @College = College.all
     #@AcadamicCalander = AcadamicCalander.find.all
     

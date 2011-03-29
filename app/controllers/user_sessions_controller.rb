@@ -1,23 +1,7 @@
 class UserSessionsController < ApplicationController
-  # GET /user_sessions
-  # GET /user_sessions.xml
-
-# if current_user.role == "instructor"
- # redirect_to instructors_url
-# else
-# redirect_to student_service_staff_url
-# end
-
-  def index
-#    path = case current_user.role
- #    when 'instructor'
-#      path = instructors_path
-   #   when 'student_service_staff'
-    #    student_service_staffs_index_path
-     # else
-   # end
-#	redirect_to :controller =>"instructor"    
- end  
+  before_filter :require_no_user, :only => [ :new, :create ]
+  before_filter :require_user, :only =>  :destroy
+  layout "welcome"
   def new
     @user_session = UserSession.new
 
@@ -56,3 +40,4 @@ class UserSessionsController < ApplicationController
     end
   end
 end
+

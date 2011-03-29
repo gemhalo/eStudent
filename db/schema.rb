@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110328070109) do
+ActiveRecord::Schema.define(:version => 20110323090024) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20110328070109) do
 
   create_table "admissions", :force => true do |t|
     t.integer  "admission_type_id"
-    t.integer  "enrollement_type_id"
+    t.integer  "enrollment_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20110328070109) do
     t.datetime "updated_at"
     t.boolean  "verified"
     t.integer  "enrollment_mode_type_id"
+    t.string   "temp_id_number"
   end
 
   create_table "award_types", :force => true do |t|
@@ -165,7 +166,7 @@ ActiveRecord::Schema.define(:version => 20110328070109) do
     t.integer  "student_id"
     t.integer  "room_id"
     t.string   "bed_number"
-    t.date     "academic_year"
+    t.integer  "academic_calendar_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -285,6 +286,17 @@ ActiveRecord::Schema.define(:version => 20110328070109) do
     t.integer  "role_id"
     t.integer  "department_id"
     t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menuitems", :force => true do |t|
+    t.string   "linktitle"
+    t.string   "linkcontroller"
+    t.string   "linkaction"
+    t.string   "linkicon"
+    t.string   "role_id"
+    t.string   "catagory"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -422,17 +434,11 @@ ActiveRecord::Schema.define(:version => 20110328070109) do
 
   create_table "students", :force => true do |t|
     t.string   "id_number"
+    t.integer  "applicant_id"
     t.integer  "department_id"
-    t.integer  "enrollment_type_id"
-    t.integer  "admission_type_id"
     t.integer  "program_id"
-    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "college_name"
-    t.integer  "enrollment_mode_id"
-    t.integer  "admission_id"
-    t.integer  "applicant_id"
   end
 
   create_table "users", :force => true do |t|

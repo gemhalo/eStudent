@@ -1,36 +1,39 @@
 class UsersController < ApplicationController
-  
   # GET /users
   # GET /users.xml
-before_filter do
-	redirect_to new_user_session_path unless current_user #authenticated?
-end 
-
+layout "welcome"
  def index
-    @users = User.all
+    @temp=User.where("temp_password=? and username=?","",current_user.username).count
+   # @temp=User.find_by_username(current_user.username).temp_password.nil?
     path = case current_user.role
     when 'instructor'
       instructors_path
-    when 'admin'
-	users_manageusers_path
     when 'student'
-       new_applicant_path
-    when 'ssstaff'
+	if @temp==1
+	    applicants_path
+	else
+           edit_user_path(current_user)
+	end
+    when 'admin'
+       admin_index_path
+  when 'student_service_staff'
       student_service_staffs_path
      else
     end
 
-    redirect_to path     
+    redirect_to path
+  
 
 #    @users = User.all
-
-    #respond_to do |format|
-     # format.html # index.html.erb
-    #  format.xml  { render :xml => @users }
-   #   format.pdf { render :xml => @users }
-    #end
+#
+ #   respond_to do |format|
+  #    format.html # index.html.erb
+   #   format.xml  { render :xml => @users }
+   # end
   end
-  def assign_roles  
+  
+  def assign_roles
+
   end
 
   # GET /users/1
@@ -65,7 +68,7 @@ end
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'Registration successfull') }
@@ -81,8 +84,8 @@ end
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-
-    respond_to do |format|
+    @user.temp_password="" 
+    respond_to do |format|      
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
@@ -95,31 +98,28 @@ end
 
   # DELETE /users/1
   # DELETE /users/1.xml
-  def manageusers
 
-    @users = User.all
-
-    #respond_to do |format|
-     # format.html # index.html.erb
-    #  format.xml  { render :xml => @users }
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @users }
    #   format.pdf { render :xml => @users }
-   # end 
+    end
   def forgot_password
 
     if request.post?
       #@users = User.new
       u = User.find_by_email(params[:users][:email])
-
+      logger.info("jjjjjjjjjjj #{u.inspect}")
       if u and u.send_password
         flash[:notice] = "Password Sent Successfuly"
       else
         flash[:notice] = "User with this email doesnot exist"
       end
-    #logger.info("jjjjjjjjjjj #{@user.inspect}")
+    
     end
   end
 
-       
+
 
   def destroy
     @user = User.find(params[:id])
@@ -131,6 +131,4 @@ end
     end
   end
 end
-end
-
 

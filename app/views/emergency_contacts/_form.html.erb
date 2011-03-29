@@ -26,7 +26,7 @@
 <% end %>
 </fieldset>
   <fieldset><legend>Emergency Contact List</legend>
-<%= netzke :emergency_contacts,
+<%#= netzke :emergency_contacts,
   :model => 'EmergencyContact',
   :class_name => 'Basepack::GridPanel',
   :scope => ["applicant_id = ?", @applicantid],

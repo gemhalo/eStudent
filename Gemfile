@@ -1,28 +1,53 @@
-source 'http://rubygems.org'
+#source 'http://rubygems.org'
 #Gems required for all environments
 gem 'rails', '3.0.4'
+#We will enable this when we want to work with  Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+# Security
 gem 'authlogic'
 gem 'cancan'
-#We will enable this when we want to work with  Bundle edge Rails instead: 
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'humanizer'
+
+# Spread sheet types
 gem 'fastercsv'
+
+#PDF
+gem 'pdfkit'
+
 gem  'will_paginate', '~>3.0.pre2'
 #To generate model diagrams
 gem  'railroad'
+
 #gem 'roo', '1.9.3'
+
 #gem 'rubyzip','0.9.4'
-gem 'nokogiri'
+
+#gem 'nokogiri'
+gem 'paperclip'
+
 #gem 'spreadsheet'
 #gem 'odf-spreadsheet'
 #gem 'google-spreadsheet-ruby'
 # User experience using ExtJS javascript framework and netzke rails-ExtJS bridge
 # Get it from git repo and install it
-gem 'netzke-core',  :git  => "http://github.com/skozlov/netzke-core.git"
-gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
-gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.git"
-gem 'paperclip'
-#Or clone each package in vendor/gems/netzke then use it from there
+#gem 'netzke-core', :git  => "http://github.com/skozlov/netzke-core.git"
+#gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
+#gem 'netzke-core', '0.6.6', :git  => "http://github.com/skozlov/netzke-core.git"
+#gem 'netzke-basepack', '0.6.5', :git => "http://github.com/skozlov/netzke-basepack.git"
+#gem 'netzke-persistence', '0.1.1', :git => "http://github.com/skozlov/netzke-persistence.git"
 
+#gem 'netzke-core', :git  => "http://github.com/skozlov/netzke-core.git", :tag => 'v0.6.6'
+#gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git", :tag => 'v0.6.4'
+#gem 'netzke-persistence', :git => "http://github.com/skozlov/netzke-persistence.git"
+
+
+#Or simply use the installed gem
+gem 'netzke-core', '0.6.6'
+gem 'netzke-basepack', '0.6.4'
+gem 'netzke-persistence'
+
+#Or clone each package in vendor/gems/netzke then use it from there
 #gem 'netzke-core',          :path => File.expand_path('../vendor/gems/netzke/netzke-core', __FILE__)
 #gem 'netzke-basepack',      :path => File.expand_path('../vendor/gems/netzke/netzke-basepack', __FILE__)
 #gem 'netzke-persistence',   :path => File.expand_path('../vendor/gems/netzke/netzke-persistence', __FILE__)

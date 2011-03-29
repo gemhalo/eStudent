@@ -1,6 +1,5 @@
 class CollegesController < ApplicationController
-  layout "student_service_staff"
-  #authorize_resource
+  authorize_resource
   # GET /colleges
   # GET /colleges.xml
   def index

@@ -1,0 +1,108 @@
+<div style="margin:30px">
+<%= netzke :Grade_Processing_Grid,
+            :class_name => "Basepack::TabPanel",
+            :items => [    {
+              :class_name => "Basepack::GridPanel",
+              :model => "User",
+              :title => "User Accounts",
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "College",
+	      :title => "Colleges",
+	      :view_config => {
+		     :force_fit => true
+	      },
+	      :columns  => [
+	      {:name => :name, :label => "College name"},
+	      {:name => :campus__name}
+	    ],
+
+    #Create menu
+	    :bbar => nil,
+	    :tbar => [{
+	    :menu => [:add.action, :edit.action, :apply.action, :del.action],
+	    :text => "Edit inline",
+      	    :icon =>"/images/icons/table.png"
+	    },{
+	    :menu => [:add_in_form.action, :edit_in_form.action],
+	    :text => "Edit in form",
+            :icon => "/images/icons/application_form.png"
+		    }],
+	    :width => 600,
+	    :height => 300
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "Campus",
+              :title => "Campuses",
+	      :view_config => {
+                     :force_fit => true
+              }, 
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "Department",
+              :title => "Departments",
+	      :view_config => {
+                     :force_fit => true
+              }, 
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "AdmissionType",
+              :title => "Admission Types",
+	      :view_config => {
+                     :force_fit => true
+              }, 
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "EnrollmentType",
+              :title => "Enrollment Types",
+	      :view_config => {
+                     :force_fit => true
+              }, 
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "Building",
+              :title => "Buildings",
+  	      :view_config => {
+                     :force_fit => true
+              }, 
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "Admission",
+              :title => "Admissions",
+  	      :view_config => {
+                     :force_fit => true
+              }, 
+            }],
+            :width => 700,
+            :border => true,
+            :active_tab => 0
+%>
+</div>
+<%#= notice %>
+<!--
+<h1>Current Users</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%# @users.each do |user| %>
+  <tr>
+    <td><%#= user.username %></td>
+    <td><%#= user.email %></td>
+    <td><%#= link_to 'New', new_user_path %></td>
+    <td><%#= link_to 'Show', user %></td>
+    <td><%#= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%#= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<%# end %>
+</table>
+    <h1><%#= link_to 'New', new_user_path %></h1>
+
+<br />
+-->

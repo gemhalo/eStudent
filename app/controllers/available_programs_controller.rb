@@ -25,3 +25,4 @@ def index_pdf
 render :pdf => "my_pdf",:layout => false,:template => '/available_programs/index_pdf',:footer => {:center => "Center", :left => "Left", :right => "Right"}
 end
 end
+

@@ -1,5 +1,5 @@
 class HowTosController < ApplicationController
-#`layout "student_service_staff"
+  layout "student"
   # GET /how_tos
   # GET /how_tos.xml
   def index
@@ -82,3 +82,4 @@ class HowTosController < ApplicationController
     end
   end
 end
+

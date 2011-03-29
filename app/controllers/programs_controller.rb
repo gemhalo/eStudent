@@ -1,3 +1,4 @@
+
 class ProgramsController < ApplicationController
   layout "student_service_staff"
   # GET /programs
@@ -34,7 +35,7 @@ class ProgramsController < ApplicationController
    @department = Department.all
   @admission = Admission.all
   @awardtype = AwardType.all
-    #@enrollement_types= EnrollementType.all
+    #@enrollment_types= enrollmentType.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -73,7 +74,7 @@ class ProgramsController < ApplicationController
   # PUT /programs/1.xml
   def update
     @program = Program.find(params[:id])
-   # @enrollement_types= EnrollementType.all
+   # @enrollment_types= enrollmentType.all
 
     respond_to do |format|
       if @program.update_attributes(params[:program])
@@ -90,7 +91,7 @@ class ProgramsController < ApplicationController
   # DELETE /programs/1.xml
   def destroy
     @program = Program.find(params[:id])
-  # @enrollement_types= EnrollementType.all
+  # @enrollment_types= enrollmentType.all
     @program.destroy
 
     respond_to do |format|
@@ -99,3 +100,4 @@ class ProgramsController < ApplicationController
     end
   end
 end
+

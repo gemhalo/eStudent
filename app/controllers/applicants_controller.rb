@@ -32,7 +32,7 @@ class ApplicantsController < ApplicationController
     @Admission = Admission.all
     @College = College.all
     @admission_status_types = AdmissionStatusType.all
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @applicant }
@@ -60,7 +60,7 @@ class ApplicantsController < ApplicationController
 
     @nationality = Nationality.all
     @Admissiontype    = AdmissionType.all
-    @Enrollementtype  = EnrollementType.all
+    @Enrollmenttype  = EnrollmentType.all
     @College    = College.all
     @admission_status_types = AdmissionStatusType.all
     @person = Person.create(params[:person])
@@ -109,3 +109,4 @@ class ApplicantsController < ApplicationController
     end
   end
 end
+

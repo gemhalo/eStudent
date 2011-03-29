@@ -1,5 +1,4 @@
 class CampusesController < ApplicationController
-layout "student_service_staff"
   # GET /campuses
   # GET /campuses.xml
   def index
@@ -8,13 +7,14 @@ layout "student_service_staff"
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @campuses }
+      #format.pdf  { render :pdf => @campuses }
       format.pdf {
-  html = render_to_string(:layout => false , :action => "index.html.erb")
-  kit = PDFKit.new(html)
-  kit.stylesheets << "#{Rails.root}/public/stylesheets/screen.css"
-  send_data(kit.to_pdf, :filename => "campuses.pdf", :type => 'application/pdf')
-  return # to avoid double render page.call function, param1, param2
-}
+        html = render_to_string(:layout => false , :action => "index.html.erb")
+        kit = PDFKit.new(html)
+        kit.stylesheets << "#{Rails.root}/public/stylesheets/screen.css"
+        send_data(kit.to_pdf, :filename => "campuses.pdf", :type => 'application/pdf')
+        return # to avoid double render page.call function, param1, param2
+      }
     end
   end
 
@@ -89,3 +89,4 @@ layout "student_service_staff"
     end
   end
 end
+

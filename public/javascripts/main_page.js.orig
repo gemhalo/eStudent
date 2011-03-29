@@ -1,33 +1,21 @@
-<<<<<<< HEAD
- Ext.onReady(function(){
-    
-=======
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
  Ext.onReady(function(){
 
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
         // NOTE: This is an example showing simple state management. During development,
         // it is generally best to disable state management as dynamically-generated ids
         // can change across page loads, leading to unpredictable results.  The developer
         // should ensure that stable state ids are set for stateful components in real apps.
-        Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
-<<<<<<< HEAD
-        
-=======
+        //Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
 
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
         var viewport = new Ext.Viewport({
             layout: 'border',
             items: [
             // create instance immediately
             new Ext.BoxComponent({
                 region: 'north',
-<<<<<<< HEAD
-                height: 70, // give north and south regions a height
-=======
-                height: 66, // give north and south regions a height
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
+                //contentEl: 'north',
+                height: 90, // give north and south regions a height
+                border: false,
+		//header:false,
                 autoEl: {
                     tag: 'div',
                     //html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
@@ -37,21 +25,22 @@
                 region: 'south',
                 contentEl: 'south',
                 split: true,
-                height: 100,
-                minSize: 100,
+                height: 40,
+                minSize: 40,
                 maxSize: 200,
                 collapsible: true,
+		header: false,
                 //title: 'Footer',
-<<<<<<< HEAD
                 margins: '0 0 0 5'
-            },{ 
+            },{
                 region: 'east',
                 id: 'east-panel', // see Ext.getCmp() below
                 title: 'Notification Area',
                 split: true,
                 width: 200,
                 minSize: 175,
-                maxSize: 400,
+                border: true,
+                maxSize: 600,
                 collapsible: true,
                 activeItem:0,
                 margins: '0 0 0 5',
@@ -65,115 +54,53 @@
                     title: 'Notifications',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
-                  }   
+                  }
    		]
-              
+
 	    }, {
-=======
-                margins: '0 0 0 0'
-            }, {
-                region: 'east',
-                title: 'East Side',
-                collapsible: false,
-                split: true,
-                width: 200, // give east and west regions a width
-                minSize: 150,
-                maxSize: 400,
-                margins: '0 5 0 0',
-                layout: 'fit', // specify layout manager for items
-                items:            // this TabPanel is wrapped by another Panel so the title will be applied
-                new Ext.TabPanel({
-                    border: false, // already wrapped so don't add another border
-                    activeTab: 1, // second tab initially active
-                    tabPosition: 'bottom',
-                    items: [{
-                        html: '<p>A TabPanel component can be a region.</p>',
-                        title: 'A Tab',
-                        autoScroll: true
-                    }, new Ext.grid.PropertyGrid({
-                        title: 'Property Grid',
-                        closable: true,
-                        source: {
-                            "(name)": "Properties Grid",
-                            "grouping": false,
-                            "autoFitColumns": true,
-                            "productionQuality": false,
-                            "created": new Date(Date.parse('10/15/2006')),
-                            "tested": false,
-                            "version": 0.01,
-                            "borderWidth": 1
-                        }
-                    })]
-                })
-            }, {
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
                 region: 'west',
                 id: 'west-panel', // see Ext.getCmp() below
-                title: 'Menu Area',
+                title: 'Navigation',
                 split: true,
                 width: 200,
                 minSize: 175,
                 maxSize: 400,
-<<<<<<< HEAD
     		activeOnTop: false,
                 collapsible: false,
                 activeItem:0,
                 margins: '0 0 0 5',
- 		fill: false,        
-                layout: {
-                    type: 'accordion',
-                    animate: true 
-=======
-                collapsible: true,
-                activeItem:0,
-                margins: '0 0 0 5',
+ 		fill: true,
+                hideBorders: true,
                 layout: {
                     type: 'accordion',
                     animate: true
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
                 },
                 items: [
                 {
-                    contentEl: 'basic_setup',
-<<<<<<< HEAD
-                    title: 'Courses',
-=======
-                    title: 'Basic Setup',
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
-                    border: false,
-                    iconCls: 'nav' // see the HEAD section for style used
-                },
-                {
-                    contentEl: 'west',
-<<<<<<< HEAD
+                    contentEl: 'academics',
                     title: 'Academics',
-=======
-                    title: 'MU Forms',
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },
-                /*{
-                    contentEl: 'west_south',
-                    title: 'Navigation',
-                    border: false,
-                    iconCls: 'nav' // see the HEAD section for style used
-                },*/
                 {
-                    contentEl: 'student_menu',
-<<<<<<< HEAD
-                    title: 'Services',
+                    contentEl: 'courses',
+                    title: 'Courses',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
-                }
-                
-=======
-                    title: 'Student Menu',
+                },
+                {
+                    contentEl: 'communications',
+                    title: 'Communications',
+                    border: false,
+                    iconCls: 'nav' // see the HEAD section for style used
+                },
+                {
+                    contentEl: 'settings',
+                    title: 'Settings',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 }
 
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
                 /*{
                     id:'mu_forms',
                     title: 'Forms Menu',
@@ -187,8 +114,8 @@
             // as a Container
             new Ext.TabPanel({
                 region: 'center', // a center region is ALWAYS required for border layout
-                deferredRender: false,
-                activeTab: 0,     // first tab initially active
+               deferredRender: false,
+                activeTab:0,     // first tab initially active
                 items: [/*{
                     contentEl: 'center1',
                     title: 'Close Me',
@@ -202,20 +129,26 @@
             })]
         });
 <<<<<<< HEAD
+         new Ext.TabPanel({
+                region: 'north', // a center region is ALWAYS required for border layout
+               deferredRender: false,
+                activeTab:0,     // first tab initially active
+		items:[
+			{
+                        contentEl: 'div',	
+			title: 'samy'
+			}
+		]
+        });
         // get a reference to the HTML element with id "hideit" and add a click listener to it 
-        Ext.get("hideit").on('click', function(){
-            // get a reference to the Panel that was created with id = 'west-panel' 
 =======
         // get a reference to the HTML element with id "hideit" and add a click listener to it
+>>>>>>> 17feca219c09a6f19f9ab2c210d9d89fc9931efe
         Ext.get("hideit").on('click', function(){
             // get a reference to the Panel that was created with id = 'west-panel'
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed
             var w = Ext.getCmp('west-panel');
             // expand or collapse that Panel based on its collapsed property state
             w.collapsed ? w.expand() : w.collapse();
         });
     });
-<<<<<<< HEAD
-=======
 
->>>>>>> dd83d3e5fb4729aace784eb1b65441f9ceeba4ed

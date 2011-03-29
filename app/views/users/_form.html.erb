@@ -14,8 +14,13 @@
 <fieldset>
   <legend>User Details</legend>
    <div class="field">
+    <% if (@user.new_record? or @current_user.role == "admin" ) %>
     <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    	<%= f.text_field :username %>
+    <% else %>
+	Username : <b>
+  	<%= @current_user.username %></b>
+     <% end %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
@@ -28,7 +33,6 @@
   <% end %>
 <% end %>
 
-
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
@@ -36,11 +40,11 @@
   <div class="field">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %>
-    </div>
+  </div>
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>
 </fieldset>
- 
+
 <% end %>
 
