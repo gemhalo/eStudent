@@ -38,6 +38,7 @@ module EStudent
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+<<<<<<< HEAD
    #  config.secret_token = '6f22fa632e18b338b4babfa5fca632f5454fc97317cb52f372fa0f0fdd7f4d5bd95a060ff412c7230627b5c17906c9762c09208624bc1ab97f8d5344d8d4f467'
    # config.filter_parameters << :password
    # config.middleware.use "PDFKit::Middleware"
@@ -50,5 +51,9 @@ module EStudent
     
 
 
+=======
+    config.action_mailer.raise_delivery_errors = true
+config.action_mailer.perform_deliveries = true
+>>>>>>> 3da465e4e2c4b54bac61a0dc70e162e8be5337f3
   end
 end

@@ -13,13 +13,15 @@ EStudent::Application.routes.draw do
     end
   end
 
-#  netzke
+  netzke
   root :to => "user_sessions#new"
   #root :to => "users#index"
   #root :to => "welcome#index"
 
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
+
+ 
 
   get "admission_approval/approve"
 

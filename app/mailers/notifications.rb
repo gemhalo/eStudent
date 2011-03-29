@@ -16,5 +16,6 @@ class Notifications < ActionMailer::Base
     @from= 'ama.ghya@gmail.com'
     @sent_on = Time.now
     @headers = {}
+    .ma
 end
 end
