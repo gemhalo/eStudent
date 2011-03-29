@@ -31,6 +31,8 @@ gem 'paperclip'
 #gem 'google-spreadsheet-ruby'
 # User experience using ExtJS javascript framework and netzke rails-ExtJS bridge
 # Get it from git repo and install it
+#gem 'netzke-core', :git  => "http://github.com/skozlov/netzke-core.git"
+#gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
 #gem 'netzke-core', '0.6.6', :git  => "http://github.com/skozlov/netzke-core.git"
 #gem 'netzke-basepack', '0.6.5', :git => "http://github.com/skozlov/netzke-basepack.git"
 #gem 'netzke-persistence', '0.1.1', :git => "http://github.com/skozlov/netzke-persistence.git"

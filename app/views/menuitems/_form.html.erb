@@ -1,0 +1,44 @@
+<%= form_for(@menuitem) do |f| %>
+  <% if @menuitem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menuitem.errors.count, "error") %> prohibited this menuitem from being saved:</h2>
+
+      <ul>
+      <% @menuitem.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :linktitle %>
+  </div>
+  <div class="field">
+    <%= f.label :controller %><br />
+    <%= f.text_field :linkcontroller %>
+  </div>
+  <div class="field">
+    <%= f.label :action %><br />
+    <%= f.text_field :linkaction %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkicon %><br />
+    <%= f.text_field :linkicon %>
+  </div>
+  <div class="field">
+    <%= f.label :role_id %><br />
+    <%= f.text_field :role_id %>
+  </div>
+  <div class="field">
+    <%= f.label :catagory %><br />
+    <% @catagory=["academics", "communications","settings"] %>
+    <%= f.collection_select :catagory, @catagory, :to_s, :humanize %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

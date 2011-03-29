@@ -1,7 +1,19 @@
 EStudent::Application.routes.draw do
   netzke
+  resources :menuitems
+
   get "admin/index"
 
+ #This must be the only exception resources that must come at first
+  resources :user_sessions
+  resources :users do
+    collection do
+      get 'forgot_password'
+      post 'forgot_password'
+    end
+  end
+
+#  netzke
   root :to => "user_sessions#new"
   #root :to => "users#index"
   #root :to => "welcome#index"
@@ -127,6 +139,8 @@ EStudent::Application.routes.draw do
   resources :admin
   resources :components
 
+  resources :menuitems
+ # netzke
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -284,6 +284,17 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
     t.datetime "updated_at"
   end
 
+  create_table "menuitems", :force => true do |t|
+    t.string   "linktitle"
+    t.string   "linkcontroller"
+    t.string   "linkaction"
+    t.string   "linkicon"
+    t.string   "role_id"
+    t.string   "catagory"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "moes", :force => true do |t|
     t.string   "registration_no"
     t.string   "first_name"
@@ -422,9 +433,6 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
     t.integer  "program_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "college_name"
-    t.integer  "enrollment_mode_id"
-    t.integer  "admission_id"
   end
 
   create_table "users", :force => true do |t|

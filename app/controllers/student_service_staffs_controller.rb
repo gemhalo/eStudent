@@ -1,35 +1,19 @@
 class StudentServiceStaffsController < ApplicationController
-#  authorize_resource
-  layout 'student_service_staff'
-  # GET /student_service_staffs
-  # GET /student_service_staffs.xml
-  # POST /student_service_staffs
+  authorize_resource
   def index
     @applicants = Applicant.not_verified
     @program = Program.all
     @college = College.all
-
-
- #   @enrollment_types = EnrollmentType.all
     @verifieds=params[:verify]
-#    if request[:method] =="GET"
-      @student_service_staffs = StudentServiceStaff.all
-      # Apply filters to display students only that this user can approve
-  #    @applicants = Applicant.all
-      respond_to do |format|
+    @student_service_staffs = StudentServiceStaff.all
+    respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @student_service_staffs }
       end
- #   else
-  #    @applicants = Applicant.where("verified =#{params[:verified]}")
-  #  end
   end
 
-  # GET /student_service_staffs/1
-  # GET /student_service_staffs/1.xml
   def show
     @student_service_staff = StudentServiceStaff.find(params[:id])
-#    @gpa = params[:id]
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @student_service_staff }
