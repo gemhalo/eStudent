@@ -1,5 +1,16 @@
 <div style="margin:30px">
 <%= netzke :Grade_Processing_Grid,
+            :class_name => "Basepack::AccordionPanel",
+            :items => [{
+              :class_name => "Basepack::GridPanel",
+              :model => "College",
+              :title => "Bosses"
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "Campus",
+              :title => "Clerks"
+            },{
+
             :class_name => "Basepack::TabPanel",
             :items => [    {
               :class_name => "Basepack::GridPanel",
@@ -74,6 +85,10 @@
               }, 
             }],
             :width => 700,
+            :border => true,
+            :active_tab => 0
+}],
+:width => 700,
             :border => true,
             :active_tab => 0
 %>

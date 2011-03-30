@@ -1,8 +1,15 @@
 EStudent::Application.routes.draw do
+#  get "loose_components/index"
   netzke
-  resources :menuitems
+#  root :to => "demo#index"
+ # match 'components/:component' => 'components#index', :as => "components"
+  #match ':controller(/:action(/:id(.:format)))'
 
+  resources :menuitems
+  get "college/sam"
   get "admin/index"
+  #get "demo/index"
+  #post "demo/index"
 
  #This must be the only exception resources that must come at first
   resources :user_sessions
