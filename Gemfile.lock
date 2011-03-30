@@ -128,6 +128,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.25)
+    wicked_pdf (0.6.0)
     will_paginate (3.0.pre2)
 
 PLATFORMS
@@ -159,4 +160,5 @@ DEPENDENCIES
   rspec-rails (>= 2.5.0)
   sass
   sqlite3-ruby
+  wicked_pdf
   will_paginate (~> 3.0.pre2)

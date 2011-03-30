@@ -1,0 +1,12 @@
+
+Admission Status Notifications
+
+<%  if @message == true %>
+
+       Dear <%=@username %> your Document is reviewed and you are Approved
+
+<% else %>
+      
+       Dear <%=@username %> your Document is reviewed and you are Declined
+
+<% end %>

@@ -7,8 +7,32 @@
             Hello <%= current_user.username %> <%= link_to 'Account Settings', edit_user_path(current_user) %> |
 					       (<%= link_to 'Logout', logout_path, :method => :delete %>)
         <% else %>
+           
           <%= link_to "Create Account", new_user_path, :method => :get %> |
-          <%= link_to "Login", login_url, :method => :get %>
+          <%= link_to "Login", login_url, :method => :get %> |
+              <%end%>
+          <%if current_user%>
+          <% @applicantId = Applicant.find(current_user.person_id)  %>
+            <%= link_to "Edit Profile",:controller=> 'applicants', :action => "edit" , :applicant_id => @applicantId %>
+          
+
+        <% end %>
+           </div>
+         
+           
+        
+
+ 
+    </div>
+
 
         <% end %>
         </div>
+<<<<<<< HEAD
+>>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
+ 
+    </div>
+
+=======
+    </div>
+>>>>>>> 3da465e4e2c4b54bac61a0dc70e162e8be5337f3
