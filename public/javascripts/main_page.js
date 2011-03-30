@@ -28,7 +28,7 @@
                 minSize: 40,
                 maxSize: 200,
                 collapsible: true,
-		header: false,
+            		header: false,
                 //title: 'Footer',
                 margins: '0 0 0 5'
             },{
@@ -63,13 +63,13 @@
                 split: true,
                 width: 200,
                 minSize: 175,
-                maxSize: 400,
-    		activeOnTop: false,
+                maxSize: 300,
+            		activeOnTop: false,
                 collapsible: false,
                 activeItem:0,
                 margins: '0 0 0 5',
- 		fill: true,
-                hideBorders: true,
+             		fill: true,
+                hideBorders: false,
                 layout: {
                     type: 'accordion',
                     animate: true
