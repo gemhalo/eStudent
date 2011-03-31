@@ -11,26 +11,23 @@
     </div>
   <% end %>
 
+  
   <div class="field">
-    <%= f.label :academic_calander_id %><br />
-    <%= f.collection_select(:academic_calander_id, @ac, :id ,:name) %>
+    <%= f.label :start_at %><br />
+    <%= f.date_select :start_at %>
   </div>
   <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
+    <%= f.label :end_at %><br />
+    <%= f.date_select :end_at %>
   </div>
   <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :detail %><br />
-    <%= f.text_area :detail %>
-  </div>
+  <%#*<div class="field">%>
+    <%#= f.label :detail %><br />
+    <%#= f.text_area :detail %>
+  <%#*</div>%>
   <div class="actions">
     <%= f.submit %>
   </div>

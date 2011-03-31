@@ -1,5 +1,10 @@
 EStudent::Application.routes.draw do
-  netzke
+
+match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+
+  resources :academic_calendars  
+
+netzke
   get "admin/index"
 
   root :to => "user_sessions#new"
@@ -8,6 +13,13 @@ EStudent::Application.routes.draw do
 
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
+
+  get "calendar/new"
+
+  get "event_viewer/index"
+
+  get "event_viewer/show"
+    
 
   get "admission_approval/approve"
 

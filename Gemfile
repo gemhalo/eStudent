@@ -12,6 +12,8 @@ gem 'humanizer'
 # Spread sheet types
 gem 'fastercsv'
 
+gem 'event-calendar', :require => 'event_calendar'
+
 #PDF
 gem 'pdfkit'
 

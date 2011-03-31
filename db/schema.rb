@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110323090024) do
+ActiveRecord::Schema.define(:version => 20110324120306) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -233,11 +233,9 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
   end
 
   create_table "events", :force => true do |t|
-    t.integer  "academic_calander_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.string   "title"
-    t.string   "detail"
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -422,9 +420,6 @@ ActiveRecord::Schema.define(:version => 20110323090024) do
     t.integer  "program_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "college_name"
-    t.integer  "enrollment_mode_id"
-    t.integer  "admission_id"
   end
 
   create_table "users", :force => true do |t|
