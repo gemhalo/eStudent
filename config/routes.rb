@@ -87,10 +87,10 @@ EStudent::Application.routes.draw do
   #get "users/edit"
   get  'users/manageusers'
   post 'users/manageusers'
-<<<<<<< HEAD
+
 get 'available_programs/index_pdf'
 post 'available_programs/index_pdf'
-=======
+
 
   resources :user_sessions
   resources :users do
@@ -100,7 +100,7 @@ post 'available_programs/index_pdf'
     end
   end
 
->>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
+
 
   resources :academic_and_professional_qualifications
   resources :academic_calanders

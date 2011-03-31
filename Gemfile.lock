@@ -82,7 +82,6 @@ GEM
     paperclip (2.3.8)
       activerecord
       activesupport
-    pdfkit (0.5.0)
     polyglot (0.3.1)
     rack (1.2.2)
     rack-mount (0.6.13)
@@ -128,7 +127,6 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.25)
-    wicked_pdf (0.6.0)
     will_paginate (3.0.pre2)
 
 PLATFORMS
@@ -153,12 +151,10 @@ DEPENDENCIES
   netzke_config
   netzke_widget_generators
   paperclip
-  pdfkit
   railroad
   rails (= 3.0.4)
   rails3-generators
   rspec-rails (>= 2.5.0)
   sass
   sqlite3-ruby
-  wicked_pdf
   will_paginate (~> 3.0.pre2)

@@ -8,12 +8,12 @@ gem 'rails', '3.0.4'
 gem 'authlogic'
 gem 'cancan'
 gem 'humanizer'
-gem 'wicked_pdf'
+#gem 'wicked_pdf'
 # Spread sheet types
 gem 'fastercsv'
 
 #PDF
-gem 'pdfkit'
+#gem 'pdfkit'
 
 gem  'will_paginate', '~>3.0.pre2'
 #To generate model diagrams
@@ -167,5 +167,5 @@ group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
 
-gem 'wkhtmltopdf'
-gem 'pdfkit'
+#gem 'wkhtmltopdf'
+#gem 'pdfkit'
