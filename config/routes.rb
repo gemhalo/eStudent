@@ -1,4 +1,7 @@
 EStudent::Application.routes.draw do
+  get "users_admin/index"
+
+
 #  get "loose_components/index"
   #netzke
  # root :to => "demo#index"

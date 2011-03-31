@@ -18,7 +18,7 @@
                 split: true,
                 minSize: 40,
                 maxSize: 40,
-                margins: '5 5 5 5'
+                margins: '0 0 0  0'
 
 		       //headgr:false,
  //               autoEl: {
