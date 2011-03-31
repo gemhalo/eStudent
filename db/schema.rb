@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20110331144811) do
     t.datetime "updated_at"
   end
 
+  create_table "academic_calanders", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "academic_year_semesters", :force => true do |t|
     t.integer  "academic_year_id"
     t.integer  "semester_id"
