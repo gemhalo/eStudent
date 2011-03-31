@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-layout "welcome"
+  layout "welcome"
  def index
     @temp=User.where("temp_password=? and username=?","",current_user.username).count
    # @temp=User.find_by_username(current_user.username).temp_password.nil?
@@ -22,7 +22,7 @@ layout "welcome"
     end
 
     redirect_to path
-  
+
 
 #    @users = User.all
 #
@@ -31,7 +31,7 @@ layout "welcome"
    #   format.xml  { render :xml => @users }
    # end
   end
-  
+
   def assign_roles
 
   end
@@ -84,8 +84,8 @@ layout "welcome"
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-    @user.temp_password="" 
-    respond_to do |format|      
+    @user.temp_password=""
+    respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
@@ -115,7 +115,7 @@ layout "welcome"
       else
         flash[:notice] = "User with this email doesnot exist"
       end
-    
+
     end
   end
 

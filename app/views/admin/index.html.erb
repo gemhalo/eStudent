@@ -1,59 +1,51 @@
-<center>
 <div style="margin:30px">
-<%= netzke :Settings,
-            :class_name => "Basepack::TabPanel",
-            :enableTabScroll => true,
-            :defaults => { :autoScroll => true },
-            :resizeTabs => true,
-            :view_config => {
-              :force_fit => true
-            },
-            :items => [
-              {
-                #:class_name => "Basepack::GridPanel",
-                :component => :custom_action_grid,
-                :model => "Department",
-                :title => "Departments",
-                  
-                },            
-              {
-                :class_name => "Basepack::GridPanel",
-                :model => "User",
-                :title => "User Accounts",
-              },{
-                :class_name => "Basepack::GridPanel",
-                :model => "College",
-  	            :title => "Colleges",
-	              :view_config => {
-                  :force_fit => true
-  	            },
-	              :columns  => [
-	                {:name => :name, :label => "College name"},
-          	      {:name => :campus__name}
-	              ],
+<%= netzke :Grade_Processing_Grid,
+            :class_name => "Basepack::AccordionPanel",
+            :items => [{
+              :class_name => "Basepack::GridPanel",
+              :model => "College",
+              :title => "Bosses"
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "Campus",
+              :title => "Clerks"
+            },{
 
-                #Create menu
-          	    :bbar => nil,
-          	    :tbar => [
-                  {
-          	        :menu => [:add.action, :edit.action, :apply.action, :del.action],
-              	    :text => "Edit inline",
-              	    :icon =>"/images/icons/table.png"
-	                },
-                  {
-              	    :menu => [:add_in_form.action, :edit_in_form.action],
-              	    :text => "Edit in form",
-                    :icon => "/images/icons/application_form.png"
-        		      }
-                ],
-          	    :width => 600,
-	              :height => 300
-              },
-              {
-                :class_name => "Basepack::GridPanel",
-                :model => "Campus",
-                :title => "Campuses",
-	              :view_config => {
+            :class_name => "Basepack::TabPanel",
+            :items => [    {
+              :class_name => "Basepack::GridPanel",
+              :model => "User",
+              :title => "User Accounts",
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "College",
+	      :title => "Colleges",
+	      :view_config => {
+		     :force_fit => true
+	      },
+	      :columns  => [
+	      {:name => :name, :label => "College name"},
+	      {:name => :campus__name}
+	    ],
+
+    #Create menu
+	    :bbar => nil,
+	    :tbar => [{
+	    :menu => [:add.action, :edit.action, :apply.action, :del.action],
+	    :text => "Edit inline",
+      	    :icon =>"/images/icons/table.png"
+	    },{
+	    :menu => [:add_in_form.action, :edit_in_form.action],
+	    :text => "Edit in form",
+            :icon => "/images/icons/application_form.png"
+		    }],
+	    :width => 600,
+	    :height => 300
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "Campus",
+              :title => "Campuses",
+	      :view_config => {
                      :force_fit => true
               }, 
             },{
@@ -81,25 +73,26 @@
               :class_name => "Basepack::GridPanel",
               :model => "Building",
               :title => "Buildings",
-      	      :view_config => {
+  	      :view_config => {
                      :force_fit => true
               }, 
             },{
               :class_name => "Basepack::GridPanel",
               :model => "Admission",
               :title => "Admissions",
-  	          :view_config => {
-                  :force_fit => true
+  	      :view_config => {
+                     :force_fit => true
               }, 
             }],
             :width => 700,
             :border => true,
             :active_tab => 0
-           
-
+}],
+:width => 700,
+            :border => true,
+            :active_tab => 0
 %>
 </div>
-</center>
 <%#= notice %>
 <!--
 <h1>Current Users</h1>
