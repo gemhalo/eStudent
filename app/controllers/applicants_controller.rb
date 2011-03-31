@@ -32,16 +32,31 @@ class ApplicantsController < ApplicationController
     @Admission = Admission.all
     @College = College.all
     @admission_status_types = AdmissionStatusType.all
+if @current_user.person_id.nil?
+
 
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @applicant }
     end
+else
+  @applicant = @current_user.person.applicant
+  redirect_to :controller => "applicants", :action => "edit", :id => @applicant
   end
-
+  end
   # GET /applicants/1/edit
   def edit
-    @applicant = Applicant.find(params[:id])
+    @nationality = Nationality.all
+    @Admissiontype    = AdmissionType.all
+     @ethnicity   = Ethnicity.all
+    @Enrollementtype  = EnrollementType.all
+    @College    = College.all
+    @admission_status_types = AdmissionStatusType.all
+   @Admission = Admission.all
+    @applicant = Applicant.find(params[:applicant_id])
+    @person = Person.find(@applicant.person_id)
+    
+
   end
 
   # POST /applicants
@@ -73,10 +88,12 @@ class ApplicantsController < ApplicationController
   # PUT /applicants/1.xml
   def update
     @applicant = Applicant.find(params[:id])
-
+    @person = Person.find(@applicant.person_id)
     respond_to do |format|
+     @person.update_attributes(params[:person])
       if @applicant.update_attributes(params[:applicant])
-        format.html { redirect_to(@applicant, :notice => 'Applicant was successfully updated.') }
+       # format.html { redirect_to(@applicant, :notice => 'Applicant was successfully updated.') }
+         format.html { redirect_to :controller => 'family_backgrounds', :action => 'new', :applicant_id => @applicant.id}
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -1,8 +1,18 @@
 EStudent::Application.routes.draw do
-  netzke
-  resources :menuitems
+  get "users_admin/index"
 
+
+#  get "loose_components/index"
+  #netzke
+ # root :to => "demo#index"
+ # match 'components/:component' => 'components#index', :as => "components"
+ # match ':controller(/:action(/:id(.:format)))'
+
+  resources :menuitems
+  get "college/sam"
   get "admin/index"
+  #get "demo/index"
+  #post "demo/index"
 
  #This must be the only exception resources that must come at first
   resources :user_sessions
@@ -13,13 +23,15 @@ EStudent::Application.routes.draw do
     end
   end
 
-#  netzke
+  netzke
   root :to => "user_sessions#new"
   #root :to => "users#index"
   #root :to => "welcome#index"
 
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
+
+ 
 
   get "admission_approval/approve"
 
@@ -46,6 +58,7 @@ EStudent::Application.routes.draw do
   get "department_head/show_list"
 
   get "department_placement/department_placing_process"
+  post "dormitory_placement/dorm_placing_process"
 
   get "dormitory_placement/dorm_placing_process"
   post "dormitory_placement/dorm_placing_process"
@@ -84,7 +97,8 @@ EStudent::Application.routes.draw do
   #get "users/edit"
   get  'users/manageusers'
   post 'users/manageusers'
-
+  get 'available_programs/index_pdf'
+  post 'available_programs/index_pdf'
   resources :user_sessions
   resources :users do
     collection do
@@ -92,7 +106,6 @@ EStudent::Application.routes.draw do
       post 'forgot_password'
     end
   end
-
 
   resources :academic_and_professional_qualifications
   resources :academic_calanders
