@@ -12,18 +12,18 @@
 
 </head>
 <body>
-
+     <div id='north'>
      <!-- Header Content -->
      <%= render :partial =>'/shared/header' %>
-
      <!-- Top links -->
      <%= render :partial =>'/shared/toplink' %>
+     </div>
 
      <!-- Left Menu-->
      <%= render :partial =>'/shared/menuitems' %>
- 
+    
     <!-- body ...main TabPanel-->
-    <div id="center2" class="x-hide-display" >
+    <div id="center2" >
         <%= yield %>
     </div>
 

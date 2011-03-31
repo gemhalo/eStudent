@@ -82,6 +82,7 @@ GEM
     paperclip (2.3.8)
       activerecord
       activesupport
+    pdfkit (0.5.0)
     polyglot (0.3.1)
     rack (1.2.2)
     rack-mount (0.6.13)
@@ -151,6 +152,7 @@ DEPENDENCIES
   netzke_config
   netzke_widget_generators
   paperclip
+  pdfkit
   railroad
   rails (= 3.0.4)
   rails3-generators

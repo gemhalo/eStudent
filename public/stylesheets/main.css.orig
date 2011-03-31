@@ -1,0 +1,119 @@
+.menu_link{
+  border:0px groove green;
+  text-indent:30px;
+  -moz-border-radius: 4px;
+  border:0px solid;
+
+}
+
+<<<<<<< HEAD
+=======
+#ext-comp-1046,
+#ext-comp-1088{
+  z-index:-10;
+}
+#ext-gen3{
+  z-index:-10;
+}
+#ext-comp-1055
+{
+	z-index: -20;
+}
+#ext-comp-1052{
+        z-index: -20;
+
+}
+>>>>>>> 2d66bb5961390334bdaffdbf742d7ae7e490be15
+.menu_link a:hover{
+  background:#efefef;
+}
+.menu_link a:link,
+.menu_link a:hover,
+.menu_link a:visited {
+  text-decoration: none;
+  color: maroon;
+}
+.link a {
+  color:olive;
+
+  text-decoration:none;
+  text-indent:30px;
+}
+.login{
+text-align: right;
+--moz-border-radius:1px;
+border:1px;
+
+}
+#ext-gen64{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen46{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen52{
+  background: #efefef;
+  color: navy;
+}
+
+#ext-gen58{
+  background: #efefef;
+  color: navy;
+}
+#ext-gen3{
+  background: #efefef;
+}
+
+#ext-gen27s {
+  background: #efefef;
+  color: maroon;
+}
+<<<<<<< HEAD
+=======
+
+#ext-comp-1002 {
+   z-index: -10;
+}
+#ext-comp-1002 {
+   z-index: -10;
+}
+>>>>>>> 2d66bb5961390334bdaffdbf742d7ae7e490be15
+#logo {
+   float:left;
+   margin:8px;
+   margin-right:8pt;
+}
+#logo_text {
+   float:left;
+   padding-top: 20px;
+   text-indent: 10px;
+   font-size:30px;
+}
+#loginl a {
+}
+#loginl{
+  color:maroon;
+  float:right;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+#howtol{
+  width:300;
+}
+#toplinks{
+	text-align: bottom;
+        margin-top: 10px;
+        padding: 10px;
+        margin-left: 550px;
+}
+.roundborder{
+	-moz-border-radius: 10px;
+	border: 1px solid navy;
+        text-align: bottom;
+	margin: 5px;
+        padding-left: 15px;
+        padding-right:15px;
+}
+
