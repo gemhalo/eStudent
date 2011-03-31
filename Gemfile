@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+#source 'http://rubygems.org'
 #Gems required for all environments
 gem 'rails', '3.0.4'
 #We will enable this when we want to work with  Bundle edge Rails instead:
@@ -8,9 +8,7 @@ gem 'rails', '3.0.4'
 gem 'authlogic'
 gem 'cancan'
 gem 'humanizer'
-
-gem 'breadcrumbs', '0.1.6'
-gem 'breadcrumbs_on_rails', '1.0.1'
+#gem 'wicked_pdf'
 # Spread sheet types
 gem 'fastercsv'
 
@@ -169,5 +167,5 @@ group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
 
-gem 'wkhtmltopdf'
-gem 'pdfkit'
+#gem 'wkhtmltopdf'
+#gem 'pdfkit'

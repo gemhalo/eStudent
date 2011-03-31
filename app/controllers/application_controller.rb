@@ -1,7 +1,5 @@
-class ApplicationController < ActionController::Base
-  include BreadcrumbsOnRails::ControllerMixin
+  class ApplicationController < ActionController::Base
   protect_from_forgery
-  layout 'application'
 
   helper_method :current_user_session, :current_user, :menus
   def menus

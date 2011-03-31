@@ -1,5 +1,8 @@
 class CollegesController < ApplicationController
   authorize_resource
+  def sam 
+     flash[:notice] = "Fuck u!"
+  end
   # GET /colleges
   # GET /colleges.xml
   def index

@@ -12,6 +12,7 @@ College.delete_all
 Department.delete_all
 AdmissionType.delete_all
 EnrollmentType.delete_all
+EnrollmentModeType.delete_all
 Admission.delete_all
 User.delete_all
 Building.delete_all
@@ -80,6 +81,7 @@ colleges = [
 
 colleges.each do | college |
   College.create!({ :name => college[:name], :campus_id => Campus.find_by_name(college[:campus])
+#          :instructor_id => 0
   })
 end
 
