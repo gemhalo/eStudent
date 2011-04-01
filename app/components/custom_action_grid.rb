@@ -1,13 +1,11 @@
 class CustomActionGrid < Netzke::Basepack::GridPanel
   action :show_details, :text => "Show details", :disabled => true
-    @menuitems.inspect
-
   # For stand-alone testing
  def default_config
    super.merge(:model => 'College')
  end
 
-  # overriding 3 GridPanel's methods  
+  # overriding 3 GridPanel's methods
   def default_bbar
     [:show_details.action, "-", *super]
   end
@@ -18,8 +16,8 @@ class CustomActionGrid < Netzke::Basepack::GridPanel
   def default_tbar
     [:show_details.action, "-", *super]
   end
-  
-  
+
+
   js_method :init_component, <<-JS
     function(){
       #{js_full_class_name}.superclass.initComponent.call(this);
@@ -39,11 +37,12 @@ class CustomActionGrid < Netzke::Basepack::GridPanel
       }, this);
 
 
-      Ext.Msg.show({        
+      Ext.Msg.show({
         title: "Details",
         width: 300,
-        msg: html 
+        msg: html
       });
     }
   JS
 end
+

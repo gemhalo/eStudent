@@ -1,7 +1,7 @@
   class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user_session, :current_user, :menus
+  helper_method :current_user_session, :current_user, :menus, :generate_pdf
   def menus
         @menus=Menuitem.where("role_id=?",@current_user.role)
   end
@@ -52,5 +52,20 @@
     session[:return_to] = nil
   end
 
+  # Not used
+  def generate_pdf(action_name, file_name)
+    html = render_to_string(:layout => false , :action => "#{action_name}")
+    kit = PDFKit.new(html)
+    kit.stylesheets << "#{Rails.root}/public/stylesheets/screen.css"
+    send_data(kit.to_pdf, :filename => "#{file_name}.pdf", :type => 'application/pdf')
+    return # to avoid double render page.call function, param1, param2
+  end
+
+  def menus_list
+    user = @current_user.name
+    role = @current_user.role
+    menus = Menuitem.all #.fetch_menu_for_role(@current_user.role)
+    menus
+  end
 end
 

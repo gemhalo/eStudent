@@ -1,94 +1,76 @@
 class MainApp < Netzke::Basepack::SimpleApp
-  # Initial layout of the app.
-  # <tt>status_bar_config</tt>, <tt>menu_bar_config</tt>, and <tt>main_panel_config</tt> are defined in SimpleApp.
-  def configuration
-    sup = super
-    sup.merge(
-      :items =>[
-         {
-            #lazily created panel (xtype:'panel' is default)
-            :region => :north,
-            #:contentEl: 'south',
-            :xtype => 'panel',
-            :split => true,
-            :height => 100,
-            :minSize => 100,
-            :maxSize => 200,
-            :collapsible => true,
-            :header => true,
-            :margins => '0 0 0 0',
-            :items => [
-               { #North panel
-                  :region => :north,
-                  :border => false,
-                  :height => 65,
-                  :html => %Q{
-                  <div style="widt:65px;float:left;border:1px solid;"><img src="images/mu_icon_64.png"/></div>
-                  <div style="height:65px;float:left;border:1px solid;">
-                  <h1 style="font-size:large;float:left">
-                   Mekelle University
-                  </h1>
-                  </div>
-                  <div style="margin:10px; color:#333; text-align:center; font-family: Helvetica;">
-                    <a style="color:#B32D15; text-decoration: none;" href="http://gemhalo.org">Gemhalo! eStudent</a> Demo
-                  </div>
-                  },
-                  :bodyStyle => {:background => %Q(#FFF url("/images/header-deco.gif") top left repeat-x)}
-                },
-                {
-                  :region => 'south',
-                  :title => 'Horizontal Menu',
-                  :height => 20,
-                  :xtype => 'toolbar',
-                  :items =>[ menu_bar_config ]
-                }
-            ]
-          },
 
-        { #Center panel
-          :region => :center,
-          :layout => :border,
+  def configuration
+    super.merge(
+      :items =>[
+        {
+          :region => :north,
           :border => false,
-          :items => [ status_bar_config,main_panel_config(:ref => "../app/layout/mainPanel"),
-            { #Navigation panel
+          :header => false,
+          :title => "North",
+          :height => 35,
+          :html => %Q{
+          <div style="margin:10px; color:#333; text-align:center; font-family: Helvetica;">
+            <a style="color:#FFFFFF; text-decoration: none" href="http://demo.gemhalo.org">Gemhalo!</a> Demo
+          </div>
+        },
+        :bodyStyle => {:background => %Q(#456 url("/images/header-deco.gif") top left repeat-x)}
+
+        },{
+          :region => :center,
+          :header => false,
+          :layout => :border,
+          :items =>[
+            menu_bar_config, main_panel_config(:ref => "../../mainPanel"),
+            { #Navigation
               :region => :west,
-              :width => 250,
-              :split => true,
-              :xtype => :treepanel,
-              :collapsible => true,
+              :header => true,
               :title => "Navigation",
-              :root_visible => false,
-              :ref => "../../navigation",
-              :root => {
-                :text => "Navigation",
-                :expanded => true
-              }
-            },
-            { #Notification panel
-              :region => :east,
-              :collapsible => true,
-              :width => 200,
+              :width => 220,
               :split => true,
-              :xtype => :treepanel,
+              :component => :menu_panel
+            },{
+              :region => :center,
+              :header => false,
+              :title => "Main panel",
+              :split => true,
+              :items => [
+                { #Breadcrumbs
+                  :region => :north,
+                  :header => false,
+                  :border => false,
+                  :title => "Breadcrumbs",
+                  :height => 20
+                },{
+                  :region => :center,
+                  :header => false,
+                  :title => "Content"
+
+                }
+
+              ]
+            },{
+              :region => :east,
+              :title => "Notification",
+              :width => 180,
+              :split => true,
               :collapsible => true,
-              :title => "Notification Area",
-              :root_visible => false,
-              :ref => "../../navigation",
-              :root => {
-                :text => "Navigation",
-                :expanded => true
-              }
-            }
-          ]# End of center.items
+              :collapsed => true
+            },
+            status_bar_config
+          ]
         }
-      ] # end of :items
-    )#End of sup.merge
+      ]
+    )
   end
 
+  #components
+  component :logo_panel
 
+  component :menu_panel
 
-
-#Event listeners
-
+  #Data grids
+    component :custom_action_grid, :model => "Campus"
+    component :applicants, :class_name => "Basepack::GridPanel", :model => "Applicant", :lazy_loading => true, :title => "List of Applicants"
 end
 

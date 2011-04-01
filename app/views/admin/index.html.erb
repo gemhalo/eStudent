@@ -1,14 +1,15 @@
 <div style="margin:30px">
-<%= netzke :Grade_Processing_Grid,
+
+<%= netzke :main_grid,:title => " ",
             :class_name => "Basepack::AccordionPanel",
             :items => [{
               :class_name => "Basepack::GridPanel",
               :model => "College",
-              :title => "Bosses"
+              :title => "Colleges"
             },{
               :class_name => "Basepack::GridPanel",
               :model => "Campus",
-              :title => "Clerks"
+              :title => "Campuses"
             },{
 
             :class_name => "Basepack::TabPanel",
@@ -45,50 +46,50 @@
               :class_name => "Basepack::GridPanel",
               :model => "Campus",
               :title => "Campuses",
-	      :view_config => {
+	            :view_config => {
                      :force_fit => true
-              }, 
+              },
             },{
               :class_name => "Basepack::GridPanel",
               :model => "Department",
               :title => "Departments",
-	      :view_config => {
+              :view_config => {
                      :force_fit => true
-              }, 
+              },
             },{
               :class_name => "Basepack::GridPanel",
               :model => "AdmissionType",
               :title => "Admission Types",
-	      :view_config => {
+    	        :view_config => {
                      :force_fit => true
-              }, 
+              },
             },{
               :class_name => "Basepack::GridPanel",
               :model => "EnrollmentType",
               :title => "Enrollment Types",
-	      :view_config => {
+      	      :view_config => {
                      :force_fit => true
-              }, 
+              },
             },{
               :class_name => "Basepack::GridPanel",
               :model => "Building",
               :title => "Buildings",
-  	      :view_config => {
+  	          :view_config => {
                      :force_fit => true
-              }, 
+              },
             },{
               :class_name => "Basepack::GridPanel",
               :model => "Admission",
               :title => "Admissions",
-  	      :view_config => {
+  	          :view_config => {
                      :force_fit => true
-              }, 
+              },
             }],
             :width => 700,
             :border => true,
             :active_tab => 0
 }],
-:width => 700,
+            :width => 700,
             :border => true,
             :active_tab => 0
 %>
@@ -121,3 +122,4 @@
 
 <br />
 -->
+

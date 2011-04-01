@@ -5,7 +5,7 @@
         // can change across page loads, leading to unpredictable results.  The developer
         // should ensure that stable state ids are set for stateful components in real apps.
         Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
-        
+
         var viewport = new Ext.Viewport({
             layout: 'border',
             items: [
@@ -14,7 +14,7 @@
                 region: 'north',
                 height: 90, // give north and south regions a height
                 border: true,
-		contentEl: 'north',
+		        contentEl: 'north',
                 split: true,
                 minSize: 40,
                 maxSize: 40,
@@ -105,7 +105,7 @@
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 }
-                
+
                 /*{
                     id:'mu_forms',
                     title: 'Forms Menu',

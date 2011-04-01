@@ -1,9 +1,14 @@
 EStudent::Application.routes.draw do
-  netzke
-  root :to => "user_sessions#new"
+  get "main_app/index"
 
+  netzke
+  #root :to => "user_sessions#new"
+  root :to => "main_app#index"
+  get "campuses/index"
   get "college/sam"
   get "admin/index"
+
+  match 'components/:component' => 'components#index', :as => "components"
 
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
@@ -97,7 +102,7 @@ EStudent::Application.routes.draw do
   resources :buildings
   resources :campuses
   resources :colleges
-  resources :components
+#  resources :components
   resources :course_exemptions
   resources :department_choices
   resources :department_quotas

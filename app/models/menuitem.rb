@@ -1,5 +1,8 @@
 class Menuitem < ActiveRecord::Base
 #     CARAGORIES = %w[academics courses communications settings]
-#  scope :fetch_menu, self.where('role_id = ?',@current_user.role)
+
+   scope :fetch_menu_for_role, lambda { |role| where('role_id ==?',role) }
+
 
 end
+

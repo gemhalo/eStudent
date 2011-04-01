@@ -1,19 +1,11 @@
 class CampusesController < ApplicationController
-layout "admin"
-  #Breadcrumbs
-  add_breadcrumb "Home", :root_path
-  
-  
   # GET /campuses
   # GET /campuses.xml
   def index
-    add_breadcrumb "Campuses", :campuses_path
     @campuses = Campus.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @campuses }
-      #format.pdf  { render :pdf => @campuses }
       format.pdf {
         html = render_to_string(:layout => false , :action => "index.html.erb")
         kit = PDFKit.new(html)
@@ -22,6 +14,8 @@ layout "admin"
         return # to avoid double render page.call function, param1, param2
       }
     end
+
+
   end
 
   # GET /campuses/1
