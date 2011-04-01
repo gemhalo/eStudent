@@ -188,6 +188,9 @@ netzke
   resources :student_service_staffs
   resources :user_sessions
 
+  resources :admin
+  resources :components
+  resources :service_types
   resources :menuitems
  # netzke
   # The priority is based upon order of creation:

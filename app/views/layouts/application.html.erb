@@ -12,24 +12,96 @@
 
 </head>
 <body>
-     <div id='north'>
+     <div id='north'  class="x-hide-display" >
      <!-- Header Content -->
-     <%= render :partial =>'/shared/header' %>
+          <div id="logo">      <img src='/images/mu_icon_64.png'/ style='align:right'> </div>
+          <div id="logo_text">  <h3>  Welcome to eStudent </h3> </div>
+<div><div class="roundborder" style="float:left;margin-top:50px;margin-left:50px;margin-left: 150px;"><%= link_to  "Home", "#" %></div>
+        <div class="roundborder" style="float:left;margin-top:50px"> About</div>
+        <div class="roundborder" style="float:left;margin-top:50px"><%= link_to "Academic Calendar" %></div>
+ </div>
+       <div id="loginl">
+        <% if current_user %>
+            Hello <%= current_user.username %> <%= link_to 'Account Settings', edit_user_path(current_user) %> |
+                                               (<%= link_to 'Logout', logout_path, :method => :delete %>)
+        <% else %>
+           
+          <%= link_to "Create Account", new_user_path, :method => :get %> |
+          <%= link_to "Login", login_url, :method => :get %> 
+              <%end%>
+          <%#if current_user%>
+          <% #@applicantId = Applicant.find(current_user.person_id)  %>
+            <%#= link_to "Edit Profile",:controller=> 'applicants', :action => "edit" , :applicant_id => @applicantId %>
+          
+
+        <% #end %>
+
+     <%#= render :partial =>'/shared/header' %>
+</div>
      <!-- Top links -->
-     <%= render :partial =>'/shared/toplink' %>
+<div id="toplinks"  class="x-hide-display">
+        <div class="roundborder" style="float:left"><%= link_to  "Home", "#" %></div>
+        <div class="roundborder" style="float:left"> About</div>
+        <div class="roundborder" style="float:left"><%= link_to "Academic Calendar" %></div>
+     </div>
+
+<%#= render :partial =>'/shared/toplink' %>
      </div>
 
      <!-- Left Menu-->
-     <%= render :partial =>'/shared/menuitems' %>
+     <div id="west"  class="x-hide-display" >
+     <% @menuitems = menus %>
+     <%if @menuitems !=nil %>
+     <% @menuitems.each do |t| %>
+     <% @catagory1 = t.catagory %>
+     <div id="academics">
+     <% if @catagory1 == "academics" %>
+     <div class='menu_link'><img src='<%= t.linkicon %>'/ width=20 height=20>
+                  <%= link_to "#{t.linktitle}", :controller => t.linkcontroller, :action => t.linkaction %><br> </div>
+     <%end end%>
 
+     <% @menuitems.each do |t| %>
+     <% @catagory2 = t.catagory %>
+     <div id="courses">
+     <% if @catagory2 == "courses" %>
+     <div class='menu_link'><img src='<%= t.linkicon %>'/ width=20 height=20>
+                  <%= link_to "#{t.linktitle}", :controller => t.linkcontroller, :action => t.linkaction %><br> </div>
+     <%end end%>
+
+     <% @menuitems.each do |t| %>
+     <% @catagory3 = t.catagory %>
+     <div id="communications">
+     <% if @catagory3 == "communications" %>
+     <div class='menu_link'><img src='<%= t.linkicon %>'/ width=20 height=20>
+                  <%= link_to "#{t.linktitle}", :controller => t.linkcontroller, :action => t.linkaction %><br> </div>
+     <%end end%>
+
+     <% @menuitems.each do |t| %>
+     <% @catagory4 = t.catagory %>
+     <div id="settings">
+     <% if @catagory4 == "settings" %>
+     <div class='menu_link'><img src='<%= t.linkicon %>'/ width=20 height=20>
+                  <%= link_to "#{t.linktitle}", :controller => t.linkcontroller, :action => t.linkaction %><br> </div>
+     <%end end%>
+
+     <%end%>
+
+	     <%#= render :partial =>'/shared/menuitems' %>
+     </div>
     <!-- body ...main TabPanel-->
-    <div id="center2" >
+    <div id="center2"  class="x-hide-display" >
         <%= yield %>
     </div>
 
     <!-- Notification Area-->
-    <div id="notification_area">
-    	 <%= render :partial =>'/shared/notification' %>
+    <div id="notification_area"  class="x-hide-display">
+<br>
+<div class='menu_link' style="text-indent:10px"><img src='/icons/note.png'/ width=20 height=20>
+  <%= link_to "Screening", student_service_staffs_selected_path %>(<%= @applicants.count unless @applicants == nil %>) <br/>
+
+<br><div>
+    
+	 <%#= render :partial =>'/shared/notification' %>
     </div>
 
     <!-- Footer Area-->
