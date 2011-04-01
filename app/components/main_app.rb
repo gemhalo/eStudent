@@ -44,7 +44,11 @@ class MainApp < Netzke::Basepack::SimpleApp
                 },{
                   :region => :center,
                   :header => false,
-                  :title => "Content"
+                  :title => "Content",
+                  :view_config => {
+                    :force_fit => true
+                  },
+                  :component => "custom_action_grid"
 
                 }
 

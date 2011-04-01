@@ -1,26 +1,7 @@
-<br><br>
-<div id="center2" style="margin:30px">
-<center>
-<%= netzke :departments,
-    :model => "Department",
-    :class_name => "Basepack::GridPanel",
-    :columns  => [
-        {:name => "name", :label => "Department name "}
-    ],
-  
-    #Create menu 
-    :bbar => nil,
-    :tbar => [{
-      :menu => [:add.action, :edit.action, :apply.action, :del.action],
-      :text => "Edit inline",
-      :icon =>"/images/icons/table.png"
-    },{
-      :menu => [:add_in_form.action, :edit_in_form.action],
-      :text => "Edit in form",
-      :icon => "/images/icons/application_form.png"
-    }],
-    :width => 400,
-    :height => 200
+<%= netzke :custom_action_grid, :model => 'Department',
+:title=>'Departments',
+:autoScroll => true,
+:height => 370,
+:width =>900
 %>
-</center>
-</div>
+
