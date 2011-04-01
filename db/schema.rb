@@ -86,6 +86,20 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.datetime "updated_at"
   end
 
+  create_table "applicants", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "admission_id"
+    t.integer  "college_id"
+    t.string   "entry_level"
+    t.string   "major_field_of_study"
+    t.string   "minor_field_of_study"
+    t.string   "academic_year"
+    t.boolean  "admission_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "verified"
+  end
+
   create_table "award_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
