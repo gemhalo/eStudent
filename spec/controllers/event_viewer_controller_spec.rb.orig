@@ -1,0 +1,22 @@
+require 'spec_helper'
+
+describe EventViewerController do
+
+<<<<<<< HEAD
+  describe "GET 'index'" do
+    it "should be successful" do
+      get 'index'
+      response.should be_success
+    end
+  end
+
+  describe "GET 'show'" do
+    it "should be successful" do
+      get 'show'
+      response.should be_success
+    end
+  end
+
+=======
+>>>>>>> 9f33db95dba36a0d485e35a0edf6dbe5cc88ce7f
+end

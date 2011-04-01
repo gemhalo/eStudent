@@ -6,6 +6,7 @@ gem 'rails', '3.0.4'
 
 # Security
 gem 'authlogic'
+gem 'event-calendar', :require => 'event_calendar'
 gem 'cancan'
 gem 'humanizer'
 #gem 'wicked_pdf'
@@ -13,7 +14,7 @@ gem 'humanizer'
 gem 'fastercsv'
 
 #PDF
-#gem 'pdfkit'
+gem 'pdfkit'
 
 gem  'will_paginate', '~>3.0.pre2'
 #To generate model diagrams
@@ -153,7 +154,7 @@ end
 
 #Gems required for test and production environments
 group :test, :production do
-
+gem "pdfkit"
   # PostgreSQL
   #gem 'pg', :require => 'pg'
   #MySQL
@@ -167,9 +168,3 @@ group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
 
-#gem 'wkhtmltopdf'
-<<<<<<< HEAD
-#gem 'pdfkit'
-=======
-#gem 'pdfkit'
->>>>>>> 8ed31e3d489e6440ba93ea3f8414530774f704f3

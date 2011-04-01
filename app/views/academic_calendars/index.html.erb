@@ -1,0 +1,25 @@
+<h1>Listing academic_calendars</h1>
+
+<table>
+  <tr>
+    <th>Start date</th>
+    <th>End date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @academic_calendars.each do |academic_calendar| %>
+  <tr>
+    <td><%= academic_calendar.start_date %></td>
+    <td><%= academic_calendar.end_date %></td>
+    <td><%= link_to 'Show', academic_calendar %></td>
+    <td><%= link_to 'Edit', edit_academic_calendar_path(academic_calendar) %></td>
+    <td><%= link_to 'Destroy', academic_calendar, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Academic calendar', new_academic_calendar_path %>

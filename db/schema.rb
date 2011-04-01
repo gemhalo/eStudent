@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.datetime "updated_at"
   end
 
+  create_table "academic_calendars", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "academic_year_semesters", :force => true do |t|
     t.integer  "academic_year_id"
     t.integer  "semester_id"
@@ -299,6 +306,7 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.datetime "end_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "details"
   end
 
   create_table "family_backgrounds", :force => true do |t|

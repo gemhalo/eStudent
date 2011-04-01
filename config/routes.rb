@@ -138,6 +138,7 @@ netzke
       post 'forgot_password'
     end
   end
+ 
 
   resources :courses
   resources :academic_and_professional_qualifications
@@ -150,6 +151,7 @@ netzke
   resources :available_programs
   resources :award_types
   resources :buildings
+ resources :calendar
   resources :campuses
   resources :colleges
   resources :course_exemptions
@@ -184,7 +186,7 @@ netzke
   resources :student_service_staffs
   resources :admin
   resources :components
-
+  resources :service_types
   resources :menuitems
  # netzke
   # The priority is based upon order of creation:
