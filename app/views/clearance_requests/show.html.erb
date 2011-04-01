@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Student:</b>
+  <%= @clearance_request.student_id %>
+</p>
+
+<p>
+  <b>Reason for:</b>
+  <%= @clearance_request.reason_for %>
+</p>
+
+<p>
+  <b>Reason for withdrawal:</b>
+  <%= @clearance_request.reason_for_withdrawal %>
+</p>
+
+<p>
+  <b>Clearance date:</b>
+  <%= @clearance_request.clearance_date %>
+</p>
+
+<p>
+  <b>Approval:</b>
+  <%= @clearance_request.approval %>
+</p>
+
+<p>
+  <b>Attachment:</b>
+  <%= @clearance_request.attachment %>
+</p>
+
+
+<%= link_to 'Edit', edit_clearance_request_path(@clearance_request) %> |
+<%= link_to 'Back', clearance_requests_path %>
