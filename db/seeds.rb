@@ -177,6 +177,9 @@ menuitems = [
 
 { :linktitle => "Service Types" , :linkcontroller => "service_types",    :linkaction => "index",
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Set Events" , :linkcontroller => "events",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 ]
 menuitems.each do |menuitem|
   Menuitem.create!({:linktitle => menuitem[:linktitle],:linkcontroller => menuitem[:linkcontroller],
