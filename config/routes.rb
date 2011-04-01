@@ -1,6 +1,7 @@
 EStudent::Application.routes.draw do
 
   resources :borrowed_items
+   resources :service_types
 
   resources :clearance_requests
 
