@@ -1,0 +1,33 @@
+<%= form_for(@service_agreement) do |f| %>
+  <% if @service_agreement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@service_agreement.errors.count, "error") %> prohibited this service_agreement from being saved:</h2>
+
+      <ul>
+      <% @service_agreement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :student_id %><br />
+    <%= f.text_field :student_id %>
+  </div>
+  <div class="field">
+    <%= f.label :service_type_id %><br />
+    <%= f.text_field :service_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :class_year_id %><br />
+    <%= f.text_field :class_year_id %>
+  </div>
+  <div class="field">
+    <%= f.label :academic_year_semester_id %><br />
+    <%= f.text_field :academic_year_semester_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

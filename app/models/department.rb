@@ -1,4 +1,6 @@
 class Department < ActiveRecord::Base
+
+  has_many :courses
   belongs_to :college
   has_many :students
   has_one :department_quota

@@ -1,9 +1,7 @@
-@media print {
-    body {
-	 background-color: #FFF;
-}
-   #container {
-  		width: auto;
-		margin: 0;
+ 
+@media print{
+    .noPrint{
+        display: none;
+
 }
 }

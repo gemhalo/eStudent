@@ -10,15 +10,17 @@
             layout: 'border',
             items: [
             // create instance immediately
-            new Ext.BoxComponent({
+	   new Ext.Panel({
                 region: 'north',
                 height: 90, // give north and south regions a height
-                border: false,
-		//header:false,
-                autoEl: {
-                    tag: 'div',
+                border: true,
+                contentEl: 'north',
+                split: true,
+                minSize: 40,
+                maxSize: 40,
+                margins: '0 0 0  0'
+
                     //html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
-                }
             }), {
                 // lazily created panel (xtype:'panel' is default)
                 region: 'south',

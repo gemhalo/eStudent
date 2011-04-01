@@ -9,7 +9,7 @@ gem 'authlogic'
 gem 'event-calendar', :require => 'event_calendar'
 gem 'cancan'
 gem 'humanizer'
-
+#gem 'wicked_pdf'
 # Spread sheet types
 gem 'fastercsv'
 
@@ -168,5 +168,4 @@ group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
 
-
-
+#gem 'wkhtmltopdf'

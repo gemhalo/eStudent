@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mekelle Univeristy- Student Information System</title>
+  <title >Mekelle Univeristy- Student Information System</title>
   <%= stylesheet_link_tag :all %>
   <%#= stylesheet_link_tag "/extjs/resources/css/ext-all.css" %>
   <%#= stylesheet_link_tag "/extjs/resources/css/xtheme-gray.css" %>
@@ -12,18 +12,18 @@
 
 </head>
 <body>
-
+     <div id='north'>
      <!-- Header Content -->
      <%= render :partial =>'/shared/header' %>
-
      <!-- Top links -->
      <%= render :partial =>'/shared/toplink' %>
+     </div>
 
      <!-- Left Menu-->
      <%= render :partial =>'/shared/menuitems' %>
- 
+    
     <!-- body ...main TabPanel-->
-    <div id="center2" class="x-hide-display" >
+    <div id="center2" >
         <%= yield %>
     </div>
 
@@ -36,7 +36,9 @@
    <div id="south" class="x-hide-display">
         <center><small>Mekelle Univerisity Gemhalo! project</small></center>
     </div>
+    <div></div>
 
+   <!-- End of Main Content -->
 </body>
 </html>
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mekelle Univeristy- Student Information System</title>
+  <%= stylesheet_link_tag :all %>
+  <%#= stylesheet_link_tag "/extjs/resources/css/ext-all.css" %>
+  <%#= stylesheet_link_tag "/extjs/resources/css/xtheme-gray.css" %>
+  <%#= javascript_include_tag :defaults %>
+  <%= netzke_init %>
+  <%= javascript_include_tag "main_page" %>
+  <%= csrf_meta_tag %>
+<<<<<<< HEAD
+  <%= stylesheet_link_tag "application", :media => 'all' %> 
+=======
+
+>>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
+</head>
+<body>
+
+     <!-- Header Content -->
+     <%= render :partial =>'/shared/header' %>
+
+     <!-- Top links -->
+     <%= render :partial =>'/shared/toplink' %>
+
+     <!-- Left Menu-->
+     <%= render :partial =>'/shared/menuitems' %>
+ 
+    <!-- body ...main TabPanel-->
+    <div id="center2" class="x-hide-display" >
+        <%= yield %>
+    </div>
+
+    <!-- Notification Area-->
+    <div id="notification_area">
+    	 <%= render :partial =>'/shared/notification' %>
+    </div>
+
+    <!-- Footer Area-->
+   <div id="south" class="x-hide-display">
+        <center><small>Mekelle Univerisity Gemhalo! project</small></center>
+    </div>
+    <div></div>
+
+</body>
+</html>
+
