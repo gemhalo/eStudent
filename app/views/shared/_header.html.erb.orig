@@ -1,23 +1,28 @@
-<div id='north' style="float:none;clear:both;z-index:400">
-        <div class='left' style="float:none;clear:both;border:0">
+	<div >
           <div id="logo">      <img src='/images/mu_icon_64.png'/ style='align:right'> </div>
           <div id="logo_text">  <h3>  Welcome to eStudent </h3> </div>
         </div>
        <div id="loginl">
         <% if current_user %>
-<<<<<<< HEAD
             Hello <%= current_user.username %> <%= link_to 'Account Settings', edit_user_path(current_user) %> |
 					       (<%= link_to 'Logout', logout_path, :method => :delete %>)
-=======
-          Hello <%= current_user.username %> (<%= link_to 'Logout', logout_path, :method => :delete %>)
-           | <%= link_to 'My Account', edit_user_path(current_user) %>
-
->>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
         <% else %>
+           
           <%= link_to "Create Account", new_user_path, :method => :get %> |
-          <%= link_to "Login", login_url, :method => :get %>
+          <%= link_to "Login", login_url, :method => :get %> |
+              <%end%>
+          <%#if current_user%>
+          <% #@applicantId = Applicant.find(current_user.person_id)  %>
+            <%#= link_to "Edit Profile",:controller=> 'applicants', :action => "edit" , :applicant_id => @applicantId %>
+          
 
-        <% end %>
-        </div>
-    </div>
+        <% #end %>
+           </div>
+<<<<<<< HEAD
+         
+           
+        
 
+ 
+=======
+>>>>>>> 8ed31e3d489e6440ba93ea3f8414530774f704f3

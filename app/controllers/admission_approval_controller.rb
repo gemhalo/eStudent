@@ -1,14 +1,12 @@
 class AdmissionApprovalController < ApplicationController
-  layout "instructor"
   def index
-        #@current_user=session[:user_name]
-        #dept=current_user.person.instructor.department_id
-        @applicants=Applicant.all(:conditions=>["admission_status=? and verified=?", false,true])
+
+        @applicants=Applicant.all(:conditions=>["admission_status=? and verified=?",false,true])
      end
 
   def show_list
   	#dept=current_user.person.instructor.department_id
-    @applicants=Applicant.all(:conditions=>["admission_status=? and verified=?", false,true])
+    @applicants=Applicant.all(:conditions=>["admission_status =? and verified=?", false, true])
   end
 
   def details
@@ -32,11 +30,13 @@ class AdmissionApprovalController < ApplicationController
         assign_id(applicant)
       else
         assign_id(applicant)
+        AdmissionStatusNotifications.notification(applicant.id).deliver
       end
 
       applicant.student.save!
+       
     end
-
+     
       @applicants=Applicant.all
 #      flash[:notice]="successfully approved"
       render "show_list"
@@ -69,6 +69,7 @@ class AdmissionApprovalController < ApplicationController
     a=Applicant.find(params[:id])
     a.admission_status=false
     a.save!
+     AdmissionStatusNotifications.notification(a.id).deliver
     @applicants=Applicant.all
     render "show_list"
   end

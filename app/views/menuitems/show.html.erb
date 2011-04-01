@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @menuitem.linktitle %>
+</p>
+
+<p>
+  <b>Linkpath:</b>
+  <%= @menuitem.linkcontroller %>
+</p>
+
+<p>
+  <b>Linkpath:</b>
+  <%= @menuitem.linkaction %>
+</p>
+
+<p>
+  <b>Linkicon:</b>
+  <%= @menuitem.linkicon %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%= @menuitem.role_id %>
+</p>
+
+<p>
+  <b>Catagory:</b>
+  <%= @menuitem.catagory %>
+</p>
+
+
+<%= link_to 'Edit', edit_menuitem_path(@menuitem) %> |
+<%= link_to 'Back', menuitems_path %>

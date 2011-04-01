@@ -25,6 +25,7 @@ class EmploymentInformationsController < ApplicationController
   # GET /employment_informations/new.xml
   def new
     @applicantid = params[:applicant_id]
+    @applicant = Applicant.find(@applicantid)
      @employment_informations = EmploymentInformation.find_all_by_applicant_id(params[:applicant_id])
     @employment_information = EmploymentInformation.new
 

@@ -1,12 +1,48 @@
 EStudent::Application.routes.draw do
+  resources :service_agreements
 
 match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
-  resources :academic_calendars  
+resources :academic_calendars 
+  resources :course_assignments
 
 netzke
   get "admin/index"
+  resources :offered_courses
 
+  resources :class_years
+
+  resources :semesters
+
+  resources :academic_year_semesters
+
+  resources :academic_years
+
+  get "users_admin/index"
+
+
+#  get "loose_components/index"
+  #netzke
+ # root :to => "demo#index"
+ # match 'components/:component' => 'components#index', :as => "components"
+ # match ':controller(/:action(/:id(.:format)))'
+
+  resources :menuitems
+  get "college/sam"
+  get "admin/index"
+  #get "demo/index"
+  #post "demo/index"
+
+ #This must be the only exception resources that must come at first
+  resources :user_sessions
+  resources :users do
+    collection do
+      get 'forgot_password'
+      post 'forgot_password'
+    end
+  end
+
+  netzke
   root :to => "user_sessions#new"
   #root :to => "users#index"
   #root :to => "welcome#index"
@@ -46,6 +82,7 @@ netzke
   get "department_head/show_list"
 
   get "department_placement/department_placing_process"
+  post "dormitory_placement/dorm_placing_process"
 
   get "dormitory_placement/dorm_placing_process"
   post "dormitory_placement/dorm_placing_process"
@@ -84,7 +121,8 @@ netzke
   #get "users/edit"
   get  'users/manageusers'
   post 'users/manageusers'
-
+  get 'available_programs/index_pdf'
+  post 'available_programs/index_pdf'
   resources :user_sessions
   resources :users do
     collection do
@@ -93,7 +131,7 @@ netzke
     end
   end
 
-
+  resources :courses
   resources :academic_and_professional_qualifications
   resources :academic_calanders
   resources :admissions
@@ -139,6 +177,8 @@ netzke
   resources :admin
   resources :components
 
+  resources :menuitems
+ # netzke
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

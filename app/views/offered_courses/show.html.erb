@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Curriculum:</b>
+  <%= @offered_course.curriculum_id %>
+</p>
+
+<p>
+  <b>Academic semester:</b>
+  <%= @offered_course.academic_semester_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_offered_course_path(@offered_course) %> |
+<%= link_to 'Back', offered_courses_path %>

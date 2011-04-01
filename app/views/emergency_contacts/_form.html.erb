@@ -1,3 +1,4 @@
+<%= render 'applicants/applicant' %>
 <fieldset>
 <fieldset><legend>Emergency Contact</legend>
 <%= form_for(@emergency_contact) do |f| %>
@@ -25,7 +26,7 @@
 <% end %>
 </fieldset>
   <fieldset><legend>Emergency Contact List</legend>
-<%= netzke :emergency_contacts,
+<%#= netzke :emergency_contacts,
   :model => 'EmergencyContact',
   :class_name => 'Basepack::GridPanel',
   :scope => ["applicant_id = ?", @applicantid],

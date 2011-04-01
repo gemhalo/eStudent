@@ -1,5 +1,23 @@
 <br><center>
 <h1> Welcome to instructors Dashboard </h1>
+
+
+<%= netzke :Grade_Processing_Grid,
+            :class_name => "Basepack::TabPanel",
+            :items => [{
+              :class_name => "Basepack::GridPanel",
+              :model => "Applicant",
+              :title => "Applicants"
+            },{
+              :class_name => "Basepack::GridPanel",
+              :model => "Applicant",
+              :title => "Students"
+            }],
+            :width => 700,
+            :border => true,
+            :active_tab => 0
+%>
+
 <!--<div style="float:left;width:400px;border:1pt groove green`">
 	<fieldset>
 	<legend> Approvals </legend>

@@ -1,0 +1,31 @@
+<h1>Listing menuitems</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Linkpath</th>
+    <th>Linkicon</th>
+    <th>Role</th>
+    <th>Catagory</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @menuitems.each do |menuitem| %>
+  <tr>
+    <td><%= link_to "#{menuitem.title}", menuitem.linkpath %></td>
+    <td><%= menuitem.linkpath %></td>
+    <td><%= menuitem.linkicon %></td>
+    <td><%= menuitem.role_id %></td>
+    <td><%= menuitem.catagory %></td>
+    <td><%= link_to 'Show', menuitem %></td>
+    <td><%= link_to 'Edit', edit_menuitem_path(menuitem) %></td>
+    <td><%= link_to 'Destroy', menuitem, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Menuitem', new_menuitem_path %>

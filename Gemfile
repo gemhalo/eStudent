@@ -8,7 +8,7 @@ gem 'rails', '3.0.4'
 gem 'authlogic'
 gem 'cancan'
 gem 'humanizer'
-
+#gem 'wicked_pdf'
 # Spread sheet types
 gem 'fastercsv'
 
@@ -33,6 +33,8 @@ gem 'paperclip'
 #gem 'google-spreadsheet-ruby'
 # User experience using ExtJS javascript framework and netzke rails-ExtJS bridge
 # Get it from git repo and install it
+#gem 'netzke-core', :git  => "http://github.com/skozlov/netzke-core.git"
+#gem 'netzke-basepack', :git => "http://github.com/skozlov/netzke-basepack.git"
 #gem 'netzke-core', '0.6.6', :git  => "http://github.com/skozlov/netzke-core.git"
 #gem 'netzke-basepack', '0.6.5', :git => "http://github.com/skozlov/netzke-basepack.git"
 #gem 'netzke-persistence', '0.1.1', :git => "http://github.com/skozlov/netzke-persistence.git"
@@ -167,3 +169,5 @@ group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
 
+#gem 'wkhtmltopdf'
+#gem 'pdfkit'

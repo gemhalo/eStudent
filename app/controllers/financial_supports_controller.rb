@@ -25,6 +25,7 @@ class FinancialSupportsController < ApplicationController
   # GET /financial_supports/new.xml
   def new
     @applicantid = params[:applicant_id]
+    @applicant = Applicant.find(@applicantid)
     @financial_support = FinancialSupport.new
 
     respond_to do |format|

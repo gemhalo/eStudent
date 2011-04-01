@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mekelle Univeristy- Student Information System</title>
+  <title >Mekelle Univeristy- Student Information System</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%#= stylesheet_link_tag "/extjs/resources/css/ext-all.css" %>
+  <%#= stylesheet_link_tag "/extjs/resources/css/xtheme-gray.css" %>
+  <%#= javascript_include_tag :defaults %>
   <%= netzke_init %>
   <%= javascript_include_tag "main_page" %>
   <%= csrf_meta_tag %>
 
 </head>
 <body>
-   <!-- Header Content -->
+     <div id='north'>
+     <!-- Header Content -->
      <%= render :partial =>'/shared/header' %>
-
+     <!-- Top links -->
      <%= render :partial =>'/shared/toplink' %>
-
-    <!-- Basic setup menu-->
-    <div id="basic_setup">
-            <%= render :partial =>'/shared/application/menuitems' %><br/>
-    </div>
-    <div id="west" class="x-hide-display">
-        <div>
-            <%= render :partial =>'/shared/application/menuitems' %><br/>
-        </div>
-
-        <div id='student_menu'>
-            <%= render :partial =>'/shared/application/menuitems' %><br/>
-        </div>
      </div>
-    <div id="center2" class="x-hide-display" >
+
+     <!-- Left Menu-->
+     <%= render :partial =>'/shared/menuitems' %>
+    
+    <!-- body ...main TabPanel-->
+    <div id="center2" >
         <%= yield %>
     </div>
 
+    <!-- Notification Area-->
     <div id="notification_area">
-    	 <%= render :partial =>'/shared/application/notification' %>
+    	 <%= render :partial =>'/shared/notification' %>
     </div>
 
+    <!-- Footer Area-->
    <div id="south" class="x-hide-display">
         <center><small>Mekelle Univerisity Gemhalo! project</small></center>
     </div>
+    <div></div>
 
    <!-- End of Main Content -->
 </body>

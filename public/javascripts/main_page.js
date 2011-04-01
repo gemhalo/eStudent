@@ -4,21 +4,27 @@
         // it is generally best to disable state management as dynamically-generated ids
         // can change across page loads, leading to unpredictable results.  The developer
         // should ensure that stable state ids are set for stateful components in real apps.
-        //Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
-
+        Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+        
         var viewport = new Ext.Viewport({
             layout: 'border',
             items: [
             // create instance immediately
-            new Ext.BoxComponent({
+            new Ext.Panel({
                 region: 'north',
                 height: 90, // give north and south regions a height
-                border: false,
-		//header:false,
-                autoEl: {
-                    tag: 'div',
-                    //html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
-                }
+                border: true,
+		contentEl: 'north',
+                split: true,
+                minSize: 40,
+                maxSize: 40,
+                margins: '0 0 0  0'
+
+		       //headgr:false,
+ //               autoEl: {
+   //                 tag: 'div',
+     //               html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
+       //         }
             }), {
                 // lazily created panel (xtype:'panel' is default)
                 region: 'south',
@@ -76,30 +82,30 @@
                 },
                 items: [
                 {
-                    contentEl: 'basic_setup',
+                    contentEl: 'academics',
                     title: 'Academics',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },
                 {
-                    contentEl: 'west',
+                    contentEl: 'courses',
                     title: 'Courses',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 },
-                /*{
-                    contentEl: 'sss_west',
+                {
+                    contentEl: 'communications',
                     title: 'Communications',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
-                },*/
+                },
                 {
-                    contentEl: 'student_menu',
+                    contentEl: 'settings',
                     title: 'Settings',
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 }
-
+                
                 /*{
                     id:'mu_forms',
                     title: 'Forms Menu',
