@@ -1,5 +1,5 @@
 EStudent::Application.routes.draw do
-
+  root :to => "welcome#index"
   resources :borrowed_items
 
   resources :clearance_requests
@@ -9,9 +9,9 @@ EStudent::Application.routes.draw do
   resources :programs
   resources :service_agreements
 
-match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
-resources :academic_calendars 
+resources :academic_calendars
   resources :course_assignments
 
 netzke
@@ -38,7 +38,7 @@ netzke
   resources :menuitems
   #get "main_app/index"
   netzke
-  root :to => "user_sessions#new"
+  #root :to => "user_sessions#new"
   #root :to => "main_app#index"
   get "campuses/index"
   get "college/sam"
@@ -56,7 +56,7 @@ netzke
   get "event_viewer/index"
 
   get "event_viewer/show"
-    
+
 
   get "admission_approval/approve"
 
@@ -137,7 +137,7 @@ netzke
       post 'forgot_password'
     end
   end
- 
+
 
   resources :courses
   resources :academic_and_professional_qualifications

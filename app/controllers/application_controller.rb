@@ -3,7 +3,11 @@
 
   helper_method :current_user_session, :current_user, :menus, :generate_pdf
   def menus
-        @menus=Menuitem.where("role_id=?",@current_user.role)
+        if @current_user
+          @menus=Menuitem.where("role_id=?",@current_user.role)
+        else
+          @menus = Menuitem.where("role_id=?","guest")
+        end
   end
 
   private
@@ -62,9 +66,14 @@
   end
 
   def menus_list
-    user = @current_user.name
-    role = @current_user.role
-    menus = Menuitem.all #.fetch_menu_for_role(@current_user.role)
+    user =""
+    role = ""
+    menus =[]
+    if @current_user
+      user = @current_user.name
+      role = @current_user.role
+      menus = Menuitem.fetch_menu_for_role(role)
+    end
     menus
   end
 end
