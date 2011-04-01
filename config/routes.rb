@@ -22,7 +22,7 @@ netzke
   resources :class_years
 
   resources :semesters
-
+   resources :service_types
   resources :academic_year_semesters
 
   resources :academic_years
