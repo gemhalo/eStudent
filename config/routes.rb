@@ -107,6 +107,10 @@ EStudent::Application.routes.draw do
   resources :award_types
   resources :buildings
   resources :campuses
+  resources :courses
+  resources :curriculums
+
+
   resources :colleges
   resources :course_exemptions
   resources :department_choices
