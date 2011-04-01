@@ -1,20 +1,6 @@
 <% #Menu items for Student Service Staff
    #sub-menu  Academics  %>
 
-<<<<<<< HEAD
-	<div class='menu_link'><img src='/icons/application_side_list.png'/ width=20 height=20>
-                 <%= link_to "Import Data", moe_data_import_import_path %><br><div>
-
-         <div class='menu_link'><img src='/icons/campus.png'/ width=20 height=20>
-                 <%= link_to "Add Campus", new_campus_path %><br><div>
-
-         <div class='menu_link'><img src='/icons/college.png'/ width=20 height=20>
-                 <%= link_to "Add college", new_college_path %><br><div>
-
-        
-		<div class='menu_link'><img src='/icons/department.png'/ width=20 height=20>
-                 <%= link_to "Add Department", new_department_path %><br><div>
-=======
          <div class='menu_link'><img src='/icons/application_side_list.png'/ width=20 height=20>
                  <%= link_to "Campuses", campuses_path %><br><div>
 
@@ -23,7 +9,6 @@
 
          <div class='menu_link'><img src='/icons/application_side_list.png'/ width=20 height=20>
                  <%= link_to "Departments", departments_path %><br><div>
->>>>>>> 578454184557a2d29c9ff5b56685af8938295cdb
 
         <div class='menu_link'><img src='/icons/application_side_list.png'/ width=20 height=20>
                  <%= link_to "Admission Types", admission_types_path %><br><div>
@@ -32,24 +17,6 @@
                  <%= link_to "Enrollment Types", enrollment_types_path %><br><div>
 
 
-<<<<<<< HEAD
-       <div class='menu_link'><img src='/icons/admission.png'/ width=20 height=20>
-                 <%= link_to "Add Admission", new_admission_path %><br><div>
-
-
-        <div class='menu_link'><img src='/icons/help.png'/ width=20 height=20>
-                 <%= link_to "Add How's", new_how_to_path %><br><div>        
-
-
-        <div class='menu_link'><img src='/icons/program.png'/ width=20 height=20>
-                 <%= link_to "Add Program", new_program_path %><br><div>
-	
-	<div class='menu_link'><img src='/icons/award_star_silver_1.png'/ width=20 height=20>
-                  <%= link_to "Academic Calendar", academic_calanders_path %><br> </div>
-
-            <div class='menu_link'><img src='/icons/award_star_silver_1.png'/ width=20 height=20>
-                  <%= link_to "Event", events_path %><br> </div>
-=======
        <div class='menu_link'><img src='/icons/application_side_list.png'/ width=20 height=20>
                  <%= link_to "Admissions", admissions_path %><br><div>
 
@@ -66,5 +33,7 @@
 
 	<div class='menu_link'><img src='/icons/award_star_silver_1.png'/ width=20 height=20>
                   <%= link_to "Add Building", new_building_path %><br> </div>
->>>>>>> 578454184557a2d29c9ff5b56685af8938295cdb
+
+	<div class='menu_link'><img src='/icons/award_star_silver_1.png'/ width=20 height=20>
+                  <%= link_to "event", new_event_path %><br> </div>
 

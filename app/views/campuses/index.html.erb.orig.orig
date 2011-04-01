@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div style="margin:5px">
 <%= netzke :campuses,
     :class_name => "Basepack::GridPanel",
@@ -24,18 +25,36 @@
 %>
 </div>
 =======
+<center>
+<%= netzke :colleges,
+>>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
+=======
 <%
  # netzke calls the Netzke module
  # campuses is the variable passed by the controller
  # model is the activeRecord model to use
  # class_name is the UI renderer
 %>
+<<<<<<< HEAD
 <center>
 <%= netzke :campuses,
     :model => "Campus",
     :class_name => "Basepack::GridPanel",
     :columns  => [
         {:name => "name", :label => "Campus name ", :width => 600}
+=======
+<center style="media:print;">
+<%= netzke :campuses,
+>>>>>>> 17feca219c09a6f19f9ab2c210d9d89fc9931efe
+    :model => "Campus",
+    :class_name => "Basepack::GridPanel",
+    :border => true,
+    :view_config => {
+      :force_fit => true
+    },
+    :columns  => [
+        {:name => :name, :label => "Campus name"},
+>>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
     ],
 
     #Create menu
@@ -54,4 +73,8 @@
 %>
 </center>
 
+<<<<<<< HEAD
 >>>>>>> 578454184557a2d29c9ff5b56685af8938295cdb
+=======
+
+>>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
