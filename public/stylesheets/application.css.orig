@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+@media print {
+    body {
+	 background-color: #FFF;
+}
+   #container {
+  		width: auto;
+		margin: 0;
+}
+}
+=======
+ 
+@media print{
+    .noPrint{
+        display: none;
+
+}
+}
+>>>>>>> b575dd3406e6c9562cc19236877e9bc77be31f98
