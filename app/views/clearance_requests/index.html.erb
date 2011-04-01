@@ -1,0 +1,33 @@
+<h1>Listing clearance_requests</h1>
+
+<table>
+  <tr>
+    <th>Student</th>
+    <th>Reason for</th>
+    <th>Reason for withdrawal</th>
+    <th>Clearance date</th>
+    <th>Approval</th>
+    <th>Attachment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clearance_requests.each do |clearance_request| %>
+  <tr>
+    <td><%= clearance_request.student_id %></td>
+    <td><%= clearance_request.reason_for %></td>
+    <td><%= clearance_request.reason_for_withdrawal %></td>
+    <td><%= clearance_request.clearance_date %></td>
+    <td><%= clearance_request.approval %></td>
+    <td><%= clearance_request.attachment %></td>
+    <td><%= link_to 'Show', clearance_request %></td>
+    <td><%= link_to 'Edit', edit_clearance_request_path(clearance_request) %></td>
+    <td><%= link_to 'Destroy', clearance_request, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clearance request', new_clearance_request_path %>

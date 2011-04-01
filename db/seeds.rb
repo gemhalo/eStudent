@@ -127,8 +127,22 @@ menuitems = [
  { :linktitle => "Department Placement" , :linkcontroller => "department_quotas",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
-#students menu items
+ { :linktitle => "Curriculum" , :linkcontroller => "curriculums",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+ 
+ { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+
+ { :linktitle => "Add Offered Courses" , :linkcontroller => "offered_courses",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+
+ { :linktitle => "Allocate Courses " , :linkcontroller => "course_assignments",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+  #students menu items
  { :linktitle => "Apply Online" , :linkcontroller => "applicants",    :linkaction => "new",
+    :linkicon => "/icons/database_add.png", :role_id=>"student", :catagory=>"academics" },
+
+ { :linktitle => "Register" , :linkcontroller => "service_agreements",    :linkaction => "new",
     :linkicon => "/icons/database_add.png", :role_id=>"student", :catagory=>"academics" },
 
 #admin menu items
@@ -143,13 +157,26 @@ menuitems = [
 { :linktitle => "Departments" , :linkcontroller => "departments",    :linkaction => "index",
     :linkicon => "/icons/coins_add.png", :role_id=>"admin", :catagory=>"academics" },
 
+{ :linktitle => "Program" , :linkcontroller => "programs",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
 { :linktitle => "Admission Types" , :linkcontroller => "admission_types",    :linkaction => "index",
     :linkicon => "/icons/font_go.png", :role_id=>"admin", :catagory=>"academics" },
 
-{ :linktitle => "Enrollment Types" , :linkcontroller => "enrollment_types",    :linkaction => "index",
+{ :linktitle => "Academic Year" , :linkcontroller => "academic_years",    :linkaction => "index",
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 
+{ :linktitle => "Academic Year Semester" , :linkcontroller => "academic_year_semesters",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 
+{ :linktitle => "Class Year" , :linkcontroller => "class_years",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Semester" , :linkcontroller => "semesters",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Service Types" , :linkcontroller => "service_types",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 ]
 menuitems.each do |menuitem|
   Menuitem.create!({:linktitle => menuitem[:linktitle],:linkcontroller => menuitem[:linkcontroller],

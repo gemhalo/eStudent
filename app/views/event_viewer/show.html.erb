@@ -1,0 +1,19 @@
+
+<table border="1">
+  <tr>
+    <td>Title</td>
+    <td>Detail</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <%= @event.each do |e| %>
+    <td> <%= e.title %> </td>
+    <td> <%= e.detail %> </td>
+    <td> </td>
+    <td> </td>
+
+  </tr>
+
+</table>
+<% end %>

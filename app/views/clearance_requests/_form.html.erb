@@ -1,0 +1,41 @@
+<%= form_for(@clearance_request) do |f| %>
+  <% if @clearance_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@clearance_request.errors.count, "error") %> prohibited this clearance_request from being saved:</h2>
+
+      <ul>
+      <% @clearance_request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :student_id %><br />
+    <%= f.text_field :student_id %>
+  </div>
+  <div class="field">
+    <%= f.label :reason_for %><br />
+    <%= f.text_field :reason_for %>
+  </div>
+  <div class="field">
+    <%= f.label :reason_for_withdrawal %><br />
+    <%= f.text_field :reason_for_withdrawal %>
+  </div>
+  <div class="field">
+    <%= f.label :clearance_date %><br />
+    <%= f.date_select :clearance_date %>
+  </div>
+  <div class="field">
+    <%= f.label :approval %><br />
+    <%= f.check_box :approval %>
+  </div>
+  <div class="field">
+    <%= f.label :attachment %><br />
+    <%= f.text_field :attachment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
