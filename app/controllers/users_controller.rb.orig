@@ -2,13 +2,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
 <<<<<<< HEAD
+  
 #before_filter do
-	#redirect_to new_user_session_path unless current_user #authenticated?
+#	redirect_to new_user_session_path unless current_user #authenticated?
 #end
 
 =======
-layout "welcome"
->>>>>>> 61d050f6a404bca52f6f8a351684b1e9ae08824a
+>>>>>>> b575dd3406e6c9562cc19236877e9bc77be31f98
  def index
     @temp=User.where("temp_password=? and username=?","",current_user.username).count
    # @temp=User.find_by_username(current_user.username).temp_password.nil?
