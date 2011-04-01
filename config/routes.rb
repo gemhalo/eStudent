@@ -1,4 +1,20 @@
 EStudent::Application.routes.draw do
+  resources :service_agreements
+
+  resources :service_types
+
+  resources :course_assignments
+
+  resources :offered_courses
+
+  resources :class_years
+
+  resources :semesters
+
+  resources :academic_year_semesters
+
+  resources :academic_years
+
   get "users_admin/index"
 
 
@@ -107,6 +123,7 @@ EStudent::Application.routes.draw do
     end
   end
 
+  resources :courses
   resources :academic_and_professional_qualifications
   resources :academic_calanders
   resources :admissions

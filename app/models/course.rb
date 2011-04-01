@@ -1,6 +1,8 @@
 class Course < ActiveRecord::Base
 has_one :course_type
 
+belongs_to :department
+
 has_many :program, :through => :curriculum
 validates :course_title , :presence =>true
 validates :course_code , :presence =>true

@@ -46,6 +46,11 @@ module EStudent
     #PDFKit.configure do |config|
 #config.default_options[:ignore_load_errors] = true
  #end
+
+    
+
+
+
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.perform_deliveries = true
   end

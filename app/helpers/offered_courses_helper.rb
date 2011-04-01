@@ -1,0 +1,2 @@
+module OfferedCoursesHelper
+end
