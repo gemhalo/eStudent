@@ -1,9 +1,8 @@
 EStudent::Application.routes.draw do
-  get "main_app/index"
-
+  #get "main_app/index"
   netzke
-  #root :to => "user_sessions#new"
-  root :to => "main_app#index"
+  root :to => "user_sessions#new"
+  #root :to => "main_app#index"
   get "campuses/index"
   get "college/sam"
   get "admin/index"
