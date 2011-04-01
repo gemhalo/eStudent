@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id number:</b>
+  <%= @borrowed_item.id_number %>
+</p>
+
+<p>
+  <b>Employee id number:</b>
+  <%= @borrowed_item.employee_id_number %>
+</p>
+
+<p>
+  <b>Item name:</b>
+  <%= @borrowed_item.item_name %>
+</p>
+
+<p>
+  <b>Item type:</b>
+  <%= @borrowed_item.item_type %>
+</p>
+
+<p>
+  <b>Borrowed from:</b>
+  <%= @borrowed_item.borrowed_from %>
+</p>
+
+<p>
+  <b>Cleared:</b>
+  <%= @borrowed_item.cleared %>
+</p>
+
+<p>
+  <b>Borrowed date:</b>
+  <%= @borrowed_item.borrowed_date %>
+</p>
+
+<p>
+  <b>Return date:</b>
+  <%= @borrowed_item.return_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_borrowed_item_path(@borrowed_item) %> |
+<%= link_to 'Back', borrowed_items_path %>

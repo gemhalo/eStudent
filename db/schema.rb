@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110331144811) do
+ActiveRecord::Schema.define(:version => 20110401064521) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20110331144811) do
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "year"
   end
 
   create_table "admission_status_types", :force => true do |t|
@@ -91,6 +92,19 @@ ActiveRecord::Schema.define(:version => 20110331144811) do
     t.datetime "updated_at"
   end
 
+  create_table "borrowed_items", :force => true do |t|
+    t.string   "id_number"
+    t.string   "employee_id_number"
+    t.string   "item_name"
+    t.string   "item_type"
+    t.string   "borrowed_from"
+    t.boolean  "cleared"
+    t.date     "borrowed_date"
+    t.date     "return_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "buildings", :force => true do |t|
     t.string   "building_name"
     t.integer  "campus_id"
@@ -107,6 +121,20 @@ ActiveRecord::Schema.define(:version => 20110331144811) do
 
   create_table "class_years", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "clearance_requests", :force => true do |t|
+    t.integer  "student_id"
+    t.string   "reason_for"
+    t.string   "reason_for_withdrawal"
+    t.date     "clearance_date"
+    t.boolean  "approval"
+    t.string   "attachment"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -276,7 +304,7 @@ ActiveRecord::Schema.define(:version => 20110331144811) do
   end
 
   create_table "instructors", :force => true do |t|
-    t.string   "id_number"
+    t.string   "employee_id"
     t.string   "academic_rank"
     t.string   "specialization"
     t.integer  "role_id"
@@ -432,7 +460,7 @@ ActiveRecord::Schema.define(:version => 20110331144811) do
 
   create_table "service_types", :force => true do |t|
     t.string   "service_name"
-    t.string   "type"
+    t.string   "service_type"
     t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
