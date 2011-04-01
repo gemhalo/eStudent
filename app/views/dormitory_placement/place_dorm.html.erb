@@ -1,10 +1,9 @@
 <fieldset style="width: 50%">
-  <legend> Whom do you want to Place?</legend>
-  <%= form_tag(:action=> "select_batch", :method=>"get") do %>
+  <legend> How do you want to Place?</legend>
+  <%= form_tag(:action=> "select_group", :method=>"get") do %>
     <br/>
-    <%= radio_button_tag 'batch', 'fresh' %> Fresh Students<br/><br/>
-    <%= radio_button_tag 'batch', 'others' %> Others<br/><br/>
-    <%= radio_button_tag 'batch', 'single_student' %> Individual Student<br/><br/>
+    <%= radio_button_tag 'group', 'group' %> Group Placement<br/><br/>
+    <%= radio_button_tag 'group', 'individual' %> Individual Placement<br/><br/>
     <%= submit_tag "Continue" %><br/><br/>
   <% end %>
 

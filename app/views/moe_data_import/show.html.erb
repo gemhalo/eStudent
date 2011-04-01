@@ -15,7 +15,7 @@
     you have been admitted to mekelle University.</br><br></br> Now you can access the e-Student using the following username and password</p> <br></br>
   Username_____<%= u.username %><br></br>
     Password________<%= u.temp_password %><br></br>
-    Student ID Number________<%= u.person.applicant.temp_id_number %><br></br>
+    Student ID Number________<%= u.person.applicant[0].temp_id_number %><br></br>
     
     please change your password as soon as you login to the system </cente> <br></br></center>
 <input type="submit" class="noPrint" value="Print" onClick="window.print();"></input>

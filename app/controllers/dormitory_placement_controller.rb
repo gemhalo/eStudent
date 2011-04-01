@@ -1,30 +1,34 @@
 class DormitoryPlacementController < ApplicationController
 
   def place_dorm
-    @buildings=Building.all
-    @colleges=College.all
-
   end
 
-  def select_batch
-    if params[:batch]=="fresh"
-      render :action=>'fresh_students_dorm_placement'
-    elsif params[:batch]=="others"
-      render :action=>'existing_students_dorm_placement'
+  def select_group
+    if params[:group]=="group"
+      render :action=>'group_dorm_placement_form'
+    elsif params[:group]=="individual"
+      redirect_to :action=>'individual_dorm_placement_form'
     end
   end
 
-  def fresh_students_dorm_placement
+  def individual_dorm_placement_form
+    @dormitory=Dormitory.new 
   end
 
-  def existing_students_dorm_placement
+  def individual_dorm_placement
+    @dormitory=Dormitory.find(params[:dormitory])
+    @dormitory.save!
+    redirect_to :action=>"show_placement"
   end
 
-  def dorm_placing_process
+  def group_dorm_placement_form
+  end
+
+  def group_dorm_placement
 
     @dormitories = Dormitory.all
 
-    if params[:building].nil? or params[:college].nil?
+    if params[:building].nil? or params[:college].nil? or params[:class_year].nil? or params[:gender].nil?
      flash[:notice] = "Please Fill All the Fields"
       render :action=>"place_dorm"
     else
@@ -32,12 +36,11 @@ class DormitoryPlacementController < ApplicationController
     buildings=Building.find(params[:building])
     gender=params[:gender]
 
-    class_year=params[:class_year] unless params[:class_year].nil?
-    college=params[:college] unless params[:college].nil?
-    department=Department.find(params[:department]) unless params[:department].nil?
-
+    class_year=params[:class_year]
+    college=params[:college]
+    
       students=Student.all(:include=>[:department,:applicant=>[:person]], :conditions=>
-      ("departments.college_id=#{college}"))
+      ("people.gender='#{gender}' and departments.college_id=#{college}"))
           studentcounter=0
         for b in buildings
             @rooms=b.rooms

@@ -8,13 +8,15 @@ class MoeDataImportController < ApplicationController
   end
 
   def upload
-    #@person1 = Person.new
+    @person = Person.new
+    @applicant = Applicant.new
+    @educational_background  = EducationalBackground.new
     @person = []
     @applicant = []
     @educational_background  = []
-    #@applicant = Applicant.new
+    
     @applicants = Applicant.not_verified
-    @educational_background = EducationalBackground.new
+    #@educational_background = EducationalBackground.new
     
     @file = params[:file]
     CSV.foreach(@file, :col_sep=> "," , :headers => true) do |row|
@@ -29,23 +31,13 @@ class MoeDataImportController < ApplicationController
                 :region_code => row[8] )
 
        @applicant << Applicant.create(:person_id => Person.last.id,
-<<<<<<< HEAD
                   :college_id => College.where('name like ?', "%#{row[9]}%").first,
                   #:enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
                   :admission_id => Admission.where('admission_type_id = ? and enrollment_type_id = ?',
                     AdmissionType.where('name like ?', "%#{row[12]}%").first,
                     EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id,
                     :verified => false
-		  #:admission_status_type_id => false
-=======
-               #   :college_id => College.where('name like ?', "%#{row[9]}%").first.id,
-               #   :enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
-                  :admission_id => Admission.where('admission_type_id = ? and enrollment_type_id = ?',
-                    AdmissionType.where('name like ?', "%#{row[12]}%").first,
-                    EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id,
-		  :verified => false,
-		  :admission_status => false
->>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
+		  #:admission_status => false
 			
  #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
               )
@@ -60,6 +52,7 @@ class MoeDataImportController < ApplicationController
       end
 
 
+
 end
 
   def show
@@ -69,6 +62,30 @@ end
     @user = []
 
       @person.each  do |p|
+
+
+        #Generating ID number for each imported student
+
+      
+         a=p.applicant[0]
+            college=a.college.name
+            collegename=college[college.index("(")+1..college.index(")")-1].upcase
+            program=a.admission.admission_type.name[0].upcase
+            enrollment=a.admission.enrollment_type.name[0].upcase
+            date=Date.today  # will be replaced by academic_year
+            seqno=a.id.to_s
+            while(seqno.length < 4)
+              seqno="0" << "#{seqno}"
+            end
+            if ((1..8)===date.month or(date.month==9 and date.day<11))
+              ethiopian_year=date.year - 8
+            else
+              ethiopian_year=date.year - 7
+            end
+            idnumber="#{collegename}" << "/" << "#{program}" << "#{enrollment}" << "#{seqno}" << "/" << "#{ethiopian_year}"
+            a.temp_id_number=idnumber
+            a.save!
+
           @password = p.random_string(6)
 
            @user << User.create!(
@@ -79,30 +96,10 @@ end
               :person_id => p.id,
               :temp_password => @password,
               :role => "student"
+
             )
+
       end
-
-        for p in @person
-            college=p.applicant.college.name
-            collegename=college[college.index("(")+1..college.index(")")-1].upcase
-            program=p.applicant.admission.admission_type.name[0].upcase
-            enrollment=p.applicant.admission.enrollment_type.name[0].upcase
-            date=Date.today  # will be replaced by academic_year
-            seqno=p.applicant.id.to_s
-            while(seqno.length < 4)
-              seqno="0" << "#{seqno}"
-            end
-            if ((1..8)===date.month or(date.month==9 and date.day<11))
-              ethiopian_year=date.year - 8
-            else
-              ethiopian_year=date.year - 7
-            end
-            idnumber="#{collegename}" << "/" << "#{program}" << "#{enrollment}" << "#{seqno}" << "/" << "#{ethiopian_year}"
-            p.applicant.temp_id_number=idnumber
-            logger.info("============#{p.applicant.temp_id_number}==========================" )
-            p.applicant.save!
-        end
-
-  end
+    end
 end
 
