@@ -10,11 +10,8 @@
       </ul>
     </div>
   <% end %>
-   
-    <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+
+  
   <div class="field">
     <%= f.label :start_at %><br />
     <%= f.date_select :start_at %>
@@ -24,9 +21,13 @@
     <%= f.date_select :end_at %>
   </div>
   <div class="field">
-    <%= f.label :detail %><br />
-    <%= f.text_field :details %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
+  <%#*<div class="field">%>
+    <%#= f.label :detail %><br />
+    <%#= f.text_area :detail %>
+  <%#*</div>%>
   <div class="actions">
     <%= f.submit %>
   </div>

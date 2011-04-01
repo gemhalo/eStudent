@@ -1,19 +1,20 @@
-<table border=1>
+
+<table border="1">
   <tr>
-    <th>Event</th>
-    <th>Start Date</th>
-    <th>End Date</th>
-     <th>Academic Calendar</th>
-      <th>Description</th>
+    <td>Title</td>
+    <td>Detail</td>
+    <td></td>
+    <td></td>
   </tr>
 <% @event.each do |e| %>
   <tr>
-  <td><%= e.title %></td><br>
-<td><%= e.start_date %></td><br>` 
-<td><%=e.end_date %></td>
-<td><%=e.academic_calendar.name %></td>
-<td><%=e.detail %></td>
-<% end %>
-</tr>
+    <%= @event.each do |e| %>
+    <td> <%= e.title %> </td>
+    <td> <%= e.detail %> </td>
+    <td> </td>
+    <td> </td>
+
+  </tr>
+
 </table>
-<br></br><input type="submit" class="noPrint" value="Print" onClick="window.print();">
+<% end %>

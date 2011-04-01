@@ -35,13 +35,14 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+@ac = AcademicCalendar.all
   end
 
   # POST /events
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
-
+@ac = AcademicCalendar.all
     respond_to do |format|
       if @event.save
         format.html { redirect_to(:action => 'index', :notice => 'Event was successfully created.') }
