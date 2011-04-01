@@ -12,7 +12,7 @@
             // create instance immediately
             new Ext.Panel({
                 region: 'north',
-                height: 90, // give north and south regions a height
+                height: 68, // give north and south regions a height
                 border: true,
 		        contentEl: 'north',
                 split: true,
@@ -30,7 +30,7 @@
                 region: 'south',
                 contentEl: 'south',
                 split: true,
-                height: 40,
+                height: 30,
                 //minSize: 40,
                 maxSize: 100,
                 collapsible: true,
@@ -118,10 +118,10 @@
             // in this instance the TabPanel is not wrapped by another panel
             // since no title is needed, this Panel is added directly
             // as a Container
-            new Ext.Panel({
+            new Ext.TabPanel({
                 region: 'center', // a center region is ALWAYS required for border layout
-                //deferredRender: true,
-                //activeTab: 0,     // first tab initially active
+                deferredRender: true,
+                activeTab: 0,     // first tab initially active
                 items: [/*{
                     contentEl: 'center1',
                     title: 'Close Me',
@@ -129,10 +129,11 @@
                     autoScroll: true
                 },*/ {
                     contentEl: 'center2',
-                    title: 'Details',
+                    //title: 'Details',
+                    border: false,
+                    header: false,
                     autoScroll: true,
-                    overflow : 'auto',
-
+                    overflow : 'auto'
                 }]
             })]
         });

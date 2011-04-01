@@ -13,17 +13,17 @@ class UsersController < ApplicationController
     when 'instructor'
       instructors_path
     when 'student'
-	if @temp==1
+  	if @temp==1
 	    applicants_path
 	else
-           edit_user_path(current_user)
+       edit_user_path(current_user)
 	end
     when 'admin'
        admin_index_path
   when 'student_service_staff'
       student_service_staffs_path
-     else
-    end
+   else
+  end
 
     redirect_to path
 

@@ -1,5 +1,9 @@
   class ApplicationController < ActionController::Base
   protect_from_forgery
+  rescue_from CanCan::AccessDenied do |exception|
+    #flash[:error]="You are not allowed to access this area"
+    redirect_to root_url
+  end
 
   helper_method :current_user_session, :current_user, :menus, :generate_pdf
   def menus

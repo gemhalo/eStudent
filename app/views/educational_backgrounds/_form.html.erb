@@ -31,12 +31,14 @@
 <% end %>
 
   <fieldset><legend>Educational Background List</legend>
-<%#= netzke :educational_backgrounds,
+<%= netzke :educational_backgrounds,
   :model => 'EducationalBackground',
   :class_name => 'Basepack::GridPanel',
   :scope => ["applicant_id = ?", @applicantid],
-:height => 200
+  :height => 200,
+  :width => 800
 %>
   </fieldset>
 <%= link_to 'Previous', :controller=> 'emergency_contacts', :action => 'new' , :applicant_id => @applicantid%>
 <%= link_to 'Next', :controller=> 'employment_informations', :action => "new" , :applicant_id => @applicantid %>
+
