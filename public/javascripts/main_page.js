@@ -16,15 +16,15 @@
                 border: true,
 		contentEl: 'north',
                 split: true,
-                minSize: 40,
-                maxSize: 40,
+             //   minSize: 40,
+              //  maxSize: 40,
                 margins: '0 0 0  0'
 
 		       //headgr:false,
- //               autoEl: {
-   //                 tag: 'div',
-     //               html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
-       //         }
+        //        autoEl: {
+          //          tag: 'div',
+       //             html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
+            //    }
             }), {
                 // lazily created panel (xtype:'panel' is default)
                 region: 'south',
@@ -32,7 +32,7 @@
                 split: true,
                 height: 40,
                 minSize: 40,
-                maxSize: 200,
+                maxSize: 100,
                 collapsible: true,
 		header: false,
                 //title: 'Footer',
@@ -64,12 +64,13 @@
 
 	    }, {
                 region: 'west',
+		contentEl:'west',
                 id: 'west-panel', // see Ext.getCmp() below
                 title: 'Navigation',
                 split: true,
-                width: 200,
-                minSize: 175,
-                maxSize: 400,
+                width: 100,
+                minSize: 75,
+                maxSize: 100,
     		activeOnTop: false,
                 collapsible: false,
                 activeItem:0,
@@ -117,10 +118,10 @@
             // in this instance the TabPanel is not wrapped by another panel
             // since no title is needed, this Panel is added directly
             // as a Container
-            new Ext.TabPanel({
+            new Ext.Panel({
                 region: 'center', // a center region is ALWAYS required for border layout
-                deferredRender: false,
-                activeTab: 0,     // first tab initially active
+                //deferredRender: true,
+//                activeTab: 0,     // first tab initially active
                 items: [/*{
                     contentEl: 'center1',
                     title: 'Close Me',
