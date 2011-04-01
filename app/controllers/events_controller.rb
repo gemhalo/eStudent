@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   # GET /events/new.xml
   def new
     @event = Event.new
-  #@ac = AcademicCalender.all
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @event }
@@ -45,7 +45,7 @@ class EventsController < ApplicationController
 @ac = AcademicCalendar.all
     respond_to do |format|
       if @event.save
-        format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
+        format.html { redirect_to(:action => 'index', :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
         format.html { render :action => "new" }

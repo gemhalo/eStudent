@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+<center>
+<% @admission.each do |a| %>
+	<ul><%= link_to "#{ [a.admission_type.name , "-",a.enrollment_type.name].join}",:action =>"show" ,:id => a.id %></ul><br>
+
+<% end %>
+</center>
+=======
+<table border="1">
+  <tr>
+    <td>Title</td>
+    <td>Detail</td>
+    <td>Start Date</td>
+  </tr>
+<%= @event.each do |e| %>
+  <tr><td><%= e.title %></td>
+    <td><%= e.detail %></td>
+  <td><%= e.start_date %></td></tr>
+<% end %>
+</table>
+>>>>>>> 9f33db95dba36a0d485e35a0edf6dbe5cc88ce7f

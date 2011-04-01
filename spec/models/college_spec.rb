@@ -19,4 +19,3 @@ context "When saving" do
     end
 end
 end
-

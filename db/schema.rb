@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.datetime "updated_at"
   end
 
+  create_table "academic_calendars", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "academic_year_semesters", :force => true do |t|
     t.integer  "academic_year_id"
     t.integer  "semester_id"
@@ -77,22 +84,6 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "applicants", :force => true do |t|
-    t.integer  "person_id"
-    t.integer  "admission_id"
-    t.integer  "college_id"
-    t.string   "entry_level"
-    t.string   "major_field_of_study"
-    t.string   "minor_field_of_study"
-    t.string   "academic_year"
-    t.integer  "admission_status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "verified"
-    t.integer  "enrollment_mode_type_id"
-    t.string   "temp_id_number"
   end
 
   create_table "award_types", :force => true do |t|
@@ -232,27 +223,6 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.datetime "updated_at"
   end
 
-  create_table "educational_backgrounds", :force => true do |t|
-    t.string   "institution_type"
-    t.string   "institution_name"
-    t.string   "result_type"
-    t.string   "eheece_code"
-    t.string   "school_code"
-    t.string   "institution_region"
-    t.string   "institution_zone"
-    t.string   "institution_town"
-    t.integer  "result"
-    t.integer  "out_of"
-    t.string   "department"
-    t.string   "college_leave_reason"
-    t.integer  "applicant_id"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "emergency_contacts", :force => true do |t|
     t.string   "full_name"
     t.string   "relationship"
@@ -299,6 +269,7 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.datetime "end_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "details"
   end
 
   create_table "family_backgrounds", :force => true do |t|
@@ -513,15 +484,6 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"
-  end
-
-  create_table "students", :force => true do |t|
-    t.string   "id_number"
-    t.integer  "applicant_id"
-    t.integer  "department_id"
-    t.integer  "program_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
