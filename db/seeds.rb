@@ -16,6 +16,7 @@ EnrollmentModeType.delete_all
 Admission.delete_all
 User.delete_all
 Building.delete_all
+Room.delete_all
 Menuitem.delete_all
 #Campuses
 campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
@@ -69,23 +70,63 @@ end
 
 #College
 colleges = [
-  { :name => "Natural and Computational Science(CNCS)", :campus => "Arid(Endayesus)" } ,
-  { :name => "Engineering(CE)" , :campus => "Arid(Endayesus)" } ,
-  { :name => "Social Sciences & Languages(CSSL)", :campus => "Arid(Endayesus)"} ,
-  { :name => "Ethiopian Institute of Technology(CEIT)", :campus => "Arid(Endayesus)" } ,
+  { :name => "Natural and Computational Science(CNCS)", :campus => "Arid (Endayesus)" } ,
+  { :name => "Engineering(CE)" , :campus => "Arid (Endayesus)" } ,
+  { :name => "Social Sciences & Languages(CSSL)", :campus => "Arid (Endayesus)"} ,
+  { :name => "Ethiopian Institute of Technology(CEIT)", :campus => "Arid (Endayesus)" } ,
   { :name => "Business and Economics(CBE)" , :campus => "Adi-Haqi" } ,
   { :name => "Law(CL)" , :campus => "Adi-Haqi" },
   { :name => "Medicine(CM)" , :campus => "Ayder" },
-  { :name => "Agriculture(CA)" , :campus => "Arid(Endayesus" }
+  { :name => "Agriculture(CA)" , :campus => "Arid (Endayesus)" }
 
 ]
 
 colleges.each do | college |
-  College.create!({ :name => college[:name], :campus_id => Campus.find_by_name(college[:campus])
+  College.create!({ :name => college[:name], :campus_id => (Campus.find_by_name(college[:campus])).id
 #          :instructor_id => 0
   })
 end
 
+#buildings
+ buildings = [
+   {:building_name => "block-1",  :floors => 2,  :campus => "Arid (Endayesus)" } ,
+   {:building_name => "block-2",  :floors => 2,  :campus => "Arid (Endayesus)" },
+   {:building_name => "block-3",  :floors => 2,  :campus => "Ayder" }
+]
+
+buildings.each do | b |
+  Building.create!({ :building_name => b[:building_name], :floors => b[:floors], :campus_id => Campus.find_by_name(b[:campus])
+#          :instructor_id => 0
+  })
+end
+
+#rooms
+rooms = [
+  
+ {:room_number => "101", :building => "block-1", :floor_number => 1, :holding_capacity => 10, :used_for => "dormitory" },
+ {:room_number => "102", :building => "block-1", :floor_number => 2, :holding_capacity => 10, :used_for => "dormitory" },
+ {:room_number => "103", :building => "block-2", :floor_number => 1, :holding_capacity => 10, :used_for => "dormitory" },
+ {:room_number => "104", :building => "block-3", :floor_number => 2, :holding_capacity => 10, :used_for => "dormitory" }
+]
+
+rooms.each do | r |
+  Room.create!({ :room_number => r[:room_number],
+                 :floor_number => r[:floor_number],
+                 :holding_capacity => r[:holding_capacity],
+                 :used_for => r[:used_for], 
+                 :building_id => Building.find_by_building_name(r[:building])})
+#          :instructor_id => 0
+  
+end
+
+#enrollment mode types
+enrollment_mode_types = [
+  {:name => "Part Time"},
+  {:name => "Full Time"},
+]
+enrollment_mode_types.each do |enrollment_mode_type|
+  EnrollmentModeType.create!({:name => enrollment_mode_type})
+end
 #Department
 departments = [
   { :name => "Biology", :college => "Natural and Computational Science(CNCS)"},
@@ -176,12 +217,10 @@ menuitems = [
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 
 { :linktitle => "Service Types" , :linkcontroller => "service_types",    :linkaction => "index",
-    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" }
 ]
 menuitems.each do |menuitem|
   Menuitem.create!({:linktitle => menuitem[:linktitle],:linkcontroller => menuitem[:linkcontroller],
                 :linkaction => menuitem[:linkaction], :linkicon => menuitem[:linkicon],
                 :role_id => menuitem[:role_id], :catagory=>menuitem[:catagory] } )
 end
-
-

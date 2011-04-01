@@ -109,7 +109,7 @@
          <% if @person.id==nil %><tr>
 
    <td> <%= f.label :admission_id %></td>
-<<<<<<< HEAD
+
    <td> <%= f.collection_select(:admission_id ,@Admission, :id,:admission_name ,:prompt=> "Select Admission")%></td>
    <%else%>
          <td> <%= f.label :admission_id %></td>
@@ -123,14 +123,14 @@
           <td><%= f.collection_select(:college_id ,@College, :id,:name,:prompt=> "Select College", :disabled => true)%></td></tr>
          <%end%>
          <% if @person.id==nil %>
-=======
+
    <td> <%= f.collection_select(:admission_id ,@Admission, :id,:name ,:prompt=> "Select Admission")%></td></tr>
   
         <tr><td> <%= f.label :college_id %></td>
           <td><%= f.collection_select(:college_id ,@College, :id, :name,:prompt=> "Select College")%></td></tr>
   
   
->>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
+
         <tr><td> <%= f.label :entry_level %></td>
           <td><%= f.select :entry_level,["Freshman","Transfer","Advance Standing"] %></td>
           <%else%>

@@ -8,12 +8,12 @@
            :view_config => { :force_fit => true },
           
            :columns => [
-            { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true},
-            { :name => :admission__name, :read_only =>true },
-            { :name => :college__details, :label => "College and campus", :read_only =>true }
+            { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true, :width => 100},
+            { :name => :admission__name, :read_only =>true, :width => 100 },
+            { :name => :college__details, :label => "College and campus", :read_only =>true, :width => 200 }
            
            ]
-
+#           :scope=> {:id.gteq => @person.first.id}
            
           %>
 

@@ -9,6 +9,8 @@ EStudent::Application.routes.draw do
   resources :programs
   resources :service_agreements
 
+  resources :service_types
+  
 match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
 resources :academic_calendars 
