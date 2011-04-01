@@ -6,6 +6,14 @@ class HowTosController < ApplicationController
     @how_tos = HowTo.all
 
     respond_to do |format|
+      format.html # showpage.html.erb
+      format.xml  { render :xml => @how_tos }
+    end
+  end
+def showpage
+    @how_tos = HowTo.all
+
+    respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @how_tos }
     end

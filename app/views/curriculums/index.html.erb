@@ -8,6 +8,7 @@
     <th>Course type</th>
     <th>Semester</th>
     <th>Class year</th>
+    <th>Price</th>
     <th></th>
     <th></th>
     <th></th>
@@ -27,6 +28,7 @@
     <td><%= course_type.name %></td>
     <td><%= curriculum.semester_id %></td>
     <td><%= curriculum.class_year_id %></td>
+    <td><%= curriculum.price %></td>
     <td><%= link_to 'Show', curriculum %></td>
     <td><%= link_to 'Edit', edit_curriculum_path(curriculum) %></td>
     <td><%= link_to 'Destroy', curriculum, :confirm => 'Are you sure?', :method => :delete %></td>

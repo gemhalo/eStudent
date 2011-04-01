@@ -6,11 +6,14 @@ gem 'rails', '3.0.4'
 
 # Security
 gem 'authlogic'
+gem 'event-calendar', :require => 'event_calendar'
 gem 'cancan'
 gem 'humanizer'
 
 # Spread sheet types
 gem 'fastercsv'
+
+gem 'event-calendar', :require => 'event_calendar'
 
 #PDF
 gem 'wkhtmltopdf'
@@ -168,3 +171,4 @@ group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
 
+#gem 'wkhtmltopdf'

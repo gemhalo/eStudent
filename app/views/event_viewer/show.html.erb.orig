@@ -1,0 +1,41 @@
+<<<<<<< HEAD
+<table border=1>
+  <tr>
+    <th>Event</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+     <th>Academic Calendar</th>
+      <th>Description</th>
+  </tr>
+<% @event.each do |e| %>
+  <tr>
+  <td><%= e.title %></td><br>
+<td><%= e.start_date %></td><br>` 
+<td><%=e.end_date %></td>
+<td><%=e.academic_calendar.name %></td>
+<td><%=e.detail %></td>
+<% end %>
+</tr>
+</table>
+<br></br><input type="submit" class="noPrint" value="Print" onClick="window.print();">
+=======
+
+<table border="1">
+  <tr>
+    <td>Title</td>
+    <td>Detail</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <%= @event.each do |e| %>
+    <td> <%= e.title %> </td>
+    <td> <%= e.detail %> </td>
+    <td> </td>
+    <td> </td>
+
+  </tr>
+
+</table>
+<% end %>
+>>>>>>> 9f33db95dba36a0d485e35a0edf6dbe5cc88ce7f

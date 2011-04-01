@@ -1,4 +1,41 @@
 EStudent::Application.routes.draw do
+
+  resources :borrowed_items
+
+  resources :clearance_requests
+
+  resources :curriculums
+
+  resources :programs
+  resources :service_agreements
+
+match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+
+resources :academic_calendars 
+  resources :course_assignments
+
+netzke
+  get "admin/index"
+  resources :offered_courses
+
+  resources :class_years
+
+  resources :semesters
+
+  resources :academic_year_semesters
+
+  resources :academic_years
+
+  get "users_admin/index"
+
+
+#  get "loose_components/index"
+  #netzke
+ # root :to => "demo#index"
+ # match 'components/:component' => 'components#index', :as => "components"
+ # match ':controller(/:action(/:id(.:format)))'
+
+  resources :menuitems
   #get "main_app/index"
   netzke
   root :to => "user_sessions#new"
@@ -6,11 +43,20 @@ EStudent::Application.routes.draw do
   get "campuses/index"
   get "college/sam"
   get "admin/index"
+  #get "demo/index"
+  #post "demo/index"
 
   match 'components/:component' => 'components#index', :as => "components"
 
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
+
+  get "calendar/new"
+
+  get "event_viewer/index"
+
+  get "event_viewer/show"
+    
 
   get "admission_approval/approve"
 
@@ -68,6 +114,9 @@ EStudent::Application.routes.draw do
   get "moe_data_import/upload"
   post "moe_data_import/upload"
 
+  get "moes/import"
+  post "moes/import"
+
   get  'student_service_staffs/selected'
   post 'student_service_staffs/selected'
 
@@ -76,18 +125,21 @@ EStudent::Application.routes.draw do
 
   get "users/forgot_password"
   post "users/forgot_password"
-
+  #get "users/edit"
   get  'users/manageusers'
   post 'users/manageusers'
-
+  get 'available_programs/index_pdf'
+  post 'available_programs/index_pdf'
+  resources :user_sessions
   resources :users do
     collection do
       get 'forgot_password'
       post 'forgot_password'
     end
   end
+ 
 
-
+  resources :courses
   resources :academic_and_professional_qualifications
   resources :academic_calanders
   resources :admin
@@ -99,6 +151,7 @@ EStudent::Application.routes.draw do
   resources :available_programs
   resources :award_types
   resources :buildings
+ resources :calendar
   resources :campuses
   resources :colleges
 #  resources :components
@@ -110,8 +163,12 @@ EStudent::Application.routes.draw do
   resources :educational_backgrounds
   resources :emergency_contacts
   resources :employment_informations
+  #resources :enrollement_types
   resources :enrollment_mode_types
   resources :enrollment_types
+  #Remove this later
+
+  #resource :session
   resources :ethnicities
   resources :events
   resources :family_backgrounds
@@ -121,13 +178,73 @@ EStudent::Application.routes.draw do
   resources :menuitems
   resources :moe_data_import
   resources :nationalities
+  #resources :people
   resources :programs
   resources :references
   resources :relevant_publications
   resources :research_and_teaching_experiences
   resources :rooms
+  #resources :sessions
   resources :student_service_staffs
   resources :user_sessions
 
+  resources :menuitems
+ # netzke
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
+
+  # Sample of regular route:
+  #   match 'products/:id' => 'catalog#view'
+  # Keep in mind you can assign values other than :controller and :action
+
+  # Sample of named route:
+  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  # This route can be invoked with purchase_url(:id => product.id)
+
+  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  #   resources :products
+
+  # Sample resource route with options:
+  #   resources :products do
+  #     member do
+  #       get 'short'
+  #       post 'toggle'
+  #     end
+  #
+  #     collection do
+  #       get 'sold'
+  #     end
+  #   end
+
+  # Sample resource route with sub-resources:
+  #   resources :products do
+  #     resources :comments, :sales
+  #     resource :seller
+  #   end
+
+  # Sample resource route with more complex sub-resources
+  #   resources :products do
+  #     resources :comments
+  #     resources :sales do
+  #       get 'recent', :on => :collection
+  #     end
+  #   end
+
+  # Sample resource route within a namespace:
+  #   namespace :admin do
+  #     # Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)
+  #     resources :products
+  #   end
+
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  # root :to => "welcome#index"
+
+  # See how all your routes lay out with "rake routes"
+
+  # This is a legacy wild controller route that's not recommended for RESTful applications.
+  # Note: This route will make all actions in every controller accessible via GET requests.
+  # match ':controller(/:action(/:id(.:format)))'
 end
 

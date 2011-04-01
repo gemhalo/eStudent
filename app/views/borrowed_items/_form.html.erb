@@ -1,0 +1,49 @@
+<%= form_for(@borrowed_item) do |f| %>
+  <% if @borrowed_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@borrowed_item.errors.count, "error") %> prohibited this borrowed_item from being saved:</h2>
+
+      <ul>
+      <% @borrowed_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_number %><br />
+    <%= f.text_field :id_number %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_id_number %><br />
+    <%= f.text_field :employee_id_number %>
+  </div>
+  <div class="field">
+    <%= f.label :item_name %><br />
+    <%= f.text_field :item_name %>
+  </div>
+  <div class="field">
+    <%= f.label :item_type %><br />
+    <%= f.text_field :item_type %>
+  </div>
+  <div class="field">
+    <%= f.label :borrowed_from %><br />
+    <%= f.text_field :borrowed_from %>
+  </div>
+  <div class="field">
+    <%= f.label :cleared %><br />
+    <%= f.check_box :cleared %>
+  </div>
+  <div class="field">
+    <%= f.label :borrowed_date %><br />
+    <%= f.date_select :borrowed_date %>
+  </div>
+  <div class="field">
+    <%= f.label :return_date %><br />
+    <%= f.date_select :return_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

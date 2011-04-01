@@ -1,0 +1,22 @@
+<h1>Listing how_tos</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Detail</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @how_tos.each do |how_to| %>
+  <tr>
+    <td><%= how_to.title %></td>
+    <td><%= how_to.detail %></td>
+    <td><%= link_to 'Show', how_to %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
