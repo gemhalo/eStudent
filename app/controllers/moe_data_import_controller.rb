@@ -8,16 +8,14 @@ class MoeDataImportController < ApplicationController
   end
 
   def upload
+
     @person = Person.new
     @applicant = Applicant.new
-    @educational_background  = EducationalBackground.new
+    @applicants = Applicant.not_verified
+    @educational_background = EducationalBackground.new
     @person = []
     @applicant = []
     @educational_background  = []
-    
-    @applicants = Applicant.not_verified
-    #@educational_background = EducationalBackground.new
-    
     @file = params[:file]
     CSV.foreach(@file, :col_sep=> "," , :headers => true) do |row|
 
@@ -31,13 +29,13 @@ class MoeDataImportController < ApplicationController
                 :region_code => row[8] )
 
        @applicant << Applicant.create(:person_id => Person.last.id,
-                  :college_id => College.where('name like ?', "%#{row[9]}%").first,
-                  #:enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ).first.id,
+                  :college_id => College.where('name like ?', "%#{row[9]}%").first.id,
+                  :enrollment_mode_type_id => EnrollmentModeType.where('name like ? ', "%#{row[14]}%" ),
                   :admission_id => Admission.where('admission_type_id = ? and enrollment_type_id = ?',
                     AdmissionType.where('name like ?', "%#{row[12]}%").first,
                     EnrollmentType.where('name like ?', "%#{row[13]}%").first).first.id,
-                    :verified => false
-		  #:admission_status => false
+                  :verified => false,
+                  :admission_status => false
 			
  #:admission_status_type_id => AdmissionStatusType.where('name= ?',row[15]).first.id
               )
@@ -52,7 +50,6 @@ class MoeDataImportController < ApplicationController
       end
 
 
-
 end
 
   def show
@@ -60,20 +57,32 @@ end
     @person = Person.find(params[:id])
     @user = User.new
     @user = []
-
+    @applicant = Applicant.new
+     flash[:notice] = []
       @person.each  do |p|
-
-
-        #Generating ID number for each imported student
-
-      
-         a=p.applicant[0]
-            college=a.college.name
+     #     if p.user.nil?
+            @password = p.random_string(6)
+          
+           @user << User.create!(
+              :username => [p.name, p.applicant.first.educational_backgrounds.first.eheece_code].join,
+              :password => @password,
+              :password_confirmation => @password,
+              :email => [p.name, p.applicant.first.educational_backgrounds.first.eheece_code,'@mu.edu.et'].join,
+              :person_id => p.id,
+              :temp_password => @password,
+              :role => "student"
+            )
+      #    else
+       #     flash[:notice] << "Account is creaated for #{p.full_name} the user name is #{p.user.username} and password #{p.user.temp_password}"
+          
+      # Generating ID Number for each imported student
+      @applicant = Applicant.find_by_person_id([p.id])
+          college= @applicant.college.name
             collegename=college[college.index("(")+1..college.index(")")-1].upcase
-            program=a.admission.admission_type.name[0].upcase
-            enrollment=a.admission.enrollment_type.name[0].upcase
+            program=@applicant.admission.admission_type.name[0].upcase
+            enrollment=@applicant.admission.enrollment_type.name[0].upcase
             date=Date.today  # will be replaced by academic_year
-            seqno=a.id.to_s
+            seqno=@applicant.id.to_s
             while(seqno.length < 4)
               seqno="0" << "#{seqno}"
             end
@@ -83,23 +92,11 @@ end
               ethiopian_year=date.year - 7
             end
             idnumber="#{collegename}" << "/" << "#{program}" << "#{enrollment}" << "#{seqno}" << "/" << "#{ethiopian_year}"
-            a.temp_id_number=idnumber
-            a.save!
-
-          @password = p.random_string(6)
-
-           @user << User.create!(
-              :username => [p.name, p.applicant.first.educational_backgrounds.first.eheece_code].join,
-              :password => @password,
-              :password_confirmation => @password,
-              :email => [p.name, p.applicant.first.educational_backgrounds.first.eheece_code,'@mu.edu.et'].join,
-              :person_id => p.id,
-              :temp_password => @password,
-              :role => "student"
-
-            )
-
+            @applicant.temp_id_number=idnumber
+            @applicant.save!
       end
-    end
+     
+
+  end
 end
 

@@ -8,7 +8,7 @@ gem 'rails', '3.0.4'
 gem 'authlogic'
 gem 'cancan'
 gem 'humanizer'
-
+#gem 'wicked_pdf'
 # Spread sheet types
 gem 'fastercsv'
 
@@ -167,3 +167,5 @@ group :profiling do
   #gem 'rack-perftools_profiler', '>= 0.1', :require => 'rack/perftools_profiler'
 end
 
+#gem 'wkhtmltopdf'
+#gem 'pdfkit'

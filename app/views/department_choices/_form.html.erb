@@ -1,5 +1,8 @@
+
+ <%=  render 'applicants/applicant'%>
 <h1><p id="notice"><%= notice %></p></h1>
 <fieldset>
+
 <fieldset><legend>Department Choice</legend>
 <%= form_for(@department_choice) do |f| %>
   <% if @department_choice.errors.any? %><%= link_to 'Next', :controller=> 'relevant_publications', :action => "new" , :applicant_id => @department_choice.applicant_id%>

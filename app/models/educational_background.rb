@@ -1,6 +1,6 @@
 class EducationalBackground < ActiveRecord::Base
   belongs_to :applicant
-  #validates_presence_of :institution_type, :institution_name, :result_type, :eheece_code, :school_code, :institution_region, :institution_zone, :institution_town,:result, :out_of
+ # validates_presence_of :institution_type, :institution_name, :result_type, :eheece_code, :school_code, :institution_region, :institution_zone, :institution_town,:result, :out_of
 
    
   has_attached_file :attachment,

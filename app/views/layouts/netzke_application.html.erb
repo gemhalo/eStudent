@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title><%= h("#{yield(:title)} - Netzke: Sencha Ext JS / Touch and Ruby on Rails component framework") %></title>
+  <%= netzke_init %>
+  <%= stylesheet_link_tag "demo", "coderay" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <%= yield %>
+</body>
+</html>
+

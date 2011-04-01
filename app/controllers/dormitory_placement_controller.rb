@@ -16,7 +16,9 @@ class DormitoryPlacementController < ApplicationController
   end
 
   def individual_dorm_placement
-    @dormitory=Dormitory.find(params[:dormitory])
+    @dormitory=Dormitory.new(params[:dormitory])
+    @student=Student.find_by_id_number(params[:student][:id_number])
+    @dormitory.student=@student
     @dormitory.save!
     redirect_to :action=>"show_placement"
   end
@@ -76,7 +78,6 @@ class DormitoryPlacementController < ApplicationController
   end
 
   def update
-
     @dormitory=Dormitory.find(params[:id])
     @dormitory.update_attributes(params[:dormitory])
     redirect_to :action=> 'show_placement'

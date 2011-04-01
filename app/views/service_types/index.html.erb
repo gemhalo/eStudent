@@ -1,0 +1,27 @@
+<h1>Listing service_types</h1>
+
+<table>
+  <tr>
+    <th>Service name</th>
+    <th>Type</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @service_types.each do |service_type| %>
+  <tr>
+    <td><%= service_type.service_name %></td>
+    <td><%= service_type.type %></td>
+    <td><%= service_type.price %></td>
+    <td><%= link_to 'Show', service_type %></td>
+    <td><%= link_to 'Edit', edit_service_type_path(service_type) %></td>
+    <td><%= link_to 'Destroy', service_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Service type', new_service_type_path %>

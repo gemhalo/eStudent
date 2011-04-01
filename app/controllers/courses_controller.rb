@@ -25,6 +25,8 @@ class CoursesController < ApplicationController
   # GET /courses/new
   # GET /courses/new.xml
   def new
+
+    @departments = Department.all
     @course = Course.new
 
     respond_to do |format|
@@ -35,6 +37,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
+    @departments = Department.all
     @course = Course.find(params[:id])
   end
 

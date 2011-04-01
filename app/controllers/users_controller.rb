@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-layout "welcome"
  def index
     @temp=User.where("temp_password=? and username=?","",current_user.username).count
    # @temp=User.find_by_username(current_user.username).temp_password.nil?

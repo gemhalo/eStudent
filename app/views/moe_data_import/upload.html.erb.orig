@@ -1,30 +1,25 @@
+<div style="margin:30px">
 <%= flash[:notice] %>
-<<<<<<< HEAD
-<%= netzke :people,
+
+
+<%#= netzke :people,
            :class_name => "Basepack::GridPanel",
            :model => 'Person',
            :columns => [
            :name, :father_name, :grand_father_name],
-           :scope=> {:id.gteq => @person.first.id},
+#           :scope=> {:id.gteq => @person.first.id},
            :width => 650
            
-          %>
-<%#= @person.inspect %>
-=======
+<<<<<<< HEAD
+          %>#
 
-
-<%= netzke :people,
-           :class_name => "Basepack::GridPanel",
-           :model => 'Applicant',
-          # :columns => [
-          # :name, :father_name, :grand_father_name],
-           #:scope=> {:id => 640},
-           :width => 650
-           
-          %>
 <%= @person.inspect %>
->>>>>>> cbfd52eb2ff8ad2d6c1e6e81458cc4bf60765dd5
+<%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>
+
+=======
+          %>
+
   <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>
-
-
+>>>>>>> b575dd3406e6c9562cc19236877e9bc77be31f98
+</div>
 

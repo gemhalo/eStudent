@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   acts_as_authentic
 
-	ROLES = %w[admin student  guest instructor student_service_staff]
+	ROLES = %w[admin student guest instructor student_service_staff]
 	def role?(base_role)
   		ROLES.index(base_role.to_s) <= ROLES.index(role)
 	end

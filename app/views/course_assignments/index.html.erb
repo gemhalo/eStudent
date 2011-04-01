@@ -1,0 +1,27 @@
+<h1>Listing course_assignments</h1>
+
+<table>
+  <tr>
+    <th>Offered course</th>
+    <th>Instructor</th>
+    <th>Section</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @course_assignments.each do |course_assignment| %>
+  <tr>
+    <td><%= course_assignment.offered_course_id %></td>
+    <td><%= course_assignment.instructor_id %></td>
+    <td><%= course_assignment.section %></td>
+    <td><%= link_to 'Show', course_assignment %></td>
+    <td><%= link_to 'Edit', edit_course_assignment_path(course_assignment) %></td>
+    <td><%= link_to 'Destroy', course_assignment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Course assignment', new_course_assignment_path %>

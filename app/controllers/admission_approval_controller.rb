@@ -29,12 +29,13 @@ class AdmissionApprovalController < ApplicationController
         assign_id(applicant)
       else
         assign_id(applicant)
+        AdmissionStatusNotifications.notification(applicant.id).deliver
       end
 
       applicant.student.save!
-      
+       
     end
-
+     
       @applicants=Applicant.all
 #      flash[:notice]="successfully approved"
       render "show_list"
@@ -71,6 +72,7 @@ class AdmissionApprovalController < ApplicationController
       a.student.save!
     end
     a.save!
+     AdmissionStatusNotifications.notification(a.id).deliver
     @applicants=Applicant.all
     render "show_list"
   end

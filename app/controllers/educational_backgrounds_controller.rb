@@ -25,6 +25,7 @@ class EducationalBackgroundsController < ApplicationController
   # GET /educational_backgrounds/new.xml
   def new
     @applicantid = params[:applicant_id]
+    @applicant = Applicant.find(@applicantid)
     @educational_background = EducationalBackground.find_all_by_applicant_id(params[:applicant_id])
     @educational_background = EducationalBackground.new
 

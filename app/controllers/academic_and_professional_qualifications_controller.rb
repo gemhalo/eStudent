@@ -25,6 +25,7 @@ class AcademicAndProfessionalQualificationsController < ApplicationController
   # GET /academic_and_professional_qualifications/new.xml
   def new
      @applicantid = params[:applicant_id]
+     @applicant = Applicant.find(@applicantid)
      @academic_and_professional_qualifications = AcademicAndProfessionalQualification.find_all_by_applicant_id(params[:applicant_id])
     @academic_and_professional_qualification = AcademicAndProfessionalQualification.new
 
