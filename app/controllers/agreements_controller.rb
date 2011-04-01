@@ -2,8 +2,8 @@ class AgreementsController < ApplicationController
   # GET /agreements
   # GET /agreements.xml
   def index
-    @agreements = Agreement.find_all_by_applicant_id(params[:applicant_id])
-
+    #@agreements = Agreement.find_all_by_applicant_id(params[:applicant_id])
+     @applicant = Applicant.find(params[:applicant_id])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @agreements }
@@ -45,13 +45,14 @@ class AgreementsController < ApplicationController
   # POST /agreements.xml
   def create
       flash["@applicantid"] = params[:applicantid]
+
      @agreement = Agreement.new(params[:agreement])
       respond_to do |format|
 
       if @agreement.save
 
         @agreements = Agreement.find_all_by_applicant_id(@applicantid)
-          format.html { redirect_to :controller => 'agreements', :action => 'index' }
+        format.html { redirect_to :controller => 'agreements', :action => 'index', :applicant_id=> @agreement.applicant_id }
 
 
       else

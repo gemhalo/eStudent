@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Student:</b>
+  <%= @service_agreement.student_id %>
+</p>
+
+<p>
+  <b>Service type:</b>
+  <%= @service_agreement.service_type_id %>
+</p>
+
+<p>
+  <b>Class year:</b>
+  <%= @service_agreement.class_year_id %>
+</p>
+
+<p>
+  <b>Academic year semester:</b>
+  <%= @service_agreement.academic_year_semester_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_service_agreement_path(@service_agreement) %> |
+<%= link_to 'Back', service_agreements_path %>

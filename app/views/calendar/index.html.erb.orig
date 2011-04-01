@@ -1,0 +1,15 @@
+<!-- Probably move the stylesheet to you layout. Also make sure you include the javascript. -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9f33db95dba36a0d485e35a0edf6dbe5cc88ce7f
+<%= stylesheet_link_tag "event_calendar" %>
+
+<h1>Calendar</h1>
+
+<%= raw(event_calendar) %>
+<<<<<<< HEAD
+=======
+
+<% link_to "New Event", :controller => 'calendar', :action=> 'new' %>
+>>>>>>> 9f33db95dba36a0d485e35a0edf6dbe5cc88ce7f

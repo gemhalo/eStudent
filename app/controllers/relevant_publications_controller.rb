@@ -26,6 +26,7 @@ class RelevantPublicationsController < ApplicationController
   # GET /relevant_publications/new.xml
   def new
     @applicantid = params[:applicant_id]
+    @applicant = Applicant.find(@applicantid)
     @relevant_publication = RelevantPublication.new
 
     respond_to do |format|

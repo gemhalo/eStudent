@@ -1,6 +1,6 @@
 class FinancialSupport < ActiveRecord::Base
   belongs_to :applicant
-  validates_presence_of :supporter_type, :supporter_name, :supporter_telephone
+  #validates_presence_of :supporter_type, :supporter_name, :supporter_telephone
 
    has_attached_file :attachment,
     :url => "/:class/:attachment/:id/:style_:basename.:extension",

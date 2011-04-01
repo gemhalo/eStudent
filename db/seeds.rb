@@ -12,6 +12,7 @@ College.delete_all
 Department.delete_all
 AdmissionType.delete_all
 EnrollmentType.delete_all
+EnrollmentModeType.delete_all
 Admission.delete_all
 User.delete_all
 Building.delete_all
@@ -68,38 +69,40 @@ end
 
 #College
 colleges = [
-  { :name => "Natural and Computational Science", :campus => "Arid(Endayesus)" } ,
-  { :name => "Engineering" , :campus => "Arid(Endayesus)" } ,
-  { :name => "Social Sciences & Languages", :campus => "Arid(Endayesus)"} ,
-  { :name => "Ethiopian Institute of Technology", :campus => "Arid(Endayesus)" } ,
-  { :name => "Business and Economics" , :campus => "Adi-Haqi" } ,
-  { :name => "Law" , :campus => "Adi-Haqi" },
-  { :name => "Medicine" , :campus => "Ayder" }
+  { :name => "Natural and Computational Science(CNCS)", :campus => "Arid(Endayesus)" } ,
+  { :name => "Engineering(CE)" , :campus => "Arid(Endayesus)" } ,
+  { :name => "Social Sciences & Languages(CSSL)", :campus => "Arid(Endayesus)"} ,
+  { :name => "Ethiopian Institute of Technology(CEIT)", :campus => "Arid(Endayesus)" } ,
+  { :name => "Business and Economics(CBE)" , :campus => "Adi-Haqi" } ,
+  { :name => "Law(CL)" , :campus => "Adi-Haqi" },
+  { :name => "Medicine(CM)" , :campus => "Ayder" },
+  { :name => "Agriculture(CA)" , :campus => "Arid(Endayesus" }
 
 ]
 
 colleges.each do | college |
   College.create!({ :name => college[:name], :campus_id => Campus.find_by_name(college[:campus])
+#          :instructor_id => 0
   })
 end
 
 #Department
 departments = [
-  { :name => "Biology", :college => "Natural and Computational Science"},
-  { :name => "Chemistry", :college => "Natural and Computational Science"},
-  { :name => "Earth Sciencees", :college => "Natural and Computational Science" },
-  { :name => "Physics", :college => "Natural and Computational Science" },
-  { :name => "Architecture and Urban Planning", :college => "Natural and Computational Science" },
+  { :name => "Biology", :college => "Natural and Computational Science(CNCS)"},
+  { :name => "Chemistry", :college => "Natural and Computational Science(CNCS)"},
+  { :name => "Earth Sciencees", :college => "Natural and Computational Science(CNCS)" },
+  { :name => "Physics", :college => "Natural and Computational Science(CNCS)" },
+  { :name => "Architecture and Urban Planning", :college => "Natural and Computational Science(CNCS)" },
   { :name => "Civil Engineering", :college => "Natural and Computational Science" },
-  { :name => "Computing", :college => "Natural and Computational Science" },
-  { :name => "Mechanical Engineering", :college => "Natural and Computational Science" },
-  { :name => "Geography and Environmental Sciences", :college => "Natural and Computational Science" },
-  { :name => "Electrical and Computer Engineering", :college => "Natural and Computational Science" },
-  { :name => "Industrial Engineering", :college => "Natural and Computational Science" }
+  { :name => "Computing", :college => "Natural and Computational Science(CNCS)" },
+  { :name => "Mechanical Engineering", :college => "Natural and Computational Science(CNCS)" },
+  { :name => "Geography and Environmental Sciences", :college => "Natural and Computational Science(CNCS)" },
+  { :name => "Electrical and Computer Engineering", :college => "Natural and Computational Science(CNCS)" },
+  { :name => "Industrial Engineering", :college => "Natural and Computational Science(CNCS)" }
 ]
 departments.each do |department|
   Department.create!({ :name => department[:name],
-                     :college_id => College.find_by_name(department[:college]).id,
+                     :college_id => College.find_by_name(department[:college]),
                      :dept_head => "-" } )
 end
 
@@ -124,8 +127,22 @@ menuitems = [
  { :linktitle => "Department Placement" , :linkcontroller => "department_quotas",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
-#students menu items
+ { :linktitle => "Curriculum" , :linkcontroller => "curriculums",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+ 
+ { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+
+ { :linktitle => "Add Offered Courses" , :linkcontroller => "offered_courses",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+
+ { :linktitle => "Allocate Courses " , :linkcontroller => "course_assignments",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+  #students menu items
  { :linktitle => "Apply Online" , :linkcontroller => "applicants",    :linkaction => "new",
+    :linkicon => "/icons/database_add.png", :role_id=>"student", :catagory=>"academics" },
+
+ { :linktitle => "Register" , :linkcontroller => "service_agreements",    :linkaction => "new",
     :linkicon => "/icons/database_add.png", :role_id=>"student", :catagory=>"academics" },
 
 #admin menu items
@@ -140,13 +157,26 @@ menuitems = [
 { :linktitle => "Departments" , :linkcontroller => "departments",    :linkaction => "index",
     :linkicon => "/icons/coins_add.png", :role_id=>"admin", :catagory=>"academics" },
 
+{ :linktitle => "Program" , :linkcontroller => "programs",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
 { :linktitle => "Admission Types" , :linkcontroller => "admission_types",    :linkaction => "index",
     :linkicon => "/icons/font_go.png", :role_id=>"admin", :catagory=>"academics" },
 
-{ :linktitle => "Enrollment Types" , :linkcontroller => "enrollment_types",    :linkaction => "index",
+{ :linktitle => "Academic Year" , :linkcontroller => "academic_years",    :linkaction => "index",
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 
+{ :linktitle => "Academic Year Semester" , :linkcontroller => "academic_year_semesters",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 
+{ :linktitle => "Class Year" , :linkcontroller => "class_years",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Semester" , :linkcontroller => "semesters",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Service Types" , :linkcontroller => "service_types",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 ]
 menuitems.each do |menuitem|
   Menuitem.create!({:linktitle => menuitem[:linktitle],:linkcontroller => menuitem[:linkcontroller],
