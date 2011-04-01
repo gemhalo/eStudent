@@ -6,11 +6,14 @@ gem 'rails', '3.0.4'
 
 # Security
 gem 'authlogic'
+gem 'event-calendar', :require => 'event_calendar'
 gem 'cancan'
 gem 'humanizer'
 #gem 'wicked_pdf'
 # Spread sheet types
 gem 'fastercsv'
+
+gem 'event-calendar', :require => 'event_calendar'
 
 #PDF
 gem 'pdfkit'
@@ -153,7 +156,7 @@ end
 
 #Gems required for test and production environments
 group :test, :production do
-
+gem "pdfkit"
   # PostgreSQL
   #gem 'pg', :require => 'pg'
   #MySQL
@@ -168,4 +171,3 @@ group :profiling do
 end
 
 #gem 'wkhtmltopdf'
-#gem 'pdfkit'

@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 <center>
 <%= netzke :colleges,
-=======
 <%
  # netzke calls the Netzke module
  # campuses is the variable passed by the controller
@@ -10,7 +8,6 @@
 %>
 <center style="media:print;">
 <%= netzke :campuses,
->>>>>>> 17feca219c09a6f19f9ab2c210d9d89fc9931efe
     :model => "Campus",
     :class_name => "Basepack::GridPanel",
     :border => true,
@@ -38,3 +35,4 @@
 </center>
 
 
+    ],

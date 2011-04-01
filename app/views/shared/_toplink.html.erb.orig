@@ -1,17 +1,15 @@
 <<<<<<< HEAD
-<div id="toplinks">
-=======
      <div id="toplinks">
-<<<<<<< HEAD
-        <div class="roundborder" style="float:left"> Home</div>
-        <div class="roundborder" style="float:left"> About</div> 
-        <div class="roundborder" style="float:left"> Academic Calendar</div>
-          
-=======
->>>>>>> 2d66bb5961390334bdaffdbf742d7ae7e490be15
+
         <div class="roundborder" style="float:left"><%= link_to  "Home", "#" %></div>
         <div class="roundborder" style="float:left"> About</div>
         <div class="roundborder" style="float:left"><%= link_to "Academic Calendar" %></div>
->>>>>>> 5c4763dbdac98321fe48ae8210637d5ce1cd2ded
+
+=======
+<div id="toplinks">
+        <div class="roundborder" style="float:left"><%= link_to  "Home", "#" %></div>
+        <div class="roundborder" style="float:left"> About</div>
+        <div class="roundborder" style="float:left"><%= link_to "Academic Calendar" %></div>
+>>>>>>> 8ed31e3d489e6440ba93ea3f8414530774f704f3
      </div>
 

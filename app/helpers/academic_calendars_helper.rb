@@ -1,0 +1,2 @@
+module AcademicCalendarsHelper
+end
