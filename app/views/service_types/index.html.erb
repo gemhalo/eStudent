@@ -13,7 +13,7 @@
 <% @service_types.each do |service_type| %>
   <tr>
     <td><%= service_type.service_name %></td>
-    <td><%= service_type.type %></td>
+    <td><%= service_type.service_type %></td>
     <td><%= service_type.price %></td>
     <td><%= link_to 'Show', service_type %></td>
     <td><%= link_to 'Edit', edit_service_type_path(service_type) %></td>
