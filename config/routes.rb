@@ -90,6 +90,7 @@ netzke
   get "dormitory_placement/individual_dorm_placement_form"
   post "dormitory_placement/individual_dorm_placement_form"
   post "dormitory_placement/individual_dorm_placement"
+  get "department_placement/department_placing_process"
   get "department_placement/show_placement"
   get "dormitory_placement/destroy"
   get "dormitory_placement/edit"
