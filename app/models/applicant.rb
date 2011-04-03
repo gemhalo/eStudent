@@ -17,8 +17,8 @@
   has_many :research_and_teaching_experience
   has_many :academic_and_professional_qualification
   has_many :educational_backgrounds
-  after_initialize :init_person , :init_college
-  after_save :save_person
+  #after_initialize :init_person
+  #after_save :save_person
  accepts_nested_attributes_for :person
 
   #validates :person_id, :uniqueness => true
@@ -62,3 +62,4 @@ def init_college
 
 
 end
+

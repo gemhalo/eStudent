@@ -1,6 +1,6 @@
-<center>
-<div style="margin:30px">
-<%= netzke :Settings,
+<div style="margin:10px">
+
+<%= netzke :main_grid,:title => " ",
             :class_name => "Basepack::TabPanel",
             :items => [    {
               :class_name => "Basepack::GridPanel",
@@ -35,76 +35,49 @@
               :class_name => "Basepack::GridPanel",
               :model => "Campus",
               :title => "Campuses",
-	      :view_config => {
+	            :view_config => {
                      :force_fit => true
-              }, 
+              },
             },{
               :class_name => "Basepack::GridPanel",
               :model => "Department",
               :title => "Departments",
-	      :view_config => {
+              :view_config => {
                      :force_fit => true
-              }, 
+              },
             },{
               :class_name => "Basepack::GridPanel",
               :model => "AdmissionType",
               :title => "Admission Types",
-	      :view_config => {
+    	        :view_config => {
                      :force_fit => true
-              }, 
+              },
             },{
               :class_name => "Basepack::GridPanel",
               :model => "EnrollmentType",
               :title => "Enrollment Types",
-	      :view_config => {
+      	      :view_config => {
                      :force_fit => true
-              }, 
+              },
             },{
               :class_name => "Basepack::GridPanel",
               :model => "Building",
               :title => "Buildings",
-  	      :view_config => {
+  	          :view_config => {
                      :force_fit => true
-              }, 
+              },
             },{
               :class_name => "Basepack::GridPanel",
               :model => "Admission",
               :title => "Admissions",
-  	      :view_config => {
+  	          :view_config => {
                      :force_fit => true
-              }, 
+              },
             }],
-            :width => 700,
+            :width => 750,
             :border => true,
             :active_tab => 0
+
 %>
 </div>
-</center>
-<%#= notice %>
-<!--
-<h1>Current Users</h1>
 
-<table>
-  <tr>
-    <th>Username</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<%# @users.each do |user| %>
-  <tr>
-    <td><%#= user.username %></td>
-    <td><%#= user.email %></td>
-    <td><%#= link_to 'New', new_user_path %></td>
-    <td><%#= link_to 'Show', user %></td>
-    <td><%#= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%#= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<%# end %>
-</table>
-    <h1><%#= link_to 'New', new_user_path %></h1>
-
-<br />
--->

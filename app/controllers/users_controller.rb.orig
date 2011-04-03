@@ -2,13 +2,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
 <<<<<<< HEAD
-  
+layout "welcome"  
+=======
+  #alayout "welcome"
+>>>>>>> d21a840b3c0e3eb8d946790d530e550002dc5424
 #before_filter do
 #	redirect_to new_user_session_path unless current_user #authenticated?
 #end
 
-=======
->>>>>>> b575dd3406e6c9562cc19236877e9bc77be31f98
  def index
     @temp=User.where("temp_password=? and username=?","",current_user.username).count
    # @temp=User.find_by_username(current_user.username).temp_password.nil?
@@ -16,20 +17,20 @@ class UsersController < ApplicationController
     when 'instructor'
       instructors_path
     when 'student'
-	if @temp==1
+  	if @temp==1
 	    applicants_path
 	else
-           edit_user_path(current_user)
+       edit_user_path(current_user)
 	end
     when 'admin'
        admin_index_path
   when 'student_service_staff'
       student_service_staffs_path
-     else
-    end
+   else
+  end
 
     redirect_to path
-  
+
 
 #    @users = User.all
 #
@@ -38,7 +39,7 @@ class UsersController < ApplicationController
    #   format.xml  { render :xml => @users }
    # end
   end
-  
+
   def assign_roles
 
   end
@@ -91,8 +92,8 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-    @user.temp_password="" 
-    respond_to do |format|      
+    @user.temp_password=""
+    respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
@@ -122,7 +123,7 @@ class UsersController < ApplicationController
       else
         flash[:notice] = "User with this email doesnot exist"
       end
-    
+
     end
   end
 

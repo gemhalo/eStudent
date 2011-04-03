@@ -69,10 +69,10 @@ end
 
 #College
 colleges = [
-  { :name => "Natural and Computational Science(CNCS)", :campus => "Arid(Endayesus)" } ,
-  { :name => "Engineering(CE)" , :campus => "Arid(Endayesus)" } ,
-  { :name => "Social Sciences & Languages(CSSL)", :campus => "Arid(Endayesus)"} ,
-  { :name => "Ethiopian Institute of Technology(CEIT)", :campus => "Arid(Endayesus)" } ,
+  { :name => "Natural and Computational Science(CNCS)", :campus => "Arid (Endayesus)" } ,
+  { :name => "Engineering(CE)" , :campus => "Arid (Endayesus)" } ,
+  { :name => "Social Sciences & Languages(CSSL)", :campus => "Arid (Endayesus)"} ,
+  { :name => "Ethiopian Institute of Technology(CEIT)", :campus => "Arid (Endayesus)" } ,
   { :name => "Business and Economics(CBE)" , :campus => "Adi-Haqi" } ,
   { :name => "Law(CL)" , :campus => "Adi-Haqi" },
   { :name => "Medicine(CM)" , :campus => "Ayder" },
@@ -129,7 +129,7 @@ menuitems = [
 
  { :linktitle => "Curriculum" , :linkcontroller => "curriculums",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
- 
+
  { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
@@ -146,7 +146,7 @@ menuitems = [
     :linkicon => "/icons/database_add.png", :role_id=>"student", :catagory=>"academics" },
 
 #admin menu items
- 
+
 
 { :linktitle => "Campuses" , :linkcontroller => "campuses",    :linkaction => "index",
     :linkicon => "/icons/brick_add.png", :role_id=>"admin", :catagory=>"academics" },
@@ -183,5 +183,4 @@ menuitems.each do |menuitem|
                 :linkaction => menuitem[:linkaction], :linkicon => menuitem[:linkicon],
                 :role_id => menuitem[:role_id], :catagory=>menuitem[:catagory] } )
 end
-
 
