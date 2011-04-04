@@ -6,7 +6,7 @@ class Admission < ActiveRecord::Base
   #belongs_to :enrollment_mode_type
   has_many   :programs
 
-  def name
+  def admission_name
     [ self.admission_type.name.capitalize,self.enrollment_type.name.capitalize ].join('-')
   end
 

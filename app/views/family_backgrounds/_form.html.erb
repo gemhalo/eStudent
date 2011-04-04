@@ -23,15 +23,18 @@
   </div>
 <% end %>
   </fieldset>
-<fieldset><legend>Family Background List</legend>
- <%#= netzke :family_backgrounds,
+<fieldset style="overflow:scroll">
+<legend>Family Background List</legend>
+ <%= netzke :family_backgrounds,
   :model => 'FamilyBackground',
   :class_name => 'Basepack::GridPanel',
   :scope =>  ["applicant_id = ?", @applicantid],
-  :height => 200
+  :height => 180,
+  :width => 800
 %>
 </fieldset>
   </fieldset>
 <br />
 <%= link_to 'Previous', :controller=> 'applicants', :action => 'edit' , :applicant_id => @applicantid%>
 <%= link_to 'Next', :controller=> 'emergency_contacts', :action => 'new' , :applicant_id => @applicantid%>
+

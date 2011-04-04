@@ -54,5 +54,6 @@
   def save_person
     self.person.save!
   end
-  
+
 end
+

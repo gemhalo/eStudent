@@ -25,7 +25,8 @@
   :model => 'CourseExemption',
   :class_name => 'Basepack::GridPanel',
   :scope => ["applicant_id = ? ", @applicantid],
-  :height => 200
+  :height => 200,
+  :width => 800
 %>
   </fieldset>
 </fieldset>
@@ -40,3 +41,4 @@
 <% elsif @admission.admission_type_id == 2 %>
 <%= link_to 'Next', :controller=> 'relevant_publications', :action => "new" , :applicant_id =>@applicantid%>
 <%end%>
+
