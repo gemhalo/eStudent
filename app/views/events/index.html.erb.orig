@@ -1,0 +1,54 @@
+<<<<<<< HEAD
+<div style="margin:5px">
+<%= netzke :calendar,
+    :class_name => "Basepack::GridPanel",
+    :model => 'Event',
+    :border => true,
+    :width => 800,
+    :height => 400,
+    :header => false,
+   # :columns => [ {:name => :name, :label => "Campus name", :width =>600}],
+
+
+#Create menu
+:bbar => nil,
+:tbar => [{
+:menu => [:add.action, :edit.action, :apply.action, :del.action],
+:text => "Edit inline",
+:icon =>"/images/icons/table.png"
+},{
+:menu => [:add_in_form.action, :edit_in_form.action],
+:text => "Edit in form",
+:icon => "/images/icons/application_form.png"
+}]
+%>
+</div>
+=======
+<%
+ # netzke calls the Netzke module
+ # campuses is the variable passed by the controller
+ # model is the activeRecord model to use
+ # class_name is the UI renderer
+%>
+<center>
+<%= netzke :events,
+    :model => "Event",
+    :class_name => "Basepack::GridPanel",
+
+
+    #Create menu
+    :bbar => nil,
+    :tbar => [{
+      :menu => [:add.action, :edit.action, :apply.action, :del.action],
+      :text => "Edit inline",
+      :icon =>"/images/icons/table.png"
+    },{
+      :menu => [:add_in_form.action, :edit_in_form.action],
+      :text => "Edit in form",
+      :icon => "/images/icons/application_form.png"
+    }],
+    :width => 600,
+    :height => 300
+%>
+</center>
+>>>>>>> 578454184557a2d29c9ff5b56685af8938295cdb

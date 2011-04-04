@@ -130,10 +130,10 @@
             })]
         });
         // get a reference to the HTML element with id "hideit" and add a click listener to it 
-        Ext.get("hideit").on('click', function(){
+        //Ext.get("hideit").on('click', function(){
             // get a reference to the Panel that was created with id = 'west-panel' 
-            var w = Ext.getCmp('west-panel');
+          //  var w = Ext.getCmp('west-panel');
             // expand or collapse that Panel based on its collapsed property state
-            w.collapsed ? w.expand() : w.collapse();
-        });
+            //w.collapsed ? w.expand() : w.collapse();
+            //});
     });

@@ -26,14 +26,16 @@
 <% end %>
 </fieldset>
   <fieldset><legend>Employment Information</legend>
-<%#= netzke :employment_informations,
+<%= netzke :employment_informations,
   :model => 'EmploymentInformation',
   :class_name => 'Basepack::GridPanel',
   :scope => ["applicant_id = ?", @applicantid],
-  :height => 200
+  :height => 200,
+  :width => 800
 %>
 </fieldset>
 </fieldset>
 <br />
 <%= link_to 'Previous', :controller=> 'educational_backgrounds', :action => 'new' , :applicant_id => @applicantid%>
 <%= link_to 'Next', :controller=> 'course_exemptions', :action => 'new' , :applicant_id => @applicantid %>
+

@@ -1,4 +1,8 @@
 class EventViewerController < ApplicationController
+  def index
+    @event = Event.all
+    @admission = Admission.all
+  end
 
  def index
    @event = Event.all

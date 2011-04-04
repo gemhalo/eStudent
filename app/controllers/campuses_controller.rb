@@ -3,11 +3,9 @@ class CampusesController < ApplicationController
   # GET /campuses.xml
   def index
     @campuses = Campus.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @campuses }
-      #format.pdf  { render :pdf => @campuses }
       format.pdf {
         html = render_to_string(:layout => false , :action => "index.html.erb")
         kit = PDFKit.new(html)
@@ -16,6 +14,8 @@ class CampusesController < ApplicationController
         return # to avoid double render page.call function, param1, param2
       }
     end
+
+
   end
 
   # GET /campuses/1

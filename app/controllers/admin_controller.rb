@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
+  authorize_resource
   def index
-	@users= User.all
+  	@users= User.all
  	   respond_to do |format|
 	   format.html # index.html.erb
 	   format.xml  { render :xml => @users }
@@ -16,3 +17,4 @@ class AdminController < ApplicationController
  # end
 
 end
+

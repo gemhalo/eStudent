@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<<<<<<< HEAD
+<p>
+  <b>Title:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Start at:</b>
+  <%= @event.start_at %>
+</p>
+
+<p>
+  <b>End at:</b>
+  <%= @event.end_at %>
+</p>
+
+<p>
+  <b>Detail:</b>
+  <%= @event.details %>
+</p>
+=======
+
+
+<p>
+  <b>Start date:</b>
+  <%= @event.start_at %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @event.end_at %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @event.name %>
+</p>
+
+>>>>>>> 9f33db95dba36a0d485e35a0edf6dbe5cc88ce7f
+
+
+

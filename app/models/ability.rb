@@ -8,6 +8,8 @@ class Ability
     if user.role? :student
   		can :read, :all
       cannot :assign_roles, User
+      #Cancan defect : only handles based on models
+      cannot :read, Admin
     end
     if user.role? :instructor
                 can :manage, :instructor
@@ -19,7 +21,8 @@ class Ability
                 can :manage, :all
       cannot :assign_roles, User
     end
- 
+
  end
 
 end
+
