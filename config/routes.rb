@@ -1,4 +1,10 @@
 EStudent::Application.routes.draw do
+  get "adddrops/add"
+
+  get "adddrops/drop"
+
+  get "adddrops/approve"
+
   root :to => "welcome#index"
   resources :borrowed_items
 
@@ -25,6 +31,7 @@ netzke
   resources :academic_year_semesters
 
   resources :academic_years
+  resources :service_types
 
   get "users_admin/index"
 
@@ -153,6 +160,10 @@ netzke
   resources :buildings
  resources :calendar
   resources :campuses
+  resources :courses
+  resources :curriculums
+
+
   resources :colleges
 #  resources :components
   resources :course_exemptions

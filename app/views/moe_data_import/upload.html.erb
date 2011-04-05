@@ -14,9 +14,9 @@
             { :name => :college__details, :label => "College and campus", :read_only =>true }
 
            ]
-
+#           :scope=> {:id.gteq => @person.first.id}
+           
           %>
 
   <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>
 </div>
-

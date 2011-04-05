@@ -3,9 +3,6 @@ class CurriculumsController < ApplicationController
   # GET /curriculums.xml
   def index
     @curriculums = Curriculum.all
-    @courses = Course.all
-    @course_types = CourseType.all
-    @programs = Program.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,9 +14,7 @@ class CurriculumsController < ApplicationController
   # GET /curriculums/1.xml
   def show
     @curriculum = Curriculum.find(params[:id])
-    @courses = Course.all
-    @course_types = CourseType.all
-    @programs = Program.all
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @curriculum }
@@ -30,9 +25,6 @@ class CurriculumsController < ApplicationController
   # GET /curriculums/new.xml
   def new
     @curriculum = Curriculum.new
-    @courses = Course.all
-    @course_types = CourseType.all
-    @programs = Program.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,18 +35,12 @@ class CurriculumsController < ApplicationController
   # GET /curriculums/1/edit
   def edit
     @curriculum = Curriculum.find(params[:id])
-    @courses = Course.all
-    @course_types = CourseType.all
-    @programs = Program.all
   end
 
   # POST /curriculums
   # POST /curriculums.xml
   def create
     @curriculum = Curriculum.new(params[:curriculum])
-    @courses = Course.all
-    @course_types = CourseType.all
-    @programs = Program.all
 
     respond_to do |format|
       if @curriculum.save
@@ -71,9 +57,7 @@ class CurriculumsController < ApplicationController
   # PUT /curriculums/1.xml
   def update
     @curriculum = Curriculum.find(params[:id])
-    @courses = Course.all
-    @course_types = CourseType.all
-    @programs = Program.all
+
     respond_to do |format|
       if @curriculum.update_attributes(params[:curriculum])
         format.html { redirect_to(@curriculum, :notice => 'Curriculum was successfully updated.') }
@@ -89,9 +73,6 @@ class CurriculumsController < ApplicationController
   # DELETE /curriculums/1.xml
   def destroy
     @curriculum = Curriculum.find(params[:id])
-    @courses = Course.all
-    @course_types = CourseType.all
-    @programs = Program.all
     @curriculum.destroy
 
     respond_to do |format|
