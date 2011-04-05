@@ -1,0 +1,7 @@
+<br>
+<div class='menu_link' style="text-indent:10px"><img src='/icons/note.png'/ width=20 height=20> 
+<<<<<<< HEAD
+=======
+<%= link_to "Admission Aprovals (10)", root_url %><br><div>
+>>>>>>> a5bf7674b048821429ada117d93eec5c31513664
+

@@ -2,22 +2,31 @@
 <%= flash[:notice] %>
 
 
-<%= netzke :people,
+<%= netzke :applicants,
            :class_name => "Basepack::GridPanel",
-           :model => 'Person',
+           :model => 'Applicant',
+           :view_config => { :force_fit => true },
+           :width => 900,
+           :height => 370,
            :columns => [
-           :name, :father_name, :grand_father_name],
 <<<<<<< HEAD
-           :scope=> {:id => @person},
-           :width => 650
+            { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true, :width => 100},
+            { :name => :admission__name, :read_only =>true, :width => 100 },
+            { :name => :college__details, :label => "College and campus", :read_only =>true, :width => 200 }
            
+           ]
+#           :scope=> {:id.gteq => @person.first.id}
+           
+=======
+            { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true},
+            { :name => :admission__name, :read_only =>true },
+            { :name => :college__details, :label => "College and campus", :read_only =>true }
+
+           ]
+
+>>>>>>> d21a840b3c0e3eb8d946790d530e550002dc5424
           %>
 
-=======
-#           :scope=> {:id.gteq => @person.first.id},
-           :width => 650
-           
-          %>
->>>>>>> 61d050f6a404bca52f6f8a351684b1e9ae08824a
   <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>
 </div>
+

@@ -1,23 +1,7 @@
-<h1>Listing admission_types</h1>
+<%= netzke :custom_action_grid, :model => 'AdmissionStatusType',
+:title=>'Adminssion Status Types',
+:autoScroll => true,
+:height => 370,
+:width =>900
+%>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @admission_types.each do |admission_type| %>
-  <tr>
-    <td><%= admission_type.name %></td>
-    <td><%= link_to 'Show', admission_type %></td>
-    <td><%= link_to 'Edit', edit_admission_type_path(admission_type) %></td>
-    <td><%= link_to 'Destroy', admission_type, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Admission type', new_admission_type_path %>

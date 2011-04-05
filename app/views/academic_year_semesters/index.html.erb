@@ -1,31 +1,7 @@
-<h1>Listing academic_year_semesters</h1>
+<%= netzke :custom_action_grid, :model => 'AcademicYearSemester',
+:title=>'Academic Year Semesters',
+:autoScroll => true,
+:height => 370,
+:width =>900
+%>
 
-<table>
-  <tr>
-    <th>Academic year</th>
-    <th>Semester</th>
-    <th>Start at</th>
-    <th>End at</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @academic_year_semesters.each do |academic_year_semester| %>
-  <tr>
-    <td><%= academic_year_semester.academic_year_id %></td>
-    <td><%= academic_year_semester.semester_id %></td>
-    <td><%= academic_year_semester.start_at %></td>
-    <td><%= academic_year_semester.end_at %></td>
-    <td><%= academic_year_semester.status %></td>
-    <td><%= link_to 'Show', academic_year_semester %></td>
-    <td><%= link_to 'Edit', edit_academic_year_semester_path(academic_year_semester) %></td>
-    <td><%= link_to 'Destroy', academic_year_semester, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Academic year semester', new_academic_year_semester_path %>

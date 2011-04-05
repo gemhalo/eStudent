@@ -4,14 +4,15 @@
 
 <%= netzke :applicants,
            :class_name => "Basepack::GridPanel",
-           :model => 'Applicant',           
+           :model => 'Applicant',
            :view_config => { :force_fit => true },
-          
+           :width => 900,
+           :height => 370,
            :columns => [
-            { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true, :width => 100},
-            { :name => :admission__name, :read_only =>true, :width => 100 },
-            { :name => :college__details, :label => "College and campus", :read_only =>true, :width => 200 }
-           
+            { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true},
+            { :name => :admission__name, :read_only =>true },
+            { :name => :college__details, :label => "College and campus", :read_only =>true }
+
            ]
 #           :scope=> {:id.gteq => @person.first.id}
            

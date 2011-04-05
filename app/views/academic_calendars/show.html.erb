@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start date:</b>
+  <%= @academic_calendar.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @academic_calendar.end_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_academic_calendar_path(@academic_calendar) %> |
+<%= link_to 'Back', academic_calendars_path %>

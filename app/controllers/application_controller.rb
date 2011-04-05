@@ -1,9 +1,17 @@
   class ApplicationController < ActionController::Base
   protect_from_forgery
+  rescue_from CanCan::AccessDenied do |exception|
+    #flash[:error]="You are not allowed to access this area"
+    redirect_to root_url
+  end
 
-  helper_method :current_user_session, :current_user, :menus
+  helper_method :current_user_session, :current_user, :menus, :generate_pdf
   def menus
-        @menus=Menuitem.where("role_id=?",@current_user.role)
+        if @current_user
+          @menus=Menuitem.where("role_id=?",@current_user.role)
+        else
+          @menus = Menuitem.where("role_id=?","guest")
+        end
   end
 
   private
@@ -52,5 +60,25 @@
     session[:return_to] = nil
   end
 
+  # Not used
+  def generate_pdf(action_name, file_name)
+    html = render_to_string(:layout => false , :action => "#{action_name}")
+    kit = PDFKit.new(html)
+    kit.stylesheets << "#{Rails.root}/public/stylesheets/screen.css"
+    send_data(kit.to_pdf, :filename => "#{file_name}.pdf", :type => 'application/pdf')
+    return # to avoid double render page.call function, param1, param2
+  end
+
+  def menus_list
+    user =""
+    role = ""
+    menus =[]
+    if @current_user
+      user = @current_user.name
+      role = @current_user.role
+      menus = Menuitem.fetch_menu_for_role(role)
+    end
+    menus
+  end
 end
 

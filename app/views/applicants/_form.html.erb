@@ -11,10 +11,10 @@
     </div>
   <% end %>
    <fieldset><legend>Applicant Information</legend>
-    
+
 
     <%= fields_for @person do |p|%>
-     
+
      <table border ="0"><tr>
        <%  if @person.id == nil %>
       <td><%= p.label :name %> </td>
@@ -91,20 +91,20 @@
         <td><%= image_tag @applicant.person.photo.url(:small) %> </td>
 
         <%end%>
-        
-        
+
+
 
         </tr>
         </table>
-     
+
      <% end %>
     </fieldset><br></br>
     <!-- end applicant info -->
 
     <fieldset><legend>Admission Information</legend>
-      
-     
-    
+
+
+
        <table>
          <% if @person.id==nil %><tr>
 
@@ -123,6 +123,7 @@
           <td><%= f.collection_select(:college_id ,@College, :id,:name,:prompt=> "Select College", :disabled => true)%></td></tr>
          <%end%>
          <% if @person.id==nil %>
+
 
    <td> <%= f.collection_select(:admission_id ,@Admission, :id,:name ,:prompt=> "Select Admission")%></td></tr>
   
@@ -159,10 +160,10 @@
           <td> <%= f.text_field :academic_year, :disabled => true %></td></tr>
         <%end%>
 
-      
+
       </table>
 
-     
+
     </fieldset>
          <div class="actions">
           <%= f.submit %>

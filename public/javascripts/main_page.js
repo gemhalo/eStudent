@@ -5,36 +5,36 @@
         // can change across page loads, leading to unpredictable results.  The developer
         // should ensure that stable state ids are set for stateful components in real apps.
         Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
-        
+
         var viewport = new Ext.Viewport({
             layout: 'border',
             items: [
             // create instance immediately
             new Ext.Panel({
                 region: 'north',
-                height: 90, // give north and south regions a height
+                height: 68, // give north and south regions a height
                 border: true,
-		contentEl: 'north',
+		        contentEl: 'north',
                 split: true,
-                minSize: 40,
-                maxSize: 40,
+             //   minSize: 40,
+              //  maxSize: 40,
                 margins: '0 0 0  0'
 
 		       //headgr:false,
- //               autoEl: {
-   //                 tag: 'div',
-     //               html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
-       //         }
+        //        autoEl: {
+          //          tag: 'div',
+       //             html:'<p>north - generally for menus, toolbars and/or advertisements</p>'
+            //    }
             }), {
                 // lazily created panel (xtype:'panel' is default)
                 region: 'south',
                 contentEl: 'south',
                 split: true,
-                height: 40,
-                minSize: 40,
-                maxSize: 200,
+                height: 30,
+                //minSize: 40,
+                maxSize: 100,
                 collapsible: true,
-		header: false,
+        		header: false,
                 //title: 'Footer',
                 margins: '0 0 0 5'
             },{
@@ -64,17 +64,18 @@
 
 	    }, {
                 region: 'west',
+		        contentEl:'west',
                 id: 'west-panel', // see Ext.getCmp() below
                 title: 'Navigation',
                 split: true,
                 width: 200,
-                minSize: 175,
-                maxSize: 400,
-    		activeOnTop: false,
+                minSize: 200,
+                maxSize: 240,
+    		    activeOnTop: true,
                 collapsible: false,
                 activeItem:0,
                 margins: '0 0 0 5',
- 		fill: true,
+ 		        fill: true,
                 hideBorders: true,
                 layout: {
                     type: 'accordion',
@@ -105,7 +106,7 @@
                     border: false,
                     iconCls: 'nav' // see the HEAD section for style used
                 }
-                
+
                 /*{
                     id:'mu_forms',
                     title: 'Forms Menu',
@@ -119,7 +120,7 @@
             // as a Container
             new Ext.TabPanel({
                 region: 'center', // a center region is ALWAYS required for border layout
-                deferredRender: false,
+                deferredRender: true,
                 activeTab: 0,     // first tab initially active
                 items: [/*{
                     contentEl: 'center1',
@@ -128,8 +129,11 @@
                     autoScroll: true
                 },*/ {
                     contentEl: 'center2',
-                    title: 'Details',
-                    autoScroll: true
+                    //title: 'Details',
+                    border: false,
+                    header: false,
+                    autoScroll: true,
+                    overflow : 'auto'
                 }]
             })]
         });

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110401064521) do
+ActiveRecord::Schema.define(:version => 20110401131638) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.datetime "updated_at"
   end
 
+  create_table "academic_calendars", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "academic_year_semesters", :force => true do |t|
     t.integer  "academic_year_id"
     t.integer  "semester_id"
@@ -51,6 +58,11 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "year"
+  end
+
+  create_table "admins", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "admission_status_types", :force => true do |t|
@@ -291,6 +303,15 @@ ActiveRecord::Schema.define(:version => 20110401064521) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "details"
   end
 
   create_table "family_backgrounds", :force => true do |t|
