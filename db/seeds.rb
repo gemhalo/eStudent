@@ -16,7 +16,9 @@ EnrollmentModeType.delete_all
 Admission.delete_all
 User.delete_all
 Building.delete_all
+Room.delete_all
 Menuitem.delete_all
+HowTo.delete_all
 #Campuses
 campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
 
@@ -76,16 +78,70 @@ colleges = [
   { :name => "Business and Economics(CBE)" , :campus => "Adi-Haqi" } ,
   { :name => "Law(CL)" , :campus => "Adi-Haqi" },
   { :name => "Medicine(CM)" , :campus => "Ayder" },
-  { :name => "Agriculture(CA)" , :campus => "Arid(Endayesus" }
+  { :name => "Agriculture(CA)" , :campus => "Arid (Endayesus)" }
 
 ]
 
 colleges.each do | college |
-  College.create!({ :name => college[:name], :campus_id => Campus.find_by_name(college[:campus])
+  College.create!({ :name => college[:name], :campus_id => (Campus.find_by_name(college[:campus])).id
 #          :instructor_id => 0
   })
 end
 
+#buildings
+ buildings = [
+   {:building_name => "block-1",  :floors => 2,  :campus => "Arid (Endayesus)" } ,
+   {:building_name => "block-2",  :floors => 2,  :campus => "Arid (Endayesus)" },
+   {:building_name => "block-3",  :floors => 2,  :campus => "Ayder" }
+]
+
+buildings.each do | b |
+  Building.create!({ :building_name => b[:building_name], :floors => b[:floors], :campus_id => Campus.find_by_name(b[:campus])
+#          :instructor_id => 0
+  })
+end
+
+
+#buildings
+ how_tos = [
+   {:title => "Undergraduate Application",  :detail =>"All undergraduate students must get a welcome letter which contains login account and application instructions upon arraival" } ,
+  {:title => "Postgraduate Application",  :detail =>"All postgraduate students must create an account and apply online up on login"},
+  {:title => "Extension Application",  :detail =>"All extension students must create an account and apply online up on login" } 
+]
+
+how_tos.each do | h |
+ HowTo.create!({ :title => h[:title], :detail => h[:detail]
+  })
+end
+
+
+#rooms
+rooms = [
+  
+ {:room_number => "101", :building => "block-1", :floor_number => 1, :holding_capacity => 10, :used_for => "dormitory" },
+ {:room_number => "102", :building => "block-1", :floor_number => 2, :holding_capacity => 10, :used_for => "dormitory" },
+ {:room_number => "103", :building => "block-2", :floor_number => 1, :holding_capacity => 10, :used_for => "dormitory" },
+ {:room_number => "104", :building => "block-3", :floor_number => 2, :holding_capacity => 10, :used_for => "dormitory" }
+]
+
+rooms.each do | r |
+  Room.create!({ :room_number => r[:room_number],
+                 :floor_number => r[:floor_number],
+                 :holding_capacity => r[:holding_capacity],
+                 :used_for => r[:used_for], 
+                 :building_id => Building.find_by_building_name(r[:building])})
+#          :instructor_id => 0
+  
+end
+
+#enrollment mode types
+enrollment_mode_types = [
+  {:name => "Part Time"},
+  {:name => "Full Time"},
+]
+enrollment_mode_types.each do |enrollment_mode_type|
+  EnrollmentModeType.create!({:name => enrollment_mode_type})
+end
 #Department
 departments = [
   { :name => "Biology", :college => "Natural and Computational Science(CNCS)"},
@@ -129,7 +185,7 @@ menuitems = [
 
  { :linktitle => "Curriculum" , :linkcontroller => "curriculums",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-
+ 
  { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
@@ -146,7 +202,7 @@ menuitems = [
     :linkicon => "/icons/database_add.png", :role_id=>"student", :catagory=>"academics" },
 
 #admin menu items
-
+ 
 
 { :linktitle => "Campuses" , :linkcontroller => "campuses",    :linkaction => "index",
     :linkicon => "/icons/brick_add.png", :role_id=>"admin", :catagory=>"academics" },
@@ -177,10 +233,16 @@ menuitems = [
 
 { :linktitle => "Service Types" , :linkcontroller => "service_types",    :linkaction => "index",
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Available Programs" , :linkcontroller => "available_programs",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"guest", :catagory=>"academics" },
+
+{ :linktitle => "How to Apply" , :linkcontroller => "how_tos",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"guest", :catagory=>"academics" },
+
 ]
 menuitems.each do |menuitem|
   Menuitem.create!({:linktitle => menuitem[:linktitle],:linkcontroller => menuitem[:linkcontroller],
                 :linkaction => menuitem[:linkaction], :linkicon => menuitem[:linkicon],
                 :role_id => menuitem[:role_id], :catagory=>menuitem[:catagory] } )
 end
-

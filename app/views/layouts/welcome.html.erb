@@ -3,8 +3,8 @@
 <head>
   <title>Mekelle Univeristy- Student Information System</title>
   <%= stylesheet_link_tag :all %>
-  <%= stylesheet_link_tag "/extjs/resources/css/ext-all.css" %>
-  <%= stylesheet_link_tag "/extjs/resources/css/xtheme-gray.css" %>
+  <%#= stylesheet_link_tag "/extjs/resources/css/ext-all.css" %>
+  <%#= stylesheet_link_tag "/extjs/resources/css/xtheme-gray.css" %>
   <%= javascript_include_tag :defaults %>
   <%= netzke_init %>
   <%= javascript_include_tag "welcome" %>
@@ -13,18 +13,18 @@
 <body>
 
      <!-- Header Content -->
-    <div id="north">
+    <div id="north" class="x-hide-display">
      <%= render :partial =>'/shared/header' %>
 
      <!-- Top links -->
-     <%= render :partial =>'/shared/toplink' %>
+     <%#= render :partial =>'/shared/toplink' %>
      </div>
 
      <!-- Basic setup menu-->
-     <div id="academics">
-     <div class='menu_link'><img src=''/ width=20 height=20>
+     <div id="academics" class="x-hide-display">
+     <div class='menu_link'><img src='icons/application.png'/ width=20 height=20>
               <%= link_to "Available Programs", available_programs_path %><br> </div>
-     <div class='menu_link'><img src=''/ width=20 height=20>
+     <div class='menu_link'><img src='icons/application_go.png'/ width=20 height=20>
               <%= link_to "How to Apply", how_tos_path %><br>
 
     </div>
@@ -40,7 +40,7 @@
 
     <!-- Notification Area-->
     <div id="notification_area">
-    	 <%#= render :partial =>'/shared/application/notification' %>
+    	 <%= render :partial =>'/shared/application/notification' %>
     </div>
 
     <!-- Footer Area-->
