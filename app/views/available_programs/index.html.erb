@@ -13,7 +13,7 @@
 
  <center> 
 <% @admission.each do |a| %>
-	<ul><%= link_to "#{ [a.admission_type.name , "-",a.enrollement_type.name].join}",:action =>"show" ,:id => a.id %></ul><br>
+	<ul><%= link_to "#{ [a.admission_type.name , "-",a.enrollment_type.name].join}",:action =>"show" ,:id => a.id %></ul><br>
 	 
 <% end %>
 </center>
