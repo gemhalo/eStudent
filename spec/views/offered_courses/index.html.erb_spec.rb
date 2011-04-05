@@ -4,12 +4,12 @@ describe "offered_courses/index.html.erb" do
   before(:each) do
     assign(:offered_courses, [
       stub_model(OfferedCourse,
-        :curriculum_id => 1,
-        :academic_semester_id => 1
+        :curriculum_course_id => 1,
+        :academic_year_semester_id => 1
       ),
       stub_model(OfferedCourse,
-        :curriculum_id => 1,
-        :academic_semester_id => 1
+        :curriculum_course_id => 1,
+        :academic_year_semester_id => 1
       )
     ])
   end
