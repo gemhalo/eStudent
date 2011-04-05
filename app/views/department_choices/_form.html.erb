@@ -30,10 +30,12 @@
   :model => 'DepartmentChoice',
   :class_name => 'Basepack::GridPanel',
   :scope => ["applicant_id = ? ", @applicantid],
-  :height => 200
+  :height => 200,
+  :width => 800
 %>
 </fieldset>
 </fieldset>
 <br />
 <%= link_to 'Previous', :controller=> 'course_exemptions', :action => "new" , :applicant_id => @applicantid %>
 <%= link_to 'Next', :controller=> 'agreements', :action => "new" , :applicant_id => @applicantid %>
+

@@ -1,27 +1,7 @@
-<%
- # netzke calls the Netzke module
- # campuses is the variable passed by the controller
- # model is the activeRecord model to use
- # class_name is the UI renderer
+<%= netzke :custom_action_grid, :model => 'Program',
+:title=>'Programs',
+:autoScroll => true,
+:height => 370,
+:width =>900
 %>
-<center>
-<%= netzke :programs,
-    :model => "Program",
-    :class_name => "Basepack::GridPanel",
-    
 
-    #Create menu
-    :bbar => nil,
-    :tbar => [{
-      :menu => [:add.action, :edit.action, :apply.action, :del.action],
-      :text => "Edit inline",
-      :icon =>"/images/icons/table.png"
-    },{
-      :menu => [:add_in_form.action, :edit_in_form.action],
-      :text => "Edit in form",
-      :icon => "/images/icons/application_form.png"
-    }],
-    
-    :height => 300
-%>
-</center>

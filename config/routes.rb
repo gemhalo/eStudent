@@ -1,5 +1,5 @@
 EStudent::Application.routes.draw do
-
+  root :to => "welcome#index"
   resources :borrowed_items
 
   resources :clearance_requests
@@ -9,9 +9,9 @@ EStudent::Application.routes.draw do
   resources :programs
   resources :service_agreements
 
-match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
-resources :academic_calendars 
+resources :academic_calendars
   resources :course_assignments
 
 netzke
@@ -21,7 +21,7 @@ netzke
   resources :class_years
 
   resources :semesters
-
+   resources :service_types
   resources :academic_year_semesters
 
   resources :academic_years
@@ -37,24 +37,17 @@ netzke
  # match ':controller(/:action(/:id(.:format)))'
 
   resources :menuitems
+  #get "main_app/index"
+  netzke
+  #root :to => "user_sessions#new"
+  #root :to => "main_app#index"
+  get "campuses/index"
   get "college/sam"
   get "admin/index"
   #get "demo/index"
   #post "demo/index"
 
- #This must be the only exception resources that must come at first
-  resources :user_sessions
-  resources :users do
-    collection do
-      get 'forgot_password'
-      post 'forgot_password'
-    end
-  end
-
-  netzke
-  root :to => "user_sessions#new"
-  #root :to => "users#index"
-  #root :to => "welcome#index"
+  match 'components/:component' => 'components#index', :as => "components"
 
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
@@ -64,7 +57,7 @@ netzke
   get "event_viewer/index"
 
   get "event_viewer/show"
-    
+
 
   get "admission_approval/approve"
 
@@ -94,11 +87,17 @@ netzke
   post "dormitory_placement/dorm_placing_process"
 
   get "dormitory_placement/dorm_placing_process"
+
   post "dormitory_placement/dorm_placing_process"
+
   get "department_placement/show_placement"
+
   get "dormitory_placement/destroy"
+
   get "dormitory_placement/edit"
+
   get "dormitory_placement/place_dorm"
+
   get "dormitory_placement/show_placement"
   post "dormitory_placement/update"
 
@@ -139,11 +138,12 @@ netzke
       post 'forgot_password'
     end
   end
- 
+
 
   resources :courses
   resources :academic_and_professional_qualifications
   resources :academic_calanders
+  resources :admin
   resources :admissions
   resources :admission_status_types
   resources :admission_types
@@ -159,6 +159,7 @@ netzke
 
 
   resources :colleges
+#  resources :components
   resources :course_exemptions
   resources :department_choices
   resources :department_quotas
@@ -179,6 +180,7 @@ netzke
   resources :financial_supports
   resources :how_tos
   resources :instructors
+  resources :menuitems
   resources :moe_data_import
   resources :nationalities
   #resources :people
@@ -189,6 +191,8 @@ netzke
   resources :rooms
   #resources :sessions
   resources :student_service_staffs
+  resources :user_sessions
+
   resources :admin
   resources :components
   resources :service_types
@@ -251,3 +255,4 @@ netzke
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
