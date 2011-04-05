@@ -1,7 +1,7 @@
 class AvailableProgramsController < ApplicationController
 def index
-   @admissiont = AdmissionType.all
-   @enrollmentt =EnrollmentType.all
+   @admission = AdmissionType.all
+   @enrollment =EnrollmentType.all
    @admission = Admission.all
    
    respond_to do |format|

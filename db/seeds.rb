@@ -101,6 +101,7 @@ buildings.each do | b |
   })
 end
 
+<<<<<<< HEAD
 
 #buildings
  how_tos = [
@@ -115,6 +116,8 @@ how_tos.each do | h |
 end
 
 
+=======
+>>>>>>> 47112345434a9765ad6d575b015d8e2b76c6efbd
 #rooms
 rooms = [
   
@@ -232,6 +235,7 @@ menuitems = [
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 
 { :linktitle => "Service Types" , :linkcontroller => "service_types",    :linkaction => "index",
+<<<<<<< HEAD
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 
 { :linktitle => "Available Programs" , :linkcontroller => "available_programs",    :linkaction => "index",
@@ -240,6 +244,9 @@ menuitems = [
 { :linktitle => "How to Apply" , :linkcontroller => "how_tos",    :linkaction => "index",
     :linkicon => "/icons/calendar_add.png", :role_id=>"guest", :catagory=>"academics" },
 
+=======
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" }
+>>>>>>> 47112345434a9765ad6d575b015d8e2b76c6efbd
 ]
 menuitems.each do |menuitem|
   Menuitem.create!({:linktitle => menuitem[:linktitle],:linkcontroller => menuitem[:linkcontroller],
