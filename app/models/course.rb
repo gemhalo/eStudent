@@ -9,5 +9,6 @@ validates :course_code , :presence =>true
 validates :credit_hour , :presence =>true
 validates :description , :presence =>true
 validates_uniqueness_of  :course_code, :course_title , :case_sensitive => false
+belongs_to :curriculum_course
 end
 

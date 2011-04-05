@@ -10,7 +10,14 @@
     <th></th>
   </tr>
 
-<% @curriculums.each do |curriculum| %>
+
+
+  ==============
+  <% @curriculums.each do |curriculum| %>
+  <% program = Program.find(curriculum.program_id) %>
+  <% class_year =ClassYear.find(curriculum.class_year_id) %>
+  <% semester = Course.find(curriculum.semester_id ) %>
+
   <tr>
     <td><%= curriculum.program_id %></td>
     <td><%= curriculum.class_year_id %></td>

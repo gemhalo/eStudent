@@ -324,6 +324,14 @@ ActiveRecord::Schema.define(:version => 20110405114619) do
     t.datetime "updated_at"
   end
 
+  create_table "enrollments", :force => true do |t|
+    t.integer  "registration_id"
+    t.integer  "offered_course_id"
+    t.string   "add_drop_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ethnicities", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -477,6 +485,15 @@ ActiveRecord::Schema.define(:version => 20110405114619) do
     t.string   "email"
     t.string   "profession"
     t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "registrations", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "class_year_id"
+    t.integer  "academic_year_semester_id"
+    t.date     "registration_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

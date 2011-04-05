@@ -3,6 +3,9 @@ class CurriculumsController < ApplicationController
   # GET /curriculums.xml
   def index
     @curriculums = Curriculum.all
+    @programs = Program.all
+    @class_years = ClassYear.all
+    @semesters = Semester.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +17,9 @@ class CurriculumsController < ApplicationController
   # GET /curriculums/1.xml
   def show
     @curriculum = Curriculum.find(params[:id])
-
+   @programs = Program.all
+    @class_years = ClassYear.all
+    @semesters = Semester.all
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @curriculum }
@@ -25,7 +30,9 @@ class CurriculumsController < ApplicationController
   # GET /curriculums/new.xml
   def new
     @curriculum = Curriculum.new
-
+    @programs = Program.all
+    @class_years = ClassYear.all
+    @semesters = Semester.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @curriculum }
@@ -35,16 +42,22 @@ class CurriculumsController < ApplicationController
   # GET /curriculums/1/edit
   def edit
     @curriculum = Curriculum.find(params[:id])
+    @programs = Program.all
+    @class_years = ClassYear.all
+    @semesters = Semester.all
   end
 
   # POST /curriculums
   # POST /curriculums.xml
   def create
     @curriculum = Curriculum.new(params[:curriculum])
-
+    @class_year = ClassYear.all
+    @semester = Semester.all
     respond_to do |format|
       if @curriculum.save
-        format.html { redirect_to(@curriculum, :notice => 'Curriculum was successfully created.') }
+       # format.html { redirect_to(@curriculum, :notice => 'Curriculum was successfully created.') }
+        format.html { redirect_to :controller => 'curriculum_course', :action => 'new', :curriculum_id => @curriculum.id}
+
         format.xml  { render :xml => @curriculum, :status => :created, :location => @curriculum }
       else
         format.html { render :action => "new" }
@@ -57,7 +70,8 @@ class CurriculumsController < ApplicationController
   # PUT /curriculums/1.xml
   def update
     @curriculum = Curriculum.find(params[:id])
-
+    @class_year = ClassYear.all
+    @semester = Semester.all
     respond_to do |format|
       if @curriculum.update_attributes(params[:curriculum])
         format.html { redirect_to(@curriculum, :notice => 'Curriculum was successfully updated.') }
@@ -73,6 +87,8 @@ class CurriculumsController < ApplicationController
   # DELETE /curriculums/1.xml
   def destroy
     @curriculum = Curriculum.find(params[:id])
+   @class_year = ClassYear.all
+    @semester = Semester.all
     @curriculum.destroy
 
     respond_to do |format|
