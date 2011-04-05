@@ -1,4 +1,10 @@
 EStudent::Application.routes.draw do
+  resources :assign_instructors
+
+  resources :offered_courses
+
+  resources :curriculum_courses
+
   get "adddrops/add"
 
   get "adddrops/drop"
@@ -22,8 +28,6 @@ resources :academic_calendars
 
 netzke
   get "admin/index"
-  resources :offered_courses
-
   resources :class_years
 
   resources :semesters
