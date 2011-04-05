@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Offered course:</b>
+  <%= @assign_instructor.offered_course_id %>
+</p>
+
+<p>
+  <b>Instructor:</b>
+  <%= @assign_instructor.instructor_id %>
+</p>
+
+<p>
+  <b>Section:</b>
+  <%= @assign_instructor.section %>
+</p>
+
+
+<%= link_to 'Edit', edit_assign_instructor_path(@assign_instructor) %> |
+<%= link_to 'Back', assign_instructors_path %>
