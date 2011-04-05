@@ -129,6 +129,7 @@ netzke
   get  'student_service_staffs/selector'
   post 'student_service_staffs/selector'
 
+  get "adddrops/add_drop"
   get "users/forgot_password"
   post "users/forgot_password"
   #get "users/edit"
