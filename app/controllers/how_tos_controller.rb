@@ -1,5 +1,5 @@
 class HowTosController < ApplicationController
-  #layout "student"
+  layout "welcome"
   # GET /how_tos
   # GET /how_tos.xml
   def index
