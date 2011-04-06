@@ -11,14 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :curriculum_course_id %><br />
-    <%= f.text_field :curriculum_course_id %>
+ <div class="field">
+    <%= f.label :curriculum_course_id%><br />
+     <%= f.collection_select(:curriculum_course_id, @curriculum_courses, :id,:name)%>
+
   </div>
-  <div class="field">
-    <%= f.label :academic_year_semester_id %><br />
-    <%= f.text_field :academic_year_semester_id %>
+
+  <%#*<div class="field">%>
+    <%#= f.label :curriculum_course_id %><br />
+    <%#= f.text_field :curriculum_course_id %>
+  <%#*</div>%>
+
+    <div class="field">
+    <%= f.label :academic_year_semester_id%><br />
+     <%= f.collection_select(:academic_year_semester_id, @academic_year_semester, :id,:id)%>
+
   </div>
+
+  <%#*<div class="field">%>
+    <%#= f.label :academic_year_semester_id %><br />
+    <%#= f.text_field :academic_year_semester_id %>
+  <%#*</div>%>
   <div class="actions">
     <%= f.submit %>
   </div>

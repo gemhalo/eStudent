@@ -1,5 +1,4 @@
 class DepartmentPlacementController < ApplicationController
-layout "instructor"
 
 def department_placing_process
   
