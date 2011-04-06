@@ -4,7 +4,7 @@
   belongs_to :admission_status_type
   belongs_to :enrollment_mode_type
   belongs_to :college
-  has_one :student
+  has_one  :student
   has_many :family_background
   has_many :emergency_contacts
   has_many :department_choices

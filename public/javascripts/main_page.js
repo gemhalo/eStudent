@@ -12,7 +12,7 @@
             // create instance immediately
             new Ext.Panel({
                 region: 'north',
-                height: 68, // give north and south regions a height
+                height: 80, // give north and south regions a height
                 border: true,
 		        contentEl: 'north',
                 split: true,

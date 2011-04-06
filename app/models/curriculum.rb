@@ -1,11 +1,10 @@
 class Curriculum < ActiveRecord::Base
-  belongs_to :course
+  has_many :curriculum_course
+  belongs_to :semester
   belongs_to :program
-validates :course_id , :presence =>true
-validates :program_id , :presence =>true
-validates :course_type , :presence =>true
-validates :semester_id , :presence =>true
-validates :class_year_id , :presence =>true
+  belongs_to :class_year
+end
 
-  
+def curriculums_select
+  [self.program.name,"year",self.class_year, "semester", self.semester].join("-")
 end
