@@ -1,0 +1,21 @@
+<table border="1">
+  <tr>
+    <th>ID Number</th>
+    <th>Department</th>
+    <th>Class Year</th>
+    <td> Course To Add</td>
+    <td></td>
+    <td></td>
+  </tr>
+    <% for a in @add_requests %>
+  <tr>
+    <td><%= a.registration.student.id_number %> </td>
+    <td><%= a.registration.student.department.name %> </td>
+    <td><%=  a.registration.class_year.name %></td
+    <td><%=  a.offered_course.curriclum_course.course.name %></td
+    <td><%= link_to "Approve", :action=>"approve_add", :id=>a.id %> </td>
+    <td><%= link_to "Decline", :action=>"decline_add", :id=>a.id %> </td>
+    <% end %>
+  </tr>
+
+</table>

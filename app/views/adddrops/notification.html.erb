@@ -1,0 +1,6 @@
+<div align="center">
+  <p><u>Pending approvals<u/></p>
+
+  <%= link_to "Course Add", :action=>"course_add_request_list"%>(<%= AddDrop.course_add_requests.count  %>) <br/>
+  <%= link_to "Course Drop", :action=>"approve" %>(<%= AddDrop.course_drop_requests.count  %>) <br/>
+</div>
