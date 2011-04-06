@@ -1,0 +1,13 @@
+
+<table border="1">
+  <h3>You were registered for the following courses drop them if you like </h3><br>
+<% if @enrollments.nil? %>
+<%= flash[:notice] %>
+<% else %>
+  <% @enrollments.each do |e|  %>
+<tr><td><%= e.offered_course.curriculum_course.course.course_title %></td>
+    <td><%= e.add_drop_status %></td>
+  <td><%= link_to "Drop", :action=>"dropped", :id=>e.id %> </td></tr>
+<%end%>
+<%end%>
+</table>
