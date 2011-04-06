@@ -41,8 +41,8 @@ class DormitoryPlacementController < ApplicationController
     class_year=params[:class_year]
     college=params[:college]
     
-      students=Student.all(:include=>[:department,:applicant=>[:person]], :conditions=>
-      ("people.gender='#{gender}' and departments.college_id=#{college}"))
+      students=Student.all(:include=> [:applicant=>[:person,:college]], :conditions=>
+      ("people.gender='#{gender}' and colleges.id=#{college}"))
           studentcounter=0
         for b in buildings
             @rooms=b.rooms
