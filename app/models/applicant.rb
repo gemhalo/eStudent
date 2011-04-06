@@ -24,6 +24,8 @@
   #validates :person_id, :uniqueness => true
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
   scope :not_verified, self.where('verified = ?', "f")
+  scope :undergraduate_regular_applicants, joins(:admission=>[:admission_type, :enrollment_type])
+  .where("admission_types.name like ? and enrollment_types.name like ?", 'undergraduate','regular')
 
   def full_name
     self.person.full_name

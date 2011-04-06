@@ -52,7 +52,7 @@ else
     @Enrollementtype  = EnrollementType.all
     @College    = College.all
     @admission_status_types = AdmissionStatusType.all
-   @Admission = Admission.all
+   @admission = Admission.all
     @applicant = Applicant.find(params[:applicant_id])
     @person = Person.find(@applicant.person_id)
     
@@ -64,8 +64,7 @@ else
   def create
 
     @nationality = Nationality.all
-    @Admissiontype    = AdmissionType.all
-    @Enrollmenttype  = EnrollmentType.all
+    @admission = Admission.all
     @College    = College.all
     @admission_status_types = AdmissionStatusType.all
     @person = Person.create(params[:person])

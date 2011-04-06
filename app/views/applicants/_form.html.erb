@@ -124,6 +124,14 @@
          <%end%>
          <% if @person.id==nil %>
 
+
+   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:name ,:prompt=> "Select Admission")%></td></tr>
+  
+        <tr><td> <%= f.label :college_id %></td>
+          <td><%= f.collection_select(:college_id ,@College, :id, :name,:prompt=> "Select College")%></td></tr>
+  
+  
+
         <tr><td> <%= f.label :entry_level %></td>
           <td><%= f.select :entry_level,["Freshman","Transfer","Advance Standing"] %></td>
           <%else%>

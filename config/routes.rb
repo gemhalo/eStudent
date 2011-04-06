@@ -1,4 +1,12 @@
 EStudent::Application.routes.draw do
+  get "adddrops/add"
+
+  get "adddrops/drop"
+
+  get "adddrops/approve"
+
+  get "adddrops/notification"
+
   root :to => "welcome#index"
   resources :borrowed_items
    resources :service_types
@@ -153,7 +161,7 @@ netzke
 #  resources :components
   resources :course_exemptions
   resources :department_choices
-  resources :department_quotas
+  resources :department_quotas 
   resources :departments
   resources :dormitories
   resources :educational_backgrounds

@@ -127,6 +127,19 @@
          <%end%>
          <% if @person.id==nil %>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:name ,:prompt=> "Select Admission")%></td></tr>
+  
+        <tr><td> <%= f.label :college_id %></td>
+          <td><%= f.collection_select(:college_id ,@College, :id, :name,:prompt=> "Select College")%></td></tr>
+  
+  
+
+=======
+>>>>>>> d21a840b3c0e3eb8d946790d530e550002dc5424
+>>>>>>> 7dc0ddbb2d018b8d528cff70c09a90d516dde2a4
         <tr><td> <%= f.label :entry_level %></td>
           <td><%= f.select :entry_level,["Freshman","Transfer","Advance Standing"] %></td>
           <%else%>
