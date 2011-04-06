@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
 has_one :course_type
-
+has_many :curriculum
 belongs_to :department
 
 has_many :program, :through => :curriculum

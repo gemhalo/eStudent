@@ -1,6 +1,7 @@
 class Curriculum < ActiveRecord::Base
-  belongs_to :course
-  belongs_to :program
+belongs_to :course
+belongs_to :program
+has_many :offered_course
 validates :course_id , :presence =>true
 validates :program_id , :presence =>true
 validates :course_type , :presence =>true

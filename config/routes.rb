@@ -1,10 +1,10 @@
 EStudent::Application.routes.draw do
   get "adddrops/add"
-
+  post "adddrops/add"
   get "adddrops/drop"
 
   get "adddrops/approve"
-
+  get "adddrops/add_drop"
   root :to => "welcome#index"
   resources :borrowed_items
 
