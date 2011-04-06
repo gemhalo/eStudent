@@ -53,10 +53,11 @@ class CurriculumsController < ApplicationController
     @curriculum = Curriculum.new(params[:curriculum])
     @class_year = ClassYear.all
     @semester = Semester.all
+    @programs = Program.all
     respond_to do |format|
       if @curriculum.save
-       # format.html { redirect_to(@curriculum, :notice => 'Curriculum was successfully created.') }
-        format.html { redirect_to :controller => 'curriculum_course', :action => 'new', :curriculum_id => @curriculum.id}
+      format.html { redirect_to(@curriculum, :notice => 'Curriculum was successfully created.') }
+      #  format.html { redirect_to :controller => 'curriculum_courses', :action => 'new', :curriculum_id => @curriculum.id}
 
         format.xml  { render :xml => @curriculum, :status => :created, :location => @curriculum }
       else
@@ -72,6 +73,7 @@ class CurriculumsController < ApplicationController
     @curriculum = Curriculum.find(params[:id])
     @class_year = ClassYear.all
     @semester = Semester.all
+     @programs = Program.all
     respond_to do |format|
       if @curriculum.update_attributes(params[:curriculum])
         format.html { redirect_to(@curriculum, :notice => 'Curriculum was successfully updated.') }
@@ -89,6 +91,7 @@ class CurriculumsController < ApplicationController
     @curriculum = Curriculum.find(params[:id])
    @class_year = ClassYear.all
     @semester = Semester.all
+     @programs = Program.all
     @curriculum.destroy
 
     respond_to do |format|

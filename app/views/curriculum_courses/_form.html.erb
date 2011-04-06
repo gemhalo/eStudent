@@ -11,18 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :curriculum_id %><br />
-    <%= f.text_field :curriculum_id %>
+ <div class="field">
+    <%= f.label :curriculum_id%><br />
+     <%= f.collection_select(:curriculum_id, @curriculum, :program_id,:curriculums_select)%>
   </div>
-  <div class="field">
-    <%= f.label :course_id %><br />
-    <%= f.text_field :course_id %>
+
+
+ <div class="field">
+    <%= f.label :course_id%><br />
+     <%= f.collection_select(:course_id, @course, :id,:course_title)%>
   </div>
-  <div class="field">
-    <%= f.label :course_type %><br />
-    <%= f.text_field :course_type %>
+    
+ <div class="field">
+    <%= f.label :course_type%><br />
+     <%= f.collection_select(:course_type, @course_type, :id,:name)%>
   </div>
+
   <div class="field">
     <%= f.label :price %><br />
     <%= f.text_field :price %>
