@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "offered_courses/show.html.erb" do
   before(:each) do
     @offered_course = assign(:offered_course, stub_model(OfferedCourse,
-      :curriculum_id => 1,
-      :academic_semester_id => 1
+      :curriculum_course_id => 1,
+      :academic_year_semester_id => 1
     ))
   end
 

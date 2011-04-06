@@ -1,1 +1,22 @@
-<%= render 'edit' %>
+
+<fieldset style="width: 60%">
+  <legend>Individual Dorm Placement</legend><br/>
+  Editing Dormitory for <%= @dormitory.student.applicant.full_name %><br/><br/>
+  <%= form_for :dormitory, @dormitory, :url=>{:action=>"update", :method=>"get", :id=>@dormitory.id} do |f| %>
+    <div>
+     Building: <%= f.collection_select :id, Building.all, :id, :building_name %><br/><br/>
+    </div>
+
+    <div>
+     Room: <%= f.collection_select :room_id, Room.all, :id, :room_number %><br/><br/>
+    </div>
+
+    <div>
+      Bed No:   <%= f.text_field :bed_number, :size=>5  %><br/><br/>
+    </div>
+
+    <div>
+      &nbsp;&nbsp;&nbsp;<%= f.submit "Submit"%>
+    </div>
+  <% end %><br/>
+</fieldset>

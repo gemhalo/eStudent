@@ -1,3 +1,4 @@
 class OfferedCourse < ActiveRecord::Base
-  belongs_to :curriculum
+  has_one :academic_year_semester
+  belongs_to :curriculum_course
 end

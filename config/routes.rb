@@ -1,17 +1,27 @@
 EStudent::Application.routes.draw do
+  resources :assign_instructors
+
+  resources :offered_courses
+
+  resources :curriculum_courses
+
   get "adddrops/add"
   post "adddrops/add"
   get "adddrops/drop"
 
   get "adddrops/approve"
-  get "adddrops/add_drop"
+
+get "adddrops/add_drop"
+  get "adddrops/notification"
+
   root :to => "welcome#index"
   resources :borrowed_items
+   resources :service_types
 
   resources :clearance_requests
 
   resources :curriculums
-
+  resources :service_types
   resources :programs
   resources :service_agreements
 
@@ -31,6 +41,7 @@ netzke
   resources :academic_year_semesters
 
   resources :academic_years
+  resources :service_types
 
   get "users_admin/index"
 
@@ -80,14 +91,14 @@ netzke
   get "available_programs/show"
   post "available_programs/show"
 
-  get "department_head/approve"
-
-  get "department_head/details"
-
-  get "department_head/index"
-
-  get "department_head/show_list"
-
+  
+  get "dormitory_placement/select_group"
+  post "dormitory_placement/select_group"
+  post "dormitory_placement/group_dorm_placement"
+  get "dormitory_placement/group_dorm_placement_form"
+  get "dormitory_placement/individual_dorm_placement_form"
+  post "dormitory_placement/individual_dorm_placement_form"
+  post "dormitory_placement/individual_dorm_placement"
   get "department_placement/department_placing_process"
   post "dormitory_placement/dorm_placing_process"
 
@@ -159,11 +170,15 @@ netzke
   resources :buildings
  resources :calendar
   resources :campuses
+  resources :courses
+  resources :curriculums
+
+
   resources :colleges
 #  resources :components
   resources :course_exemptions
   resources :department_choices
-  resources :department_quotas
+  resources :department_quotas 
   resources :departments
   resources :dormitories
   resources :educational_backgrounds
@@ -256,4 +271,3 @@ netzke
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
-

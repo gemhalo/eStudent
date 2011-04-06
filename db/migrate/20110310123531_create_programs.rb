@@ -4,7 +4,7 @@ class CreatePrograms < ActiveRecord::Migration
       t.string :name
       t.integer :department_id
       t.integer :admission_id
-      t.date :duration
+      t.integer :duration
       t.integer :total_credit_hour
       t.integer :award_type_id
 

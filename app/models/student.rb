@@ -5,7 +5,7 @@ class Student < ActiveRecord::Base
   belongs_to :department
   belongs_to :program
   validates :id_number, :presence => true, :uniqueness => true
-  validates :applicant_id, :presence => true, :uniqueness => true
+  #validates :applicant_id, :presence => true, :uniqueness => true
 
 include ActiveModel::Serialization
  #attr_accessible :college_name

@@ -12,7 +12,6 @@
   <% end %>
 
   <div class="field">
-    Editing dorm for <%= @dormitory.student.person.full_name %>
   </div>
   <div class="field">
     <%= f.label :room_id %><br />
@@ -24,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :academic_year %><br />
-    <%= f.date_select :academic_year %>
+    <%= f.date_select :academic_calendar_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

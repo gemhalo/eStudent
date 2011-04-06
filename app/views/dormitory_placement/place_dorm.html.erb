@@ -1,13 +1,15 @@
-<pre>
-  <%= form_tag(:action=> "dorm_placing_process", :method=>"get") do %>
-  Building Name:  <%= select_tag "building", options_from_collection_for_select(@buildings, "id", "building_name") %>
-  
-  College:        <%= select_tag "college", options_from_collection_for_select(@colleges, "id", "name") %>
-
-  Department:     <%= text_field_tag 'department' %>
-
-  Sex               <%= select_tag "sex",options_for_select(['Male','Female']) %>
-
-            <%= submit_tag "Place"  %>
+<fieldset style="width: 50%">
+  <legend> How do you want to Place?</legend>
+  <%= form_tag(:action=> "select_group", :method=>"get") do %>
+    <br/>
+    <%= radio_button_tag 'group', 'group' %> Group Placement<br/><br/>
+    <%= radio_button_tag 'group', 'individual' %> Individual Placement<br/><br/>
+    <%= submit_tag "Continue" %><br/><br/>
   <% end %>
-</pre>
+
+</fieldset>
+
+<div id="to_be_replaced">
+
+</div>
+  

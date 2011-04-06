@@ -4,7 +4,7 @@
   belongs_to :admission_status_type
   belongs_to :enrollment_mode_type
   belongs_to :college
-  has_many :student
+  has_one  :student
   has_many :family_background
   has_many :emergency_contacts
   has_many :department_choices
@@ -24,6 +24,8 @@
   #validates :person_id, :uniqueness => true
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
   scope :not_verified, self.where('verified = ?', "f")
+  scope :undergraduate_regular_applicants, joins(:admission=>[:admission_type, :enrollment_type])
+  .where("admission_types.name like ? and enrollment_types.name like ?", 'undergraduate','regular')
 
   def full_name
     self.person.full_name
@@ -54,6 +56,12 @@
   def save_person
     self.person.save!
   end
+def init_college
+    if(self.college_id.nil?)
+      self.college = College.new
+    end
+  end
+
 
 end
 
