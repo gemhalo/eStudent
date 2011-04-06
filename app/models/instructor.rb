@@ -1,6 +1,7 @@
 class Instructor < ActiveRecord::Base
   belongs_to  :department
 	belongs_to  :person
+  has_many :offered_course
 
   attr_accessor :name, :father_name, :grand_father_name, :full_name
         #accepts_nested_attributes_for :person

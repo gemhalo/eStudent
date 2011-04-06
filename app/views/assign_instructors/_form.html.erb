@@ -1,0 +1,38 @@
+<%= form_for(@assign_instructor) do |f| %>
+  <% if @assign_instructor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assign_instructor.errors.count, "error") %> prohibited this assign_instructor from being saved:</h2>
+
+      <ul>
+      <% @assign_instructor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="field">
+    <%= f.label :offered_course_id%><br />
+     <%= f.collection_select(:offered_course_id, @offered_course, :id,:name)%>
+  </div>
+
+  <%#*<div class="field">%>
+    <%#= f.label :offered_course_id %><br />
+    <%#= f.text_field :offered_course_id %>
+  <%#*</div>%>
+     <div class="field">
+    <%= f.label :instructor_id %><br />
+     <%= f.collection_select(:instructor_id, @instructor, :id,:name)%>
+  </div>
+  <%#*<div class="field">%>
+    <%#= f.label :instructor_id %><br />
+    <%#= f.text_field :instructor_id %>
+  <%#*</div>%>
+  <div class="field">
+    <%= f.label :section %><br />
+    <%= f.text_field :section %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

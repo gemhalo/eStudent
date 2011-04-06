@@ -11,40 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :course_id %><br />
-     <%= f.collection_select(:course_id,@courses, :id,:course_code,:prompt => "Select Course Code")%>
-    
-  </div>
+
   <div class="field">
     <%= f.label :program_id %><br />
-     <%= f.collection_select(:program_id,@programs, :id,:program_id_number,:prompt => "Select Program")%>
-    
-  </div>
-  <div class="field">
-    <%= f.label :course_type %><br />
-     <%= f.collection_select(:course_type,@course_types, :id,:name,:prompt => "Select Course Types")%>
-   
-  </div>
-  <div class="field">
-    <%= f.label :semester_id %><br />
-    <%= f.text_field :semester_id %>
+     <%= f.collection_select(:program_id, @programs, :id,:name)%>
+
   </div>
   <div class="field">
     <%= f.label :class_year_id %><br />
-   <%= f.text_field :class_year_id %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
+     <%= f.collection_select(:class_year_id, @class_years, :id,:name)%>
+
   </div>
 
-  <div class="actions">
+ <div class="field">
+    <%= f.label :semester_id %><br />
+     <%= f.collection_select(:semester_id, @semesters, :id,:name)%>
+
+  </div>
+
+ <div class="actions">
     <%= f.submit %>
   </div>
-
-
-
-
-
 <% end %>

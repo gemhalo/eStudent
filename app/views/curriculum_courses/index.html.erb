@@ -1,0 +1,29 @@
+<h1>Listing curriculum_courses</h1>
+
+<table>
+  <tr>
+    <th>Curriculum</th>
+    <th>Course</th>
+    <th>Course type</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @curriculum_courses.each do |curriculum_course| %>
+  <tr>
+    <td><%= curriculum_course.curriculum_id %></td>
+    <td><%= curriculum_course.course_id %></td>
+    <td><%= curriculum_course.course_type %></td>
+    <td><%= curriculum_course.price %></td>
+    <td><%= link_to 'Show', curriculum_course %></td>
+    <td><%= link_to 'Edit', edit_curriculum_course_path(curriculum_course) %></td>
+    <td><%= link_to 'Destroy', curriculum_course, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Curriculum course', new_curriculum_course_path %>

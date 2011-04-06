@@ -33,8 +33,6 @@ class ApplicantsController < ApplicationController
     @College = College.all
     @admission_status_types = AdmissionStatusType.all
 if @current_user.person_id.nil?
-
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @applicant }
@@ -49,10 +47,10 @@ else
     @nationality = Nationality.all
     @Admissiontype    = AdmissionType.all
      @ethnicity   = Ethnicity.all
-    @Enrollementtype  = EnrollementType.all
+    @Enrollmenttype  = EnrollmentType.all
     @College    = College.all
     @admission_status_types = AdmissionStatusType.all
-   @Admission = Admission.all
+   @admission = Admission.all
     @applicant = Applicant.find(params[:applicant_id])
     @person = Person.find(@applicant.person_id)
     
@@ -64,13 +62,13 @@ else
   def create
 
     @nationality = Nationality.all
-    @Admissiontype    = AdmissionType.all
-    @Enrollmenttype  = EnrollmentType.all
+    @admission = Admission.all
     @College    = College.all
     @admission_status_types = AdmissionStatusType.all
     @person = Person.create(params[:person])
     @applicant = @person.applicant.create(params[:applicant])
       #Applicant.new(params[:applicant])
+    @applicant.verified=false
 
 
     respond_to do |format|

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110401131638) do
+ActiveRecord::Schema.define(:version => 20110405114619) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(:version => 20110401131638) do
     t.string   "year"
   end
 
+  create_table "add_drops", :force => true do |t|
+    t.integer  "registration_id"
+    t.integer  "offered_course_id"
+    t.string   "request_for"
+    t.boolean  "add_drop_status"
+    t.date     "add_drop_date"
+    t.integer  "approved_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "admins", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -105,6 +116,14 @@ ActiveRecord::Schema.define(:version => 20110401131638) do
     t.boolean  "verified"
     t.integer  "enrollment_mode_type_id"
     t.string   "temp_id_number"
+  end
+
+  create_table "assign_instructors", :force => true do |t|
+    t.integer  "offered_course_id"
+    t.integer  "instructor_id"
+    t.string   "section"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "award_types", :force => true do |t|
@@ -200,15 +219,21 @@ ActiveRecord::Schema.define(:version => 20110401131638) do
     t.datetime "updated_at"
   end
 
-  create_table "curriculums", :force => true do |t|
+  create_table "curriculum_courses", :force => true do |t|
+    t.integer  "curriculum_id"
     t.integer  "course_id"
-    t.integer  "program_id"
-    t.integer  "course_type"
-    t.integer  "semester_id"
-    t.integer  "class_year_id"
+    t.string   "course_type"
+    t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "price"
+  end
+
+  create_table "curriculums", :force => true do |t|
+    t.integer  "program_id"
+    t.integer  "class_year_id"
+    t.integer  "semester_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "department_choices", :force => true do |t|
@@ -295,6 +320,14 @@ ActiveRecord::Schema.define(:version => 20110401131638) do
 
   create_table "enrollment_types", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enrollments", :force => true do |t|
+    t.integer  "registration_id"
+    t.integer  "offered_course_id"
+    t.string   "add_drop_status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -407,8 +440,8 @@ ActiveRecord::Schema.define(:version => 20110401131638) do
   add_index "netzke_component_states", ["user_id"], :name => "index_netzke_component_states_on_user_id"
 
   create_table "offered_courses", :force => true do |t|
-    t.integer  "curriculum_id"
-    t.integer  "academic_semester_id"
+    t.integer  "curriculum_course_id"
+    t.integer  "academic_year_semester_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -438,7 +471,7 @@ ActiveRecord::Schema.define(:version => 20110401131638) do
     t.string   "name"
     t.integer  "department_id"
     t.integer  "admission_id"
-    t.date     "duration"
+    t.integer  "duration"
     t.integer  "total_credit_hour"
     t.integer  "award_type_id"
     t.datetime "created_at"
@@ -452,6 +485,15 @@ ActiveRecord::Schema.define(:version => 20110401131638) do
     t.string   "email"
     t.string   "profession"
     t.integer  "applicant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "registrations", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "class_year_id"
+    t.integer  "academic_year_semester_id"
+    t.date     "registration_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
