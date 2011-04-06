@@ -4,7 +4,7 @@
   belongs_to :admission_status_type
   belongs_to :enrollment_mode_type
   belongs_to :college
-  has_one :student
+  has_one  :student
   has_many :family_background
   has_many :emergency_contacts
   has_many :department_choices
@@ -23,7 +23,7 @@
 
   #validates :person_id, :uniqueness => true
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
-  scope :not_verified, self.where('verified = ?', "f")
+  scope :not_verified, self.where('verified = ? or verified=?',"f",nil)
 
   def full_name
     self.person.full_name

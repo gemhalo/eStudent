@@ -26,7 +26,7 @@ Program.delete_all
 Person.delete_all
 Instructor.delete_all
 Course.delete_all
-
+HowTo.delete_all
 #Campuses
 campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
 
@@ -160,6 +160,19 @@ buildings.each do | b |
   })
 end
 
+
+#buildings
+ how_tos = [
+   {:title => "Undergraduate Application",  :detail =>"All undergraduate students must get a welcome letter which contains login account and application instructions upon arraival" } ,
+  {:title => "Postgraduate Application",  :detail =>"All postgraduate students must create an account and apply online up on login"},
+  {:title => "Extension Application",  :detail =>"All extension students must create an account and apply online up on login" } 
+]
+
+how_tos.each do | h |
+ HowTo.create!({ :title => h[:title], :detail => h[:detail]
+  })
+end
+
 #rooms
 rooms = [
   
@@ -267,7 +280,7 @@ menuitems = [
 
  { :linktitle => "Curriculum" , :linkcontroller => "curriculums",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-
+ 
  { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
@@ -322,6 +335,15 @@ menuitems = [
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 
 { :linktitle => "Service Types" , :linkcontroller => "service_types",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Available Programs" , :linkcontroller => "available_programs",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"guest", :catagory=>"academics" },
+
+{ :linktitle => "How to Apply" , :linkcontroller => "how_tos",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"guest", :catagory=>"academics" },
+
+{ :linktitle => "Academic Calendar" , :linkcontroller => "calendar",    :linkaction => "new",
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" }
 ]
 menuitems.each do |menuitem|
