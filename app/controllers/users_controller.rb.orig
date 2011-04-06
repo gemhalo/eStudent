@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
- #layout "welcome"
+<<<<<<< HEAD
+layout "welcome"  
+=======
+  #alayout "welcome"
+>>>>>>> d21a840b3c0e3eb8d946790d530e550002dc5424
 #before_filter do
 #	redirect_to new_user_session_path unless current_user #authenticated?
 #end
-layout "welcome"
+
  def index
     @temp=User.where("temp_password=? and username=?","",current_user.username).count
    # @temp=User.find_by_username(current_user.username).temp_password.nil?
@@ -14,13 +18,13 @@ layout "welcome"
       instructors_path
     when 'student'
   	if @temp==1
-	     new_applicant_path
+	    applicants_path
 	else
-  	     edit_user_path(current_user)
+       edit_user_path(current_user)
 	end
     when 'admin'
        admin_index_path
-    when 'student_service_staff'
+  when 'student_service_staff'
       student_service_staffs_path
    else
   end
@@ -72,7 +76,7 @@ layout "welcome"
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    @user.role="student"
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'Registration successfull') }
