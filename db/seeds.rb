@@ -87,6 +87,8 @@ end
 users = [
   { :username => "gere" , :password => "gere",    :role => "student",
     :email => "student@campus.com" },
+  { :username => "samy" , :password => "samy",    :role => "instructor",
+    :email => "instructor@campus.com"},
   { :username => "yemane",:password => "yemane",  :role => "student_service_staff",
     :email => "sss@campus.com"},
   { :username => "admin",:password => "admin",    :role => "admin",
@@ -345,6 +347,9 @@ menuitems = [
 
 { :linktitle => "Academic Calendar" , :linkcontroller => "calendar",    :linkaction => "new",
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" }
+
+{ :linktitle => "Set Events" , :linkcontroller => "events",    :linkaction => "index",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
 ]
 menuitems.each do |menuitem|
   Menuitem.create!({:linktitle => menuitem[:linktitle],:linkcontroller => menuitem[:linkcontroller],

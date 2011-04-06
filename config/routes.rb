@@ -17,7 +17,7 @@ EStudent::Application.routes.draw do
   resources :clearance_requests
 
   resources :curriculums
-
+  resources :service_types
   resources :programs
   resources :service_agreements
 
