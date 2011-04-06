@@ -12,6 +12,8 @@ EStudent::Application.routes.draw do
   get "adddrops/approve"
 
   get "adddrops/notification"
+  get "adddrops/course_add_request_list"
+  get "adddrops/course_drop_request_list"
 
   root :to => "welcome#index"
   resources :borrowed_items

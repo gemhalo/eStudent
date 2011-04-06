@@ -1,3 +1,6 @@
+<% if @add_requests.blank? %>
+    No Add Course Request
+  <% else %>
 <table border="1">
   <tr>
     <th>ID Number</th>
@@ -19,3 +22,5 @@
   </tr>
 
 </table>
+
+    <%  end %>

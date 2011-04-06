@@ -24,8 +24,21 @@
   #validates :person_id, :uniqueness => true
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
   scope :not_verified, self.where('verified = ?', "f")
-  scope :undergraduate_regular_applicants, joins(:admission=>[:admission_type, :enrollment_type])
-  .where("admission_types.name like ? and enrollment_types.name like ?", 'undergraduate','regular')
+
+  scope :disabled_undergraduate_regular_applicants, joins(:person, :educational_backgrounds, :admission=>[:admission_type, :enrollment_type])
+  .where("admission_types.name like ? and enrollment_types.name like ? and people.disability=?", 'undergraduate','regular', true)
+  .order("educational_backgrounds.result desc")
+
+   scope :female_undergraduate_regular_applicants, joins(:person, :educational_backgrounds, :admission=>[:admission_type, :enrollment_type])
+  .where("admission_types.name like ? and enrollment_types.name like ? and people.disability=? and people.gender=?",
+   'undergraduate','regular', false,'F')
+  .order("educational_backgrounds.result desc")
+
+   scope :male_undergraduate_regular_applicants, joins(:person, :educational_backgrounds, :admission=>[:admission_type, :enrollment_type])
+  .where("admission_types.name like ? and enrollment_types.name like ? and people.disability=? and people.gender=?",
+   'undergraduate','regular', false,'M')
+  .order("educational_backgrounds.result desc")
+
 
   def full_name
     self.person.full_name

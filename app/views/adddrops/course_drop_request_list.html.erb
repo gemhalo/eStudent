@@ -1,3 +1,7 @@
+<% if @drop_requests.blank? %>
+  No Course Drop Request
+<% else %>
+  
 <table border="1">
   <tr>
     <th>ID Number</th>
@@ -17,5 +21,6 @@
     <td><%= link_to "Decline", :action=>"decline_add", :id=>a.id %> </td>
     <% end %>
   </tr>
-
 </table>
+
+<% end %>

@@ -1,3 +1,4 @@
 class Registration < ActiveRecord::Base
-  has_one :enrollment
+  has_many :enrollments
+  has_many :add_drops
 end
