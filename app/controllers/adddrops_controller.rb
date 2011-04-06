@@ -6,7 +6,7 @@ class AdddropsController < ApplicationController
 
   def drop
      render :partial => 'drop'
-     @enrollment = @current_user.person.applicant.student.registration.last
+    # @enrollment = @current_user.person.applicant.student.registration.last
   end
 
   def approve

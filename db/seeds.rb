@@ -18,6 +18,8 @@ User.delete_all
 Building.delete_all
 Room.delete_all
 Menuitem.delete_all
+ClassYear.delete_all
+Semester.delete_all
 #Campuses
 campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
 
@@ -224,4 +226,27 @@ menuitems.each do |menuitem|
                 :linkaction => menuitem[:linkaction], :linkicon => menuitem[:linkicon],
                 :role_id => menuitem[:role_id], :catagory=>menuitem[:catagory] } )
 end
+
+class_years = [
+  {:name => "1"},
+  {:name => "2"},
+  {:name => "3"},
+  {:name => "4"},
+  {:name => "5"}
+]
+class_years.each do |class_year|
+  ClassYear.create!({:name => class_year[:name]})
+end
+
+semesters = [
+  {:name => "1"},
+  {:name => "2"},
+  {:name => "3"}
+  
+]
+semesters.each do |semester|
+  Semester.create!({:name => semester[:name]})
+end
+
+
 
