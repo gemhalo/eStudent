@@ -1,8 +1,8 @@
  class Applicant < ActiveRecord::Base
   belongs_to :person
-    after_initialize :init_person
-    before_save :save_person
-    accepts_nested_attributes_for :person
+#    after_initialize :init_person
+#    before_save :save_person
+#    accepts_nested_attributes_for :person
 
   belongs_to :admission
   belongs_to :admission_status_type
