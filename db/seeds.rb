@@ -140,7 +140,7 @@ end
  how_tos = [
   {:title => "Undergraduate Application",  :detail =>"All undergraduate students must get a welcome letter which contains login account and application instructions upon arraival" } ,
   {:title => "Postgraduate Application",  :detail =>"All postgraduate students must create an account and apply online up on login"},
-  {:title => "Extension Application",  :detail =>"All extension students must create an account and apply online up on login" } 
+  {:title => "Extension Application",  :detail =>"All extension students must create an account and apply online up on login" }
 ]
 
 how_tos.each do | h |
@@ -149,7 +149,7 @@ end
 
 #rooms
 rooms = [
-  
+
  {:room_number => "101", :building => "block-1", :floor_number => 1, :holding_capacity => 10, :used_for => "dormitory" },
  {:room_number => "102", :building => "block-1", :floor_number => 2, :holding_capacity => 24, :used_for => "dormitory" },
  {:room_number => "103", :building => "block-2", :floor_number => 1, :holding_capacity => 15, :used_for => "dormitory" },
@@ -160,7 +160,7 @@ rooms.each do | r |
   Room.create!({ :room_number => r[:room_number],
                  :floor_number => r[:floor_number],
                  :holding_capacity => r[:holding_capacity],
-                 :used_for => r[:used_for], 
+                 :used_for => r[:used_for],
                  :building_id => Building.find_by_building_name(r[:building])})
 end
 
@@ -197,7 +197,7 @@ end
 # Programs
 
 programs = [
-  {:name => "Biology", :department_id => "Biology", :admission_type => "undergraduate", 
+  {:name => "Biology", :department_id => "Biology", :admission_type => "undergraduate",
     :enrollment_type => "regular" , :duration => "3", :total_credit_hour => "154",
     :award_type => "Degree - Bed"},
   {:name => "Applied Chemistry", :department_id => "Chemistry", :admission_type => "undergraduate",
@@ -328,7 +328,7 @@ menuitems.each do |menuitem|
                 :role_id => menuitem[:role_id], :catagory=>menuitem[:catagory] } )
 end
 
-#class_year 
+#class_year
 class_years = [
   {:name => "1"},
   {:name => "2"},
@@ -345,7 +345,7 @@ semesters = [
   {:name => "1"},
   {:name => "2"},
   {:name => "3"}
-  
+
 ]
 semesters.each do |semester|
   Semester.create!({:name => semester[:name]})
@@ -383,19 +383,20 @@ academic_year_semesters = [
 
 ## Instructors
 instructors = [
- { :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros", :employee_id => "MU001", 
+ { :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros", :employee_id => "MU001",
    :academic_rank => "Masters in computer science", :department => "Computing" },
- { :name => "yared", :father_name => "getachew", :grand_father_name => "kiros",
-   :employee_id => "MU002", :academic_rank => "Degree in computer science", :department => "Computing" }
+ { :name => "yared", :father_name => "getachew", :grand_father_name => "kiros",:employee_id => "MU002",
+   :academic_rank => "Degree in computer science", :department => "Computing" }
 ]
 
 instructors.each do |instructor|
   Instructor.create!({
-    :name => instructor[:name], 
-    :father_name => instructor[:father_name], 
-    :grand_father_name => instructor[:grand_father_name], 
+    :name => instructor[:name],
+    :father_name => instructor[:father_name],
+    :grand_father_name => instructor[:grand_father_name],
     :employee_id => instructor[:employee_id],
-    :academic_rank => instructor[:academic_rank], 
+    :academic_rank => instructor[:academic_rank],
     :department_id => Department.find_by_name(instructor[:department])
   })
 end
+

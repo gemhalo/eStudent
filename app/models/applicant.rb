@@ -27,23 +27,23 @@
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
   scope :not_verified, self.where('verified = ?', "f")
 
-  scope :disabled_undergraduate_regular_applicants, 
-   joins(:person, :educational_backgrounds, 
-    :admission=>[:admission_type, 
-    :enrollment_type]).where("admission_types.name like ? and enrollment_types.name like ? and people.disability=?", 
+  scope :disabled_undergraduate_regular_applicants,
+   joins(:person, :educational_backgrounds,
+    :admission=>[:admission_type,
+    :enrollment_type]).where("admission_types.name like ? and enrollment_types.name like ? and people.disability=?",
     'undergraduate','regular', true).order("educational_backgrounds.result desc")
 
-   scope :female_undergraduate_regular_applicants, joins(:person, 
+   scope :female_undergraduate_regular_applicants, joins(:person,
       :educational_backgrounds, :admission=>[:admission_type, :enrollment_type]).where("admission_types.name like ? and enrollment_types.name like ? and people.disability=? and people.gender=?",
    'undergraduate','regular', false,'F').order("educational_backgrounds.result desc")
 
-   scope :male_undergraduate_regular_applicants, joins(:person, 
-    :educational_backgrounds, :admission=>[:admission_type, 
+   scope :male_undergraduate_regular_applicants, joins(:person,
+    :educational_backgrounds, :admission=>[:admission_type,
     :enrollment_type]).where("admission_types.name like ? and enrollment_types.name like ? and people.disability=? and people.gender=?",
    'undergraduate','regular', false,'M').order("educational_backgrounds.result desc")
 
 
-   #TODO:
+     #TODO:
    # The following code snippets will be replaced/refactored later to remove the need to maintain
    # Person related fields in one location rather than in multiple locations
   def date_of_birth
@@ -56,30 +56,35 @@
     self.person.ethnicity
   end
   def ethnicity=(ethnicity)
+    init_person if self.new_record?
     self.person.ethnicity=ethnicity
   end
   def father_name
     self.person.father_name
   end
   def father_name=(father_name)
+    init_person if self.new_record?
     self.person.father_name=father_name
   end
   def gender
     self.person.gender
   end
   def gender=(gender)
+    init_person if self.new_record?
     self.person.gender=gender
   end
   def grand_father_name
     self.person.grand_father_name
   end
   def grand_father_name=(grand_father_name)
+    init_person if self.new_record?
     self.person.grand_father_name=grand_father_name
   end
   def marital_status
     self.person.marital_status
   end
   def marital_status=(marital_status)
+    init_person if self.new_record?
     self.person.marital_status=marital_status
   end
   def mother_full_name
@@ -92,33 +97,36 @@
     self.person.name
   end
   def name=(name)
+    init_person if self.new_record?
     self.person.name=name
   end
   def nationality
     self.person.nationality
   end
   def nationality=(nationality)
+    init_person if self.new_record?
     self.person.nationality=nationality
   end
   def photo
     self.person.photo
   end
   def photo=(photo)
+    init_person if self.new_record?
     self.person.photo=photo
   end
   def place_of_birth
     self.person.place_of_birth
   end
   def place_of_birth=(place_of_birth)
+    init_person if self.new_record?
     self.person.place_of_birth=place_of_birth
   end
+
   def full_name
     self.person.full_name
   end
 
-
   def person_attributes=(person_attributes)
-    #logger.info("----------sss-----#{person_attributes}----------")
     person_attributes.each do |attributes|
       person.build(attributes)
     end
@@ -126,12 +134,10 @@
   #make it private
   private
     def init_person
-      self.person = Person.new if self.new_record?     
+      self.person = Person.new if self.new_record?
     end
-
     def save_person
-      self.person.save!
+        self.person.save!
     end
-
 end
 
