@@ -17,6 +17,13 @@
      <%= f.collection_select(:program_id, @programs, :id,:name)%>
 
   </div>
+
+<div class="field">
+    <%= f.label :Admission_id %><br />
+     <%= f.collection_select(:program_id, @admission, :id,:admission_name)%>
+
+  </div>
+
   <div class="field">
     <%= f.label :class_year_id %><br />
      <%= f.collection_select(:class_year_id, @class_years, :id,:name)%>
