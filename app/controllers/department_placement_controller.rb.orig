@@ -1,18 +1,18 @@
 class DepartmentPlacementController < ApplicationController
-<<<<<<< HEAD
-#layout "instructor"
-=======
->>>>>>> dda0a509388ac5e31ae8dedffc58ef4f19c59560
 
 def department_placing_process
   
   # Disabled students are given priority
 
+<<<<<<< HEAD
+  @disabled_applicants=Applicant.disabled_undergraduate_regular_applicants
+=======
   @undergraduate_regular_applicants=Applicant.undergraduate_regular_applicants
 
   @disabled_applicants=Applicant.all(:include=>[:person, :educational_backgrounds, :admission=>[:admission_types, :enrollment_types]], :conditions=> 
-      ["admission_types.name=? and enrollment_types.name=? people.disability=?",'Undergraduate','Regular',true],
+      ["people.disability=?",'Undergraduate','Regular',true],
       :order=> ("educational_backgrounds.result desc"))
+>>>>>>> aa2122430989aad3024d4f29af4792de94f7ec7e
 	for ds in @disabled_applicants
 			@depts=ds.department_choices.order("preference")
 			ds.student.department_id=@depts.first.department_id
@@ -21,8 +21,7 @@ def department_placing_process
 
     #Females are placed according to the given percentage
     
-		@female_applicants=Applicant.all(:include=>		[:person, :educational_backgrounds], :conditions=>
-		["people.gender='F' and people.disability=?",false], :order=>("educational_backgrounds.result desc"))
+		@female_applicants=Applicant.female_undergraduate_regular_applicants
 		for fs in @female_applicants
 			@depts=fs.department_choices.order("preference")
 			for d in @depts
@@ -38,8 +37,7 @@ def department_placing_process
 
     #Finally Males are placed to the remaining space
 
-		@male_applicants=Applicant.all(:include=>[:person, :educational_backgrounds], :conditions=>
-        ["people.gender='M' and people.disability=?",false], :order => ("educational_backgrounds.result desc"))
+		@male_applicants=Applicant.male_undergraduate_regular_applicants
 		for ms in @male_applicants
 			@depts=ms.department_choices.order("preference")
 			for d in @depts
@@ -59,3 +57,4 @@ def show_placement
 end
 
 end
+

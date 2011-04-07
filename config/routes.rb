@@ -6,14 +6,17 @@ EStudent::Application.routes.draw do
   resources :curriculum_courses
 
   get "adddrops/add"
-
+  post "adddrops/add"
   get "adddrops/drop"
 
-  get "adddrops/approve"
-
+  get "adddrops/add_drop"
   get "adddrops/notification"
   get "adddrops/course_add_request_list"
   get "adddrops/course_drop_request_list"
+  get "adddrops/approve_add"
+  get "adddrops/decline_add"
+  get "adddrops/approve_drop"
+  get "adddrops/decline_drop"
 
   root :to => "welcome#index"
   resources :borrowed_items
@@ -33,6 +36,8 @@ resources :academic_calendars
 
 netzke
   get "admin/index"
+  resources :offered_courses
+
   resources :class_years
 
   resources :semesters
@@ -99,6 +104,11 @@ netzke
   post "dormitory_placement/individual_dorm_placement_form"
   post "dormitory_placement/individual_dorm_placement"
   get "department_placement/department_placing_process"
+  post "dormitory_placement/dorm_placing_process"
+
+  get "dormitory_placement/dorm_placing_process"
+
+  post "dormitory_placement/dorm_placing_process"
 
   get "department_placement/show_placement"
 

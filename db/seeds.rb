@@ -109,21 +109,21 @@ users.each do |user|
 end
 #instructors
 # instructors = [
-#    {:employee_id => "MU001", :academic_rank => "Masters in computer science", :department_id => "Computing",
-#     :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros"},
-#    {:employee_id => "MU002", :academic_rank => "Degree in computer science", :department_id => "Computing",
-#     :name => "yared", :father_name => "getachew", :grand_father_name => "kiros"},
-#    {:employee_id => "MU003", :academic_rank => "Masters in computer science", :department_id => "Computing",
-#     :name => "ferede", :father_name => "zeray", :grand_father_name => "tefera"},
-#    {:employee_id => "MU004", :academic_rank => "Degree in computer science", :department_id => "Computing",
-#     :name => "habtom", :father_name => "kahsay", :grand_father_name => "gidey"}
-# ]
-# instructors.each do |instructor|
-#    Instructor.create!({ :employee_id => instructor[:employee_id],
-#                         :academic_rank => instructor[:academic_rank],
-#                         :department_id => Department.find_by_name(instructor[:department_id]),
-#                         :person_id => Person.where("name = ? and father_name = ?",
-#                           instructor[:name],instructor[:father_name])})
+ #   {:employee_id => "MU001", :academic_rank => "Masters in computer science", :department_id => "Computing",
+ #    :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros"},
+ #   {:employee_id => "MU002", :academic_rank => "Degree in computer science", :department_id => "Computing",
+ #    :name => "yared", :father_name => "getachew", :grand_father_name => "kiros"},
+ #   {:employee_id => "MU003", :academic_rank => "Masters in computer science", :department_id => "Computing",
+ #    :name => "ferede", :father_name => "zeray", :grand_father_name => "tefera"},
+ #   {:employee_id => "MU004", :academic_rank => "Degree in computer science", :department_id => "Computing",
+ #    :name => "habtom", :father_name => "kahsay", :grand_father_name => "gidey"}
+ #]
+ #instructors.each do |instructor|
+ #   Instructor.create!({ :employee_id => instructor[:employee_id],
+ #                        :academic_rank => instructor[:academic_rank],
+ #                        :department_id => Department.find_by_name(instructor[:department_id]),
+ #                        :person_id => Person.where("name = ? and father_name = ?",
+ #                          instructor[:name],instructor[:father_name])})
 #  end
 
  
