@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(:version => 20110405114619) do
     t.string   "major_field_of_study"
     t.string   "minor_field_of_study"
     t.string   "academic_year"
-    t.integer  "admission_status"
+    t.boolean  "admission_status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "verified"
