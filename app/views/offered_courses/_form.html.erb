@@ -19,10 +19,9 @@
 
      <div class="field">
     <%= f.label :academic_year_semester_id%><br />
-     <%= f.collection_select(:academic_year_semester_id, @academic_year_semester, :id,:id)%>
+     <%= f.collection_select(:academic_year_semester_id, @academic_year_semester, :id, :academicyear)%>
 
   </div>
-
  
   <div class="actions">
     <%= f.submit %>

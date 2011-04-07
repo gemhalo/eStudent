@@ -293,20 +293,18 @@ menuitems = [
  { :linktitle => "Department Placement" , :linkcontroller => "department_quotas",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
+  { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+
+
  { :linktitle => "Curriculum" , :linkcontroller => "curriculums",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
- 
- { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
+
+
+ { :linktitle => "Curriculum-course (Design)" , :linkcontroller => "curriculum_courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
- { :linktitle => "Add Offered Courses" , :linkcontroller => "offered_courses",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-
- { :linktitle => "Allocate Courses " , :linkcontroller => "course_assignments",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-  { :linktitle => "Curriculum-course" , :linkcontroller => "curriculum_courses",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-  { :linktitle => "Course offer " , :linkcontroller => "offered_courses",    :linkaction => "index",
+   { :linktitle => "Course offer " , :linkcontroller => "offered_courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
 { :linktitle => "Assign instructor " , :linkcontroller => "assign_instructors",    :linkaction => "index",

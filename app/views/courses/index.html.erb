@@ -1,35 +1,6 @@
-
-
-<h1>Listing courses</h1>
-
-<table border=1>
-  <tr>
-    <th>Course title</th>
-    <th>Course code</th>
-    <th>Credit hour</th>
-    <th>Description</th>
-    <th>Department</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @courses.each do |course| %>
-  <tr>
-    <td><%= course.course_title %></td>
-    <td><%= course.course_code %></td>
-    <td><%= course.credit_hour %></td>
-    <td><%= course.description %></td>
-    <td><%= course.department_id %></td>
-    <td><%= link_to 'Show', course %></td>
-    <td><%= link_to 'Edit', edit_course_path(course) %></td>
-    <td><%= link_to 'Destroy', course, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Course', new_course_path %>
-
-
+<%= netzke :custom_action_grid, :model => 'Course',
+:title=>'Add courses',
+:autoScroll => true,
+:height => 370,
+:width =>850
+%>
