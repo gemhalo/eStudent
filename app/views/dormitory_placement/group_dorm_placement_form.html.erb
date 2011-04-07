@@ -1,5 +1,5 @@
 
-<fieldset style="width: 60%">
+<fieldset style="width: 60%;margin-left:150px;margin-top:50px">
   <legend>Group Dorm Placement</legend><br/>
   <%= form_tag(:action=> "group_dorm_placement", :method=>"get") do %>
   <b><%= label_tag "Building" %></b>
@@ -7,7 +7,7 @@
   <b><%= label_tag "College" %></b>
   <%= select_tag "college", options_from_collection_for_select(College.all, "id", "name")%><br/><br/>
   <b><%= label_tag "Class Year" %></b>
-   <%= select_tag "class_year", options_for_select(['1','2','3','4','5','6','7'])%><br/><br/>
+   <%= select_tag "class_year", options_for_select(['1'..'7'])%><br/><br/>
   <b><%= label_tag "Sex" %></b>&nbsp;&nbsp;
     <%= radio_button_tag 'gender', 'M' %> Males &nbsp;
   <%= radio_button_tag 'gender', 'F' %> Females<br/><br/>
