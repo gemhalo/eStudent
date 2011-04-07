@@ -1,6 +1,6 @@
 <h1>Listing curriculum_courses</h1>
 
-<table>
+<table border ="1">
   <tr>
     <th>Curriculum</th>
     <th>Course</th>
@@ -13,8 +13,8 @@
 
 <% @curriculum_courses.each do |curriculum_course| %>
   <tr>
-    <td><%= curriculum_course.curriculum_id %></td>
-    <td><%= curriculum_course.course_id %></td>
+    <td><%= [curriculum_course.curriculum.program.name, "Year",curriculum_course.curriculum.class_year.name, "semester",curriculum_course.curriculum.semester.name].join("-")  %></td>
+    <td><%= curriculum_course.course.course_title%></td>
     <td><%= curriculum_course.course_type %></td>
     <td><%= curriculum_course.price %></td>
     <td><%= link_to 'Show', curriculum_course %></td>

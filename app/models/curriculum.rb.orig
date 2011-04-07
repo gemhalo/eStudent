@@ -1,10 +1,18 @@
 class Curriculum < ActiveRecord::Base
+<<<<<<< HEAD
   
   has_many :course, :through => :curriculum_course
   belongs_to :semester
   belongs_to :program
   belongs_to :class_year
 
+=======
+  #has_many :curriculum_course
+  belongs_to :semester
+  belongs_to :program
+  belongs_to :class_year
+  has_many :course,  :through =>:curriculum_course
+>>>>>>> 5589a0ec336d83db71baca2ae8d097797b3eba1b
 end
 
 

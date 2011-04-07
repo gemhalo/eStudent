@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+<%= link_to "add", :controller => "adddrops", :action => "add" %>
+<%= link_to "drop", :controller => "adddrops", :action => "drop" %>
+=======
+<table><tr><td><%= link_to 'Add', :controller => 'adddrops', :action => 'add'%></td><td>|</td><td><%= link_to 'Drop', :controller => 'adddrops', :action => 'drop'  %></td></tr></table>
+>>>>>>> aa2122430989aad3024d4f29af4792de94f7ec7e
