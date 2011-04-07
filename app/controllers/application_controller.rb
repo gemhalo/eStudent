@@ -46,7 +46,9 @@
     if current_user
       store_location
       flash[:notice] = "You must be logged in to access this page"
-      redirect_to login_url
+     # @mypath = [current_user.role,"s_index_path"].join
+      #redirect_to @mypath
+      redirect_to  :controller=>"#{current_user}", :action=>"index"
       return false
     end
   end

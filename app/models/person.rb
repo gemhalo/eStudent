@@ -2,14 +2,14 @@ class Person < ActiveRecord::Base
   has_one :user
   has_one :applicant
   has_one :student_service_staff
-  #has_one :student
+  has_one :student
   has_one :instructor
   
   belongs_to :nationality
   has_many :educational_backgrounds
   #validates :name, :uniqueness => {:scope => [:name, :father_name, :grand_father_name]}
-  validates :name , :presence => true
-  validates :father_name,  :presence => true
+#  validates :name , :presence => true
+ # validates :father_name,  :presence => true
   
   has_attached_file :photo,
    :url => "/:class/:attachment/:id/:style_:basename.:extension",
@@ -52,7 +52,12 @@ class Person < ActiveRecord::Base
     def school
       self.applicant.educational_backgrounds.first.school_code
     end
-    ##??
+    def random_string(len)
+      chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
+      newpass=""
+      1.upto(len) {|i| newpass << chars[rand(chars.size-1)]}
+      return newpass
+    end
 	   def username
         (User.where('person_id = ?', self.id)).first.username
       end

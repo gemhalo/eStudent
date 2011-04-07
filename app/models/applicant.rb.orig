@@ -1,8 +1,14 @@
  class Applicant < ActiveRecord::Base
   belongs_to :person
+<<<<<<< HEAD
+#    after_initialize :init_person
+#    before_save :save_person
+#    accepts_nested_attributes_for :person
+=======
  #   after_initialize :init_person
   #  before_save :save_person
    # accepts_nested_attributes_for :person
+>>>>>>> 86d99b832bf6dc7d1d69fa23ebdad7794203f6a8
 
   belongs_to :admission
   belongs_to :admission_status_type

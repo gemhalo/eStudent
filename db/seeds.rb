@@ -383,19 +383,19 @@ academic_year_semesters = [
 
 ## Instructors
 #instructors = [
-# { :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros", :employee_id => "MU001",
+# { :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros", :employee_id => "MU001", 
 #   :academic_rank => "Masters in computer science", :department => "Computing" },
 # { :name => "yared", :father_name => "getachew", :grand_father_name => "kiros",
 #   :employee_id => "MU002", :academic_rank => "Degree in computer science", :department => "Computing" }
 #]
-#
+
 #instructors.each do |instructor|
 #  Instructor.create!({
-#    :name => instructor[:name],
-#    :father_name => instructor[:father_name],
-#    :grand_father_name => instructor[:grand_father_name],
-#    :employee_id => instructor[:employee_id],
-#    :academic_rank => instructor[:academic_rank],
-#    :department_id => Department.find_by_name(instructor[:department])
-#  })
+ #   :name => instructor[:name], 
+  #  :father_name => instructor[:father_name], 
+  #  :grand_father_name => instructor[:grand_father_name], 
+  #  :employee_id => instructor[:employee_id],
+   # :academic_rank => instructor[:academic_rank], 
+   # :department_id => Department.find_by_name(instructor[:department])
+ # })
 #end
