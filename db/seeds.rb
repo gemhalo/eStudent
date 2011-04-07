@@ -26,7 +26,9 @@ Program.delete_all
 Person.delete_all
 Instructor.delete_all
 Course.delete_all
+CourseType.delete_all
 HowTo.delete_all
+
 #Campuses
 campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
 
@@ -82,6 +84,19 @@ end
                  :department_id => Department.find_by_name([:department]), :description => course[:description]})
 end
 
+
+#course_types
+
+#course
+ course_types = [
+ {:name => "major"},
+ {:name => "minor"},
+ {:name => "supportive"}
+ ]
+ course_types.each do |coursetypes|
+   CourseType.create!({:name => coursetypes[:name]
+                 })
+end
 
 #Create users
 users = [
@@ -291,20 +306,18 @@ menuitems = [
  { :linktitle => "Department Placement" , :linkcontroller => "department_quotas",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
+  { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+
+
  { :linktitle => "Curriculum" , :linkcontroller => "curriculums",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
- 
- { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
+
+
+ { :linktitle => "Curriculum-course (Design)" , :linkcontroller => "curriculum_courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
- { :linktitle => "Add Offered Courses" , :linkcontroller => "offered_courses",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-
- { :linktitle => "Allocate Courses " , :linkcontroller => "course_assignments",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-  { :linktitle => "Design curriculum " , :linkcontroller => "curriculum_courses",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-  { :linktitle => "Course offer " , :linkcontroller => "offered_courses",    :linkaction => "index",
+   { :linktitle => "Course offer " , :linkcontroller => "offered_courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
 { :linktitle => "Assign instructor " , :linkcontroller => "assign_instructors",    :linkaction => "index",
@@ -316,6 +329,9 @@ menuitems = [
 
  { :linktitle => "Register" , :linkcontroller => "service_agreements",    :linkaction => "new",
     :linkicon => "/icons/database_add.png", :role_id=>"student", :catagory=>"academics" },
+
+ { :linktitle => "Add and Drop" , :linkcontroller => "adddrops",    :linkaction => "add_drop",
+    :linkicon => "/icons/add.png", :role_id=>"student", :catagory=>"academics" },
 
 #admin menu items
 
@@ -420,7 +436,6 @@ academic_year_semesters = [
                                 :end_at => ays[:end_at],
                                 :status => ays[:status]})
  end
-
 
 
 

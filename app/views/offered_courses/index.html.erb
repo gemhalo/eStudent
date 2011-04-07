@@ -1,9 +1,10 @@
 <h1>Listing offered_courses</h1>
 
-<table>
+<table border="1">
   <tr>
     <th>Curriculum course</th>
     <th>Academic year semester</th>
+    <th>Class Year</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +12,9 @@
 
 <% @offered_courses.each do |offered_course| %>
   <tr>
-    <td><%= offered_course.curriculum_course_id %></td>
-    <td><%= offered_course.academic_year_semester_id %></td>
+    <td><%= offered_course.curriculum_course.course.course_title %></td>
+    <td><%= offered_course.academicyear %></td>
+    <td><%= offered_course.curriculum_course.curriculum.class_year.name %></td>
     <td><%= link_to 'Show', offered_course %></td>
     <td><%= link_to 'Edit', edit_offered_course_path(offered_course) %></td>
     <td><%= link_to 'Destroy', offered_course, :confirm => 'Are you sure?', :method => :delete %></td>
