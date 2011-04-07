@@ -12,3 +12,8 @@ end
 def curriculums_select
   [self.program.name,self.class_year.name, self.semester.name].join('-')
 end
+
+def admission
+  [self.program.admission.admission_type.name,self.program.admission.enrollment_type.name].join("-")
+
+end
