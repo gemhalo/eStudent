@@ -21,7 +21,7 @@ class Person < ActiveRecord::Base
  #validates_attachment_presence :photo
  #validates_attachment_content_type :photo, :content_type => 'image/jpeg'
  #validates_presence_of  :name, :father_name, :grand_father_name, :mother_full_name, :gender,:date_of_birth, :place_of_birth, :ethnicity, :nationality_id, :marital_status, :disability, :type_of_disability, :region_code
-    attr_accessor :name, :father_name
+    
     def full_name
         [name,father_name,grand_father_name].join(' ')
     end

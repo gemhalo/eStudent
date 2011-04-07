@@ -2,7 +2,7 @@
 <%#= flash[:notice] %>
 
 
-<%#= netzke :applicants,
+<%= netzke :applicants,
            :class_name => "Basepack::GridPanel",
            :model => 'Applicant',
            :view_config => { :force_fit => true },
@@ -16,7 +16,7 @@
            ]
 #           :scope=> {:id.gteq => @person.first.id}
            
-          %>#
+          %>
 
   <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>
 </div>
