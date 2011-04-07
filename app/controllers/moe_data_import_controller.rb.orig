@@ -16,6 +16,10 @@ class MoeDataImportController < ApplicationController
     @person = []
     @applicant = []
     @educational_background  = []
+    
+    @applicants = Applicant.not_verified
+    #@educational_background = EducationalBackground.new
+    
     @file = params[:file]
     CSV.foreach(@file, :col_sep=> "," , :headers => true) do |row|
 
@@ -50,6 +54,7 @@ class MoeDataImportController < ApplicationController
       end
 
 
+
 end
 
   def show
@@ -60,6 +65,8 @@ end
     @applicant = Applicant.new
      flash[:notice] = []
       @person.each  do |p|
+
+      
      #     if p.user.nil?
             @password = p.random_string(6)
           
@@ -92,21 +99,15 @@ end
               ethiopian_year=date.year - 7
             end
             idnumber="#{collegename}" << "/" << "#{program}" << "#{enrollment}" << "#{seqno}" << "/" << "#{ethiopian_year}"
+
+
             @applicant.temp_id_number=idnumber
             @applicant.save!
-<<<<<<< HEAD
             @applicant.build_student
             @applicant.student.id_number = idnumber
             @applicant.student.save!
 
-=======
-	          @applicant.build_student
-	          @applicant.student.id_number=idnumber
-	          @applicant.student.save!
->>>>>>> d1e4658fe3ba7ec660f1b5cc338ebb176cef436d
       end
-     
-
-  end
+    end
 end
 

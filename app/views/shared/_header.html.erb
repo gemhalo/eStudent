@@ -10,7 +10,7 @@
               <%#if current_user.role == "student"%>
                   <%# @applicantId = Applicant.find(current_user.person_id)  %>
                   <%#= link_to "Edit Profile",:controller=> 'applicants', :action => "edit" , :applicant_id => @applicantId %>
-                  <%# end %>
+                  <%# end %> 
             |(<%= link_to 'Logout', logout_path, :method => :delete %>)
         <% else %>
     
