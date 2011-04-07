@@ -16,18 +16,10 @@
      <%= f.collection_select(:offered_course_id, @offered_course, :id,:name)%>
   </div>
 
-  <%#*<div class="field">%>
-    <%#= f.label :offered_course_id %><br />
-    <%#= f.text_field :offered_course_id %>
-  <%#*</div>%>
-     <div class="field">
+   <div class="field">
     <%= f.label :instructor_id %><br />
      <%= f.collection_select(:instructor_id, @instructor, :id,:name)%>
   </div>
-  <%#*<div class="field">%>
-    <%#= f.label :instructor_id %><br />
-    <%#= f.text_field :instructor_id %>
-  <%#*</div>%>
   <div class="field">
     <%= f.label :section %><br />
     <%= f.text_field :section %>
