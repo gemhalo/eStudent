@@ -92,12 +92,9 @@ end
               ethiopian_year=date.year - 7
             end
             idnumber="#{collegename}" << "/" << "#{program}" << "#{enrollment}" << "#{seqno}" << "/" << "#{ethiopian_year}"
-            @applicant.temp_id_number=idnumber
-            @applicant.save!
-            @applicant.build_student
-            @applicant.student.id_number = idnumber
-            @applicant.student.save!
-
+	          @applicant.build_student
+	          @applicant.student.id_number=idnumber
+	          @applicant.student.save!
       end
      
 

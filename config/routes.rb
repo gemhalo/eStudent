@@ -9,11 +9,15 @@ EStudent::Application.routes.draw do
   post "adddrops/add"
   get "adddrops/drop"
 
-  get "adddrops/approve"
-
   get "adddrops/dropped" 
-get "adddrops/add_drop"
+  get "adddrops/add_drop"
   get "adddrops/notification"
+  get "adddrops/course_add_request_list"
+  get "adddrops/course_drop_request_list"
+  get "adddrops/approve_add"
+  get "adddrops/decline_add"
+  get "adddrops/approve_drop"
+  get "adddrops/decline_drop"
 
   root :to => "welcome#index"
   resources :borrowed_items

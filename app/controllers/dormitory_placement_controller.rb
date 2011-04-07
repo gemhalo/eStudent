@@ -17,8 +17,8 @@ class DormitoryPlacementController < ApplicationController
 
   def individual_dorm_placement
     @dormitory=Dormitory.new(params[:dormitory])
-    @student=Student.find_by_id_number(params[:student][:id_number])
-    @dormitory.student=@student
+    #@student=Student.find_by_id_number(params[:student][:id_number])
+    #@dormitory.student=@student
     @dormitory.save!
     redirect_to :action=>"show_placement"
   end
