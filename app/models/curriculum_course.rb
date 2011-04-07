@@ -1,4 +1,5 @@
 class CurriculumCourse < ActiveRecord::Base
+  validates_presence_of :price
   belongs_to :course
   belongs_to :curriculum
   #has_many :offered_courses

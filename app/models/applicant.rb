@@ -40,15 +40,17 @@
   .order("educational_backgrounds.result desc")
 
 
+  attr_accessor :name, :father_name
+
   def full_name
     self.person.full_name
   end
   def name
     self.person.name
   end
-  def father_name
-    self.person.father_name
-  end
+ # def father_name
+  #  self.person.father_name
+  #end
   def grand_father_name
     self.person.grand_father_name
   end

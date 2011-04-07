@@ -8,4 +8,9 @@ class OfferedCourse < ActiveRecord::Base
    def name
     [ self.curriculum_course.course.course_title.capitalize,self.curriculum_course.course.course_code.capitalize ].join('-')
   end
+
+  def academicyear
+    [ self.academic_year_semester.academic_year.year, "Semester", self.academic_year_semester.semester.name].join('-')
+  end
+
 end

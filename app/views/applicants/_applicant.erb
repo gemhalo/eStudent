@@ -17,8 +17,8 @@
 <%= link_to "Educational Background", :controller => "educational_backgrounds", :action => "new", :applicant_id => @applicantid%> |
 <%= link_to "Employment Info", :controller => "employment_informations", :action => "new", :applicant_id => @applicantid%> |
 <%= link_to "Course Exemption", :controller => "course_exemptions", :action => "new", :applicant_id => @applicantid%> |
-<% admtype = @applicant.admission.admission_type %>
-<%if admtype == 1%>
+<%# admtype = @applicant.admission.admission_type_id %>
+<%#if admtype == 1%>
 
 <%= link_to "Department Choice", :controller => "department_choices", :action => "new", :applicant_id => @applicantid%> |
 <%else%>
@@ -27,6 +27,6 @@
 <%= link_to "Academic Proffesional Qualification", :controller => "academic_and_professional_qualifications", :action => "new", :applicant_id => @applicantid%> |
 <%= link_to "Financial Support", :controller => "financial_supports", :action => "new", :applicant_id => @applicantid%> |
 <%= link_to "References", :controller => "references", :action => "new", :applicant_id => @applicantid%> |
-<%end%>
+<%#end%>
 
 
