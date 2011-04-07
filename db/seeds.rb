@@ -26,7 +26,9 @@ Program.delete_all
 Person.delete_all
 Instructor.delete_all
 Course.delete_all
+CourseType.delete_all
 HowTo.delete_all
+
 #Campuses
 campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
 
@@ -82,6 +84,19 @@ end
                  :department_id => Department.find_by_name([:department]), :description => course[:description]})
 end
 
+
+#course_types
+
+#course
+ course_types = [
+ {:name => "major"},
+ {:name => "minor"},
+ {:name => "supportive"}
+ ]
+ course_types.each do |coursetypes|
+   CourseType.create!({:name => coursetypes[:name]
+                 })
+end
 
 #Create users
 users = [
@@ -289,7 +304,7 @@ menuitems = [
 
  { :linktitle => "Allocate Courses " , :linkcontroller => "course_assignments",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-  { :linktitle => "Design curriculum " , :linkcontroller => "curriculum_courses",    :linkaction => "index",
+  { :linktitle => "Curriculum-course" , :linkcontroller => "curriculum_courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
   { :linktitle => "Course offer " , :linkcontroller => "offered_courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
