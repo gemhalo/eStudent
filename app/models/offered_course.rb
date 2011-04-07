@@ -1,5 +1,6 @@
 class OfferedCourse < ActiveRecord::Base
-  #has_one :academic_year_semester
+  belongs_to :academic_year_semester
+  has_many :enrollments
   has_many :add_drops
   belongs_to :curriculum_course
   belongs_to :academic_year_semester

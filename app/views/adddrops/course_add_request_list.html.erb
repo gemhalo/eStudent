@@ -15,7 +15,7 @@
     <td><%= a.registration.student.id_number %> </td>
     <td><%= a.registration.student.department.name %> </td>
     <td><%=  a.registration.class_year.name %></td
-    <td><%=  a.offered_course.curriclum_course.course.name %></td
+    <td><%=  a.offered_course.curriculum_course.course.course_title %></td
     <td><%= link_to "Approve", :action=>"approve_add", :id=>a.id %> </td>
     <td><%= link_to "Decline", :action=>"decline_add", :id=>a.id %> </td>
     <% end %>

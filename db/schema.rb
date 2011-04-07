@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(:version => 20110405114619) do
     t.string   "major_field_of_study"
     t.string   "minor_field_of_study"
     t.string   "academic_year"
-    t.boolean  "admission_status"
+    t.integer  "admission_status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "verified"
@@ -333,6 +333,14 @@ ActiveRecord::Schema.define(:version => 20110405114619) do
 
   create_table "ethnicities", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

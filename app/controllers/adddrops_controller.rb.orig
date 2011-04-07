@@ -6,6 +6,10 @@ class AdddropsController < ApplicationController
   end
 
   def add
+<<<<<<< HEAD
+     render :partial => 'add'
+     
+=======
     user = User.find(@current_user)
     course_id = []
    user.person.applicant[0].student[0].program.curriculum.each do |course|
@@ -23,6 +27,7 @@ class AdddropsController < ApplicationController
  end
  logger.info("---------oo-------#{@courseoffer}------")
  @curriculum = Curriculum.where("id = ? and course_id = ?",curriculum_id , params[:course_id])
+>>>>>>> aa2122430989aad3024d4f29af4792de94f7ec7e
   end
 
   def drop
@@ -60,19 +65,15 @@ class AdddropsController < ApplicationController
   def approve_add
     @add=AddDrop.find(params[:id])
     @add.add_drop_status=true
-    @add.save!
     Enrollment.create!(:registration_id=>@add.registration_id,
                       :offered_course_id=>@add.offered_course_id,
                       :add_drop_status=>"added"
     )
-    render :action=>"notification"
   end
 
   def decline_add
     @add=AddDrop.find(params[:id])
     @add.add_drop_status=false
-    @add.save!
-    render :action=>"notification"
   end
 
   def course_drop_request_list
@@ -82,18 +83,11 @@ class AdddropsController < ApplicationController
   def approve_drop
     @drop=AddDrop.find(params[:id])
     @drop.add_drop_status=true
-    @drop.save!
-    @enrollment=@drop.registration.enrollments.where("offered_course_id=?",@drop.offered_course_id).first
+    @enrollment=Enrollment.find_by_offered_course_id(@add.offered_course_id)
     @enrollment.add_drop_status="dropped"
-    @enrollment.save!
-    render :action=>"notification"
   end
 
   def decline_drop
-    @drop=AddDrop.find(params[:id])
-    @drop.add_drop_status=false
-    @drop.save!
-    render :action=>"notification"
   end
 
 end
