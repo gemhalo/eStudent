@@ -12,9 +12,9 @@
   <% end %>
 
  <div class="field">
-    <%= f.label :curriculum_course_id%><br />
-     <%= f.collection_select(:curriculum_course_id, @curriculum_courses, :id,:name)%>
-
+    <%= f.label :curriculum_course_id %><br />
+     <%= f.collection_select(:curriculum_course_id, @curriculum_courses, :id, :course_id)%>
+     
   </div>
 
      <div class="field">

@@ -6,6 +6,10 @@ class AdddropsController < ApplicationController
   end
 
   def add
+<<<<<<< HEAD
+     render :partial => 'add'
+     
+=======
     user = User.find(@current_user)
     course_id = []
    user.person.applicant[0].student[0].program.curriculum.each do |course|
@@ -23,6 +27,7 @@ class AdddropsController < ApplicationController
  end
  logger.info("---------oo-------#{@courseoffer}------")
  @curriculum = Curriculum.where("id = ? and course_id = ?",curriculum_id , params[:course_id])
+>>>>>>> aa2122430989aad3024d4f29af4792de94f7ec7e
   end
 
   def drop

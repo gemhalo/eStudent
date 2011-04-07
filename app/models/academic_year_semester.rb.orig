@@ -1,0 +1,18 @@
+class AcademicYearSemester < ActiveRecord::Base
+<<<<<<< HEAD
+  #belongs_to :offered_course
+  has_many :curriculum_course,  :through =>:offered_course
+  belongs_to :academic_year
+  belongs_to :semester
+=======
+has_many :curriculum_course ,:through => :offered_course
+>>>>>>> d0b79d341be85973c19b24600855b75da2b95aa3
+end
+
+def academicyear
+    [ self.academic_year.year, "Semester", self.semester.name].join('-')
+end
+
+
+
+

@@ -317,6 +317,9 @@ menuitems = [
  { :linktitle => "Register" , :linkcontroller => "service_agreements",    :linkaction => "new",
     :linkicon => "/icons/database_add.png", :role_id=>"student", :catagory=>"academics" },
 
+ { :linktitle => "Add and Drop" , :linkcontroller => "adddrops",    :linkaction => "add_drop",
+    :linkicon => "/icons/add.png", :role_id=>"student", :catagory=>"academics" },
+
 #admin menu items
 
 
@@ -420,7 +423,6 @@ academic_year_semesters = [
                                 :end_at => ays[:end_at],
                                 :status => ays[:status]})
  end
-
 
 
 
