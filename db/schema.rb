@@ -115,7 +115,6 @@ ActiveRecord::Schema.define(:version => 20110405114619) do
     t.datetime "updated_at"
     t.boolean  "verified"
     t.integer  "enrollment_mode_type_id"
-    t.string   "temp_id_number"
   end
 
   create_table "assign_instructors", :force => true do |t|
@@ -344,7 +343,6 @@ ActiveRecord::Schema.define(:version => 20110405114619) do
     t.datetime "end_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "details"
   end
 
   create_table "family_backgrounds", :force => true do |t|

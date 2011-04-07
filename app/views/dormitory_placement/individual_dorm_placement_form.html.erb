@@ -2,7 +2,7 @@
 <fieldset style="width: 60%">
   <legend>Individual Dorm Placement</legend><br/>
   <%= form_for :dormitory, :url=>{:action=>"individual_dorm_placement", :method=>"get"} do |f| %>
-    <%= f.fields_for :student do |s| %>
+    <%= fields_for :student do |s| %>
       <div>
         Student ID: <%= s.text_field :id_number, :size=>18 %><br/><br/>
       </div>

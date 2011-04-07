@@ -60,15 +60,19 @@ class AdddropsController < ApplicationController
   def approve_add
     @add=AddDrop.find(params[:id])
     @add.add_drop_status=true
+    @add.save!
     Enrollment.create!(:registration_id=>@add.registration_id,
                       :offered_course_id=>@add.offered_course_id,
                       :add_drop_status=>"added"
     )
+    render :action=>"notification"
   end
 
   def decline_add
     @add=AddDrop.find(params[:id])
     @add.add_drop_status=false
+    @add.save!
+    render :action=>"notification"
   end
 
   def course_drop_request_list
@@ -78,11 +82,18 @@ class AdddropsController < ApplicationController
   def approve_drop
     @drop=AddDrop.find(params[:id])
     @drop.add_drop_status=true
-    @enrollment=Enrollment.find_by_offered_course_id(@add.offered_course_id)
+    @drop.save!
+    @enrollment=@drop.registration.enrollments.where("offered_course_id=?",@drop.offered_course_id).first
     @enrollment.add_drop_status="dropped"
+    @enrollment.save!
+    render :action=>"notification"
   end
 
   def decline_drop
+    @drop=AddDrop.find(params[:id])
+    @drop.add_drop_status=false
+    @drop.save!
+    render :action=>"notification"
   end
 
 end
