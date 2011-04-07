@@ -103,17 +103,15 @@
 
     <fieldset><legend>Admission Information</legend>
 
-
-
        <table>
          <% if @person.id==nil %><tr>
 
    <td> <%= f.label :admission_id %></td>
 
-   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:admission_name ,:prompt=> "Select Admission")%></td>
+   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:name ,:prompt=> "Select Admission")%></td>
    <%else%>
          <td> <%= f.label :admission_id %></td>
-   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:admission_name ,:prompt=> "Select Admission", :disabled => true)%></td></tr>
+   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:name ,:prompt=> "Select Admission", :disabled => true)%></td></tr>
          <%end%>
        <% if @person.id==nil %>
         <tr><td> <%= f.label :college_id %></td>
@@ -122,15 +120,8 @@
         <td> <%= f.label :college_id %></td>
           <td><%= f.collection_select(:college_id ,@College, :id,:name,:prompt=> "Select College", :disabled => true)%></td></tr>
          <%end%>
-         <% if @person.id==nil %>
-
-
-   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:admission_name ,:prompt=> "Select Admission")%></td></tr>
-  
-        <tr><td> <%= f.label :college_id %></td>
-          <td><%= f.collection_select(:college_id ,@College, :id, :name,:prompt=> "Select College")%></td></tr>
-  
-  
+        <% if @person.id==nil %>
+ 
 
         <tr><td> <%= f.label :entry_level %></td>
           <td><%= f.select :entry_level,["Freshman","Transfer","Advance Standing"] %></td>

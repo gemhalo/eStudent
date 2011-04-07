@@ -177,6 +177,19 @@ end
 
 
 #buildings
+# department_choices = [
+#   {:department_id => 1,  :applicant_id => 1,  :preference => 1 } ,
+#   {:department_id => 1,  :applicant_id => 1,  :preference => 1 } ,
+#   {:department_id => 1,  :applicant_id => 1,  :preference => 1 } ,
+#]
+
+#buildings.each do | b |
+#  Building.create!({ :building_name => b[:building_name], :floors => b[:floors], :campus_id => Campus.find_by_name(b[:campus])
+#          :instructor_id => 0
+#  })
+#end
+
+#buildings
  how_tos = [
    {:title => "Undergraduate Application",  :detail =>"All undergraduate students must get a welcome letter which contains login account and application instructions upon arraival" } ,
   {:title => "Postgraduate Application",  :detail =>"All postgraduate students must create an account and apply online up on login"},
@@ -293,20 +306,18 @@ menuitems = [
  { :linktitle => "Department Placement" , :linkcontroller => "department_quotas",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
+  { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+
+
  { :linktitle => "Curriculum" , :linkcontroller => "curriculums",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
- 
- { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
+
+
+ { :linktitle => "Curriculum-course (Design)" , :linkcontroller => "curriculum_courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
- { :linktitle => "Add Offered Courses" , :linkcontroller => "offered_courses",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-
- { :linktitle => "Allocate Courses " , :linkcontroller => "course_assignments",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-  { :linktitle => "Curriculum-course" , :linkcontroller => "curriculum_courses",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-  { :linktitle => "Course offer " , :linkcontroller => "offered_courses",    :linkaction => "index",
+   { :linktitle => "Course offer " , :linkcontroller => "offered_courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
 { :linktitle => "Assign instructor " , :linkcontroller => "assign_instructors",    :linkaction => "index",

@@ -1,8 +1,0 @@
-class AcademicYearSemester < ActiveRecord::Base
-<<<<<<< HEAD
-has_many :curriculum_course ,:through => :offered_course
-=======
-  #belongs_to :offered_course
-  has_many :curriculum_course,  :through =>:offered_course
->>>>>>> 5589a0ec336d83db71baca2ae8d097797b3eba1b
-end
