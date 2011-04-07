@@ -11,6 +11,7 @@ EStudent::Application.routes.draw do
 
   get "adddrops/approve"
 
+  get "adddrops/dropped" 
 get "adddrops/add_drop"
   get "adddrops/notification"
 
@@ -21,7 +22,7 @@ get "adddrops/add_drop"
   resources :clearance_requests
 
   resources :curriculums
-  resources :service_types
+
   resources :programs
   resources :service_agreements
 
@@ -140,6 +141,7 @@ netzke
   get  'student_service_staffs/selector'
   post 'student_service_staffs/selector'
 
+  get "adddrops/add_drop"
   get "users/forgot_password"
   post "users/forgot_password"
   #get "users/edit"
