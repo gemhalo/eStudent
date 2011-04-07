@@ -6,8 +6,8 @@ def department_placing_process
 
   @undergraduate_regular_applicants=Applicant.undergraduate_regular_applicants
 
-  @disabled_applicants=Applicant.all(:include=>[:person, :educational_backgrounds, :admission=>[:admission_types, :enrollment_types]], :conditions=> 
-      ["people.disability=?",'Undergraduate','Regular',true],
+  @disabled_applicants=Applicant.all(:include=>[:person, :educational_backgrounds ], :conditions=> 
+      ["people.disability=?",true],
       :order=> ("educational_backgrounds.result desc"))
 	for ds in @disabled_applicants
 			@depts=ds.department_choices.order("preference")
@@ -56,5 +56,3 @@ end
 
 end
 
-    
-end

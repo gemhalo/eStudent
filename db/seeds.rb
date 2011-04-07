@@ -162,6 +162,19 @@ end
 
 
 #buildings
+# department_choices = [
+#   {:department_id => 1,  :applicant_id => 1,  :preference => 1 } ,
+#   {:department_id => 1,  :applicant_id => 1,  :preference => 1 } ,
+#   {:department_id => 1,  :applicant_id => 1,  :preference => 1 } ,
+#]
+
+#buildings.each do | b |
+#  Building.create!({ :building_name => b[:building_name], :floors => b[:floors], :campus_id => Campus.find_by_name(b[:campus])
+#          :instructor_id => 0
+#  })
+#end
+
+#buildings
  how_tos = [
    {:title => "Undergraduate Application",  :detail =>"All undergraduate students must get a welcome letter which contains login account and application instructions upon arraival" } ,
   {:title => "Postgraduate Application",  :detail =>"All postgraduate students must create an account and apply online up on login"},

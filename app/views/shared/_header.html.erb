@@ -1,5 +1,12 @@
+	  
 	  <div id="logo">      <img src='/images/mu_icon_64.png'/ style='align:right'> </div>
-          <div id="logo_text">  <h3>  Welcome to eStudent </h3> </div>
+          <div id="logo_text">  <h3> <%= def hello	
+						yield 
+					end
+hello {puts "Hello Ruby"}
+				     %>
+
+ Welcome to eStudent </h3> </div>
 		<div><div class="roundborder" style="float:left;margin-top:50px;margin-left:50px;margin-left: 150px;"><%= link_to  "Home", "#" %></div>
 	        <div class="roundborder" style="float:left;margin-top:50px"> <%= link_to "About"  %></div>
         	<div class="roundborder" style="float:left;margin-top:50px"><%= link_to "Academic Calendar", calendar_path%></div>
@@ -7,10 +14,10 @@
        	  <div id="loginl">
         <% if current_user %>
             Hello <%= current_user.username %> <%= link_to 'Account Settings', edit_user_path(current_user) %> |
-              <%#if current_user.role == "student"%>
-                  <%# @applicantId = Applicant.find(current_user.person_id)  %>
-                  <%#= link_to "Edit Profile",:controller=> 'applicants', :action => "edit" , :applicant_id => @applicantId %>
-                  <%# end %> 
+              <%if current_user.role == "student" and current_user.person_id!=nil%>
+                  <% @applicantId = Applicant.find_by_person_id(current_user.person_id) %>
+                  <%= link_to "Edit Profile",:controller=> 'applicants', :action => "edit" , :applicant_id => @applicantId %>
+                  <% end %> 
             |(<%= link_to 'Logout', logout_path, :method => :delete %>)
         <% else %>
     
