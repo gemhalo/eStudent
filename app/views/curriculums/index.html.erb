@@ -1,8 +1,33 @@
 
-<%= netzke :custom_action_grid, :model => 'Curriculum',
-:title=>'Curriculums',
-:autoScroll => true,
-:height => 370,
-:width =>850
-%>
 
+
+<h1>Listing curriculums</h1>
+
+<table>
+  <tr>
+    <th>Program</th>
+    <th>Class year</th>
+    <th>Semester</th>
+    <th>Admission</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @curriculums.each do |curriculum| %>
+  <tr>
+    <td><%= curriculum.program.name %></td>
+    <td><%= curriculum.class_year.name %></td>
+    <td><%= curriculum.semester.name %></td>
+    <td><%= curriculum.program.admission.admission_name %></td>
+
+    <td><%= link_to 'Show', curriculum %></td>
+    <td><%= link_to 'Edit', edit_curriculum_path(curriculum) %></td>
+    <td><%= link_to 'Destroy', curriculum, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Curriculum', new_curriculum_path %>
