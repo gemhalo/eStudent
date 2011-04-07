@@ -3,13 +3,11 @@
     after_initialize :init_person
     before_save :save_person
     accepts_nested_attributes_for :person
+
   belongs_to :admission
   belongs_to :admission_status_type
-  belongs_to :enrollment_mode_type
   belongs_to :college
-
-  has_one  :student
-
+  belongs_to :enrollment_mode_type
   has_many :academic_and_professional_qualification
   has_many :course_exemption
   has_many :department_choices
@@ -21,11 +19,14 @@
   has_many :reference
   has_many :relevant_publication
   has_many :research_and_teaching_experience
+  has_one  :student
 
 
   #validates :person_id, :uniqueness => true
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
-  scope :not_verified, self.where('verified = ? or verified=?',"f",nil)
+  scope :not_verified, self.where('verified = ?', "f")
+  scope :undergraduate_regular_applicants, joins(:admission=>[:admission_type, :enrollment_type])
+  .where("admission_types.name like ? and enrollment_types.name like ?", 'undergraduate','regular')
 
    #TODO:
    # The following code snippets will be replaced/refactored later to remove the need to maintain
@@ -102,6 +103,7 @@
 
 
   def person_attributes=(person_attributes)
+    #logger.info("----------sss-----#{person_attributes}----------")
     person_attributes.each do |attributes|
       person.build(attributes)
     end
@@ -109,16 +111,13 @@
   #make it private
   private
     def init_person
-      if(self.person_id.nil?)
-      self.person = Person.new
-      end
+        self.person = Person.new if self.person_id.nil?
+
     end
 
     def save_person
       self.person.save!
     end
-
-
 
 end
 

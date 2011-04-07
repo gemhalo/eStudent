@@ -14,24 +14,22 @@
 
   <div class="field">
     <%= f.label :program_id %><br />
-     <%= f.collection_select(:program_id,@programs, :id,:program_id,:prompt => "Select Program")%>
-  </div>
+     <%= f.collection_select(:program_id, @programs, :id,:name)%>
 
+  </div>
   <div class="field">
     <%= f.label :class_year_id %><br />
-    <%= f.collection_select(:class_year_id,@class_years, :id, :class_year_id,:prompt => "Select class year")%>
+     <%= f.collection_select(:class_year_id, @class_years, :id,:name)%>
+
   </div>
 
-  <div class="field">
+ <div class="field">
     <%= f.label :semester_id %><br />
-    <%= f.collection_select(:semester_id,@semesters, :id, :semester_id,:prompt => "Select semester")%>
+     <%= f.collection_select(:semester_id, @semesters, :id,:name)%>
+
   </div>
 
-  <%#*<div class="field">%>
-    <%#= f.label :semester_id %><br />
-    <%#= f.text_field :semester_id %>
-  <%#*</div>%>
-  <div class="actions">
+ <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

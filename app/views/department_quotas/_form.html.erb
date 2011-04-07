@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :department%><br />
-    <%= f.collection_select :department_id, Department.all, :id, :name, :prompt=>"Select Department"%>
+    <%= f.collection_select :id, @departments, :id, :name, :prompt=>"Select Department"%>
   </div>
   <div class="field">
     <%= f.label :total_quota %><br />

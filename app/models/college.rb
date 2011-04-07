@@ -1,7 +1,7 @@
 class College < ActiveRecord::Base
   belongs_to  :campus
   belongs_to  :instructor  #College dean
-  has_many    :department
+  has_many    :departments
   has_many    :applicants
 
   validates_presence_of :name

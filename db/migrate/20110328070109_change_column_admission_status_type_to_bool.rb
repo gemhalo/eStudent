@@ -1,6 +1,6 @@
 class ChangeColumnAdmissionStatusTypeToBool < ActiveRecord::Migration
   def self.up
-    change_column :applicants, :admission_status, :integer
+    change_column :applicants, :admission_status, :boolean
   end
 
   def self.down
