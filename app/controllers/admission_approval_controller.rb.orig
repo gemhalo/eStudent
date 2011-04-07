@@ -33,7 +33,11 @@ class AdmissionApprovalController < ApplicationController
       end
 
       applicant.student.save!
+<<<<<<< HEAD
+      
+=======
        
+>>>>>>> b575dd3406e6c9562cc19236877e9bc77be31f98
     end
      
       @applicants=Applicant.all

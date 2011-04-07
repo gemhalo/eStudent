@@ -4,7 +4,11 @@ def department_placing_process
   
   # Disabled students are given priority
 
-  @disabled_applicants=Applicant.all(:include=>[:person, :educational_backgrounds], :conditions=> ["people.disability=?",true], :order=> ("educational_backgrounds.result desc"))
+  @undergraduate_regular_applicants=Applicant.undergraduate_regular_applicants
+
+  @disabled_applicants=Applicant.all(:include=>[:person, :educational_backgrounds, :admission=>[:admission_types, :enrollment_types]], :conditions=> 
+      ["people.disability=?",'Undergraduate','Regular',true],
+      :order=> ("educational_backgrounds.result desc"))
 	for ds in @disabled_applicants
 			@depts=ds.department_choices.order("preference")
 			ds.student.department_id=@depts.first.department_id
@@ -48,6 +52,7 @@ def department_placing_process
 end
 
 def show_placement
+end
 
 end
 

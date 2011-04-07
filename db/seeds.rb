@@ -102,12 +102,12 @@ end
 users = [
   { :username => "gere" , :password => "gere",    :role => "student",
     :email => "student@campus.com" },
+  { :username => "samy" , :password => "samy",    :role => "instructor",
+    :email => "instructor@campus.com"},
   { :username => "yemane",:password => "yemane",  :role => "student_service_staff",
     :email => "sss@campus.com"},
   { :username => "admin",:password => "admin",    :role => "admin",
     :email => "admin@campus.com"},
-  { :username => "samy" , :password => "samy",    :role => "instructor",
-    :email => "instructor@campus.com"},
   { :username => "yared" , :password => "yared",    :role => "instructor",
     :email => "yaredv@campus.com"},
   { :username => "ferid" , :password => "ferid",    :role => "instructor",
@@ -123,23 +123,23 @@ users.each do |user|
                 :email => user[:email] } )
 end
 #instructors
- instructors = [
-    {:employee_id => "MU001", :academic_rank => "Masters in computer science", :department_id => "Computing",
-     :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros"},
-    {:employee_id => "MU002", :academic_rank => "Degree in computer science", :department_id => "Computing",
-     :name => "yared", :father_name => "getachew", :grand_father_name => "kiros"},
-    {:employee_id => "MU003", :academic_rank => "Masters in computer science", :department_id => "Computing",
-     :name => "ferede", :father_name => "zeray", :grand_father_name => "tefera"},
-    {:employee_id => "MU004", :academic_rank => "Degree in computer science", :department_id => "Computing",
-     :name => "habtom", :father_name => "kahsay", :grand_father_name => "gidey"}
- ]
- instructors.each do |instructor|
-    Instructor.create!({ :employee_id => instructor[:employee_id],
-                         :academic_rank => instructor[:academic_rank],
-                         :department_id => Department.find_by_name(instructor[:department_id]),
-                         :person_id => Person.where("name = ? and father_name = ?",
-                           instructor[:name],instructor[:father_name])})
-  end
+# instructors = [
+ #   {:employee_id => "MU001", :academic_rank => "Masters in computer science", :department_id => "Computing",
+ #    :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros"},
+ #   {:employee_id => "MU002", :academic_rank => "Degree in computer science", :department_id => "Computing",
+ #    :name => "yared", :father_name => "getachew", :grand_father_name => "kiros"},
+ #   {:employee_id => "MU003", :academic_rank => "Masters in computer science", :department_id => "Computing",
+ #    :name => "ferede", :father_name => "zeray", :grand_father_name => "tefera"},
+ #   {:employee_id => "MU004", :academic_rank => "Degree in computer science", :department_id => "Computing",
+ #    :name => "habtom", :father_name => "kahsay", :grand_father_name => "gidey"}
+ #]
+ #instructors.each do |instructor|
+ #   Instructor.create!({ :employee_id => instructor[:employee_id],
+ #                        :academic_rank => instructor[:academic_rank],
+ #                        :department_id => Department.find_by_name(instructor[:department_id]),
+ #                        :person_id => Person.where("name = ? and father_name = ?",
+ #                          instructor[:name],instructor[:father_name])})
+#  end
 
  
 
@@ -359,6 +359,9 @@ menuitems = [
     :linkicon => "/icons/calendar_add.png", :role_id=>"guest", :catagory=>"academics" },
 
 { :linktitle => "Academic Calendar" , :linkcontroller => "calendar",    :linkaction => "new",
+    :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" },
+
+{ :linktitle => "Set Events" , :linkcontroller => "events",    :linkaction => "index",
     :linkicon => "/icons/calendar_add.png", :role_id=>"admin", :catagory=>"academics" }
 ]
 menuitems.each do |menuitem|

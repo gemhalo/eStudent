@@ -1,0 +1,29 @@
+<fieldset><legend>Find course</legend>
+<%= form_tag :controller => 'adddrops', :action => 'add' do %>
+<table><tr><td>Choose Course you want to add</td>
+
+<td><%= select_tag('course_id',options_from_collection_for_select(@course,:id, :course_title, :prompt => "Select Course" )) %></td></tr></table>
+
+
+<%= submit_tag 'Find Course' -%>
+
+<% end %>
+</fieldset>
+<fieldset><legend>Course List</legend>
+<% if @curriculum != nil %>
+<table>
+  <tr>
+    <td>carriculumid</td>
+    <td>course_id</td>
+  </tr>
+<% @curriculum.each do |offercourse| %>
+<tr>
+    <td><%=offercourse.id%></td>
+    <td><%=offercourse.course_id%></td>
+    <td><%= link_to 'Request to add this Course', :controller => 'adddrops', :action => 'add', :coursea_id => offercourse.course_id %></td>
+    
+  </tr>
+  <%end%>
+</table>
+<%end%>
+</fieldset>

@@ -1,1 +1,29 @@
-<%= render 'dorm_placement' %>
+<%= notice %>
+<% if @dormitories.empty? %>
+  Dormitories are free
+
+ <% else %>
+<table border="1">
+  <tr>
+    <td>Full Name</td>
+    <td>Sex</td>
+    <td>Dorm</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <% for dormitory in @dormitories %>
+  <tr>
+    <td><%=  dormitory.student.applicant.person.full_name%></td>
+    <td><%=  dormitory.student.applicant.person.gender %></td>
+    <td><%=  "#{dormitory.room.building.building_name} " << "Room " << "#{dormitory.room.room_number} " << "Bed No " << "#{dormitory.bed_number}" %></td>
+    <td><%= link_to "Edit", :action=>"edit", :id=>dormitory.id %></td>
+    <td><%= link_to "Delete", :action=>'destroy', :id=> dormitory.id, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+  <% end %>
+<%#= netzke :dormitories,
+  :class_name => "Basepack::GridPanel",
+  :model => "Dormitory"
+%>
+
