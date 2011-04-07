@@ -1,9 +1,11 @@
 class AddDrop < ActiveRecord::Base
+<<<<<<< HEAD
   belongs_to :offered_course
   belongs_to :registration
-
+=======
 
   scope :course_add_requests, where("request_for='add' and (add_drop_status='' or add_drop_status is null)")
   scope :course_drop_requests, where("request_for='drop' and (add_drop_status='' or add_drop_status is null)")
 
+>>>>>>> aa2122430989aad3024d4f29af4792de94f7ec7e
 end

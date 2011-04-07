@@ -1,3 +1,3 @@
 class Registration < ActiveRecord::Base
-  has_one :enrollment
+  has_many :offered_course, :through => :enrollment
 end
