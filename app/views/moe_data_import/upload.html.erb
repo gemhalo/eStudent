@@ -1,5 +1,5 @@
-<%#*<div style="margin:30px">%>
-<%#= flash[:notice] %>
+<div style="margin:30px">
+<%= flash[:notice] %>
 
 
 <%#= netzke :applicants,
@@ -9,12 +9,13 @@
            :width => 900,
            :height => 370,
            :columns => [
-            { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true},
+           { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true},
             { :name => :admission__name, :read_only =>true },
             { :name => :college__details, :label => "College and campus", :read_only =>true }
 
-           ]
-#           :scope=> {:id.gteq => @person.first.id}
+           ],
+           :scope=> {:id.gteq => @person.id}
+           
            
           %>#
 

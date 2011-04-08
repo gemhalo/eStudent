@@ -51,8 +51,8 @@ else
     @College    = College.all
     @admission_status_types = AdmissionStatusType.all
    @admission = Admission.all
-    @applicant = Applicant.find(params[:applicant_id])
-    @person = Person.find(@applicant.person_id)
+    #@applicant = Applicant.find(params[:applicant_id])
+    #@person = Person.find(@applicant.person_id)
     
 
   end

@@ -17,9 +17,10 @@
   has_many :research_and_teaching_experience
   has_many :academic_and_professional_qualification
   has_many :educational_backgrounds
-  #after_initialize :init_person
-  #after_save :save_person
- accepts_nested_attributes_for :person
+  
+#  after_initialize :init_person
+#   before_save :save_person
+  accepts_nested_attributes_for :person
 
   #validates :person_id, :uniqueness => true
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
