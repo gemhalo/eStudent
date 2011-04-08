@@ -1,5 +1,5 @@
-<%#*<div style="margin:30px">%>
-<%#= flash[:notice] %>
+<div style="margin:30px">
+<%= flash[:notice] %>
 
 <%#= netzke :person,
 #           :class_name => "Basepack::GridPanel",
@@ -12,12 +12,29 @@
 #            { :name => :admission__name, :read_only =>true },
 #            { :name => :college__details, :label => "College and campus", :read_only =>true }
 
+<<<<<<< HEAD
+<%#= netzke :applicants,
+           :class_name => "Basepack::GridPanel",
+           :model => 'Applicant',
+           :view_config => { :force_fit => true },
+           :width => 900,
+           :height => 370,
+           :columns => [
+           { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true},
+            { :name => :admission__name, :read_only =>true },
+            { :name => :college__details, :label => "College and campus", :read_only =>true }
+
+           ],
+           :scope=> {:id.gteq => @person.id}
+           
+           
+          %>#
+=======
            ]#,
 #           :scope=> {:id.gteq => @person.first.id}
-    
-      
-          %>
+>>>>>>> bbf56625ee7978517b091bbaec2731cde40d470d
 
+#          %>
 <div style="padding:10px">
 <table id="applicants_uploaded_display" border="1" style="border-collapse:collapse">
 <thead bgcolor="#efefef">
@@ -57,3 +74,4 @@
 <div style="clear:both">
   <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @applicants.to_a %>
 </div>
+

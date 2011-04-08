@@ -20,7 +20,7 @@
   has_many :relevant_publication
   has_many :research_and_teaching_experience
   has_one  :student
-
+  
 
   #validates :person_id, :uniqueness => true
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
