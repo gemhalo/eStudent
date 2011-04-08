@@ -68,10 +68,10 @@ end
 
 #course
  courses = [
- {:course_title => "intoduction to programming", :course_code => "comp101", :credit_hour => "4", :description => "major", :department => "computing"},
- {:course_title => "object oriented programming", :course_code => "comp102", :credit_hour => "3", :description => "major", :department => "computing"},
- {:course_title => "Java", :course_code => "comp302", :credit_hour => "4", :description => "minor", :department => "computing"},
- {:course_title => "web design", :course_code => "comp202", :credit_hour => "4", :description => "minorr", :department => "computing"}
+ {:course_title => "intoduction to programming", :course_code => "comp101", :credit_hour => "4", :description => "major", :department => "Computing"},
+ {:course_title => "object oriented programming", :course_code => "comp102", :credit_hour => "3", :description => "major", :department => "Computing"},
+ {:course_title => "Java", :course_code => "comp302", :credit_hour => "4", :description => "minor", :department => "Computing"},
+ {:course_title => "web design", :course_code => "comp202", :credit_hour => "4", :description => "minorr", :department => "Computing"}
 
  ]
  courses.each do |course|

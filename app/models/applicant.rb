@@ -6,7 +6,7 @@
   belongs_to :admission
   belongs_to :admission_status_type
   belongs_to :college
-  belongs_to :enrollment_mode_type
+  
 
   has_many :academic_and_professional_qualification
   has_many :course_exemption
@@ -20,7 +20,7 @@
   has_many :relevant_publication
   has_many :research_and_teaching_experience
   has_one  :student
-
+  
 
   #validates :person_id, :uniqueness => true
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
