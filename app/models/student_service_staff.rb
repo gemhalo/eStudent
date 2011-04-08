@@ -87,6 +87,40 @@ class StudentServiceStaff < ActiveRecord::Base
     self.person.full_name
   end
 
+#nationality_id
+#nationality_id
+#photo_content_type
+#photo_content_type
+#photo_file_name
+#photo_file_name
+#photo_file_size
+#photo_file_size
+#def marital_status
+#def marital_status
+#def mother_full_name
+#def mother_full_name
+  def disability
+    self.person.disability
+  end
+  def disability=(disability)
+    init_person if self.new_record?
+    self.person.disability=disability
+  end
+  def region_code
+    self.person.region_code
+  end
+  def region_code=(region_code)
+    init_person if self.new_record?
+    self.region_code=region_code
+  end
+  def type_of_disability
+    self.person.type_of_disability
+  end
+  def type_of_disability=(type_of_disability)
+    init_person if self.new_record?
+    self.person.type_of_disability
+  end
+
   def person_attributes=(person_attributes)
     person_attributes.each do |attributes|
       person.build(attributes)

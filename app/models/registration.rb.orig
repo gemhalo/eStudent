@@ -1,8 +1,0 @@
-class Registration < ActiveRecord::Base
-<<<<<<< HEAD
-  has_many :enrollments
-  has_many :add_drops
-=======
-  has_many :offered_course, :through => :enrollment
->>>>>>> 5fb8ffc95ca4fecf55943586fedcac0a479b3d4e
-end

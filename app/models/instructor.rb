@@ -83,6 +83,40 @@ class Instructor < ActiveRecord::Base
     self.person.place_of_birth=place_of_birth
   end
 
+#nationality_id
+#nationality_id
+#photo_content_type
+#photo_content_type
+#photo_file_name
+#photo_file_name
+#photo_file_size
+#photo_file_size
+#def marital_status
+#def marital_status
+#def mother_full_name
+#def mother_full_name
+  def disability
+    self.person.disability
+  end
+  def disability=(disability)
+    init_person if self.new_record?
+    self.person.disability=disability
+  end
+  def region_code
+    self.person.region_code
+  end
+  def region_code=(region_code)
+    init_person if self.new_record?
+    self.region_code=region_code
+  end
+  def type_of_disability
+    self.person.type_of_disability
+  end
+  def type_of_disability=(type_of_disability)
+    init_person if self.new_record?
+    self.person.type_of_disability
+  end
+
   def full_name
     self.person.full_name
   end

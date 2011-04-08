@@ -28,7 +28,13 @@ Instructor.delete_all
 Course.delete_all
 CourseType.delete_all
 HowTo.delete_all
+Nationality.delete_all
 
+#Nationalities
+nationalities = ["America", "Germen", "Ethiopia"]
+nationalities.each do |nationality|
+  Nationality.create!({:name => nationality})
+end
 #Campuses
 campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
 
@@ -388,15 +394,4 @@ instructors = [
  { :name => "yared", :father_name => "getachew", :grand_father_name => "kiros",:employee_id => "MU002",
    :academic_rank => "Degree in computer science", :department => "Computing" }
 ]
-
-instructors.each do |instructor|
-  Instructor.create!({
-    :name => instructor[:name],
-    :father_name => instructor[:father_name],
-    :grand_father_name => instructor[:grand_father_name],
-    :employee_id => instructor[:employee_id],
-    :academic_rank => instructor[:academic_rank],
-    :department_id => Department.find_by_name(instructor[:department])
-  })
-end
 
