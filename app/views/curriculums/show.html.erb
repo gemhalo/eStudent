@@ -14,7 +14,11 @@
   <b>Semester:</b>
   <%= @curriculum.semester.name %>
 </p>
+<p>
+  <b>Admission:</b>
+  <%= @curriculum.program.admission.name %>
+</p>
 
-
-<%= link_to 'Edit', edit_curriculum_path(@curriculum) %> |
-<%= link_to 'Back', curriculums_path %>
+<%#= link_to 'Edit', edit_curriculum_path(@curriculum) %> |
+<%#= link_to 'Back', curriculums_path %>
+<%= link_to 'Add Courses', curriculums_path %>

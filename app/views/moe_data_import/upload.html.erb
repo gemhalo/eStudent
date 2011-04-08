@@ -1,23 +1,58 @@
-<div style="margin:30px">
-<%= flash[:notice] %>
+<%#*<div style="margin:30px">%>
+<%#= flash[:notice] %>
 
+<%#= netzke :person,
+#           :class_name => "Basepack::GridPanel",
+#           :model => 'Applicant',
+#           :view_config => { :force_fit => true },
+#           :width => 900,
+#           :height => 370,
+#           :columns => [
+#            { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true},
+#            { :name => :admission__name, :read_only =>true },
+#            { :name => :college__details, :label => "College and campus", :read_only =>true }
 
-<%#= netzke :applicants,
-           :class_name => "Basepack::GridPanel",
-           :model => 'Applicant',
-           :view_config => { :force_fit => true },
-           :width => 900,
-           :height => 370,
-           :columns => [
-           { :name => :full_name, :label => "Applicant Fullname ", :read_only =>true},
-            { :name => :admission__name, :read_only =>true },
-            { :name => :college__details, :label => "College and campus", :read_only =>true }
+           ]#,
+#           :scope=> {:id.gteq => @person.first.id}
 
-           ],
-           :scope=> {:id.gteq => @person.id}
-           
-           
-          %>#
+#          %>
+<div style="padding:10px">
+<table id="applicants_uploaded_display" border="1" style="border-collapse:collapse">
+<thead bgcolor="#efefef">
+<tr>
+  <th>No</th>
+  <th>Fullname</th>
+  <th>Sex</th>
+  <th>Nationality</th>
+  <th>Disability</th>
+  <th>College</th>
+  <th>EHEECE code</th>
+  <th>EHEECE result</th>
+  <th>Admission</th>
+  <th>Enrollment mode</th>
+</tr>
+</thead>
+<tbody>
+<%  i=0
+@applicants.each do |applicant| %>
 
-  <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @person %>
+<tr>
+  <td><%= i=i+1 %>
+  <td><%=applicant.full_name %></t>
+  <td><%=applicant.gender %></td>
+  <td><%=applicant.nationality %></td>
+  <td><%= ( applicant.disability ? "Yes" : "No") %></td>
+  <td><%=applicant.college.name %></td>
+  <td><%=applicant.educational_backgrounds.first.eheece_code %></td>
+  <td><%= [applicant.educational_backgrounds.first.result,applicant.educational_backgrounds.first.out_of].join("/") %></td>
+  <td><%=applicant.admission.name %></td>
+  <td><%=applicant.enrollment_mode_type.name %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
 </div>
+<div style="clear:both">
+  <%= link_to 'create accounts', :controller => 'moe_data_import', :action => 'show', :id => @applicants.to_a %>
+</div>
+

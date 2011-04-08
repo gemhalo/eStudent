@@ -13,10 +13,10 @@
    <fieldset><legend>Applicant Information</legend>
 
 
-    <%= fields_for @person do |p|%>
+    <%= fields_for @applicant.person do |p|%>
 
      <table border ="0"><tr>
-       <%  if @person.id == nil %>
+       <%  if @applicant.person.id == nil %>
       <td><%= p.label :name %> </td>
       <td> <%= p.text_field :name %></td>
      <!--%elsif @person.id!=nil && @applicant.admission.admission_type_id==1%>-->
@@ -24,7 +24,7 @@
         <td><%= p.label :name,:disabled => true %> </td>
         <td> <%= p.text_field :name,:disabled => true%></td>
         <%end%>
-        <% if @person.id==nil %>
+        <% if @applicant.person.id==nil %>
        <td><%= p.label :date_of_birth %><br /></td>
         <td> <%= p.date_select :date_of_birth %></td>
         <%else%>
@@ -38,14 +38,14 @@
         <td><%= p.label :father_name, :disabled => true %></td>
         <td><%= p.text_field :father_name, :disabled => true %></td>
          <%end%>
-        <% if @person.id==nil%>
+        <% if @applicant.person.id==nil%>
         <td><%= p.label :gender %><br /></td>
         <td><%= p.select :gender,["Male","Female"],:prompt=>"Select Gender" %></td>
         <%else%>
         <td><%= p.label :gender, :disabled => true %><br /></td>
         <td><%= p.select :gender,["Male","Female"],:prompt=>"Select Gender" , :disabled =>""%></td></tr>
         <%end%>
-        <% if @person.id==nil %>
+        <% if @applicant.person.id==nil %>
         <tr><td><%= p.label :grand_father_name %></td>
         <td> <%= p.text_field :grand_father_name %></td>
         <%else%>
@@ -103,17 +103,15 @@
 
     <fieldset><legend>Admission Information</legend>
 
-
-
        <table>
          <% if @person.id==nil %><tr>
 
    <td> <%= f.label :admission_id %></td>
 
-   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:admission_name ,:prompt=> "Select Admission")%></td>
+   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:name ,:prompt=> "Select Admission")%></td>
    <%else%>
          <td> <%= f.label :admission_id %></td>
-   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:admission_name ,:prompt=> "Select Admission", :disabled => true)%></td></tr>
+   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:name ,:prompt=> "Select Admission", :disabled => true)%></td></tr>
          <%end%>
        <% if @person.id==nil %>
         <tr><td> <%= f.label :college_id %></td>
@@ -122,15 +120,8 @@
         <td> <%= f.label :college_id %></td>
           <td><%= f.collection_select(:college_id ,@College, :id,:name,:prompt=> "Select College", :disabled => true)%></td></tr>
          <%end%>
-         <% if @person.id==nil %>
+        <% if @person.id==nil %>
 
-
-   <td> <%= f.collection_select(:admission_id ,@Admission, :id,:admission_name ,:prompt=> "Select Admission")%></td></tr>
-  
-        <tr><td> <%= f.label :college_id %></td>
-          <td><%= f.collection_select(:college_id ,@College, :id, :name,:prompt=> "Select College")%></td></tr>
-  
-  
 
         <tr><td> <%= f.label :entry_level %></td>
           <td><%= f.select :entry_level,["Freshman","Transfer","Advance Standing"] %></td>

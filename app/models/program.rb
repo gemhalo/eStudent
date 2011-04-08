@@ -7,5 +7,8 @@ has_many :student
 validates :duration , :presence =>true
 validates :total_credit_hour , :presence =>true
 
+def program_name
+  [self.name, self.admission.name].join("-For-")
+end
 
 end

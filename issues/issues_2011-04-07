@@ -1,0 +1,61 @@
+[] Disable already applied students from applying twice or more 
+[] Person object must not participate in the system interaction directly. 
+    - Since person class and table will be commonly used by applicant, instructor, and studentServiceStaff,
+      only common information for all should be present in person class or table
+  e.g. 
+  {
+   - person  has_many :educational_backgrounds
+   - 
+     has_attached_file :photo,
+      :url => "/:class/:attachment/:id/:style_:basename.:extension",
+      :default_url => "/:class/:attachment/missing_/:style_default.jpg",
+      :styles => {:thumb=> "100x100#", :small => ["70x70>", :jpg] },
+      :default_style => :thumb,
+      :whiny_thumbnails => true,
+      :path => ":rails_root/public/:class/:attachment/:id/:style_:basename.:extension"
+  
+   - All the methods listed below must be out of person and to their respective person related
+     objects    
+    should go to admission or applicant
+      def admission_status
+        self.applicant.admission_status_type.name
+      end
+      def enrollment_mode
+        self.applicant.enrollment_mode_type.name
+      end
+      def admission_type
+        [self.applicant.admission.admission_type.name, self.applicant.admission.enrollment_type.name].join('-')
+      end
+    should go to applicant
+      def college_name
+        self.applicant.college.name
+      end
+      def eheece_code
+        self.applicant.educational_backgrounds.first.eheece_code
+      end
+      def result
+        self.applicant.educational_backgrounds.first.result
+      end
+      def out_of
+        self.applicant.educational_backgrounds.first.out_of
+      end
+      def school
+        self.applicant.educational_backgrounds.first.school_code
+      end
+    should go to user 
+      def random_string(len)
+        chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
+        newpass=""
+        1.upto(len) {|i| newpass << chars[rand(chars.size-1)]}
+        return newpass
+      end
+      def username
+        (User.where('person_id = ?', self.id)).first.username
+      end
+      def password
+        (User.where('person_id = ?', self.id)).first.temp_password
+      end
+      def email
+        (User.where('person_id = ?', self.id)).first.email
+      end    
+   }

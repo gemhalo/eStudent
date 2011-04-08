@@ -28,7 +28,13 @@ Instructor.delete_all
 Course.delete_all
 CourseType.delete_all
 HowTo.delete_all
+Nationality.delete_all
 
+#Nationalities
+nationalities = ["America", "Germen", "Ethiopia"]
+nationalities.each do |nationality|
+  Nationality.create!({:name => nationality})
+end
 #Campuses
 campuses = ["Adi-Haqi","Arid (Endayesus)", "Ayder"]
 
@@ -59,17 +65,6 @@ admission_types.each do | admission_type1 | # {Undergraduate, Postgraduate} x
   end
 
 end
-#person
- persons = [
-   {:name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros"},
-   {:name => "yared", :father_name => "getachew", :grand_father_name => "kiros"},
-   {:name => "ferede", :father_name => "zeray", :grand_father_name => "tefera"},
-   {:name => "habtom", :father_name => "kahsay", :grand_father_name => "gidey"}
-
- ]
- persons.each do |person|
-   Person.create!({:name => person[:name], :father_name => person[:father_name], :grand_father_name => person[:grand_father_name]})
- end
 
 #course
  courses = [
@@ -94,27 +89,18 @@ end
  {:name => "supportive"}
  ]
  course_types.each do |coursetypes|
-   CourseType.create!({:name => coursetypes[:name]
-                 })
+  CourseType.create!({:name => coursetypes[:name]})
 end
 
 #Create users
 users = [
-  { :username => "gere" , :password => "gere",    :role => "student",
-    :email => "student@campus.com" },
-  { :username => "samy" , :password => "samy",    :role => "instructor",
-    :email => "instructor@campus.com"},
-  { :username => "yemane",:password => "yemane",  :role => "student_service_staff",
-    :email => "sss@campus.com"},
-  { :username => "admin",:password => "admin",    :role => "admin",
-    :email => "admin@campus.com"},
-  { :username => "yared" , :password => "yared",    :role => "instructor",
-    :email => "yaredv@campus.com"},
-  { :username => "ferid" , :password => "ferid",    :role => "instructor",
-    :email => "ferid@campus.com"},
-  { :username => "habtom" , :password => "habtom",    :role => "instructor",
-    :email => "habtom@campus.com"}
-  
+  { :username => "gere" , :password => "gere",    :role => "student", :email => "student@campus.com" },
+  { :username => "samy" , :password => "samy",    :role => "instructor", :email => "instructor@campus.com"},
+  { :username => "yemane",:password => "yemane",  :role => "student_service_staff", :email => "sss@campus.com"},
+  { :username => "admin",:password => "admin",    :role => "admin", :email => "admin@campus.com"},
+  { :username => "yared" , :password => "yared",    :role => "instructor", :email => "yaredv@campus.com"},
+  { :username => "ferid" , :password => "ferid",    :role => "instructor", :email => "ferid@campus.com"},
+  { :username => "habtom" , :password => "habtom",    :role => "instructor", :email => "habtom@campus.com"}
 ]
 
 users.each do |user|
@@ -122,26 +108,6 @@ users.each do |user|
                 :password_confirmation => user[:password], :role => user[:role],
                 :email => user[:email] } )
 end
-#instructors
-# instructors = [
- #   {:employee_id => "MU001", :academic_rank => "Masters in computer science", :department_id => "Computing",
- #    :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros"},
- #   {:employee_id => "MU002", :academic_rank => "Degree in computer science", :department_id => "Computing",
- #    :name => "yared", :father_name => "getachew", :grand_father_name => "kiros"},
- #   {:employee_id => "MU003", :academic_rank => "Masters in computer science", :department_id => "Computing",
- #    :name => "ferede", :father_name => "zeray", :grand_father_name => "tefera"},
- #   {:employee_id => "MU004", :academic_rank => "Degree in computer science", :department_id => "Computing",
- #    :name => "habtom", :father_name => "kahsay", :grand_father_name => "gidey"}
- #]
- #instructors.each do |instructor|
- #   Instructor.create!({ :employee_id => instructor[:employee_id],
- #                        :academic_rank => instructor[:academic_rank],
- #                        :department_id => Department.find_by_name(instructor[:department_id]),
- #                        :person_id => Person.where("name = ? and father_name = ?",
- #                          instructor[:name],instructor[:father_name])})
-#  end
-
- 
 
 #College
 colleges = [
@@ -178,41 +144,35 @@ end
 
 #buildings
  how_tos = [
-   {:title => "Undergraduate Application",  :detail =>"All undergraduate students must get a welcome letter which contains login account and application instructions upon arraival" } ,
+  {:title => "Undergraduate Application",  :detail =>"All undergraduate students must get a welcome letter which contains login account and application instructions upon arraival" } ,
   {:title => "Postgraduate Application",  :detail =>"All postgraduate students must create an account and apply online up on login"},
-  {:title => "Extension Application",  :detail =>"All extension students must create an account and apply online up on login" } 
+  {:title => "Extension Application",  :detail =>"All extension students must create an account and apply online up on login" }
 ]
 
 how_tos.each do | h |
- HowTo.create!({ :title => h[:title], :detail => h[:detail]
-  })
+  HowTo.create!({ :title => h[:title], :detail => h[:detail]})
 end
 
 #rooms
 rooms = [
-  
+
  {:room_number => "101", :building => "block-1", :floor_number => 1, :holding_capacity => 10, :used_for => "dormitory" },
- {:room_number => "102", :building => "block-1", :floor_number => 2, :holding_capacity => 10, :used_for => "dormitory" },
- {:room_number => "103", :building => "block-2", :floor_number => 1, :holding_capacity => 10, :used_for => "dormitory" },
- {:room_number => "104", :building => "block-3", :floor_number => 2, :holding_capacity => 10, :used_for => "dormitory" }
+ {:room_number => "102", :building => "block-1", :floor_number => 2, :holding_capacity => 24, :used_for => "dormitory" },
+ {:room_number => "103", :building => "block-2", :floor_number => 1, :holding_capacity => 15, :used_for => "dormitory" },
+ {:room_number => "104", :building => "block-3", :floor_number => 2, :holding_capacity => 20, :used_for => "dormitory" }
 ]
 
 rooms.each do | r |
   Room.create!({ :room_number => r[:room_number],
                  :floor_number => r[:floor_number],
                  :holding_capacity => r[:holding_capacity],
-                 :used_for => r[:used_for], 
+                 :used_for => r[:used_for],
                  :building_id => Building.find_by_building_name(r[:building])})
-#          :instructor_id => 0
-  
 end
 
 
 #enrollment mode types
-enrollment_mode_types = [
-  {:name => "Part Time"},
-  {:name => "Full Time"},
-]
+enrollment_mode_types = ["Part Time","Full Time"]
 enrollment_mode_types.each do |enrollment_mode_type|
   EnrollmentModeType.create!({:name => enrollment_mode_type})
 end
@@ -240,7 +200,7 @@ end
 # Programs
 
 programs = [
-  {:name => "Biology", :department_id => "Biology", :admission_type => "undergraduate", 
+  {:name => "Biology", :department_id => "Biology", :admission_type => "undergraduate",
     :enrollment_type => "regular" , :duration => "3", :total_credit_hour => "154",
     :award_type => "Degree - Bed"},
   {:name => "Applied Chemistry", :department_id => "Chemistry", :admission_type => "undergraduate",
@@ -293,20 +253,18 @@ menuitems = [
  { :linktitle => "Department Placement" , :linkcontroller => "department_quotas",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
+  { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
+    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
+
+
  { :linktitle => "Curriculum" , :linkcontroller => "curriculums",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
- 
- { :linktitle => "Add Course" , :linkcontroller => "courses",    :linkaction => "index",
+
+
+ { :linktitle => "Curriculum-course (Design)" , :linkcontroller => "curriculum_courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
- { :linktitle => "Add Offered Courses" , :linkcontroller => "offered_courses",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-
- { :linktitle => "Allocate Courses " , :linkcontroller => "course_assignments",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-  { :linktitle => "Curriculum-course" , :linkcontroller => "curriculum_courses",    :linkaction => "index",
-    :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
-  { :linktitle => "Course offer " , :linkcontroller => "offered_courses",    :linkaction => "index",
+   { :linktitle => "Course offer " , :linkcontroller => "offered_courses",    :linkaction => "index",
     :linkicon => "/icons/group_go.png", :role_id=>"instructor", :catagory=>"academics" },
 
 { :linktitle => "Assign instructor " , :linkcontroller => "assign_instructors",    :linkaction => "index",
@@ -373,7 +331,7 @@ menuitems.each do |menuitem|
                 :role_id => menuitem[:role_id], :catagory=>menuitem[:catagory] } )
 end
 
-#class_year 
+#class_year
 class_years = [
   {:name => "1"},
   {:name => "2"},
@@ -390,7 +348,7 @@ semesters = [
   {:name => "1"},
   {:name => "2"},
   {:name => "3"}
-  
+
 ]
 semesters.each do |semester|
   Semester.create!({:name => semester[:name]})
@@ -404,7 +362,7 @@ academic_years = [
 ]
 
 academic_years.each do |ac_year|
-    AcademicYear.create! ({:start_at => ac_year[:start_at], :end_at => ac_year[:end_at], :year => ac_year[:year], :status => ac_year[:status]})
+    AcademicYear.create!({:start_at => ac_year[:start_at], :end_at => ac_year[:end_at], :year => ac_year[:year], :status => ac_year[:status]})
 end
 
 #academic year semester
@@ -426,7 +384,11 @@ academic_year_semesters = [
                                 :status => ays[:status]})
  end
 
-
-
-
+## Instructors
+instructors = [
+ { :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros", :employee_id => "MU001",
+   :academic_rank => "Masters in computer science", :department => "Computing" },
+ { :name => "yared", :father_name => "getachew", :grand_father_name => "kiros",:employee_id => "MU002",
+   :academic_rank => "Degree in computer science", :department => "Computing" }
+]
 

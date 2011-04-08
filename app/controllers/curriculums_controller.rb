@@ -3,9 +3,10 @@ class CurriculumsController < ApplicationController
   # GET /curriculums.xml
   def index
     @curriculums = Curriculum.all
-    @programs = Program.all
-    @class_years = ClassYear.all
-    @semesters = Semester.all
+#    @programs = Program.all
+#    @class_years = ClassYear.all
+#    @semesters = Semester.all
+#    @admission = Admission.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,6 +21,7 @@ class CurriculumsController < ApplicationController
    @programs = Program.all
     @class_years = ClassYear.all
     @semesters = Semester.all
+    @admission = Admission.all
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @curriculum }
@@ -33,6 +35,7 @@ class CurriculumsController < ApplicationController
     @programs = Program.all
     @class_years = ClassYear.all
     @semesters = Semester.all
+    @admission = Admission.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @curriculum }
@@ -45,15 +48,15 @@ class CurriculumsController < ApplicationController
     @programs = Program.all
     @class_years = ClassYear.all
     @semesters = Semester.all
+@admission = Admission.all
   end
 
   # POST /curriculums
   # POST /curriculums.xml
   def create
-    @curriculum = Curriculum.new(params[:curriculum])
-    @class_year = ClassYear.all
-    @semester = Semester.all
-    @programs = Program.all
+    
+     @curriculum = Curriculum.new(params[:curriculum])
+    
     respond_to do |format|
       if @curriculum.save
       format.html { redirect_to(@curriculum, :notice => 'Curriculum was successfully created.') }
@@ -74,6 +77,7 @@ class CurriculumsController < ApplicationController
     @class_year = ClassYear.all
     @semester = Semester.all
      @programs = Program.all
+     @admission = Admission.all
     respond_to do |format|
       if @curriculum.update_attributes(params[:curriculum])
         format.html { redirect_to(@curriculum, :notice => 'Curriculum was successfully updated.') }
@@ -93,7 +97,7 @@ class CurriculumsController < ApplicationController
     @semester = Semester.all
      @programs = Program.all
     @curriculum.destroy
-
+@admission = Admission.all
     respond_to do |format|
       format.html { redirect_to(curriculums_url) }
       format.xml  { head :ok }
