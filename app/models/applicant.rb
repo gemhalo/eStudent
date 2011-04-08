@@ -1,8 +1,8 @@
  class Applicant < ActiveRecord::Base
   belongs_to :person
-    after_initialize :init_person
-    before_save :save_person
-    accepts_nested_attributes_for :person
+ #   after_initialize :init_person
+  #  before_save :save_person
+   # accepts_nested_attributes_for :person
 
   belongs_to :admission
   belongs_to :admission_status_type
@@ -27,19 +27,20 @@
   scope :not_approved, self.where('admission_status = ? and verified = ?', "f", "t")
   scope :not_verified, self.where('verified = ?', "f")
 
-  scope :disabled_undergraduate_regular_applicants, joins(:person, :educational_backgrounds, :admission=>[:admission_type, :enrollment_type])
-  .where("admission_types.name like ? and enrollment_types.name like ? and people.disability=?", 'undergraduate','regular', true)
-  .order("educational_backgrounds.result desc")
+  scope :disabled_undergraduate_regular_applicants, 
+   joins(:person, :educational_backgrounds, 
+    :admission=>[:admission_type, 
+    :enrollment_type]).where("admission_types.name like ? and enrollment_types.name like ? and people.disability=?", 
+    'undergraduate','regular', true).order("educational_backgrounds.result desc")
 
-   scope :female_undergraduate_regular_applicants, joins(:person, :educational_backgrounds, :admission=>[:admission_type, :enrollment_type])
-  .where("admission_types.name like ? and enrollment_types.name like ? and people.disability=? and people.gender=?",
-   'undergraduate','regular', false,'F')
-  .order("educational_backgrounds.result desc")
+   scope :female_undergraduate_regular_applicants, joins(:person, 
+      :educational_backgrounds, :admission=>[:admission_type, :enrollment_type]).where("admission_types.name like ? and enrollment_types.name like ? and people.disability=? and people.gender=?",
+   'undergraduate','regular', false,'F').order("educational_backgrounds.result desc")
 
-   scope :male_undergraduate_regular_applicants, joins(:person, :educational_backgrounds, :admission=>[:admission_type, :enrollment_type])
-  .where("admission_types.name like ? and enrollment_types.name like ? and people.disability=? and people.gender=?",
-   'undergraduate','regular', false,'M')
-  .order("educational_backgrounds.result desc")
+   scope :male_undergraduate_regular_applicants, joins(:person, 
+    :educational_backgrounds, :admission=>[:admission_type, 
+    :enrollment_type]).where("admission_types.name like ? and enrollment_types.name like ? and people.disability=? and people.gender=?",
+   'undergraduate','regular', false,'M').order("educational_backgrounds.result desc")
 
 
    #TODO:
@@ -125,8 +126,7 @@
   #make it private
   private
     def init_person
-        self.person = Person.new if self.person_id.nil?
-
+      self.person = Person.new if self.new_record?     
     end
 
     def save_person

@@ -4,7 +4,6 @@ class Instructor < ActiveRecord::Base
     after_initialize :init_person
     before_save :save_person
     accepts_nested_attributes_for :person
-
    #TODO:
    # The following code snippets will be replaced/refactored later to remove the need to maintain
    # Person related fields in one location rather than in multiple locations
@@ -82,20 +81,15 @@ class Instructor < ActiveRecord::Base
   def person_attributes=(person_attributes)
     person_attributes.each do |attributes|
       person.build(attributes)
-    end
+    end 
   end
   #make it private
   private
     def init_person
-      if(self.person_id.nil?)
-      self.person = Person.new
-      end
+      self.person = Person.new if self.new_record? 
     end
-
-    def save_person
-      self.person.save!
+    def save_person      
+        self.person.save!        
     end
-
-
 end
 

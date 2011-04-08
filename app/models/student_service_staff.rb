@@ -87,11 +87,9 @@ class StudentServiceStaff < ActiveRecord::Base
   #make it private
   private
     def init_person
-      if(self.person_id.nil?)
-      self.person = Person.new
-      end
+     self.person = Person.new if self.new_record?     
     end
-
+    
     def save_person
       self.person.save!
     end

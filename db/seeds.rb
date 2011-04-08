@@ -59,17 +59,6 @@ admission_types.each do | admission_type1 | # {Undergraduate, Postgraduate} x
   end
 
 end
-#person
- persons = [
-   {:name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros"},
-   {:name => "yared", :father_name => "getachew", :grand_father_name => "kiros"},
-   {:name => "ferede", :father_name => "zeray", :grand_father_name => "tefera"},
-   {:name => "habtom", :father_name => "kahsay", :grand_father_name => "gidey"}
-
- ]
- persons.each do |person|
-   Person.create!({:name => person[:name], :father_name => person[:father_name], :grand_father_name => person[:grand_father_name]})
- end
 
 #course
  courses = [
@@ -94,27 +83,18 @@ end
  {:name => "supportive"}
  ]
  course_types.each do |coursetypes|
-   CourseType.create!({:name => coursetypes[:name]
-                 })
+  CourseType.create!({:name => coursetypes[:name]})
 end
 
 #Create users
 users = [
-  { :username => "gere" , :password => "gere",    :role => "student",
-    :email => "student@campus.com" },
-  { :username => "samy" , :password => "samy",    :role => "instructor",
-    :email => "instructor@campus.com"},
-  { :username => "yemane",:password => "yemane",  :role => "student_service_staff",
-    :email => "sss@campus.com"},
-  { :username => "admin",:password => "admin",    :role => "admin",
-    :email => "admin@campus.com"},
-  { :username => "yared" , :password => "yared",    :role => "instructor",
-    :email => "yaredv@campus.com"},
-  { :username => "ferid" , :password => "ferid",    :role => "instructor",
-    :email => "ferid@campus.com"},
-  { :username => "habtom" , :password => "habtom",    :role => "instructor",
-    :email => "habtom@campus.com"}
-  
+  { :username => "gere" , :password => "gere",    :role => "student", :email => "student@campus.com" },
+  { :username => "samy" , :password => "samy",    :role => "instructor", :email => "instructor@campus.com"},
+  { :username => "yemane",:password => "yemane",  :role => "student_service_staff", :email => "sss@campus.com"},
+  { :username => "admin",:password => "admin",    :role => "admin", :email => "admin@campus.com"},
+  { :username => "yared" , :password => "yared",    :role => "instructor", :email => "yaredv@campus.com"},
+  { :username => "ferid" , :password => "ferid",    :role => "instructor", :email => "ferid@campus.com"},
+  { :username => "habtom" , :password => "habtom",    :role => "instructor", :email => "habtom@campus.com"}
 ]
 
 users.each do |user|
@@ -122,26 +102,6 @@ users.each do |user|
                 :password_confirmation => user[:password], :role => user[:role],
                 :email => user[:email] } )
 end
-#instructors
-# instructors = [
- #   {:employee_id => "MU001", :academic_rank => "Masters in computer science", :department_id => "Computing",
- #    :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros"},
- #   {:employee_id => "MU002", :academic_rank => "Degree in computer science", :department_id => "Computing",
- #    :name => "yared", :father_name => "getachew", :grand_father_name => "kiros"},
- #   {:employee_id => "MU003", :academic_rank => "Masters in computer science", :department_id => "Computing",
- #    :name => "ferede", :father_name => "zeray", :grand_father_name => "tefera"},
- #   {:employee_id => "MU004", :academic_rank => "Degree in computer science", :department_id => "Computing",
- #    :name => "habtom", :father_name => "kahsay", :grand_father_name => "gidey"}
- #]
- #instructors.each do |instructor|
- #   Instructor.create!({ :employee_id => instructor[:employee_id],
- #                        :academic_rank => instructor[:academic_rank],
- #                        :department_id => Department.find_by_name(instructor[:department_id]),
- #                        :person_id => Person.where("name = ? and father_name = ?",
- #                          instructor[:name],instructor[:father_name])})
-#  end
-
- 
 
 #College
 colleges = [
@@ -177,37 +137,23 @@ end
 
 
 #buildings
-# department_choices = [
-#   {:department_id => 1,  :applicant_id => 1,  :preference => 1 } ,
-#   {:department_id => 1,  :applicant_id => 1,  :preference => 1 } ,
-#   {:department_id => 1,  :applicant_id => 1,  :preference => 1 } ,
-#]
-
-#buildings.each do | b |
-#  Building.create!({ :building_name => b[:building_name], :floors => b[:floors], :campus_id => Campus.find_by_name(b[:campus])
-#          :instructor_id => 0
-#  })
-#end
-
-#buildings
  how_tos = [
-   {:title => "Undergraduate Application",  :detail =>"All undergraduate students must get a welcome letter which contains login account and application instructions upon arraival" } ,
+  {:title => "Undergraduate Application",  :detail =>"All undergraduate students must get a welcome letter which contains login account and application instructions upon arraival" } ,
   {:title => "Postgraduate Application",  :detail =>"All postgraduate students must create an account and apply online up on login"},
   {:title => "Extension Application",  :detail =>"All extension students must create an account and apply online up on login" } 
 ]
 
 how_tos.each do | h |
- HowTo.create!({ :title => h[:title], :detail => h[:detail]
-  })
+  HowTo.create!({ :title => h[:title], :detail => h[:detail]})
 end
 
 #rooms
 rooms = [
   
  {:room_number => "101", :building => "block-1", :floor_number => 1, :holding_capacity => 10, :used_for => "dormitory" },
- {:room_number => "102", :building => "block-1", :floor_number => 2, :holding_capacity => 10, :used_for => "dormitory" },
- {:room_number => "103", :building => "block-2", :floor_number => 1, :holding_capacity => 10, :used_for => "dormitory" },
- {:room_number => "104", :building => "block-3", :floor_number => 2, :holding_capacity => 10, :used_for => "dormitory" }
+ {:room_number => "102", :building => "block-1", :floor_number => 2, :holding_capacity => 24, :used_for => "dormitory" },
+ {:room_number => "103", :building => "block-2", :floor_number => 1, :holding_capacity => 15, :used_for => "dormitory" },
+ {:room_number => "104", :building => "block-3", :floor_number => 2, :holding_capacity => 20, :used_for => "dormitory" }
 ]
 
 rooms.each do | r |
@@ -216,8 +162,6 @@ rooms.each do | r |
                  :holding_capacity => r[:holding_capacity],
                  :used_for => r[:used_for], 
                  :building_id => Building.find_by_building_name(r[:building])})
-#          :instructor_id => 0
-  
 end
 
 
@@ -415,7 +359,7 @@ academic_years = [
 ]
 
 academic_years.each do |ac_year|
-    AcademicYear.create! ({:start_at => ac_year[:start_at], :end_at => ac_year[:end_at], :year => ac_year[:year], :status => ac_year[:status]})
+    AcademicYear.create!({:start_at => ac_year[:start_at], :end_at => ac_year[:end_at], :year => ac_year[:year], :status => ac_year[:status]})
 end
 
 #academic year semester
@@ -437,7 +381,21 @@ academic_year_semesters = [
                                 :status => ays[:status]})
  end
 
+## Instructors
+#instructors = [
+# { :name => "samuel", :father_name => "hadgu", :grand_father_name => "kiros", :employee_id => "MU001", 
+#   :academic_rank => "Masters in computer science", :department => "Computing" },
+# { :name => "yared", :father_name => "getachew", :grand_father_name => "kiros",
+#   :employee_id => "MU002", :academic_rank => "Degree in computer science", :department => "Computing" }
+#]
 
-
-
-
+#instructors.each do |instructor|
+#  Instructor.create!({
+ #   :name => instructor[:name], 
+  #  :father_name => instructor[:father_name], 
+  #  :grand_father_name => instructor[:grand_father_name], 
+  #  :employee_id => instructor[:employee_id],
+   # :academic_rank => instructor[:academic_rank], 
+   # :department_id => Department.find_by_name(instructor[:department])
+ # })
+#end

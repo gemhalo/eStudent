@@ -1,14 +1,16 @@
 class Person < ActiveRecord::Base
   has_one :user
-  has_many :applicant
+  has_one :applicant
   has_one :student_service_staff
   has_one :student
   has_one :instructor
+  
   belongs_to :nationality
   has_many :educational_backgrounds
   #validates :name, :uniqueness => {:scope => [:name, :father_name, :grand_father_name]}
-  #validates :name , :presence => true
-  #validates :father_name,  :presence => true
+#  validates :name , :presence => true
+ # validates :father_name,  :presence => true
+  
   has_attached_file :photo,
    :url => "/:class/:attachment/:id/:style_:basename.:extension",
    :default_url => "/:class/:attachment/missing_/:style_default.jpg",
@@ -21,7 +23,7 @@ class Person < ActiveRecord::Base
  #validates_attachment_presence :photo
  #validates_attachment_content_type :photo, :content_type => 'image/jpeg'
  #validates_presence_of  :name, :father_name, :grand_father_name, :mother_full_name, :gender,:date_of_birth, :place_of_birth, :ethnicity, :nationality_id, :marital_status, :disability, :type_of_disability, :region_code
-    attr_accessor :name, :father_name
+
     def full_name
         [name,father_name,grand_father_name].join(' ')
     end
