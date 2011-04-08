@@ -16,11 +16,10 @@
 
 <% @curriculums.each do |curriculum| %>
   <tr>
-    <td><%= curriculum.program.name %></td>
+    <td><%= curriculum.program.name%></td>
     <td><%= curriculum.class_year.name %></td>
     <td><%= curriculum.semester.name %></td>
-    <td><%= curriculum.program.admission.admission_name %></td>
-
+    <td><%= curriculum.program.admission.name %></td>
     <td><%= link_to 'Show', curriculum %></td>
     <td><%= link_to 'Edit', edit_curriculum_path(curriculum) %></td>
     <td><%= link_to 'Destroy', curriculum, :confirm => 'Are you sure?', :method => :delete %></td>
