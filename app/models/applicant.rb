@@ -96,7 +96,7 @@
     (self.person.name=name) unless self.person.nil?
   end
   def nationality
-    self.person.nationality.name
+    self.person.nationality_id
   end
   def nationality=(nationality_id)
     (self.person.nationality_id=nationality_id) unless self.person.nil?
@@ -129,8 +129,12 @@
 #photo_file_size
 #def marital_status
 #def marital_status
-#def mother_full_name
-#def mother_full_name
+   def mother_full_name
+     self.person.mother_full_name
+   end
+   def mother_full_name=(mother_full_name)
+     self.mother_full_name=mother_full_name
+   end
   def disability
     self.person.disability
   end
@@ -157,6 +161,13 @@
       person.build(attributes)
     end
   end
+
+
+   #Applicant only methods
+   def undergraduate?
+      adm=(self.admission.name.split("-",2))[0]
+      Admission.undergraduate.first.admission_type.name == adm
+   end
 
   #make it private
   private

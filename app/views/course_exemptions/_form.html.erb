@@ -33,12 +33,10 @@
 
 <br />
 <%= link_to 'Previous', :controller=> 'employment_informations', :action => 'new' , :applicant_id => @applicantid%>
-<%  if @admission.admission_type_id == 1 %>
+<%  if @applicant.undergraduate? %>
+  <%= link_to 'Next', :controller=> 'department_choices', :action => "new" , :applicant_id => @applicantid%>
 
-
-<%= link_to 'Next', :controller=> 'department_choices', :action => "new" , :applicant_id => @applicantid%>
-
-<% elsif @admission.admission_type_id == 2 %>
-<%= link_to 'Next', :controller=> 'relevant_publications', :action => "new" , :applicant_id =>@applicantid%>
+<% else %>
+  <%= link_to 'Next', :controller=> 'relevant_publications', :action => "new" , :applicant_id =>@applicantid%>
 <%end%>
 

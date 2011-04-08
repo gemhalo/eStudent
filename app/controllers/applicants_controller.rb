@@ -24,7 +24,7 @@ class ApplicantsController < ApplicationController
   # GET /applicants/new
   # GET /applicants/new.xml
   def new
-    @person = Person.new
+    #@person = Person.new
     #@applicant = @person.applicant.build
     @applicant = Applicant.new
     @applicant.person.build

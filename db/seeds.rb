@@ -391,4 +391,10 @@ instructors = [
  { :name => "yared", :father_name => "getachew", :grand_father_name => "kiros",:employee_id => "MU002",
    :academic_rank => "Degree in computer science", :department => "Computing" }
 ]
+instructors.each do |instructor|
+  inst=Instructor.new
+  inst.name=instructor[:name]
+  inst.father_name = instructor[:father_name]
+  inst.grand_father_name=instructor[:grand_father_name]
+end
 
