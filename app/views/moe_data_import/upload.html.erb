@@ -46,7 +46,7 @@
   <td><%=applicant.educational_backgrounds.first.eheece_code %></td>
   <td><%= [applicant.educational_backgrounds.first.result,applicant.educational_backgrounds.first.out_of].join("/") %></td>
   <td><%=applicant.admission.name %></td>
-  <td><%=applicant.enrollment_mode_type %></td>
+  <td><%=applicant.enrollment_mode_type.name %></td>
 </tr>
 <% end %>
 </tbody>

@@ -172,10 +172,7 @@ end
 
 
 #enrollment mode types
-enrollment_mode_types = [
-  {:name => "Part Time"},
-  {:name => "Full Time"},
-]
+enrollment_mode_types = ["Part Time","Full Time"]
 enrollment_mode_types.each do |enrollment_mode_type|
   EnrollmentModeType.create!({:name => enrollment_mode_type})
 end
