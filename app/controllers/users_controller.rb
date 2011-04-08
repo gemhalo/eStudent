@@ -14,7 +14,8 @@ class UsersController < ApplicationController
       instructors_path
     when 'student'
   	if @temp==1
-	     new_applicant_path
+	     #new_applicant_path
+	     applicants_path
 	else
   	     edit_user_path(current_user)
 	end

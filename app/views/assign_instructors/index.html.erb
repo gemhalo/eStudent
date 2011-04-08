@@ -1,8 +1,29 @@
 
+<h1>Listing assign_instructors</h1>
 
-<%= netzke :custom_action_grid, :model => 'AssignInstructor',
-:title=>'Assign instructors',
-:autoScroll => true,
-:height => 370,
-:width =>850
-%>
+<table border="1">
+  <tr>
+    <th>Offered course</th>
+    <th>Instructor</th>
+    <th>Section</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @assign_instructors.each do |assign_instructor| %>
+  <tr>
+    <td><%= assign_instructor.offered_course.curriculum_course.course.course_title%></td>
+    <td><%= assign_instructor.instructor.person.full_name %></td>
+    <td><%= assign_instructor.section %></td>
+    <td><%= link_to 'Show', assign_instructor %></td>
+    <td><%= link_to 'Edit', edit_assign_instructor_path(assign_instructor) %></td>
+    <td><%= link_to 'Destroy', assign_instructor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Assign instructor', new_assign_instructor_path %>
+

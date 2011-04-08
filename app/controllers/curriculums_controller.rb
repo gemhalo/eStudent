@@ -54,11 +54,9 @@ class CurriculumsController < ApplicationController
   # POST /curriculums
   # POST /curriculums.xml
   def create
-    @curriculum = Curriculum.new(params[:curriculum])
-    @class_year = ClassYear.all
-    @semester = Semester.all
-    @programs = Program.all
-    @admission = Admission.all
+    
+     @curriculum = Curriculum.new(params[:curriculum])
+    
     respond_to do |format|
       if @curriculum.save
       format.html { redirect_to(@curriculum, :notice => 'Curriculum was successfully created.') }
