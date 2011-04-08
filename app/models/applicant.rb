@@ -6,7 +6,7 @@
   belongs_to :admission
   belongs_to :admission_status_type
   belongs_to :college
-  
+  belongs_to :enrollment_mode_type
 
   has_many :academic_and_professional_qualification
   has_many :course_exemption
